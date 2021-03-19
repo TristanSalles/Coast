@@ -1,2 +1,19 @@
 # - file: README
 - file: welcome
+
+
+- part: week 1
+  chapters:
+    - file: oceandata
+
+- part: week 2
+  sections:
+    - file: waveclimate
+
+- part: week 3
+  chapters:
+    - file: coastevol
+
+- part: week 4
+  chapters:
+    - file: reefmodel
