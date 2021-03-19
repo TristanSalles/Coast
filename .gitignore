@@ -3,3 +3,4 @@ book/_static/.DS_Store
 book/_build/
 *-checkpoint.ipynb
 .DS_Store
+book/pracenv/.ipynb_checkpoints/*

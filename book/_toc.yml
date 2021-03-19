@@ -1,6 +1,5 @@
 # - file: README
-- file: welcome
-
+- file: welcome 
 
 - part: week 1
   chapters:
@@ -17,3 +16,9 @@
 - part: week 4
   chapters:
     - file: reefmodel
+
+- part: Jupyter
+  chapters:
+    - file: pracenv/notebooks
+    - file: pracenv/environment
+    - file: pracenv/jupyter
