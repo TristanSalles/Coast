@@ -55,7 +55,7 @@
     <link rel="shortcut icon" href="_static/favicon.ico"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Ocean data query" href="oceandata.html" />
+    <link rel="next" title="Notes on ocean data query" href="queryocean/oceandata.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -85,44 +85,50 @@
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form>
 <nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
-    <ul class="nav sidenav_l1">
- <li class="toctree-l1">
-  <a class="reference internal" href="oceandata.html">
-   Ocean data query
-  </a>
- </li>
-</ul>
-<ul class="nav sidenav_l1">
- <li class="toctree-l1">
-  <a class="reference internal" href="waveclimate.html">
-   Analysing wave climate
-  </a>
- </li>
-</ul>
-<ul class="nav sidenav_l1">
- <li class="toctree-l1">
-  <a class="reference internal" href="coastevol.html">
-   Quantifying coastal changes
-  </a>
- </li>
-</ul>
-<ul class="nav sidenav_l1">
- <li class="toctree-l1">
-  <a class="reference internal" href="reefmodel.html">
-   Coral reef evolution
-  </a>
- </li>
-</ul>
-<p class="caption collapsible-parent">
+    <p class="caption collapsible-parent">
  <span class="caption-text">
   week 1
  </span>
 </p>
 <ul class="nav sidenav_l1">
- <li class="toctree-l1">
-  <a class="reference internal" href="oceandata.html">
-   Ocean data query
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="queryocean/oceandata.html">
+   Notes on ocean data query
   </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="pracenv/intronotebook.html">
+     Introduction to Jupyter notebook
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="queryocean/buoygoldcoast.html">
+     AODN - Wave buoys Gold Coast
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="queryocean/oceandata1.html">
+     Using the IMOS User Code Library with Python
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="queryocean/oceandata2.html">
+     IMOS Ocean Radar Data Query
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="queryocean/waverider.html">
+     Analysing historical records of wave data from IMOS
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="queryocean/oceanforecast.html">
+     Access data from Forecast Model
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
  </li>
 </ul>
 <p class="caption collapsible-parent">
@@ -167,20 +173,24 @@
  </span>
 </p>
 <ul class="nav sidenav_l1">
- <li class="toctree-l1">
+ <li class="toctree-l1 collapsible-parent">
   <a class="reference internal" href="pracenv/notebooks.html">
    Interactive notebooks
   </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="pracenv/environment.html">
-   Managing environments
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="pracenv/jupyter.html">
-   Jupyter notebook
-  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="pracenv/environment.html">
+     Managing environments
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="pracenv/jupyter.html">
+     Jupyter notebook
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
  </li>
 </ul>
 
@@ -297,28 +307,6 @@
   <a class="reference internal nav-link" href="#lecture-notes-content">
    Lecture notes content
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#about-data">
-     About Data
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#offshore-waves">
-     Offshore Waves
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#the-coastal-zone">
-     The Coastal Zone
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#reefs">
-     Reefs
-    </a>
-   </li>
-  </ul>
  </li>
 </ul>
 
@@ -369,136 +357,6 @@ frameborder="0" allowfullscreen></iframe>
 <p class="admonition-title">Important</p>
 <p>We will do <strong>computer-based exercises during both lectures and practicals</strong> so you will need to bring an electronic device (preferably a laptop but a tablet with internet access could work). As there will be a lot to cover, it is also recommended to go through each chapter prior to the lecture to be well prepared and able to get the most of it during classes.</p>
 </div>
-<div class="section" id="about-data">
-<h2>About Data<a class="headerlink" href="#about-data" title="Permalink to this headline">¶</a></h2>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="oceandata.html">Ocean data query</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="oceandata.html#coastal-ocean-observing-systems">Coastal Ocean Observing Systems</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="oceandata.html#a-bit-of-history">A bit of history</a></li>
-<li class="toctree-l3"><a class="reference internal" href="oceandata.html#why-do-we-need-ocean-observing-tools">Why do we need ocean observing tools?</a></li>
-<li class="toctree-l3"><a class="reference internal" href="oceandata.html#national-global-ocean-observing-infrastructure">National &amp; Global Ocean Observing Infrastructure</a></li>
-<li class="toctree-l3"><a class="reference internal" href="oceandata.html#coastal-ocean-observing-systems-development">Coastal ocean observing systems development</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="oceandata.html#ocean-observing-technologies">Ocean observing technologies</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="oceandata.html#access-to-ocean-data">Access to ocean data</a></li>
-<li class="toctree-l3"><a class="reference internal" href="oceandata.html#modeling-and-analysis">Modeling and analysis</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="oceandata.html#hands-on-examples">Hands-on examples</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="oceandata.html#exercises-for-the-lecture">Exercises for the lecture</a></li>
-<li class="toctree-l3"><a class="reference internal" href="oceandata.html#loading-and-checking-imos-netcdf-dataset">Loading and checking IMOS NetCDF dataset</a></li>
-<li class="toctree-l3"><a class="reference internal" href="oceandata.html#querying-and-analysis-coastal-ocean-radar-dataset">Querying and analysis Coastal Ocean Radar dataset</a></li>
-<li class="toctree-l3"><a class="reference internal" href="oceandata.html#exercise-for-the-practical">Exercise for the practical</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="oceandata.html#summary">Summary</a></li>
-</ul>
-</li>
-</ul>
-</div>
-</div>
-<div class="section" id="offshore-waves">
-<h2>Offshore Waves<a class="headerlink" href="#offshore-waves" title="Permalink to this headline">¶</a></h2>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="waveclimate.html">Analysing wave climate</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="waveclimate.html#overview-of-this-chapter-content">Overview of this chapter content</a></li>
-<li class="toctree-l2"><a class="reference internal" href="waveclimate.html#wave-formation">Wave formation</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="waveclimate.html#wave-parameters">Wave Parameters</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="waveclimate.html#characterising-wave-climate">Characterising wave climate</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="waveclimate.html#wave-buoys">Wave buoys</a></li>
-<li class="toctree-l3"><a class="reference internal" href="waveclimate.html#wave-hindcast-models">Wave hindcast models</a></li>
-<li class="toctree-l3"><a class="reference internal" href="waveclimate.html#wave-sensing-technology">Wave-sensing technology</a></li>
-<li class="toctree-l3"><a class="reference internal" href="waveclimate.html#wave-period">Wave period</a></li>
-<li class="toctree-l3"><a class="reference internal" href="waveclimate.html#wave-energy-group-velocity-power">Wave energy, group velocity &amp; power</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="waveclimate.html#extreme-wave-climate">Extreme wave climate</a></li>
-<li class="toctree-l2"><a class="reference internal" href="waveclimate.html#wave-climate-variability">Wave climate variability</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="waveclimate.html#seasonal-changes">Seasonal changes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="waveclimate.html#long-term-trends">Long-term trends</a></li>
-<li class="toctree-l3"><a class="reference internal" href="waveclimate.html#climate-oscillations">Climate oscillations</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="waveclimate.html#hands-on-examples">Hands-on examples</a></li>
-</ul>
-</li>
-</ul>
-</div>
-</div>
-<div class="section" id="the-coastal-zone">
-<h2>The Coastal Zone<a class="headerlink" href="#the-coastal-zone" title="Permalink to this headline">¶</a></h2>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="coastevol.html">Quantifying coastal changes</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="coastevol.html#context">Context</a></li>
-<li class="toctree-l2"><a class="reference internal" href="coastevol.html#nearshore-and-beach-processes">Nearshore and beach processes</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="coastevol.html#wave-runup">Wave runup</a></li>
-<li class="toctree-l3"><a class="reference internal" href="coastevol.html#beach-profiles">Beach profiles</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="coastevol.html#coastline-evolution">Coastline evolution</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="coastevol.html#longshore-drift">Longshore drift</a></li>
-<li class="toctree-l3"><a class="reference internal" href="coastevol.html#analysing-shoreline-changes">Analysing shoreline changes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="coastevol.html#embayed-beaches">Embayed beaches</a></li>
-<li class="toctree-l3"><a class="reference internal" href="coastevol.html#regional-scale-models">Regional scale models</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="coastevol.html#exercises-for-the-practical">Exercises for the practical</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="coastevol.html#narrabeen-beach-survey-program">Narrabeen beach survey program</a></li>
-<li class="toctree-l3"><a class="reference internal" href="coastevol.html#longshore-drift-model">Longshore drift model</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="coastevol.html#miscellaneous">Miscellaneous</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="coastevol.html#grain-settling-velocity">Grain settling velocity</a></li>
-<li class="toctree-l3"><a class="reference internal" href="coastevol.html#testing-beach-nourishment-scenarios">Testing beach nourishment scenarios</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</div>
-</div>
-<div class="section" id="reefs">
-<h2>Reefs<a class="headerlink" href="#reefs" title="Permalink to this headline">¶</a></h2>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="reefmodel.html">Coral reef evolution</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="reefmodel.html#case-study-the-great-barrier-reef">Case study: The Great Barrier Reef</a></li>
-<li class="toctree-l2"><a class="reference internal" href="reefmodel.html#main-physical-forces-acting-on-carbonate-platform">Main physical forces acting on carbonate platform</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="reefmodel.html#accommodation">Accommodation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="reefmodel.html#hydrodynamic-energy">Hydrodynamic energy</a></li>
-<li class="toctree-l3"><a class="reference internal" href="reefmodel.html#sediment-input">Sediment input</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="reefmodel.html#coral-reef-modelling-approaches">Coral reef modelling approaches</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="reefmodel.html#cellular-automata">Cellular Automata</a></li>
-<li class="toctree-l3"><a class="reference internal" href="reefmodel.html#fuzzy-logic">Fuzzy logic</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="reefmodel.html#modelling-gbr-past-evolution">Modelling GBR past evolution</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="reefmodel.html#evolution-since-last-glacial-maximum">Evolution since Last Glacial Maximum</a></li>
-<li class="toctree-l3"><a class="reference internal" href="reefmodel.html#influence-of-carbonate-platform-on-geomorphological-development-of-the-margin">Influence of carbonate platform on geomorphological development of the margin</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="reefmodel.html#hands-on-examples">Hands-on examples</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="reefmodel.html#d-model-of-coral-assemblages-evolution">1D model of coral assemblages evolution</a></li>
-<li class="toctree-l3"><a class="reference internal" href="reefmodel.html#carbonate-platform-evolution-since-the-last-lgm">Carbonate platform evolution since the last LGM</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="reefmodel.html#miscellaneous">Miscellaneous</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="reefmodel.html#the-game-of-life">The Game of Life</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</div>
-</div>
 </div>
 <div class="toctree-wrapper compound">
 </div>
@@ -536,7 +394,7 @@ frameborder="0" allowfullscreen></iframe>
         
         <div class='prev-next-bottom'>
             
-    <a class='right-next' id="next-link" href="oceandata.html" title="next page">Ocean data query</a>
+    <a class='right-next' id="next-link" href="queryocean/oceandata.html" title="next page">Notes on ocean data query</a>
 
         </div>
         

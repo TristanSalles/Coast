@@ -1,0 +1,946 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Access data from Forecast Model &#8212; Coastal Processes, Environments &amp; Systems</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.c441f2ba0852f4cabcb80105e3a46ae6.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Analysing wave climate" href="../waveclimate.html" />
+    <link rel="prev" title="Analysing historical records of wave data from IMOS" href="waverider.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Coastal Processes, Environments & Systems</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <p class="caption collapsible-parent">
+ <span class="caption-text">
+  week 1
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1 current active collapsible-parent">
+  <a class="reference internal" href="oceandata.html">
+   Notes on ocean data query
+  </a>
+  <ul class="current collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../pracenv/intronotebook.html">
+     Introduction to Jupyter notebook
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="buoygoldcoast.html">
+     AODN - Wave buoys Gold Coast
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="oceandata1.html">
+     Using the IMOS User Code Library with Python
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="oceandata2.html">
+     IMOS Ocean Radar Data Query
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="waverider.html">
+     Analysing historical records of wave data from IMOS
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Access data from Forecast Model
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  week 2
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../waveclimate.html">
+   Analysing wave climate
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  week 3
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../coastevol.html">
+   Quantifying coastal changes
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  week 4
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../reefmodel.html">
+   Coral reef evolution
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Jupyter
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../pracenv/notebooks.html">
+   Interactive notebooks
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../pracenv/environment.html">
+     Managing environments
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../pracenv/jupyter.html">
+     Jupyter notebook
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/queryocean/oceanforecast.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/TristanSalles/Coast"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/TristanSalles/Coast/issues/new?title=Issue%20on%20page%20%2Fqueryocean/oceanforecast.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/TristanSalles/Coast/edit/main/book/queryocean/oceanforecast.ipynb"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+            <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                    data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                    title="Fullscreen mode"><i
+                        class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/TristanSalles/Coast/main?urlpath=lab/tree/book/queryocean/oceanforecast.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i>
+            Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#inline-output">
+   Inline output
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#forecast-model-from-necofs">
+   Forecast model from NECOFS
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#loading-the-model-dataset">
+   Loading the model dataset
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#query-dataset-variables">
+   Query dataset variables
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#set-fvcom-simulation-time">
+   Set FVCOM simulation time
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#get-specific-data-from-fvcom-outputs">
+   Get specific data from FVCOM outputs
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#find-fvcom-velocity-field">
+   Find FVCOM velocity field
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#visualise-fvcom-forecast-model">
+   Visualise FVCOM forecast model
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#plot-in-ipython">
+   Plot in IPython
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#extract-water-levels-analyse-visualise">
+   Extract water levels, analyse &amp; visualise
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="access-data-from-forecast-model">
+<h1>Access data from Forecast Model<a class="headerlink" href="#access-data-from-forecast-model" title="Permalink to this headline">¶</a></h1>
+<p>Using the NetCDF4-Python library you will access velocity data from a triangular grid ocean model (FVCOM) via OPeNDAP, specifying the desired URL, time, layer and lat/lon region of interest. The resulting plot of forecast velocity vectors over color-shaded bathymetry is useful for a variety of recreational and scientific purposes.</p>
+<div class="section" id="inline-output">
+<h2>Inline output<a class="headerlink" href="#inline-output" title="Permalink to this headline">¶</a></h2>
+<p>The following code helps make all of the code samples in this notebook display their output properly.</p>
+<p>Note that you need to run this cell before running any other cell in the notebook. Otherwise your output will display in a separate window, or it won’t display at all. If you try to run a cell and the output does not display in the notebook:</p>
+<ul class="simple">
+<li><p>Restart the IPython Notebook kernel.</p></li>
+<li><p>Run the following cell.</p></li>
+<li><p>Run the cell you were interested in again.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.tri</span> <span class="k">as</span> <span class="nn">Tri</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">netCDF4</span>
+<span class="kn">import</span> <span class="nn">datetime</span> <span class="k">as</span> <span class="nn">dt</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">io</span> <span class="kn">import</span> <span class="n">StringIO</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="forecast-model-from-necofs">
+<h2>Forecast model from NECOFS<a class="headerlink" href="#forecast-model-from-necofs" title="Permalink to this headline">¶</a></h2>
+<p><a href='http://fvcom.smast.umassd.edu/necofs/'>NECOFS</a> (Northeastern Coastal Ocean Forecast System) is run by groups at the University of Massachusetts Dartmouth and the Woods Hole Oceanographic Institution, NOAA-led Integrated Ocean Observing System.</p>
+<p>NECOFS is a coupled numerical model that uses nested weather models, a coastal ocean circulation model, and a wave model. The ocean model is a volume-mesh model with horizontal resolution that is finer in complicated regions. It is layered (not depth-averaged) and includes the effects of tides, winds, and varying water densities caused by temperature and salinity changes.</p>
+<ul class="simple">
+<li><p>Model description: <a href="http://fvcom.smast.umassd.edu/research_projects/NECOFS/model_system.html">FVCOM</a></p></li>
+<li><p>THREDDS server with other forecast and archive products: <a href="http://www.smast.umassd.edu:8080/thredds/catalog.html">Product</a></p></li>
+</ul>
+</div>
+<div class="section" id="loading-the-model-dataset">
+<h2>Loading the model dataset<a class="headerlink" href="#loading-the-model-dataset" title="Permalink to this headline">¶</a></h2>
+<p>First we load the netCDF dataset containing FVCOM forecasts via OPeNDAP</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set the URL</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;http://www.smast.umassd.edu:8080/thredds/dodsC/FVCOM/NECOFS/Forecasts/NECOFS_FVCOM_OCEAN_MASSBAY_FORECAST.nc&#39;</span>
+<span class="c1"># Load it via OPeNDAP</span>
+<span class="n">nc</span> <span class="o">=</span> <span class="n">netCDF4</span><span class="o">.</span><span class="n">Dataset</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+<span class="c1"># Query the variables</span>
+<span class="n">nc</span><span class="o">.</span><span class="n">variables</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dict_keys([&#39;x&#39;, &#39;y&#39;, &#39;lon&#39;, &#39;lat&#39;, &#39;xc&#39;, &#39;yc&#39;, &#39;lonc&#39;, &#39;latc&#39;, &#39;siglay&#39;, &#39;h&#39;, &#39;nv&#39;, &#39;time&#39;, &#39;Times&#39;, &#39;zeta&#39;, &#39;nbe&#39;, &#39;aw0&#39;, &#39;awx&#39;, &#39;awy&#39;, &#39;u&#39;, &#39;v&#39;, &#39;ww&#39;, &#39;ua&#39;, &#39;va&#39;, &#39;temp&#39;, &#39;salinity&#39;, &#39;fvcom_mesh&#39;])
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="query-dataset-variables">
+<h2>Query dataset variables<a class="headerlink" href="#query-dataset-variables" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Take a look at the &quot;metadata&quot; for one of the variables (ex: I used &quot;u&quot; here)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">nc</span><span class="o">.</span><span class="n">variables</span><span class="p">[</span><span class="s1">&#39;u&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;netCDF4._netCDF4.Variable&#39;&gt;
+float32 u(time, siglay, nele)
+    long_name: Eastward Water Velocity
+    units: meters s-1
+    grid: fvcom_grid
+    type: data
+    missing_value: -999.0
+    field: ua, scalar
+    coverage_content_type: modelResult
+    standard_name: eastward_sea_water_velocity
+    coordinates: time siglay latc lonc
+    mesh: fvcom_mesh
+    location: face
+unlimited dimensions: time
+current shape = (145, 10, 165095)
+filling off
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="set-fvcom-simulation-time">
+<h2>Set FVCOM simulation time<a class="headerlink" href="#set-fvcom-simulation-time" title="Permalink to this headline">¶</a></h2>
+<p>In case you want to look at a previous forecast you can set the desired time.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Desired time for snapshot</span>
+<span class="c1"># ....right now (or some number of hours from now) ...</span>
+<span class="n">start</span> <span class="o">=</span> <span class="n">dt</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">utcnow</span><span class="p">()</span> <span class="o">+</span> <span class="n">dt</span><span class="o">.</span><span class="n">timedelta</span><span class="p">(</span><span class="n">hours</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="c1"># ... or specific time (UTC)</span>
+<span class="c1">#start = dt.datetime(2013,3,2,15,0,0)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get desired time step  </span>
+<span class="n">time_var</span> <span class="o">=</span> <span class="n">nc</span><span class="o">.</span><span class="n">variables</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">]</span>
+<span class="n">itime</span> <span class="o">=</span> <span class="n">netCDF4</span><span class="o">.</span><span class="n">date2index</span><span class="p">(</span><span class="n">start</span><span class="p">,</span><span class="n">time_var</span><span class="p">,</span><span class="n">select</span><span class="o">=</span><span class="s1">&#39;nearest&#39;</span><span class="p">)</span> 
+<span class="nb">print</span><span class="p">(</span><span class="n">itime</span><span class="p">,</span> <span class="n">start</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>97 2021-03-20 01:04:09.382961
+</pre></div>
+</div>
+</div>
+</div>
+<p>For this example we will use the current time:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dtime</span> <span class="o">=</span> <span class="n">netCDF4</span><span class="o">.</span><span class="n">num2date</span><span class="p">(</span><span class="n">time_var</span><span class="p">[</span><span class="n">itime</span><span class="p">],</span><span class="n">time_var</span><span class="o">.</span><span class="n">units</span><span class="p">)</span>
+<span class="n">daystr</span> <span class="o">=</span> <span class="n">dtime</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;%Y-%b-</span><span class="si">%d</span><span class="s1"> %H:%M&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">daystr</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2021-Mar-20 01:01
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="get-specific-data-from-fvcom-outputs">
+<h2>Get specific data from FVCOM outputs<a class="headerlink" href="#get-specific-data-from-fvcom-outputs" title="Permalink to this headline">¶</a></h2>
+<p>Now we grab from the dataset the grid coordinates and depth, <em>i.e.</em> nodes &amp; cells.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get lon,lat coordinates for nodes (depth)</span>
+<span class="n">lat</span> <span class="o">=</span> <span class="n">nc</span><span class="o">.</span><span class="n">variables</span><span class="p">[</span><span class="s1">&#39;lat&#39;</span><span class="p">][:]</span>
+<span class="n">lon</span> <span class="o">=</span> <span class="n">nc</span><span class="o">.</span><span class="n">variables</span><span class="p">[</span><span class="s1">&#39;lon&#39;</span><span class="p">][:]</span>
+<span class="c1"># Get lon,lat coordinates for cell centers (depth)</span>
+<span class="n">latc</span> <span class="o">=</span> <span class="n">nc</span><span class="o">.</span><span class="n">variables</span><span class="p">[</span><span class="s1">&#39;latc&#39;</span><span class="p">][:]</span>
+<span class="n">lonc</span> <span class="o">=</span> <span class="n">nc</span><span class="o">.</span><span class="n">variables</span><span class="p">[</span><span class="s1">&#39;lonc&#39;</span><span class="p">][:]</span>
+<span class="c1"># Get Connectivity array</span>
+<span class="n">nv</span> <span class="o">=</span> <span class="n">nc</span><span class="o">.</span><span class="n">variables</span><span class="p">[</span><span class="s1">&#39;nv&#39;</span><span class="p">][:]</span><span class="o">.</span><span class="n">T</span> <span class="o">-</span> <span class="mi">1</span> 
+<span class="c1"># Get depth</span>
+<span class="n">h</span> <span class="o">=</span> <span class="n">nc</span><span class="o">.</span><span class="n">variables</span><span class="p">[</span><span class="s1">&#39;h&#39;</span><span class="p">][:]</span>  <span class="c1"># depth</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>FVCOM spatial discretisation is based on an unstructured Delaunay triangulation.</p>
+<p><img alt="alt text" src="http://fvcom.smast.umassd.edu/research_projects/GB/model_grids/fvcom_gom_g1.jpg" /></p>
+<p>We need to upload the triangular grid:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Take FVCOM Delaunay grid</span>
+<span class="n">tri</span> <span class="o">=</span> <span class="n">Tri</span><span class="o">.</span><span class="n">Triangulation</span><span class="p">(</span><span class="n">lon</span><span class="p">,</span><span class="n">lat</span><span class="p">,</span><span class="n">triangles</span><span class="o">=</span><span class="n">nv</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="find-fvcom-velocity-field">
+<h2>Find FVCOM velocity field<a class="headerlink" href="#find-fvcom-velocity-field" title="Permalink to this headline">¶</a></h2>
+<p>Now we query the netCDF file to obtain the horizontal velocity field.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get current at layer [0 = surface, -1 = bottom]</span>
+<span class="n">ilayer</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">u</span> <span class="o">=</span> <span class="n">nc</span><span class="o">.</span><span class="n">variables</span><span class="p">[</span><span class="s1">&#39;u&#39;</span><span class="p">][</span><span class="n">itime</span><span class="p">,</span> <span class="n">ilayer</span><span class="p">,</span> <span class="p">:]</span>
+<span class="n">v</span> <span class="o">=</span> <span class="n">nc</span><span class="o">.</span><span class="n">variables</span><span class="p">[</span><span class="s1">&#39;v&#39;</span><span class="p">][</span><span class="n">itime</span><span class="p">,</span> <span class="n">ilayer</span><span class="p">,</span> <span class="p">:]</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="visualise-fvcom-forecast-model">
+<h2>Visualise FVCOM forecast model<a class="headerlink" href="#visualise-fvcom-forecast-model" title="Permalink to this headline">¶</a></h2>
+<p>Let’s define the dimension of the region we want to plot.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Region to plot</span>
+<span class="n">ax</span><span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mf">70.97</span><span class="p">,</span> <span class="o">-</span><span class="mf">70.82</span><span class="p">,</span> <span class="mf">42.25</span><span class="p">,</span> <span class="mf">42.35</span><span class="p">]</span> 
+<span class="c1"># Find velocity points in bounding box</span>
+<span class="n">ind</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argwhere</span><span class="p">((</span><span class="n">lonc</span> <span class="o">&gt;=</span> <span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">lonc</span> <span class="o">&lt;=</span> <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">latc</span> <span class="o">&gt;=</span> <span class="n">ax</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">latc</span> <span class="o">&lt;=</span> <span class="n">ax</span><span class="p">[</span><span class="mi">3</span><span class="p">]))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Define some contours for the colormap</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Depth contours to plot</span>
+<span class="n">levels</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mi">32</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>   
+</pre></div>
+</div>
+</div>
+</div>
+<p>To make the figure readable subsample the number of vector to draw.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">subsample</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">shuffle</span><span class="p">(</span><span class="n">ind</span><span class="p">)</span>
+<span class="n">Nvec</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">ind</span><span class="p">)</span> <span class="o">/</span> <span class="n">subsample</span><span class="p">)</span>
+<span class="n">idv</span> <span class="o">=</span> <span class="n">ind</span><span class="p">[:</span><span class="n">Nvec</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="plot-in-ipython">
+<h2>Plot in IPython<a class="headerlink" href="#plot-in-ipython" title="Permalink to this headline">¶</a></h2>
+<p>We’re done! Time to plot the figure…</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># tricontourf plot of water depth with vectors on top</span>
+<span class="n">fig1</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">18</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
+<span class="n">ax1</span> <span class="o">=</span> <span class="n">fig1</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">,</span><span class="n">aspect</span><span class="o">=</span><span class="p">(</span><span class="mf">1.0</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">lat</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mf">180.0</span><span class="p">)))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tricontourf</span><span class="p">(</span><span class="n">tri</span><span class="p">,</span> <span class="o">-</span><span class="n">h</span><span class="p">,</span><span class="n">levels</span><span class="o">=</span><span class="n">levels</span><span class="p">,</span><span class="n">shading</span><span class="o">=</span><span class="s1">&#39;faceted&#39;</span><span class="p">,</span><span class="n">cmap</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">gist_earth</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="n">ax</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">patch</span><span class="o">.</span><span class="n">set_facecolor</span><span class="p">(</span><span class="s1">&#39;0.5&#39;</span><span class="p">)</span>
+<span class="n">cbar</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">()</span>
+<span class="n">cbar</span><span class="o">.</span><span class="n">set_label</span><span class="p">(</span><span class="s1">&#39;Water Depth (m)&#39;</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=-</span><span class="mi">90</span><span class="p">)</span>
+<span class="n">Q</span> <span class="o">=</span> <span class="n">ax1</span><span class="o">.</span><span class="n">quiver</span><span class="p">(</span><span class="n">lonc</span><span class="p">[</span><span class="n">idv</span><span class="p">],</span><span class="n">latc</span><span class="p">[</span><span class="n">idv</span><span class="p">],</span><span class="n">u</span><span class="p">[</span><span class="n">idv</span><span class="p">],</span><span class="n">v</span><span class="p">[</span><span class="n">idv</span><span class="p">],</span><span class="n">scale</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">qk</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">quiverkey</span><span class="p">(</span><span class="n">Q</span><span class="p">,</span><span class="mf">0.92</span><span class="p">,</span><span class="mf">0.08</span><span class="p">,</span><span class="mf">0.50</span><span class="p">,</span><span class="s1">&#39;0.5 m/s&#39;</span><span class="p">,</span><span class="n">labelpos</span><span class="o">=</span><span class="s1">&#39;W&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;NECOFS Velocity, Layer </span><span class="si">%d</span><span class="s1">, </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">ilayer</span><span class="p">,</span> <span class="n">daystr</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ipython-input-13-2c9181430bad&gt;:4: UserWarning: The following kwargs were not used by contour: &#39;shading&#39;
+  plt.tricontourf(tri, -h,levels=levels,shading=&#39;faceted&#39;,cmap=plt.cm.gist_earth)
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;NECOFS Velocity, Layer 0, 2021-Mar-20 01:01&#39;)
+</pre></div>
+</div>
+<img alt="../_images/oceanforecast_24_2.png" src="../_images/oceanforecast_24_2.png" />
+</div>
+</div>
+<p><em><p>Note:</p>
+<a href='http://gis.stackexchange.com/questions/71630/subsetting-a-curvilinear-netcdf-file-roms-model-output-using-a-lon-lat-boundin'>Here</a> is another example of subsetting a curvilinear netCDF file from ROMS model output using a lon/lat bounding box</em></p>
+</div>
+<div class="section" id="extract-water-levels-analyse-visualise">
+<h2>Extract water levels, analyse &amp; visualise<a class="headerlink" href="#extract-water-levels-analyse-visualise" title="Permalink to this headline">¶</a></h2>
+<p>Using NetCDF4-Python we will extract information from the NETCOFS website and analyze/visualize them with Pandas.</p>
+<small>
+**Our aim is to plot forecast water levels from a list of lon,lat locations from the Massachusetts Bay.**
+</small>
+<p>First, we define the list of stations we are interested in:</p>
+<ul class="simple">
+<li><p>Boston,             42.368186, -71.047984</p></li>
+<li><p>Scituate Harbor,    42.199447, -70.720090</p></li>
+<li><p>Scituate Beach,     42.209973, -70.724523</p></li>
+<li><p>Falmouth Harbor,    41.541575, -70.608020</p></li>
+<li><p>Marion,             41.689008, -70.746576</p></li>
+<li><p>Marshfield,         42.108480, -70.648691</p></li>
+<li><p>Provincetown,       42.042745, -70.171180</p></li>
+<li><p>Sandwich,           41.767990, -70.466219</p></li>
+<li><p>Hampton Bay,        42.900103, -70.818510</p></li>
+<li><p>Gloucester,         42.610253, -70.660570</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Enter desired (Station, Lat, Lon) values here:</span>
+<span class="n">x</span> <span class="o">=</span> <span class="s1">&#39;&#39;&#39;</span>
+<span class="s1">Station, Lat, Lon</span>
+<span class="s1">Boston,             42.368186, -71.047984</span>
+<span class="s1">Scituate Harbor,    42.199447, -70.720090</span>
+<span class="s1">Scituate Beach,     42.209973, -70.724523</span>
+<span class="s1">&#39;&#39;&#39;</span>
+<span class="c1"># Create a Pandas DataFrame</span>
+<span class="n">obs</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">StringIO</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">strip</span><span class="p">()),</span> <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;,\s*&quot;</span><span class="p">,</span><span class="n">index_col</span><span class="o">=</span><span class="s1">&#39;Station&#39;</span><span class="p">,</span><span class="n">engine</span><span class="o">=</span><span class="s1">&#39;python&#39;</span><span class="p">)</span>
+<span class="n">obs</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Lat</th>
+      <th>Lon</th>
+    </tr>
+    <tr>
+      <th>Station</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Boston</th>
+      <td>42.368186</td>
+      <td>-71.047984</td>
+    </tr>
+    <tr>
+      <th>Scituate Harbor</th>
+      <td>42.199447</td>
+      <td>-70.720090</td>
+    </tr>
+    <tr>
+      <th>Scituate Beach</th>
+      <td>42.209973</td>
+      <td>-70.724523</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Then, we define the list of URLs containing forecast model data for the area and we open them:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#NECOFS GOM3 grid forecast</span>
+<span class="c1">#model=&#39;GOM3&#39;</span>
+<span class="c1">#url=&#39;http://www.smast.umassd.edu:8080/thredds/dodsC/FVCOM/NECOFS/Forecasts/NECOFS_GOM3_FORECAST.nc&#39;</span>
+<span class="c1">#NECOFS MassBay grid forecast</span>
+<span class="n">model</span><span class="o">=</span><span class="s1">&#39;Massbay&#39;</span>
+<span class="n">url</span><span class="o">=</span><span class="s1">&#39;http://www.smast.umassd.edu:8080/thredds/dodsC/FVCOM/NECOFS/Forecasts/NECOFS_FVCOM_OCEAN_MASSBAY_FORECAST.nc&#39;</span>
+
+<span class="c1"># Open NECOFS remote OPeNDAP dataset </span>
+<span class="n">nc</span><span class="o">=</span><span class="n">netCDF4</span><span class="o">.</span><span class="n">Dataset</span><span class="p">(</span><span class="n">url</span><span class="p">)</span><span class="o">.</span><span class="n">variables</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We now search in the data for the nearest point to our stations location:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Find the indices of the points in (x,y) closest to the points in (xi,yi)</span>
+<span class="k">def</span> <span class="nf">nearxy</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">xi</span><span class="p">,</span><span class="n">yi</span><span class="p">):</span>
+    <span class="n">ind</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">xi</span><span class="p">),</span><span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">xi</span><span class="p">)):</span>
+        <span class="n">dist</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">((</span><span class="n">x</span><span class="o">-</span><span class="n">xi</span><span class="p">[</span><span class="n">i</span><span class="p">])</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="p">(</span><span class="n">y</span><span class="o">-</span><span class="n">yi</span><span class="p">[</span><span class="n">i</span><span class="p">])</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+        <span class="n">ind</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="n">dist</span><span class="o">.</span><span class="n">argmin</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">ind</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Query to find closest NECOFS nodes to station locations</span>
+<span class="n">obs</span><span class="p">[</span><span class="s1">&#39;NODE-ID&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">nearxy</span><span class="p">(</span><span class="n">nc</span><span class="p">[</span><span class="s1">&#39;lon&#39;</span><span class="p">][:],</span><span class="n">nc</span><span class="p">[</span><span class="s1">&#39;lat&#39;</span><span class="p">][:],</span><span class="n">obs</span><span class="p">[</span><span class="s1">&#39;Lon&#39;</span><span class="p">],</span><span class="n">obs</span><span class="p">[</span><span class="s1">&#39;Lat&#39;</span><span class="p">])</span>
+<span class="n">obs</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Lat</th>
+      <th>Lon</th>
+      <th>NODE-ID</th>
+    </tr>
+    <tr>
+      <th>Station</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Boston</th>
+      <td>42.368186</td>
+      <td>-71.047984</td>
+      <td>90913</td>
+    </tr>
+    <tr>
+      <th>Scituate Harbor</th>
+      <td>42.199447</td>
+      <td>-70.720090</td>
+      <td>37964</td>
+    </tr>
+    <tr>
+      <th>Scituate Beach</th>
+      <td>42.209973</td>
+      <td>-70.724523</td>
+      <td>28474</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>For all time steps, extract the water elevation for each station</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get time values and convert to datetime objects</span>
+<span class="n">times</span> <span class="o">=</span> <span class="n">nc</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">]</span>
+<span class="n">jd</span> <span class="o">=</span> <span class="n">netCDF4</span><span class="o">.</span><span class="n">num2date</span><span class="p">(</span><span class="n">times</span><span class="p">[:],</span><span class="n">times</span><span class="o">.</span><span class="n">units</span><span class="p">)</span>
+
+<span class="c1"># Get all time steps of water level from each station</span>
+<span class="n">nsta</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">obs</span><span class="p">)</span>
+<span class="n">z</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">jd</span><span class="p">),</span><span class="n">nsta</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">nsta</span><span class="p">):</span>
+    <span class="n">z</span><span class="p">[:,</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">nc</span><span class="p">[</span><span class="s1">&#39;zeta&#39;</span><span class="p">][:,</span><span class="n">obs</span><span class="p">[</span><span class="s1">&#39;NODE-ID&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">]]</span>
+    
+<span class="c1"># Make a DataFrame out of the interpolated time series at each location</span>
+<span class="n">zvals</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">z</span><span class="p">,</span><span class="n">index</span><span class="o">=</span><span class="n">jd</span><span class="p">,</span><span class="n">columns</span><span class="o">=</span><span class="n">obs</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+
+<span class="c1"># List out a few values</span>
+<span class="n">zvals</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Station</th>
+      <th>Boston</th>
+      <th>Scituate Harbor</th>
+      <th>Scituate Beach</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2021-03-16 00:00:00</th>
+      <td>-1.172309</td>
+      <td>0.486</td>
+      <td>-0.640000</td>
+    </tr>
+    <tr>
+      <th>2021-03-16 01:01:52.500000</th>
+      <td>-0.912606</td>
+      <td>0.486</td>
+      <td>-0.640000</td>
+    </tr>
+    <tr>
+      <th>2021-03-16 01:58:07.500000</th>
+      <td>-0.719965</td>
+      <td>0.486</td>
+      <td>-0.538636</td>
+    </tr>
+    <tr>
+      <th>2021-03-16 03:00:00</th>
+      <td>0.338090</td>
+      <td>0.486</td>
+      <td>0.221133</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Now we can visualise the result for each station:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plotting the DataFrame</span>
+<span class="n">ax</span><span class="o">=</span><span class="n">zvals</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">22</span><span class="p">,</span><span class="mi">12</span><span class="p">),</span><span class="n">grid</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+              <span class="n">title</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;NECOFS Forecast Water Level from </span><span class="si">%s</span><span class="s1"> Forecast&#39;</span> <span class="o">%</span> <span class="n">model</span><span class="p">),</span>
+              <span class="n">legend</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span><span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="c1"># Read units from dataset for ylabel</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="n">nc</span><span class="p">[</span><span class="s1">&#39;zeta&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">units</span><span class="p">)</span>
+
+<span class="c1"># Plotting the legend outside the axis is a bit tricky</span>
+<span class="n">box</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">get_position</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_position</span><span class="p">([</span><span class="n">box</span><span class="o">.</span><span class="n">x0</span><span class="p">,</span> <span class="n">box</span><span class="o">.</span><span class="n">y0</span><span class="p">,</span> <span class="n">box</span><span class="o">.</span><span class="n">width</span> <span class="o">*</span> <span class="mf">0.55</span><span class="p">,</span> <span class="n">box</span><span class="o">.</span><span class="n">height</span><span class="p">])</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;center left&#39;</span><span class="p">,</span> <span class="n">bbox_to_anchor</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">));</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/oceanforecast_36_0.png" src="../_images/oceanforecast_36_0.png" />
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./queryocean"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="waverider.html" title="previous page">Analysing historical records of wave data from IMOS</a>
+    <a class='right-next' id="next-link" href="../waveclimate.html" title="next page">Analysing wave climate</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Tristan Salles<br/>
+        
+            &copy; Copyright 2020-2022.<br/>
+          <div class="extra_footer">
+            <p>
+<a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">
+  <img align="right" class="margin" src="https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by.svg" width="88px">
+</a>
+These lecture notes and exercises are licensed under a <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">Creative Commons Attribution 4.0 International (CC BY 4.0) license</a>.
+<br>
+&copy; Copyright 2020-2022.
+</p>
+
+          </div>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+  </body>
+</html>

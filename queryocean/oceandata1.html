@@ -1,0 +1,1529 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Using the IMOS User Code Library with Python &#8212; Coastal Processes, Environments &amp; Systems</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.c441f2ba0852f4cabcb80105e3a46ae6.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="IMOS Ocean Radar Data Query" href="oceandata2.html" />
+    <link rel="prev" title="AODN - Wave buoys Gold Coast" href="buoygoldcoast.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Coastal Processes, Environments & Systems</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <p class="caption collapsible-parent">
+ <span class="caption-text">
+  week 1
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1 current active collapsible-parent">
+  <a class="reference internal" href="oceandata.html">
+   Notes on ocean data query
+  </a>
+  <ul class="current collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../pracenv/intronotebook.html">
+     Introduction to Jupyter notebook
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="buoygoldcoast.html">
+     AODN - Wave buoys Gold Coast
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Using the IMOS User Code Library with Python
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="oceandata2.html">
+     IMOS Ocean Radar Data Query
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="waverider.html">
+     Analysing historical records of wave data from IMOS
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="oceanforecast.html">
+     Access data from Forecast Model
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  week 2
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../waveclimate.html">
+   Analysing wave climate
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  week 3
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../coastevol.html">
+   Quantifying coastal changes
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  week 4
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../reefmodel.html">
+   Coral reef evolution
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Jupyter
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../pracenv/notebooks.html">
+   Interactive notebooks
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../pracenv/environment.html">
+     Managing environments
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../pracenv/jupyter.html">
+     Jupyter notebook
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/queryocean/oceandata1.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/TristanSalles/Coast"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/TristanSalles/Coast/issues/new?title=Issue%20on%20page%20%2Fqueryocean/oceandata1.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/TristanSalles/Coast/edit/main/book/queryocean/oceandata1.ipynb"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+            <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                    data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                    title="Fullscreen mode"><i
+                        class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/TristanSalles/Coast/main?urlpath=lab/tree/book/queryocean/oceandata1.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i>
+            Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#a-name-install-imos-a-installation-of-the-imos-user-code-library-python-and-required-packages">
+   <a name="install-imos">
+   </a>
+   Installation of the IMOS User Code Library (Python) and required packages
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#a-name-netcdf-imos-a-finding-an-imos-netcdf-file">
+   <a name="netcdf-imos">
+   </a>
+   Finding an IMOS NetCDF File
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#a-name-netcdf4-a-general-features-of-the-netcdf4-module">
+   <a name="netcdf4">
+   </a>
+   General Features of the netCDF4 module
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#a-name-output-a-output-structure">
+   <a name="output">
+   </a>
+   Output structure
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#a-name-metadata-a-discover-metadata">
+   <a name="metadata">
+   </a>
+   Discover Metadata
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#a-name-variables-a-discover-variables">
+   <a name="variables">
+   </a>
+   Discover Variables
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#a-name-salinity-a-export-the-salinity-variable">
+   <a name="salinity">
+   </a>
+   Export the salinity variable
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#a-name-plotting-a-plotting-the-salinity-temperature-relationship">
+   <a name="plotting">
+   </a>
+   Plotting the Salinity-Temperature relationship
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="using-the-imos-user-code-library-with-python">
+<h1>Using the IMOS User Code Library with Python<a class="headerlink" href="#using-the-imos-user-code-library-with-python" title="Permalink to this headline">¶</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">YouTubeVideo</span>
+<span class="n">YouTubeVideo</span><span class="p">(</span><span class="s1">&#39;7yTpv70gkGE&#39;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">760</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">450</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+<iframe
+    width="760"
+    height="450"
+    src="https://www.youtube.com/embed/7yTpv70gkGE"
+    frameborder="0"
+    allowfullscreen
+></iframe>
+</div></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This document intends to present how to load IMOS NetCDF data into a Python environment, and offers some suggestions about how to use the data once loaded. All the examples below will use the netCDF4 Python module (<a class="reference external" href="http://code.google.com/p/netcdf4-python/">http://code.google.com/p/netcdf4-python/</a>)</p>
+<p>The examples provided in this document only represent a tiny bit of the content of most of the NetCDF files. There are usually many more variables available in a NetCDF file, and therefore many other ways to display data.</p>
+</div>
+<p><strong>Content:</strong></p>
+<ul class="simple">
+<li><p><a class="reference external" href="#install-imos">Installation of the IMOS User Code Library (Python) and required packages</a></p></li>
+<li><p><a class="reference external" href="#netcdf-imos">Finding an IMOS NetCDF file</a></p></li>
+<li><p><a class="reference external" href="#netcdf4">General Features of the netCDF4 module</a></p></li>
+<li><p><a class="reference external" href="#output">Output structure</a></p></li>
+<li><p><a class="reference external" href="#metadata">Discover Metadata</a></p></li>
+<li><p><a class="reference external" href="#variables">Discover Variables</a></p></li>
+<li><p><a class="reference external" href="#salinity">Export the salinity variable</a></p></li>
+<li><p><a class="reference external" href="#plotting">Plotting the Salinity-Temperature relationship</a></p></li>
+</ul>
+<hr class="docutils" />
+<p>A list of interesting IMOS based Python library functions is available from their <a class="reference external" href="https://github.com/aodn/imos-user-code-library/wiki/Using-the-IMOS-User-Code-Library-with-Python#12-finding-an-imos-netcdf-file">Github website</a></p>
+<div class="section" id="a-name-install-imos-a-installation-of-the-imos-user-code-library-python-and-required-packages">
+<h2><a name="install-imos"></a>  Installation of the IMOS User Code Library (Python) and required packages<a class="headerlink" href="#a-name-install-imos-a-installation-of-the-imos-user-code-library-python-and-required-packages" title="Permalink to this headline">¶</a></h2>
+<p>The examples that will be used rely on the following Python packages, which need to be installed:</p>
+<ul class="simple">
+<li><p><strong>numpy</strong> – standard package for scientific computing in Python, provides versatile numerical array objects (<a class="reference external" href="http://www.numpy.org/">http://www.numpy.org/</a>).</p></li>
+<li><p><strong>matplotlib</strong> – for plotting (<a class="reference external" href="http://matplotlib.org/">http://matplotlib.org/</a>).</p></li>
+<li><p><strong>netCDF4</strong> – for accessing netCDF files (<a class="reference external" href="http://code.google.com/p/netcdf4-python/">http://code.google.com/p/netcdf4-python/</a>, follow the Documentation link for installation instructions).</p></li>
+</ul>
+<p>The examples that will be use in this course have been tested in Python 2.7.3, with numpy 1.6.1, matplotlib 1.1.1, and version 1.0.2 of netCDF4. Later versions of these packages will usually work. Earlier versions may work also.</p>
+</div>
+<div class="section" id="a-name-netcdf-imos-a-finding-an-imos-netcdf-file">
+<h2><a name="netcdf-imos"></a>  Finding an IMOS NetCDF File<a class="headerlink" href="#a-name-netcdf-imos-a-finding-an-imos-netcdf-file" title="Permalink to this headline">¶</a></h2>
+<p>In order to find a dataset you are interested in, please refer to the portal help: <a class="reference external" href="http://help.aodn.org.au/help/?q=node/6">http://help.aodn.org.au/help/?q=node/6</a>. This is a how-to guide that can help users find an IMOS NetCDF file. When downloading your chosen dataset from the portal, choose one of the download options “List of URLs”, or “All source NETCDF files” to obtain netCDF files.</p>
+<p>For users who are already familiar with IMOS facilities and datasets, IMOS NetCDF files are also directly accessible via an OPeNDAP catalog at : <a class="reference external" href="http://thredds.aodn.org.au/thredds/catalog/IMOS/catalog.html">http://thredds.aodn.org.au/thredds/catalog/IMOS/catalog.html</a></p>
+<p>Most of the examples in the following sections use the ‘Data URL’ of a dataset. If you have downloaded your dataset from the portal, the data URL is the file path to the file on your local machine. If you are using the THREDDS catelog, the file does not have to be downloaded to your local machine first – the OPeNDAP data URL can be parsed into Python. The OPeNDAP data URL is found on the ‘OPeNDAP Dataset Access Form’ page (see <a class="reference external" href="http://help.aodn.org.au/help/?q=node/11">http://help.aodn.org.au/help/?q=node/11</a>), inside the box labelled ‘Data URL’ just above the ‘Global Attributes’ field.</p>
+<p>Note: the list of URL’s generated by the IMOS portal when choosing that download option can be converted to a list of OPeNDAP data URL’s by replacing string <a class="reference external" href="http://data.aodn.org.au/IMOS/opendap">http://data.aodn.org.au/IMOS/opendap</a> with <a class="reference external" href="http://thredds.aodn.org.au/thredds/dodsC/IMOS">http://thredds.aodn.org.au/thredds/dodsC/IMOS</a>.</p>
+</div>
+<div class="section" id="a-name-netcdf4-a-general-features-of-the-netcdf4-module">
+<h2><a name="netcdf4"></a>  General Features of the netCDF4 module<a class="headerlink" href="#a-name-netcdf4-a-general-features-of-the-netcdf4-module" title="Permalink to this headline">¶</a></h2>
+<p>The first step consists of opening a NetCDF file, whether this file is available locally or remotely on an OPeNDAP server.</p>
+<p>Type in your Python command window (or script):</p>
+<p>This creates a netCDF Dataset object, through which you can access all the contents of the file.</p>
+<p>Let’s do it below - as this is a Python commands we will be using a <code class="docutils literal notranslate"><span class="pre">code</span></code> cell this time and not a <code class="docutils literal notranslate"><span class="pre">markdown</span></code> (text) one.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">netCDF4</span>  <span class="kn">import</span> <span class="n">Dataset</span>
+
+<span class="n">aatams_URL</span> <span class="o">=</span> <span class="s1">&#39;http://thredds.aodn.org.au/thredds/dodsC/IMOS/eMII/demos/AATAMS/marine_mammal_ctd-tag/2009_2011_ct64_Casey_Macquarie/ct64-M746-09/IMOS_AATAMS-SATTAG_TSP_20100205T043000Z_ct64-M746-09_END-20101029T071000Z_FV00.nc&#39;</span>
+<span class="n">aatams_DATA</span> <span class="o">=</span> <span class="n">Dataset</span><span class="p">(</span><span class="n">aatams_URL</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="a-name-output-a-output-structure">
+<h2><a name="output"></a>  Output structure<a class="headerlink" href="#a-name-output-a-output-structure" title="Permalink to this headline">¶</a></h2>
+<p>Please refer to the netCDF4 module documentation for a complete description of the Dataset object:: ‘<a class="reference external" href="http://netcdf4-python.googlecode.com/svn/trunk/docs/netCDF4.Dataset-class.html">http://netcdf4-python.googlecode.com/svn/trunk/docs/netCDF4.Dataset-class.html</a>’ (or type help(Dataset) at the Python prompt).</p>
+<div class="cell tag_scroll-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">help</span><span class="p">(</span><span class="n">aatams_DATA</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Help on Dataset object:
+
+class Dataset(builtins.object)
+ |  A netCDF [Dataset](#Dataset) is a collection of dimensions, groups, variables and
+ |  attributes. Together they describe the meaning of data and relations among
+ |  data fields stored in a netCDF file. See [Dataset.__init__](#Dataset.__init__) for more
+ |  details.
+ |  
+ |  A list of attribute names corresponding to global netCDF attributes
+ |  defined for the [Dataset](#Dataset) can be obtained with the
+ |  [Dataset.ncattrs](#Dataset.ncattrs) method.
+ |  These attributes can be created by assigning to an attribute of the
+ |  [Dataset](#Dataset) instance. A dictionary containing all the netCDF attribute
+ |  name/value pairs is provided by the `__dict__` attribute of a
+ |  [Dataset](#Dataset) instance.
+ |  
+ |  The following class variables are read-only and should not be
+ |  modified by the user.
+ |  
+ |  **`dimensions`**: The `dimensions` dictionary maps the names of
+ |  dimensions defined for the [Group](#Group) or [Dataset](#Dataset) to instances of the
+ |  [Dimension](#Dimension) class.
+ |  
+ |  **`variables`**: The `variables` dictionary maps the names of variables
+ |  defined for this [Dataset](#Dataset) or [Group](#Group) to instances of the
+ |  [Variable](#Variable) class.
+ |  
+ |  **`groups`**: The groups dictionary maps the names of groups created for
+ |  this [Dataset](#Dataset) or [Group](#Group) to instances of the [Group](#Group) class (the
+ |  [Dataset](#Dataset) class is simply a special case of the [Group](#Group) class which
+ |  describes the root group in the netCDF4 file).
+ |  
+ |  **`cmptypes`**: The `cmptypes` dictionary maps the names of
+ |  compound types defined for the [Group](#Group) or [Dataset](#Dataset) to instances of the
+ |  [CompoundType](#CompoundType) class.
+ |  
+ |  **`vltypes`**: The `vltypes` dictionary maps the names of
+ |  variable-length types defined for the [Group](#Group) or [Dataset](#Dataset) to instances
+ |  of the [VLType](#VLType) class.
+ |  
+ |  **`enumtypes`**: The `enumtypes` dictionary maps the names of
+ |  Enum types defined for the [Group](#Group) or [Dataset](#Dataset) to instances
+ |  of the [EnumType](#EnumType) class.
+ |  
+ |  **`data_model`**: `data_model` describes the netCDF
+ |  data model version, one of `NETCDF3_CLASSIC`, `NETCDF4`,
+ |  `NETCDF4_CLASSIC`, `NETCDF3_64BIT_OFFSET` or `NETCDF3_64BIT_DATA`.
+ |  
+ |  **`file_format`**: same as `data_model`, retained for backwards compatibility.
+ |  
+ |  **`disk_format`**: `disk_format` describes the underlying
+ |  file format, one of `NETCDF3`, `HDF5`, `HDF4`,
+ |  `PNETCDF`, `DAP2`, `DAP4` or `UNDEFINED`. Only available if using
+ |  netcdf C library version &gt;= 4.3.1, otherwise will always return
+ |  `UNDEFINED`.
+ |  
+ |  **`parent`**: `parent` is a reference to the parent
+ |  [Group](#Group) instance. `None` for the root group or [Dataset](#Dataset)
+ |  instance.
+ |  
+ |  **`path`**: `path` shows the location of the [Group](#Group) in
+ |  the [Dataset](#Dataset) in a unix directory format (the names of groups in the
+ |  hierarchy separated by backslashes). A [Dataset](#Dataset) instance is the root
+ |  group, so the path is simply `&#39;/&#39;`.
+ |  
+ |  **`keepweakref`**: If `True`, child Dimension and Variables objects only keep weak
+ |  references to the parent Dataset or Group.
+ |  
+ |  **`_ncstring_attrs__`**: If `True`, all text attributes will be written as variable-length
+ |  strings.
+ |  
+ |  Methods defined here:
+ |  
+ |  __delattr__(self, name, /)
+ |      Implement delattr(self, name).
+ |  
+ |  __enter__(...)
+ |  
+ |  __exit__(...)
+ |  
+ |  __getattr__(...)
+ |  
+ |  __getattribute__(self, name, /)
+ |      Return getattr(self, name).
+ |  
+ |  __getitem__(self, key, /)
+ |      Return self[key].
+ |  
+ |  __init__(...)
+ |      **`__init__(self, filename, mode=&quot;r&quot;, clobber=True, diskless=False,
+ |      persist=False, keepweakref=False, memory=None, encoding=None,
+ |      parallel=False, comm=None, info=None, format=&#39;NETCDF4&#39;)`**
+ |      
+ |      [Dataset](#Dataset) constructor.
+ |      
+ |      **`filename`**: Name of netCDF file to hold dataset. Can also
+ |      be a python 3 pathlib instance or the URL of an OpenDAP dataset.  When memory is
+ |      set this is just used to set the `filepath()`.
+ |      
+ |      **`mode`**: access mode. `r` means read-only; no data can be
+ |      modified. `w` means write; a new file is created, an existing file with
+ |      the same name is deleted. `a` and `r+` mean append (in analogy with
+ |      serial files); an existing file is opened for reading and writing.
+ |      Appending `s` to modes `r`, `w`, `r+` or `a` will enable unbuffered shared
+ |      access to `NETCDF3_CLASSIC`, `NETCDF3_64BIT_OFFSET` or
+ |      `NETCDF3_64BIT_DATA` formatted files.
+ |      Unbuffered access may be useful even if you don&#39;t need shared
+ |      access, since it may be faster for programs that don&#39;t access data
+ |      sequentially. This option is ignored for `NETCDF4` and `NETCDF4_CLASSIC`
+ |      formatted files.
+ |      
+ |      **`clobber`**: if `True` (default), opening a file with `mode=&#39;w&#39;`
+ |      will clobber an existing file with the same name.  if `False`, an
+ |      exception will be raised if a file with the same name already exists.
+ |      
+ |      **`format`**: underlying file format (one of `&#39;NETCDF4&#39;,
+ |      &#39;NETCDF4_CLASSIC&#39;, &#39;NETCDF3_CLASSIC&#39;`, `&#39;NETCDF3_64BIT_OFFSET&#39;` or
+ |      `&#39;NETCDF3_64BIT_DATA&#39;`.
+ |      Only relevant if `mode = &#39;w&#39;` (if `mode = &#39;r&#39;,&#39;a&#39;` or `&#39;r+&#39;` the file format
+ |      is automatically detected). Default `&#39;NETCDF4&#39;`, which means the data is
+ |      stored in an HDF5 file, using netCDF 4 API features.  Setting
+ |      `format=&#39;NETCDF4_CLASSIC&#39;` will create an HDF5 file, using only netCDF 3
+ |      compatible API features. netCDF 3 clients must be recompiled and linked
+ |      against the netCDF 4 library to read files in `NETCDF4_CLASSIC` format.
+ |      `&#39;NETCDF3_CLASSIC&#39;` is the classic netCDF 3 file format that does not
+ |      handle 2+ Gb files. `&#39;NETCDF3_64BIT_OFFSET&#39;` is the 64-bit offset
+ |      version of the netCDF 3 file format, which fully supports 2+ GB files, but
+ |      is only compatible with clients linked against netCDF version 3.6.0 or
+ |      later. `&#39;NETCDF3_64BIT_DATA&#39;` is the 64-bit data version of the netCDF 3
+ |      file format, which supports 64-bit dimension sizes plus unsigned and
+ |      64 bit integer data types, but is only compatible with clients linked against
+ |      netCDF version 4.4.0 or later.
+ |      
+ |      **`diskless`**: If `True`, create diskless (in-core) file.
+ |      This is a feature added to the C library after the
+ |      netcdf-4.2 release. If you need to access the memory buffer directly,
+ |      use the in-memory feature instead (see `memory` kwarg).
+ |      
+ |      **`persist`**: if `diskless=True`, persist file to disk when closed
+ |      (default `False`).
+ |      
+ |      **`keepweakref`**: if `True`, child Dimension and Variable instances will keep weak
+ |      references to the parent Dataset or Group object.  Default is `False`, which
+ |      means strong references will be kept.  Having Dimension and Variable instances
+ |      keep a strong reference to the parent Dataset instance, which in turn keeps a
+ |      reference to child Dimension and Variable instances, creates circular references.
+ |      Circular references complicate garbage collection, which may mean increased
+ |      memory usage for programs that create may Dataset instances with lots of
+ |      Variables. It also will result in the Dataset object never being deleted, which
+ |      means it may keep open files alive as well. Setting `keepweakref=True` allows
+ |      Dataset instances to be garbage collected as soon as they go out of scope, potentially
+ |      reducing memory usage and open file handles.  However, in many cases this is not
+ |      desirable, since the associated Variable instances may still be needed, but are
+ |      rendered unusable when the parent Dataset instance is garbage collected.
+ |      
+ |      **`memory`**: if not `None`, create or open an in-memory Dataset.
+ |      If mode = &#39;r&#39;, the memory kwarg must contain a memory buffer object
+ |      (an object that supports the python buffer interface).
+ |      The Dataset will then be created with contents taken from this block of memory.
+ |      If mode = &#39;w&#39;, the memory kwarg should contain the anticipated size
+ |      of the Dataset in bytes (used only for NETCDF3 files).  A memory
+ |      buffer containing a copy of the Dataset is returned by the
+ |      `Dataset.close` method. Requires netcdf-c version 4.4.1 for mode=&#39;r,
+ |      netcdf-c 4.6.2 for mode=&#39;w&#39;. To persist the file to disk, the raw
+ |      bytes from the returned buffer can be written into a binary file.
+ |      The Dataset can also be re-opened using this memory buffer.
+ |      
+ |      **`encoding`**: encoding used to encode filename string into bytes.
+ |      Default is None (`sys.getdefaultfileencoding()` is used).
+ |      
+ |      **`parallel`**: open for parallel access using MPI (requires mpi4py and
+ |      parallel-enabled netcdf-c and hdf5 libraries).  Default is `False`. If
+ |      `True`, `comm` and `info` kwargs may also be specified.
+ |      
+ |      **`comm`**: MPI_Comm object for parallel access. Default `None`, which
+ |      means MPI_COMM_WORLD will be used.  Ignored if `parallel=False`.
+ |      
+ |      **`info`**: MPI_Info object for parallel access. Default `None`, which
+ |      means MPI_INFO_NULL will be used.  Ignored if `parallel=False`.
+ |  
+ |  __reduce__(...)
+ |      Helper for pickle.
+ |  
+ |  __repr__(self, /)
+ |      Return repr(self).
+ |  
+ |  __setattr__(self, name, value, /)
+ |      Implement setattr(self, name, value).
+ |  
+ |  __unicode__(...)
+ |  
+ |  close(...)
+ |      **`close(self)`**
+ |      
+ |      Close the Dataset.
+ |  
+ |  createCompoundType(...)
+ |      **`createCompoundType(self, datatype, datatype_name)`**
+ |      
+ |      Creates a new compound data type named `datatype_name` from the numpy
+ |      dtype object `datatype`.
+ |      
+ |      ***Note***: If the new compound data type contains other compound data types
+ |      (i.e. it is a &#39;nested&#39; compound type, where not all of the elements
+ |      are homogeneous numeric data types), then the &#39;inner&#39; compound types **must** be
+ |      created first.
+ |      
+ |      The return value is the [CompoundType](#CompoundType) class instance describing the new
+ |      datatype.
+ |  
+ |  createDimension(...)
+ |      **`createDimension(self, dimname, size=None)`**
+ |      
+ |      Creates a new dimension with the given `dimname` and `size`.
+ |      
+ |      `size` must be a positive integer or `None`, which stands for
+ |      &quot;unlimited&quot; (default is `None`). Specifying a size of 0 also
+ |      results in an unlimited dimension. The return value is the [Dimension](#Dimension)
+ |      class instance describing the new dimension.  To determine the current
+ |      maximum size of the dimension, use the `len` function on the [Dimension](#Dimension)
+ |      instance. To determine if a dimension is &#39;unlimited&#39;, use the
+ |      [Dimension.isunlimited](#Dimension.isunlimited) method of the [Dimension](#Dimension) instance.
+ |  
+ |  createEnumType(...)
+ |      **`createEnumType(self, datatype, datatype_name, enum_dict)`**
+ |      
+ |      Creates a new Enum data type named `datatype_name` from a numpy
+ |      integer dtype object `datatype`, and a python dictionary
+ |      defining the enum fields and values.
+ |      
+ |      The return value is the [EnumType](#EnumType) class instance describing the new
+ |      datatype.
+ |  
+ |  createGroup(...)
+ |      **`createGroup(self, groupname)`**
+ |      
+ |      Creates a new [Group](#Group) with the given `groupname`.
+ |      
+ |      If `groupname` is specified as a path, using forward slashes as in unix to
+ |      separate components, then intermediate groups will be created as necessary
+ |      (analogous to `mkdir -p` in unix).  For example,
+ |      `createGroup(&#39;/GroupA/GroupB/GroupC&#39;)` will create `GroupA`,
+ |      `GroupA/GroupB`, and `GroupA/GroupB/GroupC`, if they don&#39;t already exist.
+ |      If the specified path describes a group that already exists, no error is
+ |      raised.
+ |      
+ |      The return value is a [Group](#Group) class instance.
+ |  
+ |  createVLType(...)
+ |      **`createVLType(self, datatype, datatype_name)`**
+ |      
+ |      Creates a new VLEN data type named `datatype_name` from a numpy
+ |      dtype object `datatype`.
+ |      
+ |      The return value is the [VLType](#VLType) class instance describing the new
+ |      datatype.
+ |  
+ |  createVariable(...)
+ |      **`createVariable(self, varname, datatype, dimensions=(), zlib=False,
+ |      complevel=4, shuffle=True, fletcher32=False, contiguous=False, chunksizes=None,
+ |      endian=&#39;native&#39;, least_significant_digit=None, fill_value=None, chunk_cache=None)`**
+ |      
+ |      Creates a new variable with the given `varname`, `datatype`, and
+ |      `dimensions`. If dimensions are not given, the variable is assumed to be
+ |      a scalar.
+ |      
+ |      If `varname` is specified as a path, using forward slashes as in unix to
+ |      separate components, then intermediate groups will be created as necessary
+ |      For example, `createVariable(&#39;/GroupA/GroupB/VarC&#39;, float, (&#39;x&#39;,&#39;y&#39;))` will create groups `GroupA`
+ |      and `GroupA/GroupB`, plus the variable `GroupA/GroupB/VarC`, if the preceding
+ |      groups don&#39;t already exist.
+ |      
+ |      The `datatype` can be a numpy datatype object, or a string that describes
+ |      a numpy dtype object (like the `dtype.str` attribute of a numpy array).
+ |      Supported specifiers include: `&#39;S1&#39; or &#39;c&#39; (NC_CHAR), &#39;i1&#39; or &#39;b&#39; or &#39;B&#39;
+ |      (NC_BYTE), &#39;u1&#39; (NC_UBYTE), &#39;i2&#39; or &#39;h&#39; or &#39;s&#39; (NC_SHORT), &#39;u2&#39;
+ |      (NC_USHORT), &#39;i4&#39; or &#39;i&#39; or &#39;l&#39; (NC_INT), &#39;u4&#39; (NC_UINT), &#39;i8&#39; (NC_INT64),
+ |      &#39;u8&#39; (NC_UINT64), &#39;f4&#39; or &#39;f&#39; (NC_FLOAT), &#39;f8&#39; or &#39;d&#39; (NC_DOUBLE)`.
+ |      `datatype` can also be a [CompoundType](#CompoundType) instance
+ |      (for a structured, or compound array), a [VLType](#VLType) instance
+ |      (for a variable-length array), or the python `str` builtin
+ |      (for a variable-length string array). Numpy string and unicode datatypes with
+ |      length greater than one are aliases for `str`.
+ |      
+ |      Data from netCDF variables is presented to python as numpy arrays with
+ |      the corresponding data type.
+ |      
+ |      `dimensions` must be a tuple containing dimension names (strings) that
+ |      have been defined previously using [Dataset.createDimension](#Dataset.createDimension). The default value
+ |      is an empty tuple, which means the variable is a scalar.
+ |      
+ |      If the optional keyword `zlib` is `True`, the data will be compressed in
+ |      the netCDF file using gzip compression (default `False`).
+ |      
+ |      The optional keyword `complevel` is an integer between 1 and 9 describing
+ |      the level of compression desired (default 4). Ignored if `zlib=False`.
+ |      
+ |      If the optional keyword `shuffle` is `True`, the HDF5 shuffle filter
+ |      will be applied before compressing the data (default `True`).  This
+ |      significantly improves compression. Default is `True`. Ignored if
+ |      `zlib=False`.
+ |      
+ |      If the optional keyword `fletcher32` is `True`, the Fletcher32 HDF5
+ |      checksum algorithm is activated to detect errors. Default `False`.
+ |      
+ |      If the optional keyword `contiguous` is `True`, the variable data is
+ |      stored contiguously on disk.  Default `False`. Setting to `True` for
+ |      a variable with an unlimited dimension will trigger an error.
+ |      
+ |      The optional keyword `chunksizes` can be used to manually specify the
+ |      HDF5 chunksizes for each dimension of the variable. A detailed
+ |      discussion of HDF chunking and I/O performance is available
+ |      [here](http://www.hdfgroup.org/HDF5/doc/H5.user/Chunking.html).
+ |      Basically, you want the chunk size for each dimension to match as
+ |      closely as possible the size of the data block that users will read
+ |      from the file.  `chunksizes` cannot be set if `contiguous=True`.
+ |      
+ |      The optional keyword `endian` can be used to control whether the
+ |      data is stored in little or big endian format on disk. Possible
+ |      values are `little, big` or `native` (default). The library
+ |      will automatically handle endian conversions when the data is read,
+ |      but if the data is always going to be read on a computer with the
+ |      opposite format as the one used to create the file, there may be
+ |      some performance advantage to be gained by setting the endian-ness.
+ |      
+ |      The `zlib, complevel, shuffle, fletcher32, contiguous, chunksizes` and `endian`
+ |      keywords are silently ignored for netCDF 3 files that do not use HDF5.
+ |      
+ |      The optional keyword `fill_value` can be used to override the default
+ |      netCDF `_FillValue` (the value that the variable gets filled with before
+ |      any data is written to it, defaults given in [default_fillvals](#default_fillvals)).
+ |      If fill_value is set to `False`, then the variable is not pre-filled.
+ |      
+ |      If the optional keyword parameter `least_significant_digit` is
+ |      specified, variable data will be truncated (quantized). In conjunction
+ |      with `zlib=True` this produces &#39;lossy&#39;, but significantly more
+ |      efficient compression. For example, if `least_significant_digit=1`,
+ |      data will be quantized using `numpy.around(scale*data)/scale`, where
+ |      scale = 2**bits, and bits is determined so that a precision of 0.1 is
+ |      retained (in this case bits=4). From the
+ |      [PSL metadata conventions](http://www.esrl.noaa.gov/psl/data/gridded/conventions/cdc_netcdf_standard.shtml):
+ |      &quot;least_significant_digit -- power of ten of the smallest decimal place
+ |      in unpacked data that is a reliable value.&quot; Default is `None`, or no
+ |      quantization, or &#39;lossless&#39; compression.
+ |      
+ |      When creating variables in a `NETCDF4` or `NETCDF4_CLASSIC` formatted file,
+ |      HDF5 creates something called a &#39;chunk cache&#39; for each variable.  The
+ |      default size of the chunk cache may be large enough to completely fill
+ |      available memory when creating thousands of variables.  The optional
+ |      keyword `chunk_cache` allows you to reduce (or increase) the size of
+ |      the default chunk cache when creating a variable.  The setting only
+ |      persists as long as the Dataset is open - you can use the set_var_chunk_cache
+ |      method to change it the next time the Dataset is opened.
+ |      Warning - messing with this parameter can seriously degrade performance.
+ |      
+ |      The return value is the [Variable](#Variable) class instance describing the new
+ |      variable.
+ |      
+ |      A list of names corresponding to netCDF variable attributes can be
+ |      obtained with the [Variable](#Variable) method [Variable.ncattrs](#Variable.ncattrs). A dictionary
+ |      containing all the netCDF attribute name/value pairs is provided by
+ |      the `__dict__` attribute of a [Variable](#Variable) instance.
+ |      
+ |      [Variable](#Variable) instances behave much like array objects. Data can be
+ |      assigned to or retrieved from a variable with indexing and slicing
+ |      operations on the [Variable](#Variable) instance. A [Variable](#Variable) instance has six
+ |      Dataset standard attributes: `dimensions, dtype, shape, ndim, name` and
+ |      `least_significant_digit`. Application programs should never modify
+ |      these attributes. The `dimensions` attribute is a tuple containing the
+ |      names of the dimensions associated with this variable. The `dtype`
+ |      attribute is a string describing the variable&#39;s data type (`i4, f8,
+ |      S1,` etc). The `shape` attribute is a tuple describing the current
+ |      sizes of all the variable&#39;s dimensions. The `name` attribute is a
+ |      string containing the name of the Variable instance.
+ |      The `least_significant_digit`
+ |      attributes describes the power of ten of the smallest decimal place in
+ |      the data the contains a reliable value.  assigned to the [Variable](#Variable)
+ |      instance. If `None`, the data is not truncated. The `ndim` attribute
+ |      is the number of variable dimensions.
+ |  
+ |  delncattr(...)
+ |      **`delncattr(self,name,value)`**
+ |      
+ |      delete a netCDF dataset or group attribute.  Use if you need to delete a
+ |      netCDF attribute with the same name as one of the reserved python
+ |      attributes.
+ |  
+ |  filepath(...)
+ |      **`filepath(self,encoding=None)`**
+ |      
+ |      Get the file system path (or the opendap URL) which was used to
+ |      open/create the Dataset. Requires netcdf &gt;= 4.1.2.  The path
+ |      is decoded into a string using `sys.getfilesystemencoding()` by default, this can be
+ |      changed using the `encoding` kwarg.
+ |  
+ |  get_variables_by_attributes(...)
+ |      **`get_variables_by_attribute(self, **kwargs)`**
+ |      
+ |      Returns a list of variables that match specific conditions.
+ |      
+ |      Can pass in key=value parameters and variables are returned that
+ |      contain all of the matches. For example,
+ |      
+ |      ```python
+ |      &gt;&gt;&gt; # Get variables with x-axis attribute.
+ |      &gt;&gt;&gt; vs = nc.get_variables_by_attributes(axis=&#39;X&#39;)
+ |      &gt;&gt;&gt; # Get variables with matching &quot;standard_name&quot; attribute
+ |      &gt;&gt;&gt; vs = nc.get_variables_by_attributes(standard_name=&#39;northward_sea_water_velocity&#39;)
+ |      ```
+ |      
+ |      Can pass in key=callable parameter and variables are returned if the
+ |      callable returns True.  The callable should accept a single parameter,
+ |      the attribute value.  None is given as the attribute value when the
+ |      attribute does not exist on the variable. For example,
+ |      
+ |      ```python
+ |      &gt;&gt;&gt; # Get Axis variables
+ |      &gt;&gt;&gt; vs = nc.get_variables_by_attributes(axis=lambda v: v in [&#39;X&#39;, &#39;Y&#39;, &#39;Z&#39;, &#39;T&#39;])
+ |      &gt;&gt;&gt; # Get variables that don&#39;t have an &quot;axis&quot; attribute
+ |      &gt;&gt;&gt; vs = nc.get_variables_by_attributes(axis=lambda v: v is None)
+ |      &gt;&gt;&gt; # Get variables that have a &quot;grid_mapping&quot; attribute
+ |      &gt;&gt;&gt; vs = nc.get_variables_by_attributes(grid_mapping=lambda v: v is not None)
+ |      ```
+ |  
+ |  getncattr(...)
+ |      **`getncattr(self,name)`**
+ |      
+ |      retrieve a netCDF dataset or group attribute.
+ |      Use if you need to get a netCDF attribute with the same
+ |      name as one of the reserved python attributes.
+ |      
+ |      option kwarg `encoding` can be used to specify the
+ |      character encoding of a string attribute (default is `utf-8`).
+ |  
+ |  isopen(...)
+ |      **`close(self)`**
+ |      
+ |      is the Dataset open or closed?
+ |  
+ |  ncattrs(...)
+ |      **`ncattrs(self)`**
+ |      
+ |      return netCDF global attribute names for this [Dataset](#Dataset) or [Group](#Group) in a list.
+ |  
+ |  renameAttribute(...)
+ |      **`renameAttribute(self, oldname, newname)`**
+ |      
+ |      rename a [Dataset](#Dataset) or [Group](#Group) attribute named `oldname` to `newname`.
+ |  
+ |  renameDimension(...)
+ |      **`renameDimension(self, oldname, newname)`**
+ |      
+ |      rename a [Dimension](#Dimension) named `oldname` to `newname`.
+ |  
+ |  renameGroup(...)
+ |      **`renameGroup(self, oldname, newname)`**
+ |      
+ |      rename a [Group](#Group) named `oldname` to `newname` (requires netcdf &gt;= 4.3.1).
+ |  
+ |  renameVariable(...)
+ |      **`renameVariable(self, oldname, newname)`**
+ |      
+ |      rename a [Variable](#Variable) named `oldname` to `newname`
+ |  
+ |  set_always_mask(...)
+ |      **`set_always_mask(self, True_or_False)`**
+ |      
+ |      Call [Variable.set_always_mask](#Variable.set_always_mask) for all variables contained in
+ |      this [Dataset](#Dataset) or [Group](#Group), as well as for all
+ |      variables in all its subgroups.
+ |      
+ |      **`True_or_False`**: Boolean determining if automatic conversion of
+ |      masked arrays with no missing values to regular numpy arrays shall be
+ |      applied for all variables. Default True. Set to False to restore the default behaviour
+ |      in versions prior to 1.4.1 (numpy array returned unless missing values are present,
+ |      otherwise masked array returned).
+ |      
+ |      ***Note***: Calling this function only affects existing
+ |      variables. Variables created after calling this function will follow
+ |      the default behaviour.
+ |  
+ |  set_auto_chartostring(...)
+ |      **`set_auto_chartostring(self, True_or_False)`**
+ |      
+ |      Call [Variable.set_auto_chartostring](#Variable.set_auto_chartostring) for all variables contained in this [Dataset](#Dataset) or
+ |      [Group](#Group), as well as for all variables in all its subgroups.
+ |      
+ |      **`True_or_False`**: Boolean determining if automatic conversion of
+ |      all character arrays &lt;--&gt; string arrays should be performed for
+ |      character variables (variables of type `NC_CHAR` or `S1`) with the
+ |      `_Encoding` attribute set.
+ |      
+ |      ***Note***: Calling this function only affects existing variables. Variables created
+ |      after calling this function will follow the default behaviour.
+ |  
+ |  set_auto_mask(...)
+ |      **`set_auto_mask(self, True_or_False)`**
+ |      
+ |      Call [Variable.set_auto_mask](#Variable.set_auto_mask) for all variables contained in this [Dataset](#Dataset) or
+ |      [Group](#Group), as well as for all variables in all its subgroups.
+ |      
+ |      **`True_or_False`**: Boolean determining if automatic conversion to masked arrays
+ |      shall be applied for all variables.
+ |      
+ |      ***Note***: Calling this function only affects existing variables. Variables created
+ |      after calling this function will follow the default behaviour.
+ |  
+ |  set_auto_maskandscale(...)
+ |      **`set_auto_maskandscale(self, True_or_False)`**
+ |      
+ |      Call [Variable.set_auto_maskandscale](#Variable.set_auto_maskandscale) for all variables contained in this [Dataset](#Dataset) or
+ |      [Group](#Group), as well as for all variables in all its subgroups.
+ |      
+ |      **`True_or_False`**: Boolean determining if automatic conversion to masked arrays
+ |      and variable scaling shall be applied for all variables.
+ |      
+ |      ***Note***: Calling this function only affects existing variables. Variables created
+ |      after calling this function will follow the default behaviour.
+ |  
+ |  set_auto_scale(...)
+ |      **`set_auto_scale(self, True_or_False)`**
+ |      
+ |      Call [Variable.set_auto_scale](#Variable.set_auto_scale) for all variables contained in this [Dataset](#Dataset) or
+ |      [Group](#Group), as well as for all variables in all its subgroups.
+ |      
+ |      **`True_or_False`**: Boolean determining if automatic variable scaling
+ |      shall be applied for all variables.
+ |      
+ |      ***Note***: Calling this function only affects existing variables. Variables created
+ |      after calling this function will follow the default behaviour.
+ |  
+ |  set_fill_off(...)
+ |      **`set_fill_off(self)`**
+ |      
+ |      Sets the fill mode for a [Dataset](#Dataset) open for writing to `off`.
+ |      
+ |      This will prevent the data from being pre-filled with fill values, which
+ |      may result in some performance improvements. However, you must then make
+ |      sure the data is actually written before being read.
+ |  
+ |  set_fill_on(...)
+ |      **`set_fill_on(self)`**
+ |      
+ |      Sets the fill mode for a [Dataset](#Dataset) open for writing to `on`.
+ |      
+ |      This causes data to be pre-filled with fill values. The fill values can be
+ |      controlled by the variable&#39;s `_Fill_Value` attribute, but is usually
+ |      sufficient to the use the netCDF default `_Fill_Value` (defined
+ |      separately for each variable type). The default behavior of the netCDF
+ |      library corresponds to `set_fill_on`.  Data which are equal to the
+ |      `_Fill_Value` indicate that the variable was created, but never written
+ |      to.
+ |  
+ |  set_ncstring_attrs(...)
+ |      **`set_ncstring_attrs(self, True_or_False)`**
+ |      
+ |      Call [Variable.set_ncstring_attrs](#Variable.set_ncstring_attrs) for all variables contained in
+ |      this [Dataset](#Dataset) or [Group](#Group), as well as for all its
+ |      subgroups and their variables.
+ |      
+ |      **`True_or_False`**: Boolean determining if all string attributes are
+ |      created as variable-length NC_STRINGs, (if True), or if ascii text
+ |      attributes are stored as NC_CHARs (if False; default)
+ |      
+ |      ***Note***: Calling this function only affects newly created attributes
+ |      of existing (sub-) groups and their variables.
+ |  
+ |  setncattr(...)
+ |      **`setncattr(self,name,value)`**
+ |      
+ |      set a netCDF dataset or group attribute using name,value pair.
+ |      Use if you need to set a netCDF attribute with the
+ |      with the same name as one of the reserved python attributes.
+ |  
+ |  setncattr_string(...)
+ |      **`setncattr_string(self,name,value)`**
+ |      
+ |      set a netCDF dataset or group string attribute using name,value pair.
+ |      Use if you need to ensure that a netCDF attribute is created with type
+ |      `NC_STRING` if the file format is `NETCDF4`.
+ |  
+ |  setncatts(...)
+ |      **`setncatts(self,attdict)`**
+ |      
+ |      set a bunch of netCDF dataset or group attributes at once using a python dictionary.
+ |      This may be faster when setting a lot of attributes for a `NETCDF3`
+ |      formatted file, since nc_redef/nc_enddef is not called in between setting
+ |      each attribute
+ |  
+ |  sync(...)
+ |      **`sync(self)`**
+ |      
+ |      Writes all buffered data in the [Dataset](#Dataset) to the disk file.
+ |  
+ |  tocdl(...)
+ |      **`tocdl(self, coordvars=False, data=False, outfile=None)`**
+ |      
+ |      call `ncdump` via subprocess to create [CDL](https://www.unidata.ucar.edu/software/netcdf/docs/netcdf_utilities_guide.html#cdl_guide)
+ |      text representation of Dataset. Requires `ncdump` to be installed and in `$PATH`.
+ |      
+ |      **`coordvars`**: include coordinate variable data (via `ncdump -c`). Default False
+ |      
+ |      **`data`**: if True, write out variable data (Default False).
+ |      
+ |      **`outfile`**: If not None, file to output ncdump to. Default is to return a string.
+ |  
+ |  ----------------------------------------------------------------------
+ |  Static methods defined here:
+ |  
+ |  __new__(*args, **kwargs) from builtins.type
+ |      Create and return a new object.  See help(type) for accurate signature.
+ |  
+ |  fromcdl(...)
+ |      **`fromcdl(cdlfilename, ncfilename=None, mode=&#39;a&#39;,format=&#39;NETCDF4&#39;)`**
+ |      
+ |      call `ncgen` via subprocess to create Dataset from [CDL](https://www.unidata.ucar.edu/software/netcdf/docs/netcdf_utilities_guide.html#cdl_guide)
+ |      text representation. Requires `ncgen` to be installed and in `$PATH`.
+ |      
+ |      **`cdlfilename`**:  CDL file.
+ |      
+ |      **`ncfilename`**: netCDF file to create. If not given, CDL filename with
+ |      suffix replaced by `.nc` is used..
+ |      
+ |      **`mode`**:  Access mode to open Dataset (Default `&#39;a&#39;`).
+ |      
+ |      **`format`**: underlying file format to use (one of `&#39;NETCDF4&#39;,
+ |      &#39;NETCDF4_CLASSIC&#39;, &#39;NETCDF3_CLASSIC&#39;`, `&#39;NETCDF3_64BIT_OFFSET&#39;` or
+ |      `&#39;NETCDF3_64BIT_DATA&#39;`. Default `&#39;NETCDF4&#39;`.
+ |             
+ |      Dataset instance for `ncfilename` is returned.
+ |  
+ |  ----------------------------------------------------------------------
+ |  Data descriptors defined here:
+ |  
+ |  __orthogonal_indexing__
+ |  
+ |  cmptypes
+ |  
+ |  data_model
+ |  
+ |  dimensions
+ |  
+ |  disk_format
+ |  
+ |  enumtypes
+ |  
+ |  file_format
+ |  
+ |  groups
+ |  
+ |  keepweakref
+ |  
+ |  name
+ |      string name of Group instance
+ |  
+ |  parent
+ |  
+ |  path
+ |  
+ |  variables
+ |  
+ |  vltypes
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="a-name-metadata-a-discover-metadata">
+<h2><a name="metadata"></a> Discover Metadata<a class="headerlink" href="#a-name-metadata-a-discover-metadata" title="Permalink to this headline">¶</a></h2>
+<p>In order to see all the global attributes and some other information about the file, type in your command window:</p>
+<p>The output will look something like this:</p>
+<div class="cell tag_scroll-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">aatams_DATA</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;netCDF4._netCDF4.Dataset&#39;&gt;
+root group (NETCDF3_CLASSIC data model, file format DAP2):
+    project: Integrated Marine Observing System (IMOS)
+    conventions: IMOS-1.2
+    date_created: 2012-09-13T07:27:03Z
+    title: Temperature, Salinity and Depth profiles in near real time
+    institution: AATAMS
+    site: CTD Satellite Relay Data Logger
+    abstract: CTD Satellite Relay Data Loggers are used to explore how marine mammal behaviour relates to their oceanic environment. Loggers developped at the University of St Andrews Sea Mammal Research Unit transmit data in near real time via the Argo satellite system
+    source: SMRU CTD Satellite relay Data Logger on marine mammals
+    keywords: Oceans&gt;Ocean Temperature&gt;Water Temperature ;Oceans&gt;Salinity/Density&gt;Conductivity ;Oceans&gt;Marine Biology&gt;Marine Mammals
+    references: http://imos.org.au/aatams.html
+    unique_reference_code: ct64-M746-09
+    platform_code: Q9900335
+    netcdf_version: 3.6
+    naming_authority: IMOS
+    quality_control_set: 1
+    cdm_data_type: Trajectory
+    geospatial_lat_min: -73.2633350301659
+    geospatial_lat_max: -54.4634576271227
+    geospatial_lat_units: degrees_north
+    geospatial_lon_min: -179.903050293358
+    geospatial_lon_max: 179.942919142718
+    geospatial_lon_units: degrees_east
+    geospatial_vertical_min: 6.0
+    geospatial_vertical_max: 1138.0
+    geospatial_vertical_units: dbar
+    time_coverage_start: 2010-02-05T04:30:00Z
+    time_coverage_end: 2010-10-29T07:10:00Z
+    data_centre_email: info@emii.org.au
+    data_centre: eMarine Information Infrastructure (eMII)
+    author: Besnard, Laurent
+    author_email: laurent.besnard@utas.edu.au
+    institution_references: http://imos.org.au/emii.html
+    principal_investigator: Harcourt, Rob
+    citation: Citation to be used in publications should follow the format: IMOS, [year-of-data-download], [Title], [data-access-URL],accessed [date-of-access]
+    acknowledgment: Any users of IMOS data are required to clearly acknowledge the source of the material in the format: &quot;Data was sourced from the Integrated Marine Observing System (IMOS) - IMOS is supported by the Australian Government through the National Collaborative Research Infrastructure Strategy (NCRIS) and the Super Science Initiative (SSI)&quot;
+    distribution_statement: AATAMS data may be re-used, provided that related  metadata explaining the data has been reviewed by the user and the data is appropriately acknowledged. Data, products and services from IMOS are provided &quot;as is&quot; without any warranty as to fitness for a particular purpose
+    file_version: Level 0 - Raw data
+    file_version_quality_control: Data in this file has not undergone quality control. There has been no QC performed on this real-time data.
+    metadata_uuid: dbe1e98e-f447-4cf6-bb1c-412baae171ab
+    body_code: 11449
+    ptt_code: 54746
+    species_name: Southern ellie
+    release_site: Macquarie
+    sattag_program: ct64
+    EXTRA_DIMENSION.length_char: 8
+    dimensions(sizes): obs(12987), profiles(800)
+    variables(dimensions): float64 TIME(profiles), float64 LATITUDE(profiles), float64 LONGITUDE(profiles), float64 TEMP(obs), float64 PRES(obs), float64 PSAL(obs), float64 parentIndex(obs), float64 TIME_quality_control(profiles), float64 LATITUDE_quality_control(profiles), float64 LONGITUDE_quality_control(profiles), float64 TEMP_quality_control(obs), float64 PRES_quality_control(obs), float64 PSAL_quality_control(obs)
+    groups: 
+</pre></div>
+</div>
+</div>
+</div>
+<p>Global attributes in the netCDF file become attributes of the Dataset object. A list of global attribute names is returned by the ncattrs() method of the object. The <strong>dict</strong> attribute of the object is a dictionary of all netCDF attribute names and values.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># store the dataset&#39;s title in a local variable</span>
+<span class="n">title_str</span> <span class="o">=</span> <span class="n">aatams_DATA</span><span class="o">.</span><span class="n">title</span>
+
+<span class="c1"># list all global attribute names</span>
+<span class="n">aatams_DATA</span><span class="o">.</span><span class="n">ncattrs</span><span class="p">()</span>
+
+<span class="c1"># store the complete set of attributes in a dictionary (OrderedDict) object (similar to a standard Python dict, but</span>
+<span class="c1"># maintains the order in which items are entered)</span>
+<span class="n">globalAttr</span> <span class="o">=</span> <span class="n">aatams_DATA</span><span class="o">.</span><span class="vm">__dict__</span>
+
+<span class="c1"># now you can also do (same effect as first command above)</span>
+<span class="n">title_str</span> <span class="o">=</span> <span class="n">globalAttr</span><span class="p">[</span><span class="s1">&#39;title&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">title_str</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Temperature, Salinity and Depth profiles in near real time
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_scroll-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">globalAttr</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;project&#39;: &#39;Integrated Marine Observing System (IMOS)&#39;,
+ &#39;conventions&#39;: &#39;IMOS-1.2&#39;,
+ &#39;date_created&#39;: &#39;2012-09-13T07:27:03Z&#39;,
+ &#39;title&#39;: &#39;Temperature, Salinity and Depth profiles in near real time&#39;,
+ &#39;institution&#39;: &#39;AATAMS&#39;,
+ &#39;site&#39;: &#39;CTD Satellite Relay Data Logger&#39;,
+ &#39;abstract&#39;: &#39;CTD Satellite Relay Data Loggers are used to explore how marine mammal behaviour relates to their oceanic environment. Loggers developped at the University of St Andrews Sea Mammal Research Unit transmit data in near real time via the Argo satellite system&#39;,
+ &#39;source&#39;: &#39;SMRU CTD Satellite relay Data Logger on marine mammals&#39;,
+ &#39;keywords&#39;: &#39;Oceans&gt;Ocean Temperature&gt;Water Temperature ;Oceans&gt;Salinity/Density&gt;Conductivity ;Oceans&gt;Marine Biology&gt;Marine Mammals&#39;,
+ &#39;references&#39;: &#39;http://imos.org.au/aatams.html&#39;,
+ &#39;unique_reference_code&#39;: &#39;ct64-M746-09&#39;,
+ &#39;platform_code&#39;: &#39;Q9900335&#39;,
+ &#39;netcdf_version&#39;: &#39;3.6&#39;,
+ &#39;naming_authority&#39;: &#39;IMOS&#39;,
+ &#39;quality_control_set&#39;: &#39;1&#39;,
+ &#39;cdm_data_type&#39;: &#39;Trajectory&#39;,
+ &#39;geospatial_lat_min&#39;: -73.2633350301659,
+ &#39;geospatial_lat_max&#39;: -54.4634576271227,
+ &#39;geospatial_lat_units&#39;: &#39;degrees_north&#39;,
+ &#39;geospatial_lon_min&#39;: -179.903050293358,
+ &#39;geospatial_lon_max&#39;: 179.942919142718,
+ &#39;geospatial_lon_units&#39;: &#39;degrees_east&#39;,
+ &#39;geospatial_vertical_min&#39;: 6.0,
+ &#39;geospatial_vertical_max&#39;: 1138.0,
+ &#39;geospatial_vertical_units&#39;: &#39;dbar&#39;,
+ &#39;time_coverage_start&#39;: &#39;2010-02-05T04:30:00Z&#39;,
+ &#39;time_coverage_end&#39;: &#39;2010-10-29T07:10:00Z&#39;,
+ &#39;data_centre_email&#39;: &#39;info@emii.org.au&#39;,
+ &#39;data_centre&#39;: &#39;eMarine Information Infrastructure (eMII)&#39;,
+ &#39;author&#39;: &#39;Besnard, Laurent&#39;,
+ &#39;author_email&#39;: &#39;laurent.besnard@utas.edu.au&#39;,
+ &#39;institution_references&#39;: &#39;http://imos.org.au/emii.html&#39;,
+ &#39;principal_investigator&#39;: &#39;Harcourt, Rob&#39;,
+ &#39;citation&#39;: &#39;Citation to be used in publications should follow the format: IMOS, [year-of-data-download], [Title], [data-access-URL],accessed [date-of-access]&#39;,
+ &#39;acknowledgment&#39;: &#39;Any users of IMOS data are required to clearly acknowledge the source of the material in the format: &quot;Data was sourced from the Integrated Marine Observing System (IMOS) - IMOS is supported by the Australian Government through the National Collaborative Research Infrastructure Strategy (NCRIS) and the Super Science Initiative (SSI)&quot;&#39;,
+ &#39;distribution_statement&#39;: &#39;AATAMS data may be re-used, provided that related  metadata explaining the data has been reviewed by the user and the data is appropriately acknowledged. Data, products and services from IMOS are provided &quot;as is&quot; without any warranty as to fitness for a particular purpose&#39;,
+ &#39;file_version&#39;: &#39;Level 0 - Raw data&#39;,
+ &#39;file_version_quality_control&#39;: &#39;Data in this file has not undergone quality control. There has been no QC performed on this real-time data.&#39;,
+ &#39;metadata_uuid&#39;: &#39;dbe1e98e-f447-4cf6-bb1c-412baae171ab&#39;,
+ &#39;body_code&#39;: &#39;11449&#39;,
+ &#39;ptt_code&#39;: &#39;54746&#39;,
+ &#39;species_name&#39;: &#39;Southern ellie&#39;,
+ &#39;release_site&#39;: &#39;Macquarie&#39;,
+ &#39;sattag_program&#39;: &#39;ct64&#39;,
+ &#39;EXTRA_DIMENSION.length_char&#39;: 8}
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="a-name-variables-a-discover-variables">
+<h2><a name="variables"></a> Discover Variables<a class="headerlink" href="#a-name-variables-a-discover-variables" title="Permalink to this headline">¶</a></h2>
+<p>To list all the variables available in the NetCDF file, type:</p>
+<p>Output:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">aatams_DATA</span><span class="o">.</span><span class="n">variables</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dict_keys([&#39;TIME&#39;, &#39;LATITUDE&#39;, &#39;LONGITUDE&#39;, &#39;TEMP&#39;, &#39;PRES&#39;, &#39;PSAL&#39;, &#39;parentIndex&#39;, &#39;TIME_quality_control&#39;, &#39;LATITUDE_quality_control&#39;, &#39;LONGITUDE_quality_control&#39;, &#39;TEMP_quality_control&#39;, &#39;PRES_quality_control&#39;, &#39;PSAL_quality_control&#39;])
+</pre></div>
+</div>
+</div>
+</div>
+<p>(The ‘u’ means each variable name is represented by a Unicode string.)</p>
+<p>Each variable is accessed via a <code class="docutils literal notranslate"><span class="pre">Variable</span></code> object, in a similar way to the <code class="docutils literal notranslate"><span class="pre">Dataset</span></code> object. To access the <code class="docutils literal notranslate"><span class="pre">Temperature</span></code> variable :</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># netCDF4 Variable object</span>
+<span class="n">TEMP</span> <span class="o">=</span> <span class="n">aatams_DATA</span><span class="o">.</span><span class="n">variables</span><span class="p">[</span><span class="s1">&#39;TEMP&#39;</span><span class="p">]</span>
+
+<span class="c1"># now you can print the variable&#39;s attributes and other info</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">TEMP</span><span class="p">)</span>
+
+<span class="c1"># access variable attributes, e.g. its standard_name</span>
+<span class="n">TEMP</span><span class="o">.</span><span class="n">standard_name</span>
+
+<span class="c1"># extract the data values (as a numpy array)</span>
+<span class="n">TEMP</span><span class="p">[:]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;netCDF4._netCDF4.Variable&#39;&gt;
+float64 TEMP(obs)
+    standard_name: sea_water_temperature
+    long_name: sea_water_temperature
+    units: Celsius
+    valid_min: -2.0
+    valid_max: 40.0
+    _FillValue: 9999.0
+    ancillary_variables: TEMP_quality_control
+unlimited dimensions: 
+current shape = (12987,)
+filling off
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>masked_array(data=[7.644 , 7.6322, 7.6243, ..., 5.4599, 5.1781, 4.4438],
+             mask=False,
+       fill_value=1e+20)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">TEMP</span><span class="p">[:])</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="n">TEMP</span><span class="p">),</span><span class="nb">max</span><span class="p">(</span><span class="n">TEMP</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[7.644  7.6322 7.6243 ... 5.4599 5.1781 4.4438]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-1.855 8.136
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="a-name-salinity-a-export-the-salinity-variable">
+<h2><a name="salinity"></a> Export the salinity variable<a class="headerlink" href="#a-name-salinity-a-export-the-salinity-variable" title="Permalink to this headline">¶</a></h2>
+<p>Following the same approach as the one proposed for the temperature variable extract the salinity one.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># netCDF4 Variable object</span>
+<span class="n">PSAL</span> <span class="o">=</span> <span class="n">aatams_DATA</span><span class="o">.</span><span class="n">variables</span><span class="p">[</span><span class="s1">&#39;PSAL&#39;</span><span class="p">]</span>
+
+<span class="c1"># now you can print the variable&#39;s attributes and other info</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">PSAL</span><span class="p">)</span>
+
+<span class="c1"># access variable attributes, e.g. its standard_name</span>
+<span class="n">PSAL</span><span class="o">.</span><span class="n">standard_name</span>
+
+<span class="c1"># extract the data values (as a numpy array)</span>
+<span class="n">PSAL</span><span class="p">[:]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;netCDF4._netCDF4.Variable&#39;&gt;
+float64 PSAL(obs)
+    standard_name: sea_water_salinity
+    long_name: sea_water_salinity
+    units: 1e-3
+    _FillValue: 9999.0
+    ancillary_variables: PSAL_quality_control
+unlimited dimensions: 
+current shape = (12987,)
+filling off
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>masked_array(data=[34.004 , 34.0069, 34.0058, ..., 34.1937, 34.252 ,
+                   34.2277],
+             mask=False,
+       fill_value=1e+20)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">PSAL</span><span class="p">[:])</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="n">PSAL</span><span class="p">),</span><span class="nb">max</span><span class="p">(</span><span class="n">PSAL</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[34.004  34.0069 34.0058 ... 34.1937 34.252  34.2277]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>33.148 34.766
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="a-name-plotting-a-plotting-the-salinity-temperature-relationship">
+<h2><a name="plotting"></a> Plotting the Salinity-Temperature relationship<a class="headerlink" href="#a-name-plotting-a-plotting-the-salinity-temperature-relationship" title="Permalink to this headline">¶</a></h2>
+<p>We can now work with and plot  these variables and get some information/relationship regarding their temporal and/or spatial evalution for example.</p>
+<p>To do so we need to import some useful Python libraries…</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">statsmodels.nonparametric.smoothers_lowess</span> <span class="kn">import</span> <span class="n">lowess</span>
+
+<span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="o">%</span><span class="k">config</span> InlineBackend.figure_format = &#39;svg&#39;
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;mathtext.fontset&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;cm&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now let us define the temperature and salinity variables more simply:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">PSAL[:]</span></code> to <code class="docutils literal notranslate"><span class="pre">sal</span></code> for salinity</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">TEMP[:]</span></code> to <code class="docutils literal notranslate"><span class="pre">temp</span></code> for temperature</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sal</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">PSAL</span><span class="p">[:])</span>
+<span class="n">temp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">TEMP</span><span class="p">[:])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We then use a smoothing function <code class="docutils literal notranslate"><span class="pre">lowess</span></code> <a class="reference external" href="http://www.statsmodels.org/dev/generated/statsmodels.nonparametric.smoothers_lowess.lowess.html">Locally Weighted Scatterplot Smoothing</a> so get a general trend of salinity evolution in relation to temperature from the existing scattered dataset.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ys</span> <span class="o">=</span> <span class="n">lowess</span><span class="p">(</span><span class="n">sal</span><span class="p">,</span> <span class="n">temp</span><span class="p">,</span> <span class="n">it</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">frac</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now we plot the result with <strong>matplotlib</strong>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">7</span><span class="p">))</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">temp</span><span class="p">,</span> <span class="n">sal</span><span class="p">,</span>  <span class="n">s</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>  <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">facecolor</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">lw</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;T-S dataset&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Temperature in Celcius&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Salinity units of parts per thousand (1.e-3)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="n">title_str</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ys</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span><span class="n">ys</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span><span class="s1">&#39;k&#39;</span><span class="p">,</span><span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;smoothing&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/oceandata1_30_0.svg" src="../_images/oceandata1_30_0.svg" /></div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./queryocean"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="buoygoldcoast.html" title="previous page">AODN - Wave buoys Gold Coast</a>
+    <a class='right-next' id="next-link" href="oceandata2.html" title="next page">IMOS Ocean Radar Data Query</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Tristan Salles<br/>
+        
+            &copy; Copyright 2020-2022.<br/>
+          <div class="extra_footer">
+            <p>
+<a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">
+  <img align="right" class="margin" src="https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by.svg" width="88px">
+</a>
+These lecture notes and exercises are licensed under a <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">Creative Commons Attribution 4.0 International (CC BY 4.0) license</a>.
+<br>
+&copy; Copyright 2020-2022.
+</p>
+
+          </div>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+  </body>
+</html>
