@@ -19,6 +19,7 @@
         - file: waveclimate/tileanalysis
         - file: waveclimate/climatevariability
         - file: waveclimate/cycloneyasi
+        - file: waveclimate/sar_waves
 
 - part: week 3
   chapters:
