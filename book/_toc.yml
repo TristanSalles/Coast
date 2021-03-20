@@ -3,7 +3,7 @@
 
 - part: week 1
   chapters:
-    - file: queryocean/oceandata
+    - file: queryocean/notes
       sections:
         - file: pracenv/intronotebook
         - file: queryocean/buoygoldcoast
@@ -14,7 +14,11 @@
 
 - part: week 2
   chapters:
-    - file: waveclimate
+    - file: waveclimate/notes
+      sections:
+        - file: waveclimate/tileanalysis
+        - file: waveclimate/climatevariability
+        - file: waveclimate/cycloneyasi
 
 - part: week 3
   chapters:

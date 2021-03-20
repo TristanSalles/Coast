@@ -4,3 +4,10 @@ book/_build/
 *-checkpoint.ipynb
 .DS_Store
 book/pracenv/.ipynb_checkpoints/*
+book/waveclimate/altimeterData.csv
+book/waveclimate/altimeterDataE.csv
+book/waveclimate/altimeterDataW.csv
+book/waveclimate/seriesH.png
+book/waveclimate/whall_wh_distribution.png
+book/waveclimate/whall_wh_heatmap.png
+book/waveclimate/whall_wh_sd.png
