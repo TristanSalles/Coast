@@ -1,0 +1,1438 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Satellite tile analysis &#8212; Coastal Processes, Environments &amp; Systems</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.c441f2ba0852f4cabcb80105e3a46ae6.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Climate variability" href="climatevariability.html" />
+    <link rel="prev" title="Analysing wave climate notes" href="notes.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Coastal Processes, Environments & Systems</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <p class="caption collapsible-parent">
+ <span class="caption-text">
+  week 1
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../queryocean/notes.html">
+   Notes on ocean data query
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../pracenv/intronotebook.html">
+     Introduction to Jupyter notebook
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../queryocean/buoygoldcoast.html">
+     AODN - Wave buoys Gold Coast
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../queryocean/oceandata1.html">
+     Using the IMOS User Code Library with Python
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../queryocean/oceandata2.html">
+     IMOS Ocean Radar Data Query
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../queryocean/waverider.html">
+     Analysing historical records of wave data from IMOS
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../queryocean/oceanforecast.html">
+     Access data from Forecast Model
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  week 2
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1 current active collapsible-parent">
+  <a class="reference internal" href="notes.html">
+   Analysing wave climate notes
+  </a>
+  <ul class="current collapse-ul">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Satellite tile analysis
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="climatevariability.html">
+     Climate variability
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="cycloneyasi.html">
+     Cyclone track
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  week 3
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../coastevol.html">
+   Quantifying coastal changes
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  week 4
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../reefmodel.html">
+   Coral reef evolution
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Jupyter
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../pracenv/notebooks.html">
+   Interactive notebooks
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../pracenv/environment.html">
+     Managing environments
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../pracenv/jupyter.html">
+     Jupyter notebook
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/waveclimate/tileanalysis.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/TristanSalles/Coast"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/TristanSalles/Coast/issues/new?title=Issue%20on%20page%20%2Fwaveclimate/tileanalysis.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/TristanSalles/Coast/edit/main/book/waveclimate/tileanalysis.ipynb"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+            <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                    data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                    title="Fullscreen mode"><i
+                        class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/TristanSalles/Coast/main?urlpath=lab/tree/book/waveclimate/tileanalysis.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i>
+            Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#loading-radwave-library-and-initialisation">
+   Loading RADWave library and initialisation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#processing-altimeters-data">
+   Processing altimeters data
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#computing-wave-regime-for-specified-location">
+   Computing wave regime for specified location
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#plotting-time-series">
+     Plotting time series
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#processing-wave-seasonability-trends">
+   Processing wave seasonability trends
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="satellite-tile-analysis">
+<h1>Satellite tile analysis<a class="headerlink" href="#satellite-tile-analysis" title="Permalink to this headline">¶</a></h1>
+<p>In this first notebook, we illustrate the use of <strong>RADWave</strong> to extract wave conditions based on altimeter data for a specific geographical region.</p>
+<p>We will be querying data already downloaded from the obtained from Australian Ocean Data Network portal <a class="reference external" href="https://portal.aodn.org.au/">AODN</a>.</p>
+<blockquote>
+<div><p>We recomend to look at <strong>RADWave</strong> <a class="reference external" href="https://radwave.readthedocs.io/en/latest/usage.html#getting-altimeter-values-from-data-providers">documentation</a> and the embeded video that explain how to select both a spatial bounding box and a temporal extent from the portal and how to export the file containing the <code class="docutils literal notranslate"><span class="pre">List</span> <span class="pre">of</span> <span class="pre">URLs</span></code>. This <code class="docutils literal notranslate"><span class="pre">TXT</span></code> file contains a list of <code class="docutils literal notranslate"><span class="pre">NETCDF</span></code> files for each available satellites.</p>
+</div></blockquote>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">IFrame</span>
+<span class="n">IFrame</span><span class="p">(</span><span class="n">src</span><span class="o">=</span><span class="s1">&#39;https://bit.ly/2ROFoLY&#39;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">900</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">600</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+<iframe
+    width="900"
+    height="600"
+    src="https://bit.ly/2ROFoLY"
+    frameborder="0"
+    allowfullscreen
+></iframe>
+</div></div>
+</div>
+<div class="section" id="loading-radwave-library-and-initialisation">
+<h2>Loading RADWave library and initialisation<a class="headerlink" href="#loading-radwave-library-and-initialisation" title="Permalink to this headline">¶</a></h2>
+<p>We first start by importing <strong>RADwave</strong> library into our working space.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">RADWave</span> <span class="k">as</span> <span class="nn">rwave</span>
+
+<span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="o">%</span><span class="k">config</span> InlineBackend.figure_format = &#39;svg&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Once the list of <code class="docutils literal notranslate"><span class="pre">NETCDF</span></code> data file has been saved on disk, you will be able to load it by initialising <strong>RADWave</strong> main Python class called <code class="docutils literal notranslate"><span class="pre">waveAnalysis</span></code>.</p>
+<p>For a detail overview of the options available in this class, you can have a look at the <a class="reference external" href="https://radwave.readthedocs.io/en/latest/RADWave.html#RADWave.altiwave.waveAnalysis">waveAnalysis API</a>.</p>
+<p>Here, we will use the following parameters:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">altimeterURL</span></code> (str): list of NetCDF URLs downloaded from the wave data portal containing the radar altimeter data [‘…/dataset/IMOSURLs.txt’]</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">bbox</span></code> (list): bounding box specifying the geographical extent of the uploaded dataset following the convention [lon min,lon max,lat min,lat max]  [here we use a region located offshore sydney]</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">stime</span></code> (list):  starting time of wave climate analysis following the convention [year, month, day] [we chose the 1st of January 1985]</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">etime</span></code> (list): ending time of wave climate analysis following the convention [year, month, day] [we chose the 31st of December 2018]</p></li>
+</ul>
+<p>For this example, we don’t specify a list of particular satellites to use (<code class="docutils literal notranslate"><span class="pre">satNames</span></code> keyword) so all of them will be queried. In other words we will look at all the records from the 10 altimeters:</p>
+<p>JASON-2 - JASON-3 - SARAL - SENTINEL-3A - CRYOSAT-2 - ENVISAT - GEOSAT - ERS-2 - GFO - TOPEX.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">wa</span> <span class="o">=</span> <span class="n">rwave</span><span class="o">.</span><span class="n">waveAnalysis</span><span class="p">(</span><span class="n">altimeterURL</span><span class="o">=</span><span class="s1">&#39;../pracenv/dataset/IMOSURLs.txt&#39;</span><span class="p">,</span> <span class="n">bbox</span><span class="o">=</span><span class="p">[</span><span class="mf">152.0</span><span class="p">,</span><span class="mf">155.0</span><span class="p">,</span><span class="o">-</span><span class="mf">36.0</span><span class="p">,</span><span class="o">-</span><span class="mf">34.0</span><span class="p">],</span> 
+                  <span class="n">stime</span><span class="o">=</span><span class="p">[</span><span class="mi">1985</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span> <span class="n">etime</span><span class="o">=</span><span class="p">[</span><span class="mi">2018</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">31</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="processing-altimeters-data">
+<h2>Processing altimeters data<a class="headerlink" href="#processing-altimeters-data" title="Permalink to this headline">¶</a></h2>
+<p>After class initialisation querying the actual dataset is realised by calling the <code class="docutils literal notranslate"><span class="pre">processAltimeterData</span></code> function. The description of this function is available from the <a class="reference external" href="https://radwave.readthedocs.io/en/latest/RADWave.html#RADWave.altiwave.waveAnalysis.processAltimeterData">API</a>.</p>
+<p>The function can take some times to execute depending on the number of NETCDF files to load and the size of the dataset to query (here it should not take more than <strong>30 s</strong>).</p>
+<blockquote>
+<div><p><strong>RADWave</strong> uses the uploaded file containing the list of URLs to query via <code class="docutils literal notranslate"><span class="pre">THREDDS</span></code> the remote data. This operation can take <em>several minutes</em> and when looking at a large region it is recommended to divide the analyse in smaller regions and download a series of URLs text file instead of the entire domain directly.</p>
+</div></blockquote>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">wa</span><span class="o">.</span><span class="n">processAltimeterData</span><span class="p">(</span><span class="n">max_qc</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">altimeter_pick</span><span class="o">=</span><span class="s1">&#39;all&#39;</span><span class="p">,</span> <span class="n">saveCSV</span> <span class="o">=</span> <span class="s1">&#39;altimeterData.csv&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Processing Altimeter Dataset 
+
+   +  name JASON-2     / number of tracks                               6   
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   +  name JASON-3     / number of tracks                               4   
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   +  name SARAL       / number of tracks                               6   
+</pre></div>
+</div>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">4</span><span class="o">-</span><span class="n">a77cf9e50a80</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">wa</span><span class="o">.</span><span class="n">processAltimeterData</span><span class="p">(</span><span class="n">max_qc</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">altimeter_pick</span><span class="o">=</span><span class="s1">&#39;all&#39;</span><span class="p">,</span> <span class="n">saveCSV</span> <span class="o">=</span> <span class="s1">&#39;altimeterData.csv&#39;</span><span class="p">)</span>
+
+<span class="nn">/usr/share/miniconda/envs/coast/lib/python3.8/site-packages/RADWave/altiwave.py</span> in <span class="ni">processAltimeterData</span><span class="nt">(self, max_qc, altimeter_pick, saveCSV)</span>
+<span class="g g-Whitespace">    </span><span class="mi">296</span>                 <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">picked_url</span><span class="p">)):</span>
+<span class="g g-Whitespace">    </span><span class="mi">297</span> 
+<span class="ne">--&gt; </span><span class="mi">298</span>                     <span class="n">ncs</span> <span class="o">=</span> <span class="n">NetCDFFile</span><span class="p">(</span><span class="n">picked_url</span><span class="p">[</span><span class="n">k</span><span class="p">])</span>
+<span class="g g-Whitespace">    </span><span class="mi">299</span>                     <span class="k">if</span> <span class="n">k</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">300</span>                         <span class="nb">print</span><span class="p">(</span>
+
+<span class="nn">src/netCDF4/_netCDF4.pyx</span> in <span class="ni">netCDF4._netCDF4.Dataset.__init__</span><span class="nt">()</span>
+
+<span class="nn">src/netCDF4/_netCDF4.pyx</span> in <span class="ni">netCDF4._netCDF4._get_vars</span><span class="nt">()</span>
+
+<span class="nn">src/netCDF4/_netCDF4.pyx</span> in <span class="ni">netCDF4._netCDF4.Variable.__init__</span><span class="nt">()</span>
+
+<span class="nn">/usr/share/miniconda/envs/coast/lib/python3.8/site-packages/netCDF4/utils.py</span> in <span class="ni">_find_dim</span><span class="nt">(grp, dimname)</span>
+<span class="g g-Whitespace">     </span><span class="mi">39</span>     <span class="k">return</span> <span class="p">[</span><span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">A</span><span class="p">)),</span> <span class="n">key</span><span class="o">=</span><span class="n">B</span><span class="o">.</span><span class="fm">__getitem__</span><span class="p">)]</span>
+<span class="g g-Whitespace">     </span><span class="mi">40</span> 
+<span class="ne">---&gt; </span><span class="mi">41</span> <span class="k">def</span> <span class="nf">_find_dim</span><span class="p">(</span><span class="n">grp</span><span class="p">,</span> <span class="n">dimname</span><span class="p">):</span>
+<span class="g g-Whitespace">     </span><span class="mi">42</span>     <span class="c1"># find Dimension instance given group and name.</span>
+<span class="g g-Whitespace">     </span><span class="mi">43</span>     <span class="c1"># look in current group, and parents.</span>
+
+<span class="ne">KeyboardInterrupt</span>: 
+</pre></div>
+</div>
+</div>
+</div>
+<p>In case where the <code class="docutils literal notranslate"><span class="pre">processAltimeterData</span></code> function has already been executed, one can load directly the processed data from the created <code class="docutils literal notranslate"><span class="pre">CSV</span></code> file in a more efficient way by running the <code class="docutils literal notranslate"><span class="pre">readAltimeterData</span></code> function as follow:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">wa</span><span class="o">.</span><span class="n">readAltimeterData</span><span class="p">(</span><span class="n">saveCSV</span> <span class="o">=</span> <span class="s1">&#39;altimeterData.csv&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Reading Processed Altimeter Dataset 
+</pre></div>
+</div>
+</div>
+</div>
+<p>Once the dataset has been queried, we can plot the altimeter data points on a map using the <code class="docutils literal notranslate"><span class="pre">visualiseData</span></code> function.</p>
+<p>This function <strong>plots</strong> and <strong>saves</strong> in a figure the geographical coordinates of processed altimeter data.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">wa</span><span class="o">.</span><span class="n">visualiseData</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;Altimeter data tracks&quot;</span><span class="p">,</span> <span class="n">extent</span><span class="o">=</span><span class="p">[</span><span class="mf">149.</span><span class="p">,</span><span class="mf">158.</span><span class="p">,</span><span class="o">-</span><span class="mf">38.</span><span class="p">,</span><span class="o">-</span><span class="mf">32.</span><span class="p">],</span> 
+                 <span class="n">addcity</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Sydney&#39;</span><span class="p">,</span> <span class="mf">151.2093</span><span class="p">,</span> <span class="o">-</span><span class="mf">33.8688</span><span class="p">],</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">40</span><span class="p">,</span> <span class="n">zoom</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span>
+                 <span class="n">fsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">7</span><span class="p">),</span> <span class="n">fsave</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/tileanalysis_11_0.svg" src="../_images/tileanalysis_11_0.svg" /></div>
+</div>
+</div>
+<div class="section" id="computing-wave-regime-for-specified-location">
+<h2>Computing wave regime for specified location<a class="headerlink" href="#computing-wave-regime-for-specified-location" title="Permalink to this headline">¶</a></h2>
+<p>To perform wave analysis and compute the wave parameters discussed in the <a class="reference external" href="https://radwave.readthedocs.io/en/latest/method.html">documentation</a>, we run the <code class="docutils literal notranslate"><span class="pre">generateTimeSeries</span></code> function.</p>
+<p>This function computes time series of wave characteristics from available altimeter data namely the significant wave height and the wind speed.</p>
+<p>It computes both <strong>instantaneous</strong> and <strong>monthly</strong> wave variables:</p>
+<ul class="simple">
+<li><p>significant wave height (m) - wh &amp; wh_rolling</p></li>
+<li><p>wave period (s)  - period &amp; period_rolling</p></li>
+<li><p>wave energy flux (kW/m)  - power &amp; power_rolling</p></li>
+<li><p>wave average energy density (J/m2)  - energy &amp; energy_rolling</p></li>
+<li><p>wave group velocity (m/s)  - speed &amp; speed_rolling</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">timeseries</span> <span class="o">=</span> <span class="n">wa</span><span class="o">.</span><span class="n">generateTimeSeries</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The class <code class="docutils literal notranslate"><span class="pre">waveAnalysis</span></code> stores a Pandas dataframe (called <code class="docutils literal notranslate"><span class="pre">timeseries</span></code>) of computed wave parameters that can be subsequently used to perform additional analysis.</p>
+<p>To visualise this dataframe, one can do:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">display</span><span class="p">(</span><span class="n">wa</span><span class="o">.</span><span class="n">timeseries</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>date</th>
+      <th>wh</th>
+      <th>wh_rolling</th>
+      <th>period</th>
+      <th>period_rolling</th>
+      <th>power</th>
+      <th>power_rolling</th>
+      <th>energy</th>
+      <th>energy_rolling</th>
+      <th>speed</th>
+      <th>speed_rolling</th>
+      <th>lat</th>
+      <th>lon</th>
+      <th>day</th>
+      <th>month</th>
+      <th>year</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1985-04-13 08:22:39.835939</td>
+      <td>3.3380</td>
+      <td>3.338000</td>
+      <td>6.820216</td>
+      <td>6.820216</td>
+      <td>149.027418</td>
+      <td>149.027418</td>
+      <td>13999.974159</td>
+      <td>13999.974159</td>
+      <td>10.644835</td>
+      <td>10.644835</td>
+      <td>-34.356148</td>
+      <td>152.339462</td>
+      <td>13</td>
+      <td>4</td>
+      <td>1985</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1985-04-16 08:31:20.722658</td>
+      <td>3.2370</td>
+      <td>3.287500</td>
+      <td>7.593262</td>
+      <td>7.206739</td>
+      <td>156.030379</td>
+      <td>152.528898</td>
+      <td>13165.578585</td>
+      <td>13582.776372</td>
+      <td>11.851388</td>
+      <td>11.248112</td>
+      <td>-34.494278</td>
+      <td>153.307892</td>
+      <td>16</td>
+      <td>4</td>
+      <td>1985</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1985-04-16 08:31:30.031252</td>
+      <td>3.2520</td>
+      <td>3.275667</td>
+      <td>8.068064</td>
+      <td>7.493847</td>
+      <td>167.326903</td>
+      <td>157.461566</td>
+      <td>13287.878634</td>
+      <td>13484.477126</td>
+      <td>12.592447</td>
+      <td>11.696223</td>
+      <td>-35.012566</td>
+      <td>153.013702</td>
+      <td>16</td>
+      <td>4</td>
+      <td>1985</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1985-04-16 08:31:38.363283</td>
+      <td>3.1695</td>
+      <td>3.249125</td>
+      <td>8.171444</td>
+      <td>7.663247</td>
+      <td>160.981438</td>
+      <td>158.341534</td>
+      <td>12622.232117</td>
+      <td>13268.915873</td>
+      <td>12.753801</td>
+      <td>11.960618</td>
+      <td>-35.475792</td>
+      <td>152.747742</td>
+      <td>16</td>
+      <td>4</td>
+      <td>1985</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1985-04-22 08:48:59.253906</td>
+      <td>2.2560</td>
+      <td>3.050500</td>
+      <td>7.566001</td>
+      <td>7.643798</td>
+      <td>75.516172</td>
+      <td>141.776462</td>
+      <td>6394.885322</td>
+      <td>11894.109763</td>
+      <td>11.808839</td>
+      <td>11.930262</td>
+      <td>-35.719948</td>
+      <td>154.700333</td>
+      <td>22</td>
+      <td>4</td>
+      <td>1985</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>13594</th>
+      <td>2018-12-29 07:19:51.140629</td>
+      <td>2.9610</td>
+      <td>2.257066</td>
+      <td>6.217100</td>
+      <td>5.785322</td>
+      <td>106.895658</td>
+      <td>70.598167</td>
+      <td>11016.190276</td>
+      <td>7335.068674</td>
+      <td>9.703505</td>
+      <td>9.029597</td>
+      <td>-34.503365</td>
+      <td>153.593140</td>
+      <td>29</td>
+      <td>12</td>
+      <td>2018</td>
+    </tr>
+    <tr>
+      <th>13595</th>
+      <td>2018-12-29 07:20:08.464846</td>
+      <td>2.8450</td>
+      <td>2.263982</td>
+      <td>6.698641</td>
+      <td>5.796067</td>
+      <td>106.327768</td>
+      <td>71.018515</td>
+      <td>10169.958412</td>
+      <td>7368.420317</td>
+      <td>10.455084</td>
+      <td>9.046367</td>
+      <td>-35.520107</td>
+      <td>153.293304</td>
+      <td>29</td>
+      <td>12</td>
+      <td>2018</td>
+    </tr>
+    <tr>
+      <th>13596</th>
+      <td>2018-12-29 22:55:26.296871</td>
+      <td>3.4490</td>
+      <td>2.282417</td>
+      <td>6.597829</td>
+      <td>5.800757</td>
+      <td>153.915668</td>
+      <td>72.428915</td>
+      <td>14946.550471</td>
+      <td>7501.722134</td>
+      <td>10.297738</td>
+      <td>9.053686</td>
+      <td>-34.364624</td>
+      <td>152.803726</td>
+      <td>29</td>
+      <td>12</td>
+      <td>2018</td>
+    </tr>
+    <tr>
+      <th>13597</th>
+      <td>2018-12-29 22:55:36.484374</td>
+      <td>3.3310</td>
+      <td>2.294753</td>
+      <td>6.288747</td>
+      <td>5.806498</td>
+      <td>136.838655</td>
+      <td>73.186677</td>
+      <td>13941.318296</td>
+      <td>7577.482089</td>
+      <td>9.815331</td>
+      <td>9.062647</td>
+      <td>-34.838604</td>
+      <td>153.085678</td>
+      <td>29</td>
+      <td>12</td>
+      <td>2018</td>
+    </tr>
+    <tr>
+      <th>13598</th>
+      <td>2018-12-29 22:55:50.749997</td>
+      <td>3.3900</td>
+      <td>2.307488</td>
+      <td>6.315870</td>
+      <td>5.812421</td>
+      <td>142.340333</td>
+      <td>73.990789</td>
+      <td>14439.560584</td>
+      <td>7657.273699</td>
+      <td>9.857664</td>
+      <td>9.071891</td>
+      <td>-35.500633</td>
+      <td>153.486710</td>
+      <td>29</td>
+      <td>12</td>
+      <td>2018</td>
+    </tr>
+  </tbody>
+</table>
+<p>13599 rows × 16 columns</p>
+</div></div></div>
+</div>
+<p>and to list the header names:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">list</span><span class="p">(</span><span class="n">wa</span><span class="o">.</span><span class="n">timeseries</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;date&#39;,
+ &#39;wh&#39;,
+ &#39;wh_rolling&#39;,
+ &#39;period&#39;,
+ &#39;period_rolling&#39;,
+ &#39;power&#39;,
+ &#39;power_rolling&#39;,
+ &#39;energy&#39;,
+ &#39;energy_rolling&#39;,
+ &#39;speed&#39;,
+ &#39;speed_rolling&#39;,
+ &#39;lat&#39;,
+ &#39;lon&#39;,
+ &#39;day&#39;,
+ &#39;month&#39;,
+ &#39;year&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="plotting-time-series">
+<h3>Plotting time series<a class="headerlink" href="#plotting-time-series" title="Permalink to this headline">¶</a></h3>
+<p>We can now plot time series of <strong>RADWave</strong> calculated wave parameters. This is done by calling the <code class="docutils literal notranslate"><span class="pre">plotTimeSeries</span></code> function.</p>
+<p>Amongst the available option one can choose to (complete list of options is available in the <a class="reference external" href="https://radwave.readthedocs.io/en/latest/RADWave.html#RADWave.altiwave.waveAnalysis.plotTimeSeries">API</a> :</p>
+<ul class="simple">
+<li><p>specify a specific temporal extent with the keyword <code class="docutils literal notranslate"><span class="pre">time</span></code> that provide the extent of years for the time series.</p></li>
+<li><p>define the wave parameter to visualise using the keyword <code class="docutils literal notranslate"><span class="pre">series</span></code> that takes the following choices: ‘H’, ‘T’, ‘P’, ‘E’ and ‘Cg’.</p></li>
+</ul>
+<p>In addition to the time series, the function provides additional information:</p>
+<ul class="simple">
+<li><p>Maximum parameter value</p></li>
+<li><p>Mean parameter value</p></li>
+<li><p>Median parameter value</p></li>
+<li><p>95th percentile parameter value</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Significant wave height</span>
+<span class="n">wa</span><span class="o">.</span><span class="n">plotTimeSeries</span><span class="p">(</span><span class="n">series</span><span class="o">=</span><span class="s1">&#39;H&#39;</span><span class="p">,</span> <span class="n">fsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="n">fsave</span><span class="o">=</span><span class="s1">&#39;seriesH&#39;</span><span class="p">)</span>
+
+<span class="c1"># Wave period</span>
+<span class="n">wa</span><span class="o">.</span><span class="n">plotTimeSeries</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="p">[</span><span class="mi">1995</span><span class="p">,</span><span class="mi">2016</span><span class="p">],</span> <span class="n">series</span><span class="o">=</span><span class="s1">&#39;T&#39;</span><span class="p">,</span> <span class="n">fsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="n">fsave</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+
+<span class="c1"># Wave power</span>
+<span class="n">wa</span><span class="o">.</span><span class="n">plotTimeSeries</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="p">[</span><span class="mi">1995</span><span class="p">,</span><span class="mi">2016</span><span class="p">],</span> <span class="n">series</span><span class="o">=</span><span class="s1">&#39;P&#39;</span><span class="p">,</span> <span class="n">fsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="n">fsave</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+
+<span class="c1"># Wave energy</span>
+<span class="n">wa</span><span class="o">.</span><span class="n">plotTimeSeries</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="p">[</span><span class="mi">1995</span><span class="p">,</span><span class="mi">2016</span><span class="p">],</span> <span class="n">series</span><span class="o">=</span><span class="s1">&#39;E&#39;</span><span class="p">,</span> <span class="n">fsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="n">fsave</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+
+<span class="c1"># Wave group velocity</span>
+<span class="n">wa</span><span class="o">.</span><span class="n">plotTimeSeries</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="p">[</span><span class="mi">1995</span><span class="p">,</span><span class="mi">2016</span><span class="p">],</span> <span class="n">series</span><span class="o">=</span><span class="s1">&#39;Cg&#39;</span><span class="p">,</span> <span class="n">fsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="n">fsave</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Max wave height: 9.015 m
+Mean wave height: 2.386 m
+Median wave height: 2.157 m
+95th percentile wave height: 4.328 m
+</pre></div>
+</div>
+<img alt="../_images/tileanalysis_19_1.svg" src="../_images/tileanalysis_19_1.svg" /><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Figure saved:  seriesH
+Max wave period: 12.169 s
+Mean wave period: 6.328 s
+Median wave period: 6.205 s
+95th percentile wave period: 8.004 s
+</pre></div>
+</div>
+<img alt="../_images/tileanalysis_19_3.svg" src="../_images/tileanalysis_19_3.svg" /><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Max wave power: 1922.153 kW/m
+Mean wave power: 89.942 kW/m
+Median wave power: 58.435 kW/m
+95th percentile wave power: 274.046 kW/m
+</pre></div>
+</div>
+<img alt="../_images/tileanalysis_19_5.svg" src="../_images/tileanalysis_19_5.svg" /><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Max wave energy: 102114.179 J/m2
+Mean wave energy: 8366.740 J/m2
+Median wave energy: 6064.775 J/m2
+95th percentile wave energy: 23373.495 J/m2
+</pre></div>
+</div>
+<img alt="../_images/tileanalysis_19_7.svg" src="../_images/tileanalysis_19_7.svg" /><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Max wave celerity: 18.993 m/s
+Mean wave celerity: 9.876 m/s
+Median wave celerity: 9.684 m/s
+95th percentile wave celerity: 12.493 m/s
+</pre></div>
+</div>
+<img alt="../_images/tileanalysis_19_9.svg" src="../_images/tileanalysis_19_9.svg" /></div>
+</div>
+</div>
+</div>
+<div class="section" id="processing-wave-seasonability-trends">
+<h2>Processing wave seasonability trends<a class="headerlink" href="#processing-wave-seasonability-trends" title="Permalink to this headline">¶</a></h2>
+<p>In addition to time series, one can analyse the seasonal characteristics of each parameter computed from the altimeter dataset.</p>
+<p>For a specified time interval and geographical extent, it computes the monthly seasonality of specific wave variables (the option in the <code class="docutils literal notranslate"><span class="pre">series</span></code> keyword are: wh, period, power, energy and speed).</p>
+<p>Obtained monthly averaged values are stored and returned with a <code class="docutils literal notranslate"><span class="pre">Pandas</span></code> dataframe.</p>
+<blockquote>
+<div><p>User has the option to plot the computed wave paraneter characteristics as a heatmap, a box plot and a standard deviation graph.</p>
+</div></blockquote>
+<p>For the wave height series, a <strong>Seasonal Mann-Kendall</strong> test is also performed to determine monotonic trends in computed dataset using the package from Hussain &amp; Mahmud (2019).</p>
+<p>Hussain &amp; Mahmud, 2019: pyMannKendall: a python package for non parametric Mann Kendall family of trend tests - JOSS, 4(39), 1556.</p>
+<p>A full explanation on the available options for the <code class="docutils literal notranslate"><span class="pre">computeSeasonalCharacteristics</span></code> function is provided in the <a class="reference external" href="https://radwave.readthedocs.io/en/latest/RADWave.html#RADWave.altiwave.waveAnalysis.computeSeasonalCharacteristics">API</a>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">wh_all</span> <span class="o">=</span> <span class="n">wa</span><span class="o">.</span><span class="n">computeSeasonalCharacteristics</span><span class="p">(</span><span class="n">series</span><span class="o">=</span><span class="s1">&#39;wh&#39;</span><span class="p">,</span> <span class="n">time</span><span class="o">=</span><span class="p">[</span><span class="mi">1998</span><span class="p">,</span><span class="mi">2018</span><span class="p">],</span> <span class="n">lonlat</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">fsave</span><span class="o">=</span><span class="s1">&#39;whall&#39;</span><span class="p">,</span> <span class="n">plot</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/tileanalysis_21_0.svg" src="../_images/tileanalysis_21_0.svg" /><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Figure saved:  whall_wh_heatmap
+</pre></div>
+</div>
+<img alt="../_images/tileanalysis_21_2.svg" src="../_images/tileanalysis_21_2.svg" /><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Figure saved:  whall_wh_distribution
+</pre></div>
+</div>
+<img alt="../_images/tileanalysis_21_4.svg" src="../_images/tileanalysis_21_4.svg" /><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Figure saved:  whall_wh_sd
+ 
+Change in yearly wave height trend accounting                       for seasonality:
+    +           trend:  no trend
+    +    slope (cm/y):  -0.6
+</pre></div>
+</div>
+</div>
+</div>
+<p>As mentionned above, the function <code class="docutils literal notranslate"><span class="pre">computeSeasonalCharacteristics</span></code> returns a <strong>Pandas dataframe</strong> containing the mean monthly values of specified wave series for the considered time interval.</p>
+<p>These information can be displayed with:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">display</span><span class="p">(</span><span class="n">wh_all</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>month</th>
+      <th>January</th>
+      <th>February</th>
+      <th>March</th>
+      <th>April</th>
+      <th>May</th>
+      <th>June</th>
+      <th>July</th>
+      <th>August</th>
+      <th>September</th>
+      <th>October</th>
+      <th>November</th>
+      <th>December</th>
+      <th>mean</th>
+    </tr>
+    <tr>
+      <th>year</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1998</th>
+      <td>2.351125</td>
+      <td>2.425917</td>
+      <td>3.040265</td>
+      <td>2.409597</td>
+      <td>2.552500</td>
+      <td>2.309143</td>
+      <td>3.243607</td>
+      <td>2.404964</td>
+      <td>2.569500</td>
+      <td>2.597563</td>
+      <td>1.875065</td>
+      <td>2.213125</td>
+      <td>2.499364</td>
+    </tr>
+    <tr>
+      <th>1999</th>
+      <td>1.673945</td>
+      <td>2.836879</td>
+      <td>2.342707</td>
+      <td>2.694594</td>
+      <td>2.391367</td>
+      <td>2.296109</td>
+      <td>2.429948</td>
+      <td>2.452140</td>
+      <td>2.464948</td>
+      <td>2.200197</td>
+      <td>2.571683</td>
+      <td>2.358575</td>
+      <td>2.392758</td>
+    </tr>
+    <tr>
+      <th>2000</th>
+      <td>2.384111</td>
+      <td>2.284333</td>
+      <td>2.467391</td>
+      <td>1.879263</td>
+      <td>2.561735</td>
+      <td>2.883667</td>
+      <td>2.508028</td>
+      <td>2.616371</td>
+      <td>2.445692</td>
+      <td>2.381438</td>
+      <td>1.934292</td>
+      <td>1.905111</td>
+      <td>2.354286</td>
+    </tr>
+    <tr>
+      <th>2001</th>
+      <td>2.265762</td>
+      <td>1.778638</td>
+      <td>2.665700</td>
+      <td>2.278663</td>
+      <td>2.549330</td>
+      <td>2.175027</td>
+      <td>2.757290</td>
+      <td>2.785076</td>
+      <td>1.855100</td>
+      <td>2.610102</td>
+      <td>2.687730</td>
+      <td>2.235864</td>
+      <td>2.387024</td>
+    </tr>
+    <tr>
+      <th>2002</th>
+      <td>2.729128</td>
+      <td>2.344036</td>
+      <td>2.241866</td>
+      <td>2.408382</td>
+      <td>2.370490</td>
+      <td>3.615296</td>
+      <td>2.150962</td>
+      <td>2.399960</td>
+      <td>1.975706</td>
+      <td>2.222351</td>
+      <td>2.170740</td>
+      <td>2.353464</td>
+      <td>2.415198</td>
+    </tr>
+    <tr>
+      <th>2003</th>
+      <td>2.282797</td>
+      <td>2.075855</td>
+      <td>2.820360</td>
+      <td>2.217680</td>
+      <td>2.466843</td>
+      <td>2.869926</td>
+      <td>2.628235</td>
+      <td>2.411136</td>
+      <td>2.979702</td>
+      <td>2.474192</td>
+      <td>2.499652</td>
+      <td>2.125216</td>
+      <td>2.487633</td>
+    </tr>
+    <tr>
+      <th>2004</th>
+      <td>2.045579</td>
+      <td>2.016815</td>
+      <td>2.139200</td>
+      <td>2.110106</td>
+      <td>3.197121</td>
+      <td>3.071079</td>
+      <td>2.705356</td>
+      <td>2.342825</td>
+      <td>2.437700</td>
+      <td>2.866273</td>
+      <td>2.330634</td>
+      <td>2.457482</td>
+      <td>2.476681</td>
+    </tr>
+    <tr>
+      <th>2005</th>
+      <td>2.228868</td>
+      <td>1.829830</td>
+      <td>2.821346</td>
+      <td>2.032036</td>
+      <td>2.603317</td>
+      <td>2.264040</td>
+      <td>2.400600</td>
+      <td>2.645314</td>
+      <td>2.472810</td>
+      <td>2.297790</td>
+      <td>2.696471</td>
+      <td>2.244379</td>
+      <td>2.378067</td>
+    </tr>
+    <tr>
+      <th>2006</th>
+      <td>2.503040</td>
+      <td>1.867656</td>
+      <td>2.489400</td>
+      <td>2.342387</td>
+      <td>2.066156</td>
+      <td>2.565561</td>
+      <td>3.047338</td>
+      <td>2.291786</td>
+      <td>2.214572</td>
+      <td>2.764333</td>
+      <td>2.427338</td>
+      <td>2.311109</td>
+      <td>2.407556</td>
+    </tr>
+    <tr>
+      <th>2007</th>
+      <td>1.865212</td>
+      <td>1.235417</td>
+      <td>2.269000</td>
+      <td>2.389500</td>
+      <td>1.965088</td>
+      <td>3.434308</td>
+      <td>2.970587</td>
+      <td>2.352000</td>
+      <td>2.826820</td>
+      <td>2.247118</td>
+      <td>1.796981</td>
+      <td>2.562935</td>
+      <td>2.326247</td>
+    </tr>
+    <tr>
+      <th>2008</th>
+      <td>2.602917</td>
+      <td>2.962240</td>
+      <td>1.575316</td>
+      <td>2.695333</td>
+      <td>3.099453</td>
+      <td>3.435422</td>
+      <td>2.542619</td>
+      <td>3.331500</td>
+      <td>2.280691</td>
+      <td>2.385957</td>
+      <td>2.256074</td>
+      <td>2.573638</td>
+      <td>2.645097</td>
+    </tr>
+    <tr>
+      <th>2009</th>
+      <td>2.024633</td>
+      <td>2.143294</td>
+      <td>2.104982</td>
+      <td>2.891375</td>
+      <td>2.928547</td>
+      <td>2.587742</td>
+      <td>2.036192</td>
+      <td>2.263500</td>
+      <td>2.699016</td>
+      <td>2.394371</td>
+      <td>1.754304</td>
+      <td>2.372531</td>
+      <td>2.350041</td>
+    </tr>
+    <tr>
+      <th>2010</th>
+      <td>2.026906</td>
+      <td>2.123293</td>
+      <td>1.959370</td>
+      <td>2.131050</td>
+      <td>2.674776</td>
+      <td>2.891643</td>
+      <td>1.976136</td>
+      <td>2.939936</td>
+      <td>2.416032</td>
+      <td>2.218625</td>
+      <td>2.002133</td>
+      <td>2.168522</td>
+      <td>2.294035</td>
+    </tr>
+    <tr>
+      <th>2011</th>
+      <td>2.107022</td>
+      <td>1.720822</td>
+      <td>2.155283</td>
+      <td>1.928560</td>
+      <td>2.674067</td>
+      <td>3.056233</td>
+      <td>2.916841</td>
+      <td>1.915402</td>
+      <td>2.558229</td>
+      <td>2.353012</td>
+      <td>1.886556</td>
+      <td>2.211227</td>
+      <td>2.290271</td>
+    </tr>
+    <tr>
+      <th>2012</th>
+      <td>2.147952</td>
+      <td>1.732209</td>
+      <td>2.061818</td>
+      <td>2.289516</td>
+      <td>2.606216</td>
+      <td>2.853485</td>
+      <td>3.277294</td>
+      <td>2.545554</td>
+      <td>2.438050</td>
+      <td>2.374282</td>
+      <td>1.987544</td>
+      <td>2.384818</td>
+      <td>2.391562</td>
+    </tr>
+    <tr>
+      <th>2013</th>
+      <td>2.340069</td>
+      <td>2.268353</td>
+      <td>2.484692</td>
+      <td>2.005859</td>
+      <td>2.285404</td>
+      <td>2.830435</td>
+      <td>2.070887</td>
+      <td>2.315588</td>
+      <td>2.167511</td>
+      <td>2.456010</td>
+      <td>2.509348</td>
+      <td>1.689465</td>
+      <td>2.285302</td>
+    </tr>
+    <tr>
+      <th>2014</th>
+      <td>1.959031</td>
+      <td>2.089556</td>
+      <td>1.898509</td>
+      <td>2.624739</td>
+      <td>2.117915</td>
+      <td>2.497213</td>
+      <td>2.565698</td>
+      <td>2.765553</td>
+      <td>2.743315</td>
+      <td>2.400158</td>
+      <td>1.973824</td>
+      <td>2.358679</td>
+      <td>2.332849</td>
+    </tr>
+    <tr>
+      <th>2015</th>
+      <td>2.365064</td>
+      <td>1.913398</td>
+      <td>1.791551</td>
+      <td>2.896398</td>
+      <td>2.542965</td>
+      <td>2.203991</td>
+      <td>3.116583</td>
+      <td>2.854188</td>
+      <td>2.454073</td>
+      <td>2.283558</td>
+      <td>2.342958</td>
+      <td>1.966134</td>
+      <td>2.394238</td>
+    </tr>
+    <tr>
+      <th>2016</th>
+      <td>2.553333</td>
+      <td>1.998667</td>
+      <td>2.055542</td>
+      <td>1.842970</td>
+      <td>2.606470</td>
+      <td>3.348186</td>
+      <td>2.699881</td>
+      <td>2.051868</td>
+      <td>2.259214</td>
+      <td>2.440056</td>
+      <td>2.170773</td>
+      <td>1.999521</td>
+      <td>2.335540</td>
+    </tr>
+    <tr>
+      <th>2017</th>
+      <td>2.091938</td>
+      <td>2.114136</td>
+      <td>2.398084</td>
+      <td>2.154494</td>
+      <td>2.163410</td>
+      <td>2.506615</td>
+      <td>2.456321</td>
+      <td>3.199181</td>
+      <td>3.097683</td>
+      <td>2.238266</td>
+      <td>2.044035</td>
+      <td>1.966494</td>
+      <td>2.369222</td>
+    </tr>
+    <tr>
+      <th>2018</th>
+      <td>2.251136</td>
+      <td>2.029114</td>
+      <td>2.134832</td>
+      <td>2.097618</td>
+      <td>2.906651</td>
+      <td>2.616579</td>
+      <td>2.254411</td>
+      <td>3.016546</td>
+      <td>2.440930</td>
+      <td>2.459288</td>
+      <td>1.855523</td>
+      <td>2.339340</td>
+      <td>2.366831</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Below we provide an example of how this function can be used to process seasonability for different geographical extents.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># First we create a dictionary of 1 by 1 degree tiles within our regional area of interest</span>
+<span class="n">tiles</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">tiles</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="mf">152.0</span><span class="p">,</span><span class="mf">153.0</span><span class="p">,</span><span class="o">-</span><span class="mf">36.0</span><span class="p">,</span><span class="o">-</span><span class="mf">35.0</span><span class="p">])</span>
+<span class="n">tiles</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="mf">153.0</span><span class="p">,</span><span class="mf">154.0</span><span class="p">,</span><span class="o">-</span><span class="mf">36.0</span><span class="p">,</span><span class="o">-</span><span class="mf">35.0</span><span class="p">])</span>
+<span class="n">tiles</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="mf">152.0</span><span class="p">,</span><span class="mf">153.0</span><span class="p">,</span><span class="o">-</span><span class="mf">35.0</span><span class="p">,</span><span class="o">-</span><span class="mf">34.0</span><span class="p">])</span>
+<span class="n">tiles</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="mf">153.0</span><span class="p">,</span><span class="mf">154.0</span><span class="p">,</span><span class="o">-</span><span class="mf">35.0</span><span class="p">,</span><span class="o">-</span><span class="mf">34.0</span><span class="p">])</span>
+
+<span class="c1"># We also store the geographical locations of the center of each tile </span>
+<span class="n">lonlat</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">lonlat</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="mf">152.5</span><span class="p">,</span><span class="o">-</span><span class="mf">35.5</span><span class="p">])</span>
+<span class="n">lonlat</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="mf">153.5</span><span class="p">,</span><span class="o">-</span><span class="mf">35.5</span><span class="p">])</span>
+<span class="n">lonlat</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="mf">152.5</span><span class="p">,</span><span class="o">-</span><span class="mf">34.5</span><span class="p">])</span>
+<span class="n">lonlat</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="mf">153.5</span><span class="p">,</span><span class="o">-</span><span class="mf">34.5</span><span class="p">])</span>
+
+
+<span class="c1"># And we define a new dictionary that will be filled with regional wave seasonability</span>
+<span class="n">seasons</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="c1"># Finally we loop over the defined tiles and perform seasonability analysis for significant wave height</span>
+<span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span>
+    <span class="n">seasons</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">wa</span><span class="o">.</span><span class="n">computeSeasonalCharacteristics</span><span class="p">(</span><span class="n">series</span><span class="o">=</span><span class="s1">&#39;wh&#39;</span><span class="p">,</span> <span class="n">time</span><span class="o">=</span><span class="p">[</span><span class="mi">1998</span><span class="p">,</span><span class="mi">2018</span><span class="p">],</span> 
+                                        <span class="n">lonlat</span><span class="o">=</span><span class="n">tiles</span><span class="p">[</span><span class="n">k</span><span class="p">],</span> <span class="n">plot</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>This can then be used to plot the annual mean values of significant wave height for each tile over the temporal range of interest…</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">matplotlib.ticker</span> <span class="k">as</span> <span class="nn">mticker</span>
+<span class="kn">from</span> <span class="nn">matplotlib.transforms</span> <span class="kn">import</span> <span class="n">offset_copy</span>
+<span class="kn">from</span> <span class="nn">mpl_toolkits.axes_grid1</span> <span class="kn">import</span> <span class="n">make_axes_locatable</span>
+<span class="kn">from</span> <span class="nn">pandas.plotting</span> <span class="kn">import</span> <span class="n">register_matplotlib_converters</span>
+<span class="n">register_matplotlib_converters</span><span class="p">()</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;mathtext.fontset&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;cm&#39;</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+
+<span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span>
+    <span class="n">yearwh</span> <span class="o">=</span> <span class="n">seasons</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="s1">&#39;mean&#39;</span><span class="p">]</span>
+    <span class="n">yearwh</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;dashed&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
+    
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Annual value for each tile&#39;</span><span class="p">,</span><span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Hs (m)&quot;</span><span class="p">,</span><span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Years&#39;</span><span class="p">,</span><span class="n">fontsize</span> <span class="o">=</span> <span class="mi">11</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="n">lonlat</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">lonlat</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="n">lonlat</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span><span class="n">lonlat</span><span class="p">[</span><span class="mi">3</span><span class="p">]])</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">set_tick_params</span><span class="p">(</span><span class="n">labelsize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_tick_params</span><span class="p">(</span><span class="n">labelsize</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">45</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/tileanalysis_27_0.svg" src="../_images/tileanalysis_27_0.svg" /></div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./waveclimate"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="notes.html" title="previous page">Analysing wave climate notes</a>
+    <a class='right-next' id="next-link" href="climatevariability.html" title="next page">Climate variability</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Tristan Salles<br/>
+        
+            &copy; Copyright 2020-2022.<br/>
+          <div class="extra_footer">
+            <p>
+<a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">
+  <img align="right" class="margin" src="https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by.svg" width="88px">
+</a>
+These lecture notes and exercises are licensed under a <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">Creative Commons Attribution 4.0 International (CC BY 4.0) license</a>.
+<br>
+&copy; Copyright 2020-2022.
+</p>
+
+          </div>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+  </body>
+</html>

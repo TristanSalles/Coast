@@ -1,0 +1,1258 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cyclone track &#8212; Coastal Processes, Environments &amp; Systems</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.c441f2ba0852f4cabcb80105e3a46ae6.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Quantifying coastal changes" href="../coastevol.html" />
+    <link rel="prev" title="Climate variability" href="climatevariability.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Coastal Processes, Environments & Systems</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <p class="caption collapsible-parent">
+ <span class="caption-text">
+  week 1
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../queryocean/notes.html">
+   Notes on ocean data query
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../pracenv/intronotebook.html">
+     Introduction to Jupyter notebook
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../queryocean/buoygoldcoast.html">
+     AODN - Wave buoys Gold Coast
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../queryocean/oceandata1.html">
+     Using the IMOS User Code Library with Python
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../queryocean/oceandata2.html">
+     IMOS Ocean Radar Data Query
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../queryocean/waverider.html">
+     Analysing historical records of wave data from IMOS
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../queryocean/oceanforecast.html">
+     Access data from Forecast Model
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  week 2
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1 current active collapsible-parent">
+  <a class="reference internal" href="notes.html">
+   Analysing wave climate notes
+  </a>
+  <ul class="current collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="tileanalysis.html">
+     Satellite tile analysis
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="climatevariability.html">
+     Climate variability
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Cyclone track
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  week 3
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../coastevol.html">
+   Quantifying coastal changes
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  week 4
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../reefmodel.html">
+   Coral reef evolution
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Jupyter
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../pracenv/notebooks.html">
+   Interactive notebooks
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../pracenv/environment.html">
+     Managing environments
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../pracenv/jupyter.html">
+     Jupyter notebook
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/waveclimate/cycloneyasi.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/TristanSalles/Coast"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/TristanSalles/Coast/issues/new?title=Issue%20on%20page%20%2Fwaveclimate/cycloneyasi.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/TristanSalles/Coast/edit/main/book/waveclimate/cycloneyasi.ipynb"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+            <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                    data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                    title="Fullscreen mode"><i
+                        class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/TristanSalles/Coast/main?urlpath=lab/tree/book/waveclimate/cycloneyasi.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i>
+            Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#loading-radwave-library-and-initialisation">
+   Loading RADWave library and initialisation
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#for-the-eastern-region">
+     For the eastern region
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#for-the-western-region">
+     For the western region
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#extracting-relevant-wave-dataset">
+   Extracting relevant wave dataset
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#visualising-the-relevant-altimeters-date">
+   Visualising the relevant altimeters date
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="cyclone-track">
+<h1>Cyclone track<a class="headerlink" href="#cyclone-track" title="Permalink to this headline">¶</a></h1>
+<p>In this last example, we showcases how <strong>RADWave</strong> can be used to query wave conditions from altimeter database along a specified cyclone track.</p>
+<div class="section" id="loading-radwave-library-and-initialisation">
+<h2>Loading RADWave library and initialisation<a class="headerlink" href="#loading-radwave-library-and-initialisation" title="Permalink to this headline">¶</a></h2>
+<p>We first start by importing <strong>RADwave</strong> library into our working space.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">RADWave</span> <span class="k">as</span> <span class="nn">rwave</span>
+
+<span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="o">%</span><span class="k">config</span> InlineBackend.figure_format = &#39;svg&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>First we will use already downloaded dataset of track of cyclone YASI. The data was obtained from the Australian Bureau of Meteorology (<a class="reference external" href="http://www.bom.gov.au/cyclone/history/tracks/">BOM cyclone tracks</a>).</p>
+<p>To load this file in the <code class="docutils literal notranslate"><span class="pre">waveAnalysis</span></code> class, the cyclone track needs to be a <code class="docutils literal notranslate"><span class="pre">CSV</span></code> file with in the header having the following keyword names <code class="docutils literal notranslate"><span class="pre">lon</span></code>, <code class="docutils literal notranslate"><span class="pre">lat</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">datetime</span></code>.</p>
+<p>To only visualise the tracks on a map, a minimal number of options have to be set as shown in the cell below:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cyc</span> <span class="o">=</span> <span class="n">rwave</span><span class="o">.</span><span class="n">waveAnalysis</span><span class="p">(</span><span class="n">cycloneCSV</span><span class="o">=</span><span class="s1">&#39;../pracenv/dataset/2010-YASI.csv&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Plotting the tracks is done by using the following function:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cyc</span><span class="o">.</span><span class="n">plotCycloneTracks</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;Cyclone YASI Track&quot;</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">zoom</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> 
+                     <span class="n">extent</span><span class="o">=</span><span class="p">[</span><span class="mi">138</span><span class="p">,</span> <span class="mi">180</span><span class="p">,</span> <span class="o">-</span><span class="mi">30</span><span class="p">,</span> <span class="o">-</span><span class="mi">10</span><span class="p">],</span> <span class="n">fsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/share/miniconda/envs/coast/lib/python3.8/site-packages/cartopy/mpl/gridliner.py:307: UserWarning: The .xlabels_top attribute is deprecated. Please use .top_labels to toggle visibility instead.
+  warnings.warn(&#39;The .xlabels_top attribute is deprecated. Please &#39;
+/usr/share/miniconda/envs/coast/lib/python3.8/site-packages/cartopy/mpl/gridliner.py:331: UserWarning: The .ylabels_left attribute is deprecated. Please use .left_labels to toggle visibility instead.
+  warnings.warn(&#39;The .ylabels_left attribute is deprecated. Please &#39;
+/usr/share/miniconda/envs/coast/lib/python3.8/site-packages/cartopy/io/__init__.py:260: DownloadWarning: Downloading: https://naciscdn.org/naturalearth/10m/physical/ne_10m_coastline.zip
+  warnings.warn(&#39;Downloading: {}&#39;.format(url), DownloadWarning)
+</pre></div>
+</div>
+<img alt="../_images/cycloneyasi_5_1.svg" src="../_images/cycloneyasi_5_1.svg" /></div>
+</div>
+<p>The geographical extent of the cyclone path and the associated time frame can be infered from the figure above.</p>
+<p>This was used to specify the altimeter data record <strong>location</strong> and <strong>temporal extent</strong> when using the Australian Ocean Data Network portal <a class="reference external" href="https://portal.aodn.org.au/">AODN</a>.</p>
+<blockquote>
+<div><p>As for the other examples, we recomend to look at <strong>RADWave</strong> <a class="reference external" href="https://radwave.readthedocs.io/en/latest/usage.html#getting-altimeter-values-from-data-providers">documentation</a> and the embeded video that explain how to select both a spatial bounding box and a temporal extent from the portal and how to export the file containing the <code class="docutils literal notranslate"><span class="pre">List</span> <span class="pre">of</span> <span class="pre">URLs</span></code>. This <code class="docutils literal notranslate"><span class="pre">TXT</span></code> file contains a list of <code class="docutils literal notranslate"><span class="pre">NETCDF</span></code> files for each available satellites.</p>
+</div></blockquote>
+<p>We will now create 2 new <strong>RADWave</strong> classes names (<code class="docutils literal notranslate"><span class="pre">wa_east</span></code> and <code class="docutils literal notranslate"><span class="pre">wa_west</span></code>) that will, in addition to the cyclone track, set the list of altimeter <code class="docutils literal notranslate"><span class="pre">NETCDF</span></code> URLs files to query for the analyse in 2 different regions.</p>
+<p>For a detail overview of the options available in this class, you can have a look at the <a class="reference external" href="https://radwave.readthedocs.io/en/latest/RADWave.html#RADWave.altiwave.waveAnalysis">waveAnalysis API</a>.</p>
+<p>We also call the <code class="docutils literal notranslate"><span class="pre">processAltimeterData</span></code> function to query the actual dataset and store the altimeter data in each class. The description of this function is available from the <a class="reference external" href="https://radwave.readthedocs.io/en/latest/RADWave.html#RADWave.altiwave.waveAnalysis.processAltimeterData">API</a>.</p>
+<div class="section" id="for-the-eastern-region">
+<h3>For the eastern region<a class="headerlink" href="#for-the-eastern-region" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">wa_east</span> <span class="o">=</span> <span class="n">rwave</span><span class="o">.</span><span class="n">waveAnalysis</span><span class="p">(</span><span class="n">altimeterURL</span><span class="o">=</span><span class="s1">&#39;../pracenv/dataset/IMOS_YASI_east.txt&#39;</span><span class="p">,</span> <span class="n">bbox</span><span class="o">=</span><span class="p">[</span><span class="mi">170</span><span class="p">,</span> <span class="mi">175</span><span class="p">,</span> <span class="o">-</span><span class="mi">17</span><span class="p">,</span> <span class="o">-</span><span class="mi">12</span><span class="p">],</span> 
+                  <span class="n">stime</span><span class="o">=</span><span class="p">[</span><span class="mi">2011</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">27</span><span class="p">],</span> <span class="n">etime</span><span class="o">=</span><span class="p">[</span><span class="mi">2011</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">],</span> <span class="n">cycloneCSV</span><span class="o">=</span><span class="s1">&#39;../pracenv/dataset/2010-YASI.csv&#39;</span><span class="p">)</span>
+
+<span class="n">wa_east</span><span class="o">.</span><span class="n">processAltimeterData</span><span class="p">(</span><span class="n">max_qc</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">altimeter_pick</span><span class="o">=</span><span class="s1">&#39;all&#39;</span><span class="p">,</span> <span class="n">saveCSV</span> <span class="o">=</span> <span class="s1">&#39;altimeterDataE.csv&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Processing Altimeter Dataset 
+
+   +  name JASON-2     / number of tracks                               19  
+</pre></div>
+</div>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">4</span><span class="o">-</span><span class="n">fa97d545e912</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span>                   <span class="n">stime</span><span class="o">=</span><span class="p">[</span><span class="mi">2011</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">27</span><span class="p">],</span> <span class="n">etime</span><span class="o">=</span><span class="p">[</span><span class="mi">2011</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">],</span> <span class="n">cycloneCSV</span><span class="o">=</span><span class="s1">&#39;../pracenv/dataset/2010-YASI.csv&#39;</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> 
+<span class="ne">----&gt; </span><span class="mi">4</span> <span class="n">wa_east</span><span class="o">.</span><span class="n">processAltimeterData</span><span class="p">(</span><span class="n">max_qc</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">altimeter_pick</span><span class="o">=</span><span class="s1">&#39;all&#39;</span><span class="p">,</span> <span class="n">saveCSV</span> <span class="o">=</span> <span class="s1">&#39;altimeterDataE.csv&#39;</span><span class="p">)</span>
+
+<span class="nn">/usr/share/miniconda/envs/coast/lib/python3.8/site-packages/RADWave/altiwave.py</span> in <span class="ni">processAltimeterData</span><span class="nt">(self, max_qc, altimeter_pick, saveCSV)</span>
+<span class="g g-Whitespace">    </span><span class="mi">296</span>                 <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">picked_url</span><span class="p">)):</span>
+<span class="g g-Whitespace">    </span><span class="mi">297</span> 
+<span class="ne">--&gt; </span><span class="mi">298</span>                     <span class="n">ncs</span> <span class="o">=</span> <span class="n">NetCDFFile</span><span class="p">(</span><span class="n">picked_url</span><span class="p">[</span><span class="n">k</span><span class="p">])</span>
+<span class="g g-Whitespace">    </span><span class="mi">299</span>                     <span class="k">if</span> <span class="n">k</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">300</span>                         <span class="nb">print</span><span class="p">(</span>
+
+<span class="nn">src/netCDF4/_netCDF4.pyx</span> in <span class="ni">netCDF4._netCDF4.Dataset.__init__</span><span class="nt">()</span>
+
+<span class="nn">src/netCDF4/_netCDF4.pyx</span> in <span class="ni">netCDF4._netCDF4._get_vars</span><span class="nt">()</span>
+
+<span class="nn">src/netCDF4/_netCDF4.pyx</span> in <span class="ni">netCDF4._netCDF4.Variable.__init__</span><span class="nt">()</span>
+
+<span class="nn">/usr/share/miniconda/envs/coast/lib/python3.8/site-packages/netCDF4/utils.py</span> in <span class="ni">_find_dim</span><span class="nt">(grp, dimname)</span>
+<span class="g g-Whitespace">     </span><span class="mi">39</span>     <span class="k">return</span> <span class="p">[</span><span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">A</span><span class="p">)),</span> <span class="n">key</span><span class="o">=</span><span class="n">B</span><span class="o">.</span><span class="fm">__getitem__</span><span class="p">)]</span>
+<span class="g g-Whitespace">     </span><span class="mi">40</span> 
+<span class="ne">---&gt; </span><span class="mi">41</span> <span class="k">def</span> <span class="nf">_find_dim</span><span class="p">(</span><span class="n">grp</span><span class="p">,</span> <span class="n">dimname</span><span class="p">):</span>
+<span class="g g-Whitespace">     </span><span class="mi">42</span>     <span class="c1"># find Dimension instance given group and name.</span>
+<span class="g g-Whitespace">     </span><span class="mi">43</span>     <span class="c1"># look in current group, and parents.</span>
+
+<span class="ne">KeyboardInterrupt</span>: 
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="for-the-western-region">
+<h3>For the western region<a class="headerlink" href="#for-the-western-region" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">wa_west</span> <span class="o">=</span> <span class="n">rwave</span><span class="o">.</span><span class="n">waveAnalysis</span><span class="p">(</span><span class="n">altimeterURL</span><span class="o">=</span><span class="s1">&#39;../pracenv/dataset/IMOS_YASI_west.txt&#39;</span><span class="p">,</span> <span class="n">bbox</span><span class="o">=</span><span class="p">[</span><span class="mi">156</span><span class="p">,</span> <span class="mi">161</span><span class="p">,</span> <span class="o">-</span><span class="mi">16</span><span class="p">,</span> <span class="o">-</span><span class="mi">12</span><span class="p">],</span> 
+                  <span class="n">stime</span><span class="o">=</span><span class="p">[</span><span class="mi">2011</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">27</span><span class="p">],</span> <span class="n">etime</span><span class="o">=</span><span class="p">[</span><span class="mi">2011</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">],</span> <span class="n">cycloneCSV</span><span class="o">=</span><span class="s1">&#39;../pracenv/dataset/2010-YASI.csv&#39;</span><span class="p">)</span>
+
+<span class="n">wa_west</span><span class="o">.</span><span class="n">processAltimeterData</span><span class="p">(</span><span class="n">max_qc</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">altimeter_pick</span><span class="o">=</span><span class="s1">&#39;all&#39;</span><span class="p">,</span> <span class="n">saveCSV</span> <span class="o">=</span> <span class="s1">&#39;altimeterDataW.csv&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Processing Altimeter Dataset 
+
+   +  name JASON-2     / number of tracks                               16  
+   +  name CRYOSAT-2   / number of tracks                               20  
+   +  name ENVISAT     / number of tracks                               20  
+ 
+Processing altimeter dataset took:  3 s
+</pre></div>
+</div>
+</div>
+</div>
+<p>In the case where a cyclone track is given when initialising the <code class="docutils literal notranslate"><span class="pre">waveAnalysis</span></code> class, the <code class="docutils literal notranslate"><span class="pre">visualiseData</span></code> plots not only the extent of the altimeter dataset but also the associated path.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">wa_east</span><span class="o">.</span><span class="n">visualiseData</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;Altimeter data east side&quot;</span><span class="p">,</span> <span class="n">extent</span><span class="o">=</span><span class="p">[</span><span class="mi">138</span><span class="p">,</span> <span class="mi">180</span><span class="p">,</span> <span class="o">-</span><span class="mi">30</span><span class="p">,</span> <span class="o">-</span><span class="mf">10.0</span><span class="p">],</span> 
+                 <span class="n">markersize</span><span class="o">=</span><span class="mi">35</span><span class="p">,</span> <span class="n">zoom</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">fsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> <span class="n">fsave</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+
+<span class="n">wa_west</span><span class="o">.</span><span class="n">visualiseData</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;Altimeter data west side&quot;</span><span class="p">,</span> <span class="n">extent</span><span class="o">=</span><span class="p">[</span><span class="mi">138</span><span class="p">,</span> <span class="mi">180</span><span class="p">,</span> <span class="o">-</span><span class="mi">30</span><span class="p">,</span> <span class="o">-</span><span class="mf">10.0</span><span class="p">],</span> 
+                 <span class="n">markersize</span><span class="o">=</span><span class="mi">35</span><span class="p">,</span> <span class="n">zoom</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">fsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> <span class="n">fsave</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/getafix/anaconda3/envs/coast/lib/python3.8/site-packages/cartopy/mpl/gridliner.py:307: UserWarning: The .xlabels_top attribute is deprecated. Please use .top_labels to toggle visibility instead.
+  warnings.warn(&#39;The .xlabels_top attribute is deprecated. Please &#39;
+/Users/getafix/anaconda3/envs/coast/lib/python3.8/site-packages/cartopy/mpl/gridliner.py:331: UserWarning: The .ylabels_left attribute is deprecated. Please use .left_labels to toggle visibility instead.
+  warnings.warn(&#39;The .ylabels_left attribute is deprecated. Please &#39;
+</pre></div>
+</div>
+<img alt="../_images/cycloneyasi_11_1.svg" src="../_images/cycloneyasi_11_1.svg" /><img alt="../_images/cycloneyasi_11_2.svg" src="../_images/cycloneyasi_11_2.svg" /></div>
+</div>
+</div>
+</div>
+<div class="section" id="extracting-relevant-wave-dataset">
+<h2>Extracting relevant wave dataset<a class="headerlink" href="#extracting-relevant-wave-dataset" title="Permalink to this headline">¶</a></h2>
+<p>Once the data has been loaded, the following step consist in computing the wave <a class="reference external" href="https://radwave.readthedocs.io/en/latest/method.html">parameters</a> by running the <code class="docutils literal notranslate"><span class="pre">generateTimeSeries</span></code> function.</p>
+<p>This function computes both <strong>instantaneous</strong> and <strong>monthly</strong> wave variables:</p>
+<ul class="simple">
+<li><p>significant wave height (m) - wh &amp; wh_rolling</p></li>
+<li><p>wave period (s)  - period &amp; period_rolling</p></li>
+<li><p>wave energy flux (kW/m)  - power &amp; power_rolling</p></li>
+<li><p>wave average energy density (J/m2)  - energy &amp; energy_rolling</p></li>
+<li><p>wave group velocity (m/s)  - speed &amp; speed_rolling</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">east_ts</span> <span class="o">=</span> <span class="n">wa_east</span><span class="o">.</span><span class="n">generateTimeSeries</span><span class="p">()</span>
+
+<span class="n">west_ts</span> <span class="o">=</span> <span class="n">wa_west</span><span class="o">.</span><span class="n">generateTimeSeries</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>From the cyclone track, we find the closest processed altimeter geographical locations that have been recorded in the database (based on a <code class="docutils literal notranslate"><span class="pre">KDTree</span></code> search).</p>
+<blockquote>
+<div><p>In addition to their coordinates, the altimeter dataset has to be recorded during a user defined time lapse close enough to the cyclone path time at each position.</p>
+</div></blockquote>
+<p>This is done using the <code class="docutils literal notranslate"><span class="pre">close2Track</span></code> function that takes the following arguments:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">radius</span></code>, the maximum radius distance in degree between cyclone position and altimeter data coordinates [here set to 2.]</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dtmax</span></code>, the maximum difference in time between recorded cyclone date and picked altimeter data (hours) [here set to 6]</p></li>
+</ul>
+<p>This function stores a Pandas dataframe in the <code class="docutils literal notranslate"><span class="pre">waveAnalysis</span></code> class called <code class="docutils literal notranslate"><span class="pre">cyclone_data</span></code> that contains the following variables:</p>
+<ul class="simple">
+<li><p>altimeter significant wave height (m) - wH</p></li>
+<li><p>altimeter wave period (s) - period</p></li>
+<li><p>altimeter wave energy flux (kW/m) - power</p></li>
+<li><p>altimeter wave average energy density (J/m2) - energy</p></li>
+<li><p>altimeter wave group velocity (m/s) - speed</p></li>
+<li><p>distance between altimeter coordinates and cyclone path (km) - dist</p></li>
+<li><p>cyclone date (datetime) - cdate</p></li>
+<li><p>difference in time between recorded cyclone date and altimeter data for specific position (hours) - hours</p></li>
+<li><p>cyclone latitude position - clat</p></li>
+<li><p>cyclone longitude position - clon</p></li>
+<li><p>altimeter data latitude position - lat</p></li>
+<li><p>altimeter data longitude position - lon</p></li>
+</ul>
+<p>Depending of the available altimeters dataset and the chosen <code class="docutils literal notranslate"><span class="pre">radius</span></code> and <code class="docutils literal notranslate"><span class="pre">dtmax</span></code> parameters, the Pandas dataframe <code class="docutils literal notranslate"><span class="pre">cyclone_data</span></code> will contain different number of values (or can potentially be empty).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">east_track</span> <span class="o">=</span> <span class="n">wa_east</span><span class="o">.</span><span class="n">close2Track</span><span class="p">(</span><span class="n">radius</span><span class="o">=</span><span class="mf">2.</span><span class="p">,</span><span class="n">dtmax</span><span class="o">=</span><span class="mf">6.</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">wa_east</span><span class="o">.</span><span class="n">cyclone_data</span><span class="p">)</span>
+
+<span class="n">west_track</span> <span class="o">=</span> <span class="n">wa_west</span><span class="o">.</span><span class="n">close2Track</span><span class="p">(</span><span class="n">radius</span><span class="o">=</span><span class="mf">2.</span><span class="p">,</span><span class="n">dtmax</span><span class="o">=</span><span class="mf">6.</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">wa_west</span><span class="o">.</span><span class="n">cyclone_data</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>period</th>
+      <th>speed</th>
+      <th>power</th>
+      <th>energy</th>
+      <th>dist</th>
+      <th>date</th>
+      <th>wH</th>
+      <th>lon</th>
+      <th>lat</th>
+      <th>clon</th>
+      <th>clat</th>
+      <th>hours</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>5.440683</td>
+      <td>8.491691</td>
+      <td>27.794308</td>
+      <td>8.491691</td>
+      <td>113.604</td>
+      <td>2011-01-28 18:00:00+00:00</td>
+      <td>1.614</td>
+      <td>174.444580</td>
+      <td>-13.529891</td>
+      <td>174.1</td>
+      <td>-14.5</td>
+      <td>-2.284</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>5.749904</td>
+      <td>8.974317</td>
+      <td>29.812409</td>
+      <td>8.974317</td>
+      <td>33.699</td>
+      <td>2011-01-28 18:00:00+00:00</td>
+      <td>1.626</td>
+      <td>174.359543</td>
+      <td>-14.330362</td>
+      <td>174.1</td>
+      <td>-14.5</td>
+      <td>-2.280</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>5.903791</td>
+      <td>9.214501</td>
+      <td>41.094925</td>
+      <td>9.214501</td>
+      <td>102.590</td>
+      <td>2011-01-28 18:00:00+00:00</td>
+      <td>1.884</td>
+      <td>174.243790</td>
+      <td>-15.416570</td>
+      <td>174.1</td>
+      <td>-14.5</td>
+      <td>-2.275</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>5.893205</td>
+      <td>9.197977</td>
+      <td>27.622688</td>
+      <td>9.197977</td>
+      <td>213.351</td>
+      <td>2011-01-29 06:00:00+00:00</td>
+      <td>1.546</td>
+      <td>170.924179</td>
+      <td>-14.505723</td>
+      <td>172.9</td>
+      <td>-14.4</td>
+      <td>-2.008</td>
+    </tr>
+  </tbody>
+</table>
+</div></div><div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>period</th>
+      <th>speed</th>
+      <th>power</th>
+      <th>energy</th>
+      <th>dist</th>
+      <th>date</th>
+      <th>wH</th>
+      <th>lon</th>
+      <th>lat</th>
+      <th>clon</th>
+      <th>clat</th>
+      <th>hours</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>6.756970</td>
+      <td>10.546121</td>
+      <td>265.003090</td>
+      <td>10.546121</td>
+      <td>213.219</td>
+      <td>2011-01-31 12:00:00+00:00</td>
+      <td>4.4720</td>
+      <td>159.141006</td>
+      <td>-14.474576</td>
+      <td>160.9</td>
+      <td>-13.6</td>
+      <td>-0.424</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>6.294248</td>
+      <td>9.823916</td>
+      <td>197.842215</td>
+      <td>9.823916</td>
+      <td>207.053</td>
+      <td>2011-01-31 12:00:00+00:00</td>
+      <td>4.0035</td>
+      <td>159.012177</td>
+      <td>-13.911661</td>
+      <td>160.9</td>
+      <td>-13.6</td>
+      <td>-0.421</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>5.388097</td>
+      <td>8.409617</td>
+      <td>215.400314</td>
+      <td>8.409617</td>
+      <td>121.468</td>
+      <td>2011-01-31 12:00:00+00:00</td>
+      <td>4.5150</td>
+      <td>160.805725</td>
+      <td>-12.505943</td>
+      <td>160.9</td>
+      <td>-13.6</td>
+      <td>4.477</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>6.742534</td>
+      <td>10.523590</td>
+      <td>645.875203</td>
+      <td>10.523590</td>
+      <td>26.814</td>
+      <td>2011-01-31 12:00:00+00:00</td>
+      <td>6.9890</td>
+      <td>160.705750</td>
+      <td>-13.449617</td>
+      <td>160.9</td>
+      <td>-13.6</td>
+      <td>4.482</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>8.084588</td>
+      <td>12.618237</td>
+      <td>917.565692</td>
+      <td>12.618237</td>
+      <td>121.311</td>
+      <td>2011-01-31 12:00:00+00:00</td>
+      <td>7.6075</td>
+      <td>160.578125</td>
+      <td>-14.650486</td>
+      <td>160.9</td>
+      <td>-13.6</td>
+      <td>4.487</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>9.622043</td>
+      <td>15.017862</td>
+      <td>1129.556402</td>
+      <td>15.017862</td>
+      <td>218.935</td>
+      <td>2011-01-31 12:00:00+00:00</td>
+      <td>7.7370</td>
+      <td>160.483597</td>
+      <td>-15.536715</td>
+      <td>160.9</td>
+      <td>-13.6</td>
+      <td>4.491</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>6.898052</td>
+      <td>10.766320</td>
+      <td>272.597023</td>
+      <td>10.766320</td>
+      <td>207.058</td>
+      <td>2011-01-31 14:00:00+00:00</td>
+      <td>4.4890</td>
+      <td>159.369446</td>
+      <td>-15.467758</td>
+      <td>160.0</td>
+      <td>-13.7</td>
+      <td>-2.428</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>6.756970</td>
+      <td>10.546121</td>
+      <td>265.003090</td>
+      <td>10.546121</td>
+      <td>126.292</td>
+      <td>2011-01-31 14:00:00+00:00</td>
+      <td>4.4720</td>
+      <td>159.141006</td>
+      <td>-14.474576</td>
+      <td>160.0</td>
+      <td>-13.7</td>
+      <td>-2.424</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>6.294248</td>
+      <td>9.823916</td>
+      <td>197.842215</td>
+      <td>9.823916</td>
+      <td>109.344</td>
+      <td>2011-01-31 14:00:00+00:00</td>
+      <td>4.0035</td>
+      <td>159.012177</td>
+      <td>-13.911661</td>
+      <td>160.0</td>
+      <td>-13.7</td>
+      <td>-2.421</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>6.351562</td>
+      <td>9.913371</td>
+      <td>182.333266</td>
+      <td>9.913371</td>
+      <td>123.287</td>
+      <td>2011-01-31 14:00:00+00:00</td>
+      <td>3.8260</td>
+      <td>158.898865</td>
+      <td>-13.414909</td>
+      <td>160.0</td>
+      <td>-13.7</td>
+      <td>-2.419</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>6.061618</td>
+      <td>9.460833</td>
+      <td>114.016157</td>
+      <td>9.460833</td>
+      <td>195.525</td>
+      <td>2011-01-31 14:00:00+00:00</td>
+      <td>3.0970</td>
+      <td>158.688202</td>
+      <td>-12.487484</td>
+      <td>160.0</td>
+      <td>-13.7</td>
+      <td>-2.414</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>5.388097</td>
+      <td>8.409617</td>
+      <td>215.400314</td>
+      <td>8.409617</td>
+      <td>158.380</td>
+      <td>2011-01-31 14:00:00+00:00</td>
+      <td>4.5150</td>
+      <td>160.805725</td>
+      <td>-12.505943</td>
+      <td>160.0</td>
+      <td>-13.7</td>
+      <td>2.477</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>6.742534</td>
+      <td>10.523590</td>
+      <td>645.875203</td>
+      <td>10.523590</td>
+      <td>81.251</td>
+      <td>2011-01-31 14:00:00+00:00</td>
+      <td>6.9890</td>
+      <td>160.705750</td>
+      <td>-13.449617</td>
+      <td>160.0</td>
+      <td>-13.7</td>
+      <td>2.482</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>8.084588</td>
+      <td>12.618237</td>
+      <td>917.565692</td>
+      <td>12.618237</td>
+      <td>122.287</td>
+      <td>2011-01-31 14:00:00+00:00</td>
+      <td>7.6075</td>
+      <td>160.578125</td>
+      <td>-14.650486</td>
+      <td>160.0</td>
+      <td>-13.7</td>
+      <td>2.487</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>9.622043</td>
+      <td>15.017862</td>
+      <td>1129.556402</td>
+      <td>15.017862</td>
+      <td>209.795</td>
+      <td>2011-01-31 14:00:00+00:00</td>
+      <td>7.7370</td>
+      <td>160.483597</td>
+      <td>-15.536715</td>
+      <td>160.0</td>
+      <td>-13.7</td>
+      <td>2.491</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>10.164666</td>
+      <td>15.864775</td>
+      <td>1659.794099</td>
+      <td>15.864775</td>
+      <td>166.122</td>
+      <td>2011-02-01 00:00:00+00:00</td>
+      <td>9.1250</td>
+      <td>157.284393</td>
+      <td>-15.489555</td>
+      <td>156.7</td>
+      <td>-14.1</td>
+      <td>4.754</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>7.840593</td>
+      <td>12.237417</td>
+      <td>866.401715</td>
+      <td>12.237417</td>
+      <td>62.471</td>
+      <td>2011-02-01 00:00:00+00:00</td>
+      <td>7.5065</td>
+      <td>157.171509</td>
+      <td>-14.427608</td>
+      <td>156.7</td>
+      <td>-14.1</td>
+      <td>4.759</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>6.531067</td>
+      <td>10.193538</td>
+      <td>340.226704</td>
+      <td>10.193538</td>
+      <td>79.440</td>
+      <td>2011-02-01 00:00:00+00:00</td>
+      <td>5.1540</td>
+      <td>157.071121</td>
+      <td>-13.480325</td>
+      <td>156.7</td>
+      <td>-14.1</td>
+      <td>4.763</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>6.970117</td>
+      <td>10.878797</td>
+      <td>301.690431</td>
+      <td>10.878797</td>
+      <td>136.290</td>
+      <td>2011-02-01 00:00:00+00:00</td>
+      <td>4.6980</td>
+      <td>157.010422</td>
+      <td>-12.906148</td>
+      <td>156.7</td>
+      <td>-14.1</td>
+      <td>4.765</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>6.307313</td>
+      <td>9.844308</td>
+      <td>297.468306</td>
+      <td>9.844308</td>
+      <td>185.091</td>
+      <td>2011-02-01 00:00:00+00:00</td>
+      <td>4.9040</td>
+      <td>156.961929</td>
+      <td>-12.446772</td>
+      <td>156.7</td>
+      <td>-14.1</td>
+      <td>4.768</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
+<div class="section" id="visualising-the-relevant-altimeters-date">
+<h2>Visualising the relevant altimeters date<a class="headerlink" href="#visualising-the-relevant-altimeters-date" title="Permalink to this headline">¶</a></h2>
+<p><strong>RADWave</strong> provides a plotting function to visualise the processed wave data called <code class="docutils literal notranslate"><span class="pre">plotCycloneAltiPoint</span></code> that can be used to also provide information about wave parameters for each data point (by turning the <code class="docutils literal notranslate"><span class="pre">showinfo</span></code> flag to True as explained in the <a class="reference external" href="https://radwave.readthedocs.io/en/latest/RADWave.html#RADWave.altiwave.waveAnalysis.plotCycloneAltiPoint">API</a>.</p>
+<p>An example of how to call this function is presented below:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">wa_west</span><span class="o">.</span><span class="n">plotCycloneAltiPoint</span><span class="p">(</span><span class="n">showinfo</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">extent</span><span class="o">=</span><span class="p">[</span><span class="mi">138</span><span class="p">,</span> <span class="mi">180</span><span class="p">,</span> <span class="o">-</span><span class="mi">18</span><span class="p">,</span> <span class="o">-</span><span class="mi">10</span><span class="p">],</span> 
+                 <span class="n">markersize</span><span class="o">=</span><span class="mi">35</span><span class="p">,</span> <span class="n">zoom</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">fsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/getafix/anaconda3/envs/coast/lib/python3.8/site-packages/cartopy/mpl/gridliner.py:307: UserWarning: The .xlabels_top attribute is deprecated. Please use .top_labels to toggle visibility instead.
+  warnings.warn(&#39;The .xlabels_top attribute is deprecated. Please &#39;
+/Users/getafix/anaconda3/envs/coast/lib/python3.8/site-packages/cartopy/mpl/gridliner.py:331: UserWarning: The .ylabels_left attribute is deprecated. Please use .left_labels to toggle visibility instead.
+  warnings.warn(&#39;The .ylabels_left attribute is deprecated. Please &#39;
+</pre></div>
+</div>
+<img alt="../_images/cycloneyasi_17_1.svg" src="../_images/cycloneyasi_17_1.svg" /><img alt="../_images/cycloneyasi_17_2.svg" src="../_images/cycloneyasi_17_2.svg" /><img alt="../_images/cycloneyasi_17_3.svg" src="../_images/cycloneyasi_17_3.svg" /></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">wa_west</span><span class="o">.</span><span class="n">plotCycloneAltiPoint</span><span class="p">(</span><span class="n">showinfo</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">extent</span><span class="o">=</span><span class="p">[</span><span class="mi">138</span><span class="p">,</span> <span class="mi">180</span><span class="p">,</span> <span class="o">-</span><span class="mi">18</span><span class="p">,</span> <span class="o">-</span><span class="mi">10</span><span class="p">],</span> 
+                 <span class="n">markersize</span><span class="o">=</span><span class="mi">35</span><span class="p">,</span> <span class="n">zoom</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">fsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 
+++++++++++++++++++++++++++++++++++++++++++++
+
+Considered cyclone path point (160.9,-13.6) at 2011-01-31 12:00:00+00:00
+</pre></div>
+</div>
+<img alt="../_images/cycloneyasi_18_1.svg" src="../_images/cycloneyasi_18_1.svg" /><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Altimeter point (159.1,-14.5) records dt: -0.42h
+    +    Power  265.0 kW/m
+    +   Energy  10.55 J/m2
+    + Celerity  10.55 m/s
+    +   Period  6.76 s
+    +   Height  4.47 m
+ 
+Altimeter point (159.0,-13.9) records dt: -0.42h
+    +    Power  197.84 kW/m
+    +   Energy  9.82 J/m2
+    + Celerity  9.82 m/s
+    +   Period  6.29 s
+    +   Height  4.0 m
+ 
+Altimeter point (160.8,-12.5) records dt: 4.48h
+    +    Power  215.4 kW/m
+    +   Energy  8.41 J/m2
+    + Celerity  8.41 m/s
+    +   Period  5.39 s
+    +   Height  4.52 m
+ 
+Altimeter point (160.7,-13.4) records dt: 4.48h
+    +    Power  645.88 kW/m
+    +   Energy  10.52 J/m2
+    + Celerity  10.52 m/s
+    +   Period  6.74 s
+    +   Height  6.99 m
+ 
+Altimeter point (160.6,-14.7) records dt: 4.49h
+    +    Power  917.57 kW/m
+    +   Energy  12.62 J/m2
+    + Celerity  12.62 m/s
+    +   Period  8.08 s
+    +   Height  7.61 m
+ 
+Altimeter point (160.5,-15.5) records dt: 4.49h
+    +    Power  1129.56 kW/m
+    +   Energy  15.02 J/m2
+    + Celerity  15.02 m/s
+    +   Period  9.62 s
+    +   Height  7.74 m
+ 
+ 
+++++++++++++++++++++++++++++++++++++++++++++
+
+Considered cyclone path point (160.0,-13.7) at 2011-01-31 14:00:00+00:00
+</pre></div>
+</div>
+<img alt="../_images/cycloneyasi_18_3.svg" src="../_images/cycloneyasi_18_3.svg" /><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Altimeter point (159.4,-15.5) records dt: -2.43h
+    +    Power  272.6 kW/m
+    +   Energy  10.77 J/m2
+    + Celerity  10.77 m/s
+    +   Period  6.9 s
+    +   Height  4.49 m
+ 
+Altimeter point (159.1,-14.5) records dt: -2.42h
+    +    Power  265.0 kW/m
+    +   Energy  10.55 J/m2
+    + Celerity  10.55 m/s
+    +   Period  6.76 s
+    +   Height  4.47 m
+ 
+Altimeter point (159.0,-13.9) records dt: -2.42h
+    +    Power  197.84 kW/m
+    +   Energy  9.82 J/m2
+    + Celerity  9.82 m/s
+    +   Period  6.29 s
+    +   Height  4.0 m
+ 
+Altimeter point (158.9,-13.4) records dt: -2.42h
+    +    Power  182.33 kW/m
+    +   Energy  9.91 J/m2
+    + Celerity  9.91 m/s
+    +   Period  6.35 s
+    +   Height  3.83 m
+ 
+Altimeter point (158.7,-12.5) records dt: -2.41h
+    +    Power  114.02 kW/m
+    +   Energy  9.46 J/m2
+    + Celerity  9.46 m/s
+    +   Period  6.06 s
+    +   Height  3.1 m
+ 
+Altimeter point (160.8,-12.5) records dt: 2.48h
+    +    Power  215.4 kW/m
+    +   Energy  8.41 J/m2
+    + Celerity  8.41 m/s
+    +   Period  5.39 s
+    +   Height  4.52 m
+ 
+Altimeter point (160.7,-13.4) records dt: 2.48h
+    +    Power  645.88 kW/m
+    +   Energy  10.52 J/m2
+    + Celerity  10.52 m/s
+    +   Period  6.74 s
+    +   Height  6.99 m
+ 
+Altimeter point (160.6,-14.7) records dt: 2.49h
+    +    Power  917.57 kW/m
+    +   Energy  12.62 J/m2
+    + Celerity  12.62 m/s
+    +   Period  8.08 s
+    +   Height  7.61 m
+ 
+Altimeter point (160.5,-15.5) records dt: 2.49h
+    +    Power  1129.56 kW/m
+    +   Energy  15.02 J/m2
+    + Celerity  15.02 m/s
+    +   Period  9.62 s
+    +   Height  7.74 m
+ 
+ 
+++++++++++++++++++++++++++++++++++++++++++++
+
+Considered cyclone path point (156.7,-14.1) at 2011-02-01 00:00:00+00:00
+</pre></div>
+</div>
+<img alt="../_images/cycloneyasi_18_5.svg" src="../_images/cycloneyasi_18_5.svg" /><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Altimeter point (157.3,-15.5) records dt: 4.75h
+    +    Power  1659.79 kW/m
+    +   Energy  15.86 J/m2
+    + Celerity  15.86 m/s
+    +   Period  10.16 s
+    +   Height  9.12 m
+ 
+Altimeter point (157.2,-14.4) records dt: 4.76h
+    +    Power  866.4 kW/m
+    +   Energy  12.24 J/m2
+    + Celerity  12.24 m/s
+    +   Period  7.84 s
+    +   Height  7.51 m
+ 
+Altimeter point (157.1,-13.5) records dt: 4.76h
+    +    Power  340.23 kW/m
+    +   Energy  10.19 J/m2
+    + Celerity  10.19 m/s
+    +   Period  6.53 s
+    +   Height  5.15 m
+ 
+Altimeter point (157.0,-12.9) records dt: 4.76h
+    +    Power  301.69 kW/m
+    +   Energy  10.88 J/m2
+    + Celerity  10.88 m/s
+    +   Period  6.97 s
+    +   Height  4.7 m
+ 
+Altimeter point (157.0,-12.4) records dt: 4.77h
+    +    Power  297.47 kW/m
+    +   Energy  9.84 J/m2
+    + Celerity  9.84 m/s
+    +   Period  6.31 s
+    +   Height  4.9 m
+ 
+</pre></div>
+</div>
+</div>
+</div>
+<blockquote>
+<div><p>As already mentioned in the different examples, the class <strong>waveAnalysis()</strong> saves most of the processed wave data as Pandas dataframe (such as <code class="docutils literal notranslate"><span class="pre">timeseries</span></code> or <code class="docutils literal notranslate"><span class="pre">cyclone_data</span></code>) that can be used for further analysis.</p>
+</div></blockquote>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./waveclimate"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="climatevariability.html" title="previous page">Climate variability</a>
+    <a class='right-next' id="next-link" href="../coastevol.html" title="next page">Quantifying coastal changes</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Tristan Salles<br/>
+        
+            &copy; Copyright 2020-2022.<br/>
+          <div class="extra_footer">
+            <p>
+<a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">
+  <img align="right" class="margin" src="https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by.svg" width="88px">
+</a>
+These lecture notes and exercises are licensed under a <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">Creative Commons Attribution 4.0 International (CC BY 4.0) license</a>.
+<br>
+&copy; Copyright 2020-2022.
+</p>
+
+          </div>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+  </body>
+</html>

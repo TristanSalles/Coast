@@ -1,0 +1,879 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Climate variability &#8212; Coastal Processes, Environments &amp; Systems</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.c441f2ba0852f4cabcb80105e3a46ae6.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Cyclone track" href="cycloneyasi.html" />
+    <link rel="prev" title="Satellite tile analysis" href="tileanalysis.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Coastal Processes, Environments & Systems</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <p class="caption collapsible-parent">
+ <span class="caption-text">
+  week 1
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../queryocean/notes.html">
+   Notes on ocean data query
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../pracenv/intronotebook.html">
+     Introduction to Jupyter notebook
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../queryocean/buoygoldcoast.html">
+     AODN - Wave buoys Gold Coast
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../queryocean/oceandata1.html">
+     Using the IMOS User Code Library with Python
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../queryocean/oceandata2.html">
+     IMOS Ocean Radar Data Query
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../queryocean/waverider.html">
+     Analysing historical records of wave data from IMOS
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../queryocean/oceanforecast.html">
+     Access data from Forecast Model
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  week 2
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1 current active collapsible-parent">
+  <a class="reference internal" href="notes.html">
+   Analysing wave climate notes
+  </a>
+  <ul class="current collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="tileanalysis.html">
+     Satellite tile analysis
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Climate variability
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="cycloneyasi.html">
+     Cyclone track
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  week 3
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../coastevol.html">
+   Quantifying coastal changes
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  week 4
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../reefmodel.html">
+   Coral reef evolution
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Jupyter
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../pracenv/notebooks.html">
+   Interactive notebooks
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../pracenv/environment.html">
+     Managing environments
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../pracenv/jupyter.html">
+     Jupyter notebook
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/waveclimate/climatevariability.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/TristanSalles/Coast"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/TristanSalles/Coast/issues/new?title=Issue%20on%20page%20%2Fwaveclimate/climatevariability.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/TristanSalles/Coast/edit/main/book/waveclimate/climatevariability.ipynb"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+            <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                    data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                    title="Fullscreen mode"><i
+                        class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/TristanSalles/Coast/main?urlpath=lab/tree/book/waveclimate/climatevariability.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i>
+            Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#loading-radwave-library-and-initialisation">
+   Loading RADWave library and initialisation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#processing-altimeters-data">
+   Processing altimeters data
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#computing-wave-regime-and-seasonality">
+   Computing wave regime and seasonality
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#time-series">
+     Time series
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#seasonability-trends">
+     Seasonability trends
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#significant-wave-height">
+       Significant wave height
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#wave-period">
+       Wave period
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#years-analysis-of-the-impact-of-climate-trend">
+   20-years analysis of the impact of climate trend
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#soi-southern-oscillation-index">
+     SOI - Southern Oscillation Index
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#aoi-antarctic-oscillation-index">
+     AOI - Antarctic Oscillation Index
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#sami-southern-annular-mode-index">
+     SAMI - Southern Annular Mode Index
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#radwave-significant-wave-height-and-wave-period-anomalies">
+     RADWave significant wave height and wave period anomalies
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id1">
+       Significant wave height
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id2">
+       Wave period
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#correlations">
+     Correlations
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+        </nav>
+        
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="climate-variability">
+<h1>Climate variability<a class="headerlink" href="#climate-variability" title="Permalink to this headline">¶</a></h1>
+<p>This second notebook showcases similar functionalities as example 1 but in addition it illustrates how <strong>RADWave</strong> can be used to estimate the influence of climate trends on regional wave patterns.</p>
+<p>As in the previous notebook, we will be querying data already downloaded from the obtained from Australian Ocean Data Network portal <a class="reference external" href="https://portal.aodn.org.au/">AODN</a>.</p>
+<blockquote>
+<div><p>We recomend to look at <strong>RADWave</strong> <a class="reference external" href="https://radwave.readthedocs.io/en/latest/usage.html#getting-altimeter-values-from-data-providers">documentation</a> and the embeded video that explain how to select both a spatial bounding box and a temporal extent from the portal and how to export the file containing the <code class="docutils literal notranslate"><span class="pre">List</span> <span class="pre">of</span> <span class="pre">URLs</span></code>. This <code class="docutils literal notranslate"><span class="pre">TXT</span></code> file contains a list of <code class="docutils literal notranslate"><span class="pre">NETCDF</span></code> files for each available satellites.</p>
+</div></blockquote>
+<div class="section" id="loading-radwave-library-and-initialisation">
+<h2>Loading RADWave library and initialisation<a class="headerlink" href="#loading-radwave-library-and-initialisation" title="Permalink to this headline">¶</a></h2>
+<p>We first start by importing <strong>RADwave</strong> library into our working space.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">io</span>
+<span class="kn">import</span> <span class="nn">scipy</span>
+<span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span> 
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="kn">import</span> <span class="nn">RADWave</span> <span class="k">as</span> <span class="nn">rwave</span>
+
+<span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="o">%</span><span class="k">config</span> InlineBackend.figure_format = &#39;svg&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Here we will take the list of <code class="docutils literal notranslate"><span class="pre">NetCDF</span></code> URLs downloaded from the wave data portal containing the radar altimeter data for a region located offshore New Zealand [‘…/dataset/IMOS_NZ.txt’]</p>
+<p>For a detail overview of the options available in the <code class="docutils literal notranslate"><span class="pre">waveAnalysis</span></code> class, you can have a look at the <a class="reference external" href="https://radwave.readthedocs.io/en/latest/RADWave.html#RADWave.altiwave.waveAnalysis">waveAnalysis API</a>.</p>
+<p>During initialisation we also specify:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">bbox</span></code> the bounding box of the geographical extent for the uploaded dataset following the convention [lon min,lon max,lat min,lat max]</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">stime</span></code> the starting time of wave climate analysis following the convention [year, month, day] [we chose the 1st of January 1985]</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">etime</span></code> the ending time of wave climate analysis following the convention [year, month, day] [we chose the 31st of December 2018]</p></li>
+</ul>
+<p>Here again, we don’t specify a list of particular satellites to use (<code class="docutils literal notranslate"><span class="pre">satNames</span></code> keyword) so all of them will be queried. In other words we will look at all the records from the 10 altimeters:</p>
+<p>JASON-2 - JASON-3 - SARAL - SENTINEL-3A - CRYOSAT-2 - ENVISAT - GEOSAT - ERS-2 - GFO - TOPEX.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">wa</span> <span class="o">=</span> <span class="n">rwave</span><span class="o">.</span><span class="n">waveAnalysis</span><span class="p">(</span><span class="n">altimeterURL</span><span class="o">=</span><span class="s1">&#39;../pracenv/dataset/IMOS_NZ.txt&#39;</span><span class="p">,</span> <span class="n">bbox</span><span class="o">=</span><span class="p">[</span><span class="mf">175.0</span><span class="p">,</span><span class="mf">177.0</span><span class="p">,</span><span class="o">-</span><span class="mf">47.0</span><span class="p">,</span><span class="o">-</span><span class="mf">45.0</span><span class="p">],</span> 
+                  <span class="n">stime</span><span class="o">=</span><span class="p">[</span><span class="mi">1985</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span> <span class="n">etime</span><span class="o">=</span><span class="p">[</span><span class="mi">2019</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">31</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="processing-altimeters-data">
+<h2>Processing altimeters data<a class="headerlink" href="#processing-altimeters-data" title="Permalink to this headline">¶</a></h2>
+<p>After class initialisation querying the actual dataset is realised by calling the <code class="docutils literal notranslate"><span class="pre">processAltimeterData</span></code> function. The description of this function is available from the <a class="reference external" href="https://radwave.readthedocs.io/en/latest/RADWave.html#RADWave.altiwave.waveAnalysis.processAltimeterData">API</a>.</p>
+<p>The function can take some times to execute depending on the number of NETCDF files to load and the size of the dataset to query (here it should not take more than <strong>30 s</strong>).</p>
+<blockquote>
+<div><p><strong>RADWave</strong> uses the uploaded file containing the list of URLs to query via <code class="docutils literal notranslate"><span class="pre">THREDDS</span></code> the remote data. This operation can take <em>several minutes</em> and when looking at a large region it is recommended to divide the analyse in smaller regions and download a series of URLs text file instead of the entire domain directly.</p>
+</div></blockquote>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">wa</span><span class="o">.</span><span class="n">processAltimeterData</span><span class="p">(</span><span class="n">max_qc</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">altimeter_pick</span><span class="o">=</span><span class="s1">&#39;all&#39;</span><span class="p">,</span> <span class="n">saveCSV</span> <span class="o">=</span> <span class="s1">&#39;altimeterData.csv&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Processing Altimeter Dataset 
+
+   +  name JASON-2     / number of tracks                               4   
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   +  name JASON-3     / number of tracks                               4   
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   +  name SARAL       / number of tracks                               4   
+</pre></div>
+</div>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">3</span><span class="o">-</span><span class="n">a77cf9e50a80</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">wa</span><span class="o">.</span><span class="n">processAltimeterData</span><span class="p">(</span><span class="n">max_qc</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">altimeter_pick</span><span class="o">=</span><span class="s1">&#39;all&#39;</span><span class="p">,</span> <span class="n">saveCSV</span> <span class="o">=</span> <span class="s1">&#39;altimeterData.csv&#39;</span><span class="p">)</span>
+
+<span class="nn">/usr/share/miniconda/envs/coast/lib/python3.8/site-packages/RADWave/altiwave.py</span> in <span class="ni">processAltimeterData</span><span class="nt">(self, max_qc, altimeter_pick, saveCSV)</span>
+<span class="g g-Whitespace">    </span><span class="mi">296</span>                 <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">picked_url</span><span class="p">)):</span>
+<span class="g g-Whitespace">    </span><span class="mi">297</span> 
+<span class="ne">--&gt; </span><span class="mi">298</span>                     <span class="n">ncs</span> <span class="o">=</span> <span class="n">NetCDFFile</span><span class="p">(</span><span class="n">picked_url</span><span class="p">[</span><span class="n">k</span><span class="p">])</span>
+<span class="g g-Whitespace">    </span><span class="mi">299</span>                     <span class="k">if</span> <span class="n">k</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">300</span>                         <span class="nb">print</span><span class="p">(</span>
+
+<span class="nn">src/netCDF4/_netCDF4.pyx</span> in <span class="ni">netCDF4._netCDF4.Dataset.__init__</span><span class="nt">()</span>
+
+<span class="nn">src/netCDF4/_netCDF4.pyx</span> in <span class="ni">netCDF4._netCDF4._get_vars</span><span class="nt">()</span>
+
+<span class="nn">src/netCDF4/_netCDF4.pyx</span> in <span class="ni">netCDF4._netCDF4.Variable.__init__</span><span class="nt">()</span>
+
+<span class="nn">/usr/share/miniconda/envs/coast/lib/python3.8/site-packages/netCDF4/utils.py</span> in <span class="ni">_find_dim</span><span class="nt">(grp, dimname)</span>
+<span class="g g-Whitespace">     </span><span class="mi">39</span>     <span class="k">return</span> <span class="p">[</span><span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">A</span><span class="p">)),</span> <span class="n">key</span><span class="o">=</span><span class="n">B</span><span class="o">.</span><span class="fm">__getitem__</span><span class="p">)]</span>
+<span class="g g-Whitespace">     </span><span class="mi">40</span> 
+<span class="ne">---&gt; </span><span class="mi">41</span> <span class="k">def</span> <span class="nf">_find_dim</span><span class="p">(</span><span class="n">grp</span><span class="p">,</span> <span class="n">dimname</span><span class="p">):</span>
+<span class="g g-Whitespace">     </span><span class="mi">42</span>     <span class="c1"># find Dimension instance given group and name.</span>
+<span class="g g-Whitespace">     </span><span class="mi">43</span>     <span class="c1"># look in current group, and parents.</span>
+
+<span class="ne">KeyboardInterrupt</span>: 
+</pre></div>
+</div>
+</div>
+</div>
+<p>Once the dataset has been queried, we can plot the altimeter data points on a map using the <code class="docutils literal notranslate"><span class="pre">visualiseData</span></code> function.</p>
+<p>This function <strong>plots</strong> and <strong>saves</strong> in a figure the geographical coordinates of processed altimeter data.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">wa</span><span class="o">.</span><span class="n">visualiseData</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;Altimeter data tracks offshore New Zealand&quot;</span><span class="p">,</span> <span class="n">extent</span><span class="o">=</span><span class="p">[</span><span class="mf">166.</span><span class="p">,</span><span class="mf">179.</span><span class="p">,</span><span class="o">-</span><span class="mf">48.</span><span class="p">,</span><span class="o">-</span><span class="mf">42.</span><span class="p">],</span> 
+                 <span class="n">addcity</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">zoom</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span>
+                 <span class="n">fsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">9</span><span class="p">),</span> <span class="n">fsave</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/getafix/anaconda3/envs/coast/lib/python3.8/site-packages/cartopy/mpl/gridliner.py:307: UserWarning: The .xlabels_top attribute is deprecated. Please use .top_labels to toggle visibility instead.
+  warnings.warn(&#39;The .xlabels_top attribute is deprecated. Please &#39;
+/Users/getafix/anaconda3/envs/coast/lib/python3.8/site-packages/cartopy/mpl/gridliner.py:331: UserWarning: The .ylabels_left attribute is deprecated. Please use .left_labels to toggle visibility instead.
+  warnings.warn(&#39;The .ylabels_left attribute is deprecated. Please &#39;
+</pre></div>
+</div>
+<img alt="../_images/climatevariability_7_1.svg" src="../_images/climatevariability_7_1.svg" /></div>
+</div>
+</div>
+<div class="section" id="computing-wave-regime-and-seasonality">
+<h2>Computing wave regime and seasonality<a class="headerlink" href="#computing-wave-regime-and-seasonality" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="time-series">
+<h3>Time series<a class="headerlink" href="#time-series" title="Permalink to this headline">¶</a></h3>
+<p>To perform wave analysis and compute the wave parameters discussed in the <a class="reference external" href="https://radwave.readthedocs.io/en/latest/method.html">documentation</a>, we run the <code class="docutils literal notranslate"><span class="pre">generateTimeSeries</span></code> function. And we then plot these time series by calling the <code class="docutils literal notranslate"><span class="pre">plotTimeSeries</span></code> function.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">timeseries</span> <span class="o">=</span> <span class="n">wa</span><span class="o">.</span><span class="n">generateTimeSeries</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">wa</span><span class="o">.</span><span class="n">plotTimeSeries</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="p">[</span><span class="mi">1995</span><span class="p">,</span><span class="mi">2019</span><span class="p">],</span> <span class="n">series</span><span class="o">=</span><span class="s1">&#39;H&#39;</span><span class="p">,</span> <span class="n">fsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="n">fsave</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+<span class="n">wa</span><span class="o">.</span><span class="n">plotTimeSeries</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="p">[</span><span class="mi">1995</span><span class="p">,</span><span class="mi">2019</span><span class="p">],</span> <span class="n">series</span><span class="o">=</span><span class="s1">&#39;T&#39;</span><span class="p">,</span> <span class="n">fsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="n">fsave</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Max wave height: 8.944 m
+Mean wave height: 3.212 m
+Median wave height: 2.985 m
+95th percentile wave height: 5.532 m
+</pre></div>
+</div>
+<img alt="../_images/climatevariability_10_1.svg" src="../_images/climatevariability_10_1.svg" /><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Max wave period: 12.887 s
+Mean wave period: 7.382 s
+Median wave period: 7.275 s
+95th percentile wave period: 9.440 s
+</pre></div>
+</div>
+<img alt="../_images/climatevariability_10_3.svg" src="../_images/climatevariability_10_3.svg" /></div>
+</div>
+</div>
+<div class="section" id="seasonability-trends">
+<h3>Seasonability trends<a class="headerlink" href="#seasonability-trends" title="Permalink to this headline">¶</a></h3>
+<p>In addition to time series, we analyse the seasonal characteristics of the significant wave height and wave period computed from the altimeter dataset using the <code class="docutils literal notranslate"><span class="pre">computeSeasonalCharacteristics</span></code> function is provided in the <a class="reference external" href="https://radwave.readthedocs.io/en/latest/RADWave.html#RADWave.altiwave.waveAnalysis.computeSeasonalCharacteristics">API</a>.</p>
+<div class="section" id="significant-wave-height">
+<h4>Significant wave height<a class="headerlink" href="#significant-wave-height" title="Permalink to this headline">¶</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">wh_all</span> <span class="o">=</span> <span class="n">wa</span><span class="o">.</span><span class="n">computeSeasonalCharacteristics</span><span class="p">(</span><span class="n">series</span><span class="o">=</span><span class="s1">&#39;wh&#39;</span><span class="p">,</span> <span class="n">time</span><span class="o">=</span><span class="p">[</span><span class="mi">1995</span><span class="p">,</span><span class="mi">2020</span><span class="p">],</span> <span class="n">lonlat</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">fsave</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">plot</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/climatevariability_12_0.svg" src="../_images/climatevariability_12_0.svg" /><img alt="../_images/climatevariability_12_1.svg" src="../_images/climatevariability_12_1.svg" /><img alt="../_images/climatevariability_12_2.svg" src="../_images/climatevariability_12_2.svg" /><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 
+Change in yearly wave height trend accounting                       for seasonality:
+    +           trend:  no trend
+    +    slope (cm/y):  -0.64
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="wave-period">
+<h4>Wave period<a class="headerlink" href="#wave-period" title="Permalink to this headline">¶</a></h4>
+<p>Here we choose to only perform the calculation of the wave period seasonability but we don’t plot the associated graphs.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">T_all</span> <span class="o">=</span> <span class="n">wa</span><span class="o">.</span><span class="n">computeSeasonalCharacteristics</span><span class="p">(</span><span class="n">series</span><span class="o">=</span><span class="s1">&#39;period&#39;</span><span class="p">,</span> <span class="n">time</span><span class="o">=</span><span class="p">[</span><span class="mi">1995</span><span class="p">,</span><span class="mi">2019</span><span class="p">],</span> <span class="n">lonlat</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">fsave</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">plot</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<blockquote>
+<div><p>The function <code class="docutils literal notranslate"><span class="pre">computeSeasonalCharacteristics</span></code> returns 2 <strong>Pandas dataframe</strong> containing the mean monthly values of wave period <code class="docutils literal notranslate"><span class="pre">T_all</span></code> and significant wave height <code class="docutils literal notranslate"><span class="pre">wh_all</span></code>.</p>
+</div></blockquote>
+</div>
+</div>
+</div>
+<div class="section" id="years-analysis-of-the-impact-of-climate-trend">
+<h2>20-years analysis of the impact of climate trend<a class="headerlink" href="#years-analysis-of-the-impact-of-climate-trend" title="Permalink to this headline">¶</a></h2>
+<p>Oscillation in atmospheric patterns is known to alter regional weather conditions and associated trends in wave climate [Godoi et al., 2016].</p>
+<p>Here we illustrate how the results obtained with <strong>RADWave</strong> can be used to investigate how climate patterns may affect  wave parameters.</p>
+<p>For the sake of the demonstration, we will focus our analysis on the following indices:</p>
+<ul class="simple">
+<li><p>SOI - Southern Oscillation Index / <a class="reference external" href="http://www.bom.gov.au/climate/enso/history/ln-2010-12/SOI-what.shtml">information</a></p></li>
+<li><p>AOI - Antarctic Oscillation Index / <a class="reference external" href="https://www.cpc.ncep.noaa.gov/products/precip/CWlink/daily_ao_index/aao/aao_index.html">information</a></p></li>
+<li><p>SAMI - Southern Annular Mode Index / <a class="reference external" href="http://www.bom.gov.au/climate/sam/">information</a></p></li>
+</ul>
+<p>We first load the data associated to each index using <code class="docutils literal notranslate"><span class="pre">Pandas</span></code> functionalities.</p>
+<ul class="simple">
+<li><p>Godoi, V.A., Bryan, K.R. and Gorman, R.M., 2016. <a class="reference external" href="https://agupubs.onlinelibrary.wiley.com/doi/pdf/10.1002/2015JC011572">Regional influence of climate patterns on the wave climate of the southwestern Pacific: The New Zealand region</a>. Journal of Geophysical Research: Oceans, 121(6), pp.4056-4076.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Defining the 20-years timeframe</span>
+<span class="n">time</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1998</span><span class="p">,</span><span class="mi">2018</span><span class="p">]</span> 
+</pre></div>
+</div>
+</div>
+</div>
+<p>Monthly means of the SOI, AOI &amp; SAMI index are sourced from the National Oceanic and Atmospheric Administration (<strong>NOAA</strong>) and the Natural Environment Research Council from the British Antarctic Survey (<strong>NERC</strong>).</p>
+<p>For each climate index the anomalies are computed by subtracting overall mean from the monthly means.</p>
+<p>Then, the same is done for the wave parameters in order to investigate how they are modulated by the climate modes.</p>
+<div class="section" id="soi-southern-oscillation-index">
+<h3>SOI - Southern Oscillation Index<a class="headerlink" href="#soi-southern-oscillation-index" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Dataset URL</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://www.ncdc.noaa.gov/teleconnections/enso/indicators/soi/data.csv&quot;</span>
+
+<span class="c1"># Using Pandas to load the file content</span>
+<span class="n">soi</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span><span class="o">.</span><span class="n">content</span>
+<span class="n">soi_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">io</span><span class="o">.</span><span class="n">StringIO</span><span class="p">(</span><span class="n">soi</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)),</span><span class="n">skiprows</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># Define year and month of each record</span>
+<span class="n">soi_data</span><span class="p">[</span><span class="s1">&#39;year&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">soi_data</span><span class="p">[</span><span class="s1">&#39;Date&#39;</span><span class="p">]</span> <span class="o">//</span> <span class="mi">100</span>
+<span class="n">soi_data</span><span class="p">[</span><span class="s1">&#39;month&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">soi_data</span><span class="p">[</span><span class="s1">&#39;Date&#39;</span><span class="p">]</span> <span class="o">%</span> <span class="mi">100</span> 
+
+<span class="c1"># Extract the information for the specified time interval </span>
+<span class="n">soi_df</span> <span class="o">=</span> <span class="n">soi_data</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">soi_data</span><span class="p">[</span><span class="n">soi_data</span><span class="o">.</span><span class="n">year</span> <span class="o">&lt;</span> <span class="n">time</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+<span class="n">soi_df</span> <span class="o">=</span> <span class="n">soi_df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">soi_df</span><span class="p">[</span><span class="n">soi_df</span><span class="o">.</span><span class="n">year</span> <span class="o">&gt;</span> <span class="n">time</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+
+<span class="c1"># Calculate the 20-years mean </span>
+<span class="n">soi_mean</span> <span class="o">=</span> <span class="n">soi_df</span><span class="p">[</span><span class="s1">&#39;Value&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+
+<span class="c1"># Compute and store the anomalies in the dataframe</span>
+<span class="n">soi_df</span><span class="p">[</span><span class="s1">&#39;anomaly&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">soi_df</span><span class="p">[</span><span class="s1">&#39;Value&#39;</span><span class="p">]</span><span class="o">-</span><span class="n">soi_mean</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="aoi-antarctic-oscillation-index">
+<h3>AOI - Antarctic Oscillation Index<a class="headerlink" href="#aoi-antarctic-oscillation-index" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Dataset URL</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://www.cpc.ncep.noaa.gov/products/precip/CWlink/daily_ao_index/aao/monthly.aao.index.b79.current.ascii&quot;</span>
+
+<span class="c1"># Using Pandas to load the file content</span>
+<span class="n">aoi</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span><span class="o">.</span><span class="n">content</span>
+<span class="n">aoi_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">io</span><span class="o">.</span><span class="n">StringIO</span><span class="p">(</span><span class="n">aoi</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)),</span><span class="n">delimiter</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;\s+&quot;</span><span class="p">,</span><span class="n">header</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+
+<span class="c1"># Rename columns to fit with RADWave dataframe</span>
+<span class="n">aoi_data</span> <span class="o">=</span> <span class="n">aoi_data</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="mi">0</span><span class="p">:</span><span class="s2">&quot;year&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span><span class="s2">&quot;month&quot;</span><span class="p">,</span> <span class="mi">2</span><span class="p">:</span><span class="s2">&quot;Value&quot;</span><span class="p">})</span>
+
+<span class="c1"># Extract the information for the specified time interval </span>
+<span class="n">aoi_df</span> <span class="o">=</span> <span class="n">aoi_data</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">aoi_data</span><span class="p">[</span><span class="n">aoi_data</span><span class="o">.</span><span class="n">year</span> <span class="o">&lt;</span> <span class="n">time</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+<span class="n">aoi_df</span> <span class="o">=</span> <span class="n">aoi_df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">aoi_df</span><span class="p">[</span><span class="n">aoi_df</span><span class="o">.</span><span class="n">year</span> <span class="o">&gt;</span> <span class="n">time</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+
+<span class="c1"># Calculate the 20-years mean </span>
+<span class="n">aoi_mean</span> <span class="o">=</span> <span class="n">aoi_df</span><span class="p">[</span><span class="s1">&#39;Value&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+
+<span class="c1"># Compute and store the anomalies in the dataframe</span>
+<span class="n">aoi_df</span><span class="p">[</span><span class="s1">&#39;anomaly&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">aoi_df</span><span class="p">[</span><span class="s1">&#39;Value&#39;</span><span class="p">]</span><span class="o">-</span><span class="n">aoi_mean</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="sami-southern-annular-mode-index">
+<h3>SAMI - Southern Annular Mode Index<a class="headerlink" href="#sami-southern-annular-mode-index" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Dataset URL</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;http://www.nerc-bas.ac.uk/public/icd/gjma/newsam.1957.2007.txt&quot;</span>
+
+<span class="c1"># Using Pandas to load the file content</span>
+<span class="n">sam</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span><span class="o">.</span><span class="n">content</span>
+<span class="n">sam_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">io</span><span class="o">.</span><span class="n">StringIO</span><span class="p">(</span><span class="n">sam</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)),</span><span class="n">delimiter</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;\s+&quot;</span><span class="p">)</span>
+
+<span class="c1"># Rename month values to fit with RADWave dataframe</span>
+<span class="n">sam_data</span> <span class="o">=</span> <span class="n">sam_data</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;JAN&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;FEB&quot;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span>
+                      <span class="s2">&quot;MAR&quot;</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span> <span class="s2">&quot;APR&quot;</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span>
+                      <span class="s2">&quot;MAY&quot;</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span> <span class="s2">&quot;JUN&quot;</span><span class="p">:</span><span class="mi">6</span><span class="p">,</span>
+                      <span class="s2">&quot;JUL&quot;</span><span class="p">:</span><span class="mi">7</span><span class="p">,</span> <span class="s2">&quot;AUG&quot;</span><span class="p">:</span><span class="mi">8</span><span class="p">,</span>
+                      <span class="s2">&quot;SEP&quot;</span><span class="p">:</span> <span class="mi">9</span><span class="p">,</span> <span class="s2">&quot;OCT&quot;</span><span class="p">:</span><span class="mi">10</span><span class="p">,</span>
+                      <span class="s2">&quot;NOV&quot;</span><span class="p">:</span><span class="mi">11</span><span class="p">,</span> <span class="s2">&quot;DEC&quot;</span><span class="p">:</span><span class="mi">12</span><span class="p">})</span>
+
+<span class="c1"># Rename columns to fit with RADWave dataframe</span>
+<span class="n">sam_data</span> <span class="o">=</span> <span class="n">sam_data</span><span class="o">.</span><span class="n">stack</span><span class="p">()</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+<span class="n">sam_data</span> <span class="o">=</span> <span class="n">sam_data</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;level_0&quot;</span><span class="p">:</span><span class="s2">&quot;year&quot;</span><span class="p">,</span> <span class="s2">&quot;level_1&quot;</span><span class="p">:</span><span class="s2">&quot;month&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">:</span><span class="s2">&quot;Value&quot;</span><span class="p">})</span>
+
+
+<span class="c1"># Extract the information for the specified time interval </span>
+<span class="n">sam_df</span> <span class="o">=</span> <span class="n">sam_data</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">sam_data</span><span class="p">[</span><span class="n">sam_data</span><span class="o">.</span><span class="n">year</span> <span class="o">&lt;</span> <span class="n">time</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+<span class="n">sam_df</span> <span class="o">=</span> <span class="n">sam_df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">sam_df</span><span class="p">[</span><span class="n">sam_df</span><span class="o">.</span><span class="n">year</span> <span class="o">&gt;</span> <span class="n">time</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+
+<span class="c1"># Calculate the 20-years mean </span>
+<span class="n">sam_mean</span> <span class="o">=</span> <span class="n">sam_df</span><span class="p">[</span><span class="s1">&#39;Value&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+
+<span class="c1"># Compute and store the anomalies in the dataframe</span>
+<span class="n">sam_df</span><span class="p">[</span><span class="s1">&#39;anomaly&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">sam_df</span><span class="p">[</span><span class="s1">&#39;Value&#39;</span><span class="p">]</span><span class="o">-</span><span class="n">sam_mean</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="radwave-significant-wave-height-and-wave-period-anomalies">
+<h3>RADWave significant wave height and wave period anomalies<a class="headerlink" href="#radwave-significant-wave-height-and-wave-period-anomalies" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id1">
+<h4>Significant wave height<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get monthly significant wave height </span>
+<span class="n">wh_data</span> <span class="o">=</span> <span class="n">wa</span><span class="o">.</span><span class="n">timeseries</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;year&#39;</span><span class="p">,</span> <span class="s1">&#39;month&#39;</span><span class="p">])[[</span><span class="s1">&#39;wh&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+
+<span class="c1"># Extract the information for the specified time interval </span>
+<span class="n">wh_df</span> <span class="o">=</span> <span class="n">wh_data</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">wh_data</span><span class="p">[</span><span class="n">wh_data</span><span class="o">.</span><span class="n">year</span> <span class="o">&lt;</span> <span class="n">time</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+<span class="n">wh_df</span> <span class="o">=</span> <span class="n">wh_df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">wh_df</span><span class="p">[</span><span class="n">wh_df</span><span class="o">.</span><span class="n">year</span> <span class="o">&gt;</span> <span class="n">time</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+
+<span class="c1"># Calculate the 20-years mean </span>
+<span class="n">wh_mean</span> <span class="o">=</span> <span class="n">wh_df</span><span class="p">[</span><span class="s1">&#39;wh&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+
+<span class="c1"># Compute and store the anomalies in the dataframe</span>
+<span class="n">wh_df</span><span class="p">[</span><span class="s1">&#39;anomaly&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">wh_df</span><span class="p">[</span><span class="s1">&#39;wh&#39;</span><span class="p">]</span><span class="o">-</span><span class="n">wh_mean</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id2">
+<h4>Wave period<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get monthly mean wave period </span>
+<span class="n">T_data</span> <span class="o">=</span> <span class="n">wa</span><span class="o">.</span><span class="n">timeseries</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;year&#39;</span><span class="p">,</span> <span class="s1">&#39;month&#39;</span><span class="p">])[[</span><span class="s1">&#39;period&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+
+<span class="c1"># Extract the information for the specified time interval </span>
+<span class="n">T_df</span> <span class="o">=</span> <span class="n">T_data</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">T_data</span><span class="p">[</span><span class="n">T_data</span><span class="o">.</span><span class="n">year</span> <span class="o">&lt;</span> <span class="n">time</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+<span class="n">T_df</span> <span class="o">=</span> <span class="n">T_df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">T_df</span><span class="p">[</span><span class="n">T_df</span><span class="o">.</span><span class="n">year</span> <span class="o">&gt;</span> <span class="n">time</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+
+<span class="c1"># Calculate the 20-years mean </span>
+<span class="n">T_mean</span> <span class="o">=</span> <span class="n">T_df</span><span class="p">[</span><span class="s1">&#39;period&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+
+<span class="c1"># Compute and store the anomalies in the dataframe</span>
+<span class="n">T_df</span><span class="p">[</span><span class="s1">&#39;anomaly&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">T_df</span><span class="p">[</span><span class="s1">&#39;period&#39;</span><span class="p">]</span><span class="o">-</span><span class="n">T_mean</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="correlations">
+<h3>Correlations<a class="headerlink" href="#correlations" title="Permalink to this headline">¶</a></h3>
+<p>Monthly mean anomalies of significant wave height and wave period can be correlated with monthly mean anomaly time series of the SOI, AOI &amp; SAMI index by computing the <strong>Pearson’s correlation coefficient</strong> ® for the region of interest.</p>
+<p>We use <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.pearsonr.html">scipy.stats.pearsonr</a> function to make this calculation. This function returns 2 values:</p>
+<ul class="simple">
+<li><p>r: Pearson’s correlation coefficient.</p></li>
+<li><p>p: Two-tailed p-value.</p></li>
+</ul>
+<blockquote>
+<div><p>Examples of <strong>Pearson’s correlation coefficient</strong> calculation between climate indices and the significant wave height are provided below:</p>
+</div></blockquote>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Pearson correlation between significant wave height and SOI</span>
+<span class="n">monthly_wh_soi</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">pearsonr</span><span class="p">(</span><span class="n">soi_df</span><span class="p">[</span><span class="s1">&#39;anomaly&#39;</span><span class="p">],</span><span class="n">wh_df</span><span class="p">[</span><span class="s1">&#39;anomaly&#39;</span><span class="p">])</span> 
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;+ Pearson correlation between significant wave height and SOI:&#39;</span><span class="p">,</span><span class="n">monthly_wh_soi</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="c1"># Pearson correlation between significant wave height and AOI</span>
+<span class="n">monthly_wh_aoi</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">pearsonr</span><span class="p">(</span><span class="n">aoi_df</span><span class="p">[</span><span class="s1">&#39;anomaly&#39;</span><span class="p">],</span><span class="n">wh_df</span><span class="p">[</span><span class="s1">&#39;anomaly&#39;</span><span class="p">])</span> 
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;+ Pearson correlation between significant wave height and AOI:&#39;</span><span class="p">,</span><span class="n">monthly_wh_aoi</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="c1"># Pearson correlation between significant wave height and SAMI</span>
+<span class="n">monthly_wh_sam</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">pearsonr</span><span class="p">(</span><span class="n">sam_df</span><span class="p">[</span><span class="s1">&#39;anomaly&#39;</span><span class="p">],</span><span class="n">wh_df</span><span class="p">[</span><span class="s1">&#39;anomaly&#39;</span><span class="p">])</span> 
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;+ Pearson correlation between significant wave height and SAMI:&#39;</span><span class="p">,</span><span class="n">monthly_wh_sam</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>+ Pearson correlation between significant wave height and SOI: -0.08908662862356329 
+
++ Pearson correlation between significant wave height and AOI: -0.13649468119337463 
+
++ Pearson correlation between significant wave height and SAMI: -0.011441259490892312 
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./waveclimate"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="tileanalysis.html" title="previous page">Satellite tile analysis</a>
+    <a class='right-next' id="next-link" href="cycloneyasi.html" title="next page">Cyclone track</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Tristan Salles<br/>
+        
+            &copy; Copyright 2020-2022.<br/>
+          <div class="extra_footer">
+            <p>
+<a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">
+  <img align="right" class="margin" src="https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by.svg" width="88px">
+</a>
+These lecture notes and exercises are licensed under a <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">Creative Commons Attribution 4.0 International (CC BY 4.0) license</a>.
+<br>
+&copy; Copyright 2020-2022.
+</p>
+
+          </div>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+  </body>
+</html>
