@@ -1,12 +1,19 @@
 # - file: README
-- file: welcome 
+- file: welcome
 
 - part: week 1
   chapters:
-    - file: oceandata
+    - file: queryocean/oceandata
+      sections:
+        - file: pracenv/intronotebook
+        - file: queryocean/buoygoldcoast
+        - file: queryocean/oceandata1
+        - file: queryocean/oceandata2
+        - file: queryocean/waverider
+        - file: queryocean/oceanforecast
 
 - part: week 2
-  sections:
+  chapters:
     - file: waveclimate
 
 - part: week 3
@@ -20,5 +27,6 @@
 - part: Jupyter
   chapters:
     - file: pracenv/notebooks
-    - file: pracenv/environment
-    - file: pracenv/jupyter
+      sections:
+        - file: pracenv/environment
+        - file: pracenv/jupyter
