@@ -14,7 +14,7 @@ dependencies:
   - matplotlib    # 2D plotting library
   - numpy         # N-d array and numerics
   - scipy         # Common math/stats/science functions
-  - scikit-learn  # Machine learning library
+  - scikit-learn==0.21.2  # Machine learning library
   - scikit-image  # Image processing routines
   - geopandas     # Labeled array library for geosciences
   - shapely       # Geometric library
@@ -36,3 +36,4 @@ dependencies:
     - pyproj      # Geographic projections
     - radwave
     - wavespectra
+    - py-wave-runup

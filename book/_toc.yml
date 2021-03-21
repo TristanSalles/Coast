@@ -1,7 +1,7 @@
 # - file: README
 - file: welcome
 
-- part: week 1
+- part: Part 1
   chapters:
     - file: queryocean/notes
       sections:
@@ -12,7 +12,7 @@
         - file: queryocean/waverider
         - file: queryocean/oceanforecast
 
-- part: week 2
+- part: Part 2
   chapters:
     - file: waveclimate/notes
       sections:
@@ -21,11 +21,18 @@
         - file: waveclimate/cycloneyasi
         - file: waveclimate/sar_waves
 
-- part: week 3
+- part: Part 3
   chapters:
-    - file: coastevol
+    - file: coastevol/notes
+      sections:
+        - file: coastevol/waverunup
+        - file: coastevol/runupdataset
+        - file: coastevol/pybeach
+        - file: coastevol/inshorewaves
+        - file: coastevol/selectprofiles
+        - file: coastevol/grainsettling
 
-- part: week 4
+- part: Part 4
   chapters:
     - file: reefmodel
 
