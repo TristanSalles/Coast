@@ -106,7 +106,7 @@ int main(int argc, char* argv[])
 	EndTime = atof(argv[8]);
 	TimeStep = atof(argv[7]);
 	MaxTimeStep = atof(argv[7]);
-	WaveTimeDelta = 2.*TimeStep
+	WaveTimeDelta = 2.*TimeStep;
 
 
 	// int EndTime = 20.;						      // End time (years)
