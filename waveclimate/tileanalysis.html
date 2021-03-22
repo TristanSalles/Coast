@@ -98,11 +98,6 @@
   </a>
   <ul class="collapse-ul">
    <li class="toctree-l2">
-    <a class="reference internal" href="../pracenv/intronotebook.html">
-     Introduction to Jupyter notebook
-    </a>
-   </li>
-   <li class="toctree-l2">
     <a class="reference internal" href="../queryocean/buoygoldcoast.html">
      AODN - Wave buoys Gold Coast
     </a>
@@ -248,13 +243,8 @@
   </a>
   <ul class="collapse-ul">
    <li class="toctree-l2">
-    <a class="reference internal" href="../pracenv/environment.html">
-     Managing environments
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../pracenv/jupyter.html">
-     Jupyter notebook
+    <a class="reference internal" href="../pracenv/intronotebook.html">
+     Introduction to Jupyter notebook
     </a>
    </li>
   </ul>
@@ -490,98 +480,29 @@
 </pre></div>
 </div>
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">KeyError</span><span class="g g-Whitespace">                                  </span>Traceback (most recent call last)
-<span class="nn">/usr/share/miniconda/envs/coast/lib/python3.6/site-packages/pandas/core/indexes/base.py</span> in <span class="ni">get_loc</span><span class="nt">(self, key, method, tolerance)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2897</span>             <span class="k">try</span><span class="p">:</span>
-<span class="ne">-&gt; </span><span class="mi">2898</span>                 <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_engine</span><span class="o">.</span><span class="n">get_loc</span><span class="p">(</span><span class="n">casted_key</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2899</span>             <span class="k">except</span> <span class="ne">KeyError</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
-
-<span class="nn">pandas/_libs/index.pyx</span> in <span class="ni">pandas._libs.index.IndexEngine.get_loc</span><span class="nt">()</span>
-
-<span class="nn">pandas/_libs/index.pyx</span> in <span class="ni">pandas._libs.index.IndexEngine.get_loc</span><span class="nt">()</span>
-
-<span class="nn">pandas/_libs/hashtable_class_helper.pxi</span> in <span class="ni">pandas._libs.hashtable.PyObjectHashTable.get_item</span><span class="nt">()</span>
-
-<span class="nn">pandas/_libs/hashtable_class_helper.pxi</span> in <span class="ni">pandas._libs.hashtable.PyObjectHashTable.get_item</span><span class="nt">()</span>
-
-<span class="ne">KeyError</span>: &#39;altimeter&#39;
-
-<span class="n">The</span> <span class="n">above</span> <span class="n">exception</span> <span class="n">was</span> <span class="n">the</span> <span class="n">direct</span> <span class="n">cause</span> <span class="n">of</span> <span class="n">the</span> <span class="n">following</span> <span class="n">exception</span><span class="p">:</span>
-
-<span class="ne">KeyError</span><span class="g g-Whitespace">                                  </span>Traceback (most recent call last)
-<span class="nn">/usr/share/miniconda/envs/coast/lib/python3.6/site-packages/pandas/core/generic.py</span> in <span class="ni">_set_item</span><span class="nt">(self, key, value)</span>
-<span class="g g-Whitespace">   </span><span class="mi">3575</span>         <span class="k">try</span><span class="p">:</span>
-<span class="ne">-&gt; </span><span class="mi">3576</span>             <span class="n">loc</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_info_axis</span><span class="o">.</span><span class="n">get_loc</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">3577</span>         <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
-
-<span class="nn">/usr/share/miniconda/envs/coast/lib/python3.6/site-packages/pandas/core/indexes/base.py</span> in <span class="ni">get_loc</span><span class="nt">(self, key, method, tolerance)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2899</span>             <span class="k">except</span> <span class="ne">KeyError</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
-<span class="ne">-&gt; </span><span class="mi">2900</span>                 <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="n">key</span><span class="p">)</span> <span class="kn">from</span> <span class="nn">err</span>
-<span class="g g-Whitespace">   </span><span class="mi">2901</span> 
-
-<span class="ne">KeyError</span>: &#39;altimeter&#39;
-
-<span class="n">During</span> <span class="n">handling</span> <span class="n">of</span> <span class="n">the</span> <span class="n">above</span> <span class="n">exception</span><span class="p">,</span> <span class="n">another</span> <span class="n">exception</span> <span class="n">occurred</span><span class="p">:</span>
-
 <span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
 <span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">4</span><span class="o">-</span><span class="n">a77cf9e50a80</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">wa</span><span class="o">.</span><span class="n">processAltimeterData</span><span class="p">(</span><span class="n">max_qc</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">altimeter_pick</span><span class="o">=</span><span class="s1">&#39;all&#39;</span><span class="p">,</span> <span class="n">saveCSV</span> <span class="o">=</span> <span class="s1">&#39;altimeterData.csv&#39;</span><span class="p">)</span>
 
 <span class="nn">/usr/share/miniconda/envs/coast/lib/python3.6/site-packages/RADWave/altiwave.py</span> in <span class="ni">processAltimeterData</span><span class="nt">(self, max_qc, altimeter_pick, saveCSV)</span>
-<span class="g g-Whitespace">    </span><span class="mi">397</span>                                 <span class="n">sort</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">398</span>                             <span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">399</span>                             <span class="n">frame</span><span class="p">[</span><span class="s2">&quot;altimeter&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">nameSat</span><span class="p">[</span><span class="n">u</span><span class="p">]</span>
-<span class="g g-Whitespace">    </span><span class="mi">400</span>                             <span class="k">if</span> <span class="n">p</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">401</span>                                 <span class="n">combineframe</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">296</span>                 <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">picked_url</span><span class="p">)):</span>
+<span class="g g-Whitespace">    </span><span class="mi">297</span> 
+<span class="ne">--&gt; </span><span class="mi">298</span>                     <span class="n">ncs</span> <span class="o">=</span> <span class="n">NetCDFFile</span><span class="p">(</span><span class="n">picked_url</span><span class="p">[</span><span class="n">k</span><span class="p">])</span>
+<span class="g g-Whitespace">    </span><span class="mi">299</span>                     <span class="k">if</span> <span class="n">k</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">300</span>                         <span class="nb">print</span><span class="p">(</span>
 
-<span class="nn">/usr/share/miniconda/envs/coast/lib/python3.6/site-packages/pandas/core/frame.py</span> in <span class="ni">__setitem__</span><span class="nt">(self, key, value)</span>
-<span class="g g-Whitespace">   </span><span class="mi">3042</span>         <span class="k">else</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">3043</span>             <span class="c1"># set column</span>
-<span class="ne">-&gt; </span><span class="mi">3044</span>             <span class="bp">self</span><span class="o">.</span><span class="n">_set_item</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">3045</span> 
-<span class="g g-Whitespace">   </span><span class="mi">3046</span>     <span class="k">def</span> <span class="nf">_setitem_slice</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">:</span> <span class="nb">slice</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+<span class="nn">src/netCDF4/_netCDF4.pyx</span> in <span class="ni">netCDF4._netCDF4.Dataset.__init__</span><span class="nt">()</span>
 
-<span class="nn">/usr/share/miniconda/envs/coast/lib/python3.6/site-packages/pandas/core/frame.py</span> in <span class="ni">_set_item</span><span class="nt">(self, key, value)</span>
-<span class="g g-Whitespace">   </span><span class="mi">3119</span>         <span class="bp">self</span><span class="o">.</span><span class="n">_ensure_valid_index</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">3120</span>         <span class="n">value</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_sanitize_column</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
-<span class="ne">-&gt; </span><span class="mi">3121</span>         <span class="n">NDFrame</span><span class="o">.</span><span class="n">_set_item</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">3122</span> 
-<span class="g g-Whitespace">   </span><span class="mi">3123</span>         <span class="c1"># check if we are modifying a copy</span>
+<span class="nn">src/netCDF4/_netCDF4.pyx</span> in <span class="ni">netCDF4._netCDF4._get_vars</span><span class="nt">()</span>
 
-<span class="nn">/usr/share/miniconda/envs/coast/lib/python3.6/site-packages/pandas/core/generic.py</span> in <span class="ni">_set_item</span><span class="nt">(self, key, value)</span>
-<span class="g g-Whitespace">   </span><span class="mi">3577</span>         <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">3578</span>             <span class="c1"># This item wasn&#39;t present, just insert at end</span>
-<span class="ne">-&gt; </span><span class="mi">3579</span>             <span class="bp">self</span><span class="o">.</span><span class="n">_mgr</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_info_axis</span><span class="p">),</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">3580</span>             <span class="k">return</span>
-<span class="g g-Whitespace">   </span><span class="mi">3581</span> 
+<span class="nn">src/netCDF4/_netCDF4.pyx</span> in <span class="ni">netCDF4._netCDF4.Variable.__init__</span><span class="nt">()</span>
 
-<span class="nn">/usr/share/miniconda/envs/coast/lib/python3.6/site-packages/pandas/core/internals/managers.py</span> in <span class="ni">insert</span><span class="nt">(self, loc, item, value, allow_duplicates)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1196</span>             <span class="n">value</span> <span class="o">=</span> <span class="n">_safe_reshape</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="p">(</span><span class="mi">1</span><span class="p">,)</span> <span class="o">+</span> <span class="n">value</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1197</span> 
-<span class="ne">-&gt; </span><span class="mi">1198</span>         <span class="n">block</span> <span class="o">=</span> <span class="n">make_block</span><span class="p">(</span><span class="n">values</span><span class="o">=</span><span class="n">value</span><span class="p">,</span> <span class="n">ndim</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">ndim</span><span class="p">,</span> <span class="n">placement</span><span class="o">=</span><span class="nb">slice</span><span class="p">(</span><span class="n">loc</span><span class="p">,</span> <span class="n">loc</span> <span class="o">+</span> <span class="mi">1</span><span class="p">))</span>
-<span class="g g-Whitespace">   </span><span class="mi">1199</span> 
-<span class="g g-Whitespace">   </span><span class="mi">1200</span>         <span class="k">for</span> <span class="n">blkno</span><span class="p">,</span> <span class="n">count</span> <span class="ow">in</span> <span class="n">_fast_count_smallints</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">blknos</span><span class="p">[</span><span class="n">loc</span><span class="p">:]):</span>
-
-<span class="nn">/usr/share/miniconda/envs/coast/lib/python3.6/site-packages/pandas/core/internals/blocks.py</span> in <span class="ni">make_block</span><span class="nt">(values, placement, klass, ndim, dtype)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2735</span>     <span class="k">if</span> <span class="n">klass</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">2736</span>         <span class="n">dtype</span> <span class="o">=</span> <span class="n">dtype</span> <span class="ow">or</span> <span class="n">values</span><span class="o">.</span><span class="n">dtype</span>
-<span class="ne">-&gt; </span><span class="mi">2737</span>         <span class="n">klass</span> <span class="o">=</span> <span class="n">get_block_type</span><span class="p">(</span><span class="n">values</span><span class="p">,</span> <span class="n">dtype</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2738</span> 
-<span class="g g-Whitespace">   </span><span class="mi">2739</span>     <span class="k">elif</span> <span class="n">klass</span> <span class="ow">is</span> <span class="n">DatetimeTZBlock</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">is_datetime64tz_dtype</span><span class="p">(</span><span class="n">values</span><span class="o">.</span><span class="n">dtype</span><span class="p">):</span>
-
-<span class="nn">/usr/share/miniconda/envs/coast/lib/python3.6/site-packages/pandas/core/internals/blocks.py</span> in <span class="ni">get_block_type</span><span class="nt">(values, dtype)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2691</span>     <span class="n">vtype</span> <span class="o">=</span> <span class="n">dtype</span><span class="o">.</span><span class="n">type</span>
-<span class="g g-Whitespace">   </span><span class="mi">2692</span> 
-<span class="ne">-&gt; </span><span class="mi">2693</span>     <span class="k">if</span> <span class="n">is_sparse</span><span class="p">(</span><span class="n">dtype</span><span class="p">):</span>
-<span class="g g-Whitespace">   </span><span class="mi">2694</span>         <span class="c1"># Need this first(ish) so that Sparse[datetime] is sparse</span>
-<span class="g g-Whitespace">   </span><span class="mi">2695</span>         <span class="bp">cls</span> <span class="o">=</span> <span class="n">ExtensionBlock</span>
-
-<span class="nn">/usr/share/miniconda/envs/coast/lib/python3.6/site-packages/pandas/core/dtypes/common.py</span> in <span class="ni">is_sparse</span><span class="nt">(arr)</span>
-<span class="g g-Whitespace">    </span><span class="mi">267</span> 
-<span class="g g-Whitespace">    </span><span class="mi">268</span>     <span class="n">dtype</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="s2">&quot;dtype&quot;</span><span class="p">,</span> <span class="n">arr</span><span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">269</span>     <span class="k">return</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">dtype</span><span class="p">,</span> <span class="n">SparseDtype</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">270</span> 
-<span class="g g-Whitespace">    </span><span class="mi">271</span> 
+<span class="nn">/usr/share/miniconda/envs/coast/lib/python3.6/site-packages/netCDF4/utils.py</span> in <span class="ni">_find_dim</span><span class="nt">(grp, dimname)</span>
+<span class="g g-Whitespace">     </span><span class="mi">39</span>     <span class="k">return</span> <span class="p">[</span><span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">A</span><span class="p">)),</span> <span class="n">key</span><span class="o">=</span><span class="n">B</span><span class="o">.</span><span class="fm">__getitem__</span><span class="p">)]</span>
+<span class="g g-Whitespace">     </span><span class="mi">40</span> 
+<span class="ne">---&gt; </span><span class="mi">41</span> <span class="k">def</span> <span class="nf">_find_dim</span><span class="p">(</span><span class="n">grp</span><span class="p">,</span> <span class="n">dimname</span><span class="p">):</span>
+<span class="g g-Whitespace">     </span><span class="mi">42</span>     <span class="c1"># find Dimension instance given group and name.</span>
+<span class="g g-Whitespace">     </span><span class="mi">43</span>     <span class="c1"># look in current group, and parents.</span>
 
 <span class="ne">KeyboardInterrupt</span>: 
 </pre></div>

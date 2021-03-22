@@ -98,11 +98,6 @@
   </a>
   <ul class="collapse-ul">
    <li class="toctree-l2">
-    <a class="reference internal" href="../pracenv/intronotebook.html">
-     Introduction to Jupyter notebook
-    </a>
-   </li>
-   <li class="toctree-l2">
     <a class="reference internal" href="../queryocean/buoygoldcoast.html">
      AODN - Wave buoys Gold Coast
     </a>
@@ -248,13 +243,8 @@
   </a>
   <ul class="collapse-ul">
    <li class="toctree-l2">
-    <a class="reference internal" href="../pracenv/environment.html">
-     Managing environments
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../pracenv/jupyter.html">
-     Jupyter notebook
+    <a class="reference internal" href="../pracenv/intronotebook.html">
+     Introduction to Jupyter notebook
     </a>
    </li>
   </ul>
@@ -693,7 +683,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Error in callback &lt;function flush_figures at 0x7f3b62d72730&gt; (for post_execute):
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Error in callback &lt;function flush_figures at 0x7fb72e7da730&gt; (for post_execute):
 </pre></div>
 </div>
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
@@ -792,39 +782,29 @@
 <span class="g g-Whitespace">    </span><span class="mi">601</span>                 <span class="n">xys</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">curve</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="o">*</span><span class="n">dzeros</span><span class="p">,</span> <span class="mi">1</span><span class="p">]))</span>
 
 <span class="nn">/usr/share/miniconda/envs/coast/lib/python3.6/site-packages/matplotlib/bezier.py</span> in <span class="ni">axis_aligned_extrema</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">    </span><span class="mi">291</span>         <span class="k">if</span> <span class="n">n</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">292</span>             <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([]),</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>
-<span class="ne">--&gt; </span><span class="mi">293</span>         <span class="n">Cj</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">polynomial_coefficients</span>
-<span class="g g-Whitespace">    </span><span class="mi">294</span>         <span class="n">dCj</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)[:,</span> <span class="kc">None</span><span class="p">]</span> <span class="o">*</span> <span class="n">Cj</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>
-<span class="g g-Whitespace">    </span><span class="mi">295</span>         <span class="n">dims</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="g g-Whitespace">    </span><span class="mi">296</span>         <span class="n">roots</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="g g-Whitespace">    </span><span class="mi">297</span>         <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">pi</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">dCj</span><span class="o">.</span><span class="n">T</span><span class="p">):</span>
+<span class="ne">--&gt; </span><span class="mi">298</span>             <span class="n">r</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">roots</span><span class="p">(</span><span class="n">pi</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+<span class="g g-Whitespace">    </span><span class="mi">299</span>             <span class="n">roots</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">300</span>             <span class="n">dims</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">full_like</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">i</span><span class="p">))</span>
 
-<span class="nn">/usr/share/miniconda/envs/coast/lib/python3.6/site-packages/matplotlib/bezier.py</span> in <span class="ni">polynomial_coefficients</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">    </span><span class="mi">269</span>         <span class="n">j</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)[:,</span> <span class="kc">None</span><span class="p">]</span>
-<span class="g g-Whitespace">    </span><span class="mi">270</span>         <span class="n">i</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)[</span><span class="kc">None</span><span class="p">,</span> <span class="p">:]</span>  <span class="c1"># _comb is non-zero for i &lt;= j</span>
-<span class="ne">--&gt; </span><span class="mi">271</span>         <span class="n">prefactor</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">**</span><span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="n">j</span><span class="p">)</span> <span class="o">*</span> <span class="n">_comb</span><span class="p">(</span><span class="n">j</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>  <span class="c1"># j on axis 0, i on axis 1</span>
-<span class="g g-Whitespace">    </span><span class="mi">272</span>         <span class="k">return</span> <span class="n">_comb</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">j</span><span class="p">)</span> <span class="o">*</span> <span class="n">prefactor</span> <span class="o">@</span> <span class="n">P</span>  <span class="c1"># j on axis 0, self.dimension on 1</span>
-<span class="g g-Whitespace">    </span><span class="mi">273</span> 
+<span class="nn">&lt;__array_function__ internals&gt;</span> in <span class="ni">roots</span><span class="nt">(*args, **kwargs)</span>
 
-<span class="nn">/usr/share/miniconda/envs/coast/lib/python3.6/site-packages/numpy/lib/function_base.py</span> in <span class="ni">__call__</span><span class="nt">(self, *args, **kwargs)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2106</span>             <span class="n">vargs</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span><span class="n">kwargs</span><span class="p">[</span><span class="n">_n</span><span class="p">]</span> <span class="k">for</span> <span class="n">_n</span> <span class="ow">in</span> <span class="n">names</span><span class="p">])</span>
-<span class="g g-Whitespace">   </span><span class="mi">2107</span> 
-<span class="ne">-&gt; </span><span class="mi">2108</span>         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_vectorize_call</span><span class="p">(</span><span class="n">func</span><span class="o">=</span><span class="n">func</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="n">vargs</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2109</span> 
-<span class="g g-Whitespace">   </span><span class="mi">2110</span>     <span class="k">def</span> <span class="nf">_get_ufunc_and_otypes</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">func</span><span class="p">,</span> <span class="n">args</span><span class="p">):</span>
+<span class="nn">/usr/share/miniconda/envs/coast/lib/python3.6/site-packages/numpy/lib/polynomial.py</span> in <span class="ni">roots</span><span class="nt">(p)</span>
+<span class="g g-Whitespace">    </span><span class="mi">239</span>     <span class="k">if</span> <span class="n">N</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">240</span>         <span class="c1"># build companion matrix and find its eigenvalues (the roots)</span>
+<span class="ne">--&gt; </span><span class="mi">241</span>         <span class="n">A</span> <span class="o">=</span> <span class="n">diag</span><span class="p">(</span><span class="n">NX</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="n">N</span><span class="o">-</span><span class="mi">2</span><span class="p">,),</span> <span class="n">p</span><span class="o">.</span><span class="n">dtype</span><span class="p">),</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">242</span>         <span class="n">A</span><span class="p">[</span><span class="mi">0</span><span class="p">,:]</span> <span class="o">=</span> <span class="o">-</span><span class="n">p</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">/</span> <span class="n">p</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="g g-Whitespace">    </span><span class="mi">243</span>         <span class="n">roots</span> <span class="o">=</span> <span class="n">eigvals</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
 
-<span class="nn">/usr/share/miniconda/envs/coast/lib/python3.6/site-packages/numpy/lib/function_base.py</span> in <span class="ni">_vectorize_call</span><span class="nt">(self, func, args)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2184</span>             <span class="n">res</span> <span class="o">=</span> <span class="n">func</span><span class="p">()</span>
-<span class="g g-Whitespace">   </span><span class="mi">2185</span>         <span class="k">else</span><span class="p">:</span>
-<span class="ne">-&gt; </span><span class="mi">2186</span>             <span class="n">ufunc</span><span class="p">,</span> <span class="n">otypes</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_ufunc_and_otypes</span><span class="p">(</span><span class="n">func</span><span class="o">=</span><span class="n">func</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="n">args</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2187</span> 
-<span class="g g-Whitespace">   </span><span class="mi">2188</span>             <span class="c1"># Convert args to object arrays first</span>
+<span class="nn">&lt;__array_function__ internals&gt;</span> in <span class="ni">diag</span><span class="nt">(*args, **kwargs)</span>
 
-<span class="nn">/usr/share/miniconda/envs/coast/lib/python3.6/site-packages/numpy/lib/function_base.py</span> in <span class="ni">_get_ufunc_and_otypes</span><span class="nt">(self, func, args)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2173</span>             <span class="c1"># not a significant cost compared with wrapping so it seems not</span>
-<span class="g g-Whitespace">   </span><span class="mi">2174</span>             <span class="c1"># worth trying to cache this.</span>
-<span class="ne">-&gt; </span><span class="mi">2175</span>             <span class="n">ufunc</span> <span class="o">=</span> <span class="n">frompyfunc</span><span class="p">(</span><span class="n">_func</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">args</span><span class="p">),</span> <span class="n">nout</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2176</span> 
-<span class="g g-Whitespace">   </span><span class="mi">2177</span>         <span class="k">return</span> <span class="n">ufunc</span><span class="p">,</span> <span class="n">otypes</span>
+<span class="nn">/usr/share/miniconda/envs/coast/lib/python3.6/site-packages/numpy/lib/twodim_base.py</span> in <span class="ni">diag</span><span class="nt">(v, k)</span>
+<span class="g g-Whitespace">    </span><span class="mi">267</span> 
+<span class="g g-Whitespace">    </span><span class="mi">268</span>     <span class="s2">&quot;&quot;&quot;</span>
+<span class="ne">--&gt; </span><span class="mi">269</span><span class="s2">     v = asanyarray(v)</span>
+<span class="g g-Whitespace">    </span><span class="mi">270</span><span class="s2">     s = v.shape</span>
+<span class="g g-Whitespace">    </span><span class="mi">271</span><span class="s2">     if len(s) == 1:</span>
 
 <span class="ne">KeyboardInterrupt</span>: 
 </pre></div>

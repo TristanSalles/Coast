@@ -98,11 +98,6 @@
   </a>
   <ul class="collapse-ul">
    <li class="toctree-l2">
-    <a class="reference internal" href="../pracenv/intronotebook.html">
-     Introduction to Jupyter notebook
-    </a>
-   </li>
-   <li class="toctree-l2">
     <a class="reference internal" href="../queryocean/buoygoldcoast.html">
      AODN - Wave buoys Gold Coast
     </a>
@@ -248,13 +243,8 @@
   </a>
   <ul class="collapse-ul">
    <li class="toctree-l2">
-    <a class="reference internal" href="../pracenv/environment.html">
-     Managing environments
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../pracenv/jupyter.html">
-     Jupyter notebook
+    <a class="reference internal" href="../pracenv/intronotebook.html">
+     Introduction to Jupyter notebook
     </a>
    </li>
   </ul>
@@ -484,11 +474,11 @@
 <span class="ne">----&gt; </span><span class="mi">4</span> <span class="n">wa_east</span><span class="o">.</span><span class="n">processAltimeterData</span><span class="p">(</span><span class="n">max_qc</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">altimeter_pick</span><span class="o">=</span><span class="s1">&#39;all&#39;</span><span class="p">,</span> <span class="n">saveCSV</span> <span class="o">=</span> <span class="s1">&#39;altimeterDataE.csv&#39;</span><span class="p">)</span>
 
 <span class="nn">/usr/share/miniconda/envs/coast/lib/python3.6/site-packages/RADWave/altiwave.py</span> in <span class="ni">processAltimeterData</span><span class="nt">(self, max_qc, altimeter_pick, saveCSV)</span>
-<span class="g g-Whitespace">    </span><span class="mi">317</span>                     <span class="c1"># Get desired time interval</span>
-<span class="g g-Whitespace">    </span><span class="mi">318</span>                     <span class="n">time_var</span> <span class="o">=</span> <span class="n">ncs</span><span class="o">.</span><span class="n">variables</span><span class="p">[</span><span class="s2">&quot;TIME&quot;</span><span class="p">]</span>
-<span class="ne">--&gt; </span><span class="mi">319</span>                     <span class="n">tt</span> <span class="o">=</span> <span class="n">ncs</span><span class="o">.</span><span class="n">variables</span><span class="p">[</span><span class="s2">&quot;TIME&quot;</span><span class="p">][:]</span>
-<span class="g g-Whitespace">    </span><span class="mi">320</span>                     <span class="n">timing</span> <span class="o">=</span> <span class="n">netCDF4</span><span class="o">.</span><span class="n">num2date</span><span class="p">(</span><span class="n">tt</span><span class="p">,</span> <span class="n">time_var</span><span class="o">.</span><span class="n">units</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">321</span>                                              <span class="n">only_use_cftime_datetimes</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">306</span> 
+<span class="g g-Whitespace">    </span><span class="mi">307</span>                     <span class="c1"># Get desired bounding box</span>
+<span class="ne">--&gt; </span><span class="mi">308</span>                     <span class="n">lats</span> <span class="o">=</span> <span class="n">ncs</span><span class="o">.</span><span class="n">variables</span><span class="p">[</span><span class="s2">&quot;LATITUDE&quot;</span><span class="p">][:]</span>
+<span class="g g-Whitespace">    </span><span class="mi">309</span>                     <span class="n">lons</span> <span class="o">=</span> <span class="n">ncs</span><span class="o">.</span><span class="n">variables</span><span class="p">[</span><span class="s2">&quot;LONGITUDE&quot;</span><span class="p">][:]</span>
+<span class="g g-Whitespace">    </span><span class="mi">310</span>                     <span class="n">latbound</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span>
 
 <span class="nn">src/netCDF4/_netCDF4.pyx</span> in <span class="ni">netCDF4._netCDF4.Variable.__getitem__</span><span class="nt">()</span>
 
