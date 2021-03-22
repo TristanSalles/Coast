@@ -37,12 +37,12 @@ jobs:
         conda list
 
     # Build the book
-    - name: Build the book
+    - name: Build cove
       shell: bash
       run: |
         cd book/coastevol/COVE/driver_files;
         make -f spiral_bay_make.make;
-        mv spiral_bay.out ../../cove
+        mv cove ../../
 
     # Build the book
     - name: Build the book

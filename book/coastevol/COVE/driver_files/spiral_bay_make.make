@@ -18,13 +18,13 @@ LDFLAGS= -g -O3 -pg
 SOURCES = ../coastline.cpp ../waveclimate.cpp ./spiral_bay_driver.cpp
 
 # LIBRARIES MACRO
-LIBS   = -lm -lstdc++ 
+LIBS   = -lm -lstdc++
 
 # OBJECT FILES SAME NAME AS SOURCES MACRO
 OBJECTS=$(SOURCES:.cpp=.o)
 
 # EXECUTABLE MACRO
-EXECUTABLE=spiral_bay.out
+EXECUTABLE=cove
 
 all: $(SOURCES) $(EXECUTABLE)
 
@@ -33,4 +33,3 @@ $(EXECUTABLE): $(OBJECTS)
 
 .cpp.o:
 	$(CC) $(CFLAGS) $< -o $@
-
