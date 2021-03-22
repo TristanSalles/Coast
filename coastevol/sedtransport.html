@@ -465,135 +465,7 @@
 <p>Loading required modules for this exercise. The main module here is <strong>wavesed</strong> a piece of code that was developed for this course and that can be found on <a class="reference external" href="https://github.com/pyReef-model/wavesed">GitHub</a></p>
 <div class="cell tag_hide-output docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span><span class="nb">cd</span> wavesed/<span class="p">;</span> f2py -c -m ocean ocean.f90    
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>running build
-running config_cc
-unifing config_cc, config, build_clib, build_ext, build commands --compiler options
-running config_fc
-unifing config_fc, config, build_clib, build_ext, build commands --fcompiler options
-running build_src
-build_src
-building extension &quot;ocean&quot; sources
-f2py options: []
-f2py:&gt; /tmp/tmp5gpsk9gv/src.linux-x86_64-3.6/oceanmodule.c
-creating /tmp/tmp5gpsk9gv/src.linux-x86_64-3.6
-Reading fortran codes...
-	Reading file &#39;ocean.f90&#39; (format:free)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Post-processing...
-	Block: ocean
-			Block: ocean
-				Block: airymodel
-				Block: transport
-				Block: diffusion
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Post-processing (stage 2)...
-	Block: ocean
-		Block: unknown_interface
-			Block: ocean
-				Block: airymodel
-				Block: transport
-				Block: diffusion
-Building modules...
-	Building module &quot;ocean&quot;...
-		Constructing F90 module support for &quot;ocean&quot;...
-		  Variables: pi onpi pi2 pion2 onpi2 grav
-			Constructing wrapper function &quot;ocean.airymodel&quot;...
-			  c,l,travel,waveh = airymodel(dx,dd,h0,depth,src,inland,shadow,[numrow,numcol])
-			Constructing wrapper function &quot;ocean.transport&quot;...
-			  dz,dist = transport(iter,depth,hent,transx,transy,[numrow,numcol])
-			Constructing wrapper function &quot;ocean.diffusion&quot;...
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>			  depo = diffusion(oelev,dz,coeff,maxth,tstep,nstep,[numrow,numcol])
-	Wrote C/API module &quot;ocean&quot; to file &quot;/tmp/tmp5gpsk9gv/src.linux-x86_64-3.6/oceanmodule.c&quot;
-	Fortran 90 wrappers are saved to &quot;/tmp/tmp5gpsk9gv/src.linux-x86_64-3.6/ocean-f2pywrappers2.f90&quot;
-  adding &#39;/tmp/tmp5gpsk9gv/src.linux-x86_64-3.6/fortranobject.c&#39; to sources.
-  adding &#39;/tmp/tmp5gpsk9gv/src.linux-x86_64-3.6&#39; to include_dirs.
-copying /usr/share/miniconda/envs/coast/lib/python3.6/site-packages/numpy/f2py/src/fortranobject.c -&gt; /tmp/tmp5gpsk9gv/src.linux-x86_64-3.6
-copying /usr/share/miniconda/envs/coast/lib/python3.6/site-packages/numpy/f2py/src/fortranobject.h -&gt; /tmp/tmp5gpsk9gv/src.linux-x86_64-3.6
-  adding &#39;/tmp/tmp5gpsk9gv/src.linux-x86_64-3.6/ocean-f2pywrappers2.f90&#39; to sources.
-build_src: building npy-pkg config files
-running build_ext
-customize UnixCCompiler
-C compiler: /usr/share/miniconda/envs/coast/bin/x86_64-conda-linux-gnu-cc -DNDEBUG -fwrapv -O2 -Wall -Wstrict-prototypes -march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 -ffunction-sections -pipe -isystem /usr/share/miniconda/envs/coast/include -DNDEBUG -D_FORTIFY_SOURCE=2 -O2 -isystem /usr/share/miniconda/envs/coast/include -fPIC
-
-creating /tmp/tmpjp6kx8u8/tmp
-creating /tmp/tmpjp6kx8u8/tmp/tmpjp6kx8u8
-compile options: &#39;-MMD -MF /tmp/tmpjp6kx8u8/file.c.d -c&#39;
-x86_64-conda-linux-gnu-cc: /tmp/tmpjp6kx8u8/file.c
-customize UnixCCompiler using build_ext
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>get_default_fcompiler: matching types: &#39;[&#39;gnu95&#39;, &#39;intel&#39;, &#39;lahey&#39;, &#39;pg&#39;, &#39;nv&#39;, &#39;absoft&#39;, &#39;nag&#39;, &#39;vast&#39;, &#39;compaq&#39;, &#39;intele&#39;, &#39;intelem&#39;, &#39;gnu&#39;, &#39;g95&#39;, &#39;pathf95&#39;, &#39;nagfor&#39;]&#39;
-customize Gnu95FCompiler
-Found executable /usr/share/miniconda/envs/coast/bin/x86_64-conda-linux-gnu-gfortran
-Found executable /usr/share/miniconda/envs/coast/bin/x86_64-conda-linux-gnu-ld
-Found executable /usr/share/miniconda/envs/coast/bin/x86_64-conda-linux-gnu-ar
-Found executable /usr/share/miniconda/envs/coast/bin/x86_64-conda-linux-gnu-ranlib
-customize Gnu95FCompiler
-customize Gnu95FCompiler using build_ext
-building &#39;ocean&#39; extension
-compiling C sources
-C compiler: /usr/share/miniconda/envs/coast/bin/x86_64-conda-linux-gnu-cc -DNDEBUG -fwrapv -O2 -Wall -Wstrict-prototypes -march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 -ffunction-sections -pipe -isystem /usr/share/miniconda/envs/coast/include -DNDEBUG -D_FORTIFY_SOURCE=2 -O2 -isystem /usr/share/miniconda/envs/coast/include -fPIC
-
-creating /tmp/tmp5gpsk9gv/tmp
-creating /tmp/tmp5gpsk9gv/tmp/tmp5gpsk9gv
-creating /tmp/tmp5gpsk9gv/tmp/tmp5gpsk9gv/src.linux-x86_64-3.6
-compile options: &#39;-I/tmp/tmp5gpsk9gv/src.linux-x86_64-3.6 -I/usr/share/miniconda/envs/coast/lib/python3.6/site-packages/numpy/core/include -I/usr/share/miniconda/envs/coast/include/python3.6m -c&#39;
-x86_64-conda-linux-gnu-cc: /tmp/tmp5gpsk9gv/src.linux-x86_64-3.6/oceanmodule.c
-x86_64-conda-linux-gnu-cc: /tmp/tmp5gpsk9gv/src.linux-x86_64-3.6/fortranobject.c
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>In file included from <span class=" -Color -Color-Bold">/usr/share/miniconda/envs/coast/lib/python3.6/site-packages/numpy/core/include/numpy/ndarraytypes.h:1822</span>,
-                 from <span class=" -Color -Color-Bold">/usr/share/miniconda/envs/coast/lib/python3.6/site-packages/numpy/core/include/numpy/ndarrayobject.h:12</span>,
-                 from <span class=" -Color -Color-Bold">/usr/share/miniconda/envs/coast/lib/python3.6/site-packages/numpy/core/include/numpy/arrayobject.h:4</span>,
-                 from <span class=" -Color -Color-Bold">/tmp/tmp5gpsk9gv/src.linux-x86_64-3.6/fortranobject.h:13</span>,
-                 from <span class=" -Color -Color-Bold">/tmp/tmp5gpsk9gv/src.linux-x86_64-3.6/fortranobject.c:2</span>:
-<span class=" -Color -Color-Bold">/usr/share/miniconda/envs/coast/lib/python3.6/site-packages/numpy/core/include/numpy/npy_1_7_deprecated_api.h:17:2:</span> <span class=" -Color -Color-Bold -Color-Bold-Magenta">warning: </span>#warning &quot;Using deprecated NumPy API, disable it with &quot; &quot;#define NPY_NO_DEPRECATED_API NPY_1_7_API_VERSION&quot; [<span class=" -Color -Color-Bold -Color-Bold-Magenta">-Wcpp</span>]
-   17 | #<span class=" -Color -Color-Bold -Color-Bold-Magenta">warning</span> &quot;Using deprecated NumPy API, disable it with &quot; \
-      |  <span class=" -Color -Color-Bold -Color-Bold-Magenta">^~~~~~~</span>
-In file included from <span class=" -Color -Color-Bold">/usr/share/miniconda/envs/coast/lib/python3.6/site-packages/numpy/core/include/numpy/ndarraytypes.h:1822</span>,
-                 from <span class=" -Color -Color-Bold">/usr/share/miniconda/envs/coast/lib/python3.6/site-packages/numpy/core/include/numpy/ndarrayobject.h:12</span>,
-                 from <span class=" -Color -Color-Bold">/usr/share/miniconda/envs/coast/lib/python3.6/site-packages/numpy/core/include/numpy/arrayobject.h:4</span>,
-                 from <span class=" -Color -Color-Bold">/tmp/tmp5gpsk9gv/src.linux-x86_64-3.6/fortranobject.h:13</span>,
-                 from <span class=" -Color -Color-Bold">/tmp/tmp5gpsk9gv/src.linux-x86_64-3.6/oceanmodule.c:16</span>:
-<span class=" -Color -Color-Bold">/usr/share/miniconda/envs/coast/lib/python3.6/site-packages/numpy/core/include/numpy/npy_1_7_deprecated_api.h:17:2:</span> <span class=" -Color -Color-Bold -Color-Bold-Magenta">warning: </span>#warning &quot;Using deprecated NumPy API, disable it with &quot; &quot;#define NPY_NO_DEPRECATED_API NPY_1_7_API_VERSION&quot; [<span class=" -Color -Color-Bold -Color-Bold-Magenta">-Wcpp</span>]
-   17 | #<span class=" -Color -Color-Bold -Color-Bold-Magenta">warning</span> &quot;Using deprecated NumPy API, disable it with &quot; \
-      |  <span class=" -Color -Color-Bold -Color-Bold-Magenta">^~~~~~~</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold">/tmp/tmp5gpsk9gv/src.linux-x86_64-3.6/oceanmodule.c:109:12:</span> <span class=" -Color -Color-Bold -Color-Bold-Magenta">warning: </span>&#39;<span class=" -Color -Color-Bold">f2py_size</span>&#39; defined but not used [<span class=" -Color -Color-Bold -Color-Bold-Magenta">-Wunused-function</span>]
-  109 | static int <span class=" -Color -Color-Bold -Color-Bold-Magenta">f2py_size</span>(PyArrayObject* var, ...)
-      |            <span class=" -Color -Color-Bold -Color-Bold-Magenta">^~~~~~~~~</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>compiling Fortran 90 module sources
-Fortran f77 compiler: /usr/share/miniconda/envs/coast/bin/x86_64-conda-linux-gnu-gfortran -Wall -g -ffixed-form -fno-second-underscore -fPIC -fopenmp -march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 -ffunction-sections -pipe -isystem /usr/share/miniconda/envs/coast/include -O3 -funroll-loops
-Fortran f90 compiler: /usr/share/miniconda/envs/coast/bin/x86_64-conda-linux-gnu-gfortran -Wall -g -fno-second-underscore -fPIC -fopenmp -march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 -ffunction-sections -pipe -isystem /usr/share/miniconda/envs/coast/include -O3 -funroll-loops
-Fortran fix compiler: /usr/share/miniconda/envs/coast/bin/x86_64-conda-linux-gnu-gfortran -Wall -g -ffixed-form -fno-second-underscore -Wall -g -fno-second-underscore -fPIC -fopenmp -march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 -ffunction-sections -pipe -isystem /usr/share/miniconda/envs/coast/include -O3 -funroll-loops
-compile options: &#39;-I/tmp/tmp5gpsk9gv/src.linux-x86_64-3.6 -I/usr/share/miniconda/envs/coast/lib/python3.6/site-packages/numpy/core/include -I/usr/share/miniconda/envs/coast/include/python3.6m -c&#39;
-extra options: &#39;-J/tmp/tmp5gpsk9gv/ -I/tmp/tmp5gpsk9gv/&#39;
-x86_64-conda-linux-gnu-gfortran:f90: ocean.f90
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>compiling Fortran sources
-Fortran f77 compiler: /usr/share/miniconda/envs/coast/bin/x86_64-conda-linux-gnu-gfortran -Wall -g -ffixed-form -fno-second-underscore -fPIC -fopenmp -march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 -ffunction-sections -pipe -isystem /usr/share/miniconda/envs/coast/include -O3 -funroll-loops
-Fortran f90 compiler: /usr/share/miniconda/envs/coast/bin/x86_64-conda-linux-gnu-gfortran -Wall -g -fno-second-underscore -fPIC -fopenmp -march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 -ffunction-sections -pipe -isystem /usr/share/miniconda/envs/coast/include -O3 -funroll-loops
-Fortran fix compiler: /usr/share/miniconda/envs/coast/bin/x86_64-conda-linux-gnu-gfortran -Wall -g -ffixed-form -fno-second-underscore -Wall -g -fno-second-underscore -fPIC -fopenmp -march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 -ffunction-sections -pipe -isystem /usr/share/miniconda/envs/coast/include -O3 -funroll-loops
-compile options: &#39;-I/tmp/tmp5gpsk9gv/src.linux-x86_64-3.6 -I/usr/share/miniconda/envs/coast/lib/python3.6/site-packages/numpy/core/include -I/usr/share/miniconda/envs/coast/include/python3.6m -c&#39;
-extra options: &#39;-J/tmp/tmp5gpsk9gv/ -I/tmp/tmp5gpsk9gv/&#39;
-x86_64-conda-linux-gnu-gfortran:f90: /tmp/tmp5gpsk9gv/src.linux-x86_64-3.6/ocean-f2pywrappers2.f90
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/share/miniconda/envs/coast/bin/x86_64-conda-linux-gnu-gfortran -Wall -g -Wall -g -shared -Wl,-O2 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--disable-new-dtags -Wl,--gc-sections -Wl,-rpath,/usr/share/miniconda/envs/coast/lib -Wl,-rpath-link,/usr/share/miniconda/envs/coast/lib -L/usr/share/miniconda/envs/coast/lib /tmp/tmp5gpsk9gv/tmp/tmp5gpsk9gv/src.linux-x86_64-3.6/oceanmodule.o /tmp/tmp5gpsk9gv/tmp/tmp5gpsk9gv/src.linux-x86_64-3.6/fortranobject.o /tmp/tmp5gpsk9gv/ocean.o /tmp/tmp5gpsk9gv/tmp/tmp5gpsk9gv/src.linux-x86_64-3.6/ocean-f2pywrappers2.o -L/usr/share/miniconda/envs/coast/bin/../x86_64-conda-linux-gnu/sysroot/lib/../lib -L/usr/share/miniconda/envs/coast/bin/../x86_64-conda-linux-gnu/sysroot/lib/../lib -lgfortran -o ./ocean.cpython-36m-x86_64-linux-gnu.so
-Removing build directory /tmp/tmp5gpsk9gv
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="ch">#!cd wavesed/; f2py -c -m ocean ocean.f90    </span>
 </pre></div>
 </div>
 </div>
@@ -604,7 +476,30 @@ Removing build directory /tmp/tmp5gpsk9gv
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">wavesed.wave</span> <span class="k">as</span> <span class="nn">ocean</span>
 
+
+<span class="o">%</span><span class="k">config</span> InlineBackend.figure_format = &#39;svg&#39;
 <span class="o">%</span><span class="k">matplotlib</span> inline
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">2</span><span class="o">-</span><span class="n">e9383eb2685a</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">time</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="ne">----&gt; </span><span class="mi">3</span> <span class="kn">import</span> <span class="nn">wavesed.wave</span> <span class="k">as</span> <span class="nn">ocean</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> 
+<span class="g g-Whitespace">      </span><span class="mi">5</span> 
+
+<span class="o">~/</span><span class="n">work</span><span class="o">/</span><span class="n">Coast</span><span class="o">/</span><span class="n">Coast</span><span class="o">/</span><span class="n">book</span><span class="o">/</span><span class="n">coastevol</span><span class="o">/</span><span class="n">wavesed</span><span class="o">/</span><span class="n">wave</span><span class="o">.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">     </span><span class="mi">35</span> <span class="kn">from</span> <span class="nn">mpl_toolkits.axes_grid1</span> <span class="kn">import</span> <span class="n">make_axes_locatable</span>
+<span class="g g-Whitespace">     </span><span class="mi">36</span> 
+<span class="ne">---&gt; </span><span class="mi">37</span> <span class="kn">import</span> <span class="nn">wavesed.ocean</span> <span class="k">as</span> <span class="nn">ocean</span>
+<span class="g g-Whitespace">     </span><span class="mi">38</span> 
+<span class="g g-Whitespace">     </span><span class="mi">39</span> <span class="kn">from</span> <span class="nn">random</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;wavesed.ocean&#39;
 </pre></div>
 </div>
 </div>
@@ -688,6 +583,16 @@ Removing build directory /tmp/tmp5gpsk9gv
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">7</span><span class="o">-</span><span class="n">f2d7adf861cd</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">wavesed</span> <span class="o">=</span> <span class="n">ocean</span><span class="o">.</span><span class="n">wave</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="n">bfile</span><span class="p">,</span> <span class="n">wavebase</span><span class="o">=</span><span class="n">wbase</span><span class="p">,</span> <span class="n">resfac</span><span class="o">=</span><span class="n">rfac</span><span class="p">,</span> <span class="n">dia</span><span class="o">=</span><span class="n">d50</span><span class="p">)</span>
+
+<span class="ne">NameError</span>: name &#39;ocean&#39; is not defined
+</pre></div>
+</div>
+</div>
 </div>
 <p>As you can see from the command above there are still some parameters that have not been passed to the module:</p>
 <ul class="simple">
@@ -706,7 +611,14 @@ Removing build directory /tmp/tmp5gpsk9gv
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Definition of shoreline position took (s): 0.002945999999999893
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">8</span><span class="o">-</span><span class="mi">38</span><span class="n">ed1c02eae6</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">t0</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">clock</span><span class="p">()</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">wavesed</span><span class="o">.</span><span class="n">findland</span><span class="p">(</span><span class="n">slvl</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Definition of shoreline position took (s):&#39;</span><span class="p">,</span><span class="n">time</span><span class="o">.</span><span class="n">clock</span><span class="p">()</span><span class="o">-</span><span class="n">t0</span><span class="p">)</span>
+
+<span class="ne">NameError</span>: name &#39;wavesed&#39; is not defined
 </pre></div>
 </div>
 </div>
@@ -715,6 +627,16 @@ Removing build directory /tmp/tmp5gpsk9gv
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">wdir</span> <span class="o">=</span> <span class="n">wavesed</span><span class="o">.</span><span class="n">wavesource</span><span class="p">(</span><span class="nb">dir</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">9</span><span class="o">-</span><span class="mi">0</span><span class="n">f4cfdfdc46f</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">wdir</span> <span class="o">=</span> <span class="n">wavesed</span><span class="o">.</span><span class="n">wavesource</span><span class="p">(</span><span class="nb">dir</span><span class="p">)</span>
+
+<span class="ne">NameError</span>: name &#39;wavesed&#39; is not defined
 </pre></div>
 </div>
 </div>
@@ -742,7 +664,14 @@ Removing build directory /tmp/tmp5gpsk9gv
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Wave evolution computation took (s):  0.5165360000000001
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">11</span><span class="o">-</span><span class="mi">7948</span><span class="n">bd66d6c2</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">t0</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">clock</span><span class="p">()</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">wavesed</span><span class="o">.</span><span class="n">cmptwaves</span><span class="p">(</span><span class="n">src</span><span class="o">=</span><span class="n">wdir</span><span class="p">,</span> <span class="n">h0</span><span class="o">=</span><span class="n">H0</span><span class="p">,</span> <span class="n">sigma</span><span class="o">=</span><span class="mf">1.</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Wave evolution computation took (s): &#39;</span><span class="p">,</span><span class="n">time</span><span class="o">.</span><span class="n">clock</span><span class="p">()</span><span class="o">-</span><span class="n">t0</span><span class="p">)</span>
+
+<span class="ne">NameError</span>: name &#39;wavesed&#39; is not defined
 </pre></div>
 </div>
 </div>
@@ -769,7 +698,7 @@ Removing build directory /tmp/tmp5gpsk9gv
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">size</span> <span class="o">=</span> <span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">8</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">size</span> <span class="o">=</span> <span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">6</span><span class="p">)</span>
 <span class="c1"># i1 = 0 </span>
 <span class="c1"># i2 = -1</span>
 <span class="c1"># j1 = 0</span>
@@ -799,11 +728,18 @@ Removing build directory /tmp/tmp5gpsk9gv
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/sedtransport_24_0.png" src="../_images/sedtransport_24_0.png" />
-<img alt="../_images/sedtransport_24_1.png" src="../_images/sedtransport_24_1.png" />
-<img alt="../_images/sedtransport_24_2.png" src="../_images/sedtransport_24_2.png" />
-<img alt="../_images/sedtransport_24_3.png" src="../_images/sedtransport_24_3.png" />
-<img alt="../_images/sedtransport_24_4.png" src="../_images/sedtransport_24_4.png" />
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">13</span><span class="o">-</span><span class="n">c5ae3d5bd548</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">     </span><span class="mi">11</span> <span class="n">j2</span> <span class="o">=</span> <span class="mi">170</span>
+<span class="g g-Whitespace">     </span><span class="mi">12</span> 
+<span class="ne">---&gt; </span><span class="mi">13</span> <span class="n">wavesed</span><span class="o">.</span><span class="n">plotData</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s1">&#39;bathy&#39;</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="n">size</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=-</span><span class="mi">100</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> 
+<span class="g g-Whitespace">     </span><span class="mi">14</span>                  <span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">imin</span><span class="o">=</span><span class="n">i1</span><span class="p">,</span> <span class="n">imax</span><span class="o">=</span><span class="n">i2</span><span class="p">,</span> <span class="n">jmin</span><span class="o">=</span><span class="n">j1</span><span class="p">,</span> <span class="n">jmax</span><span class="o">=</span><span class="n">j2</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">15</span> 
+
+<span class="ne">NameError</span>: name &#39;wavesed&#39; is not defined
+</pre></div>
+</div>
 </div>
 </div>
 </div>
@@ -828,7 +764,14 @@ Removing build directory /tmp/tmp5gpsk9gv
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Sediment erosion/deposition computation took (s):  0.5957819999999998
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">15</span><span class="o">-</span><span class="n">b0396ead7214</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">t0</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">clock</span><span class="p">()</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">wavesed</span><span class="o">.</span><span class="n">cmptsed</span><span class="p">(</span><span class="n">sigma</span><span class="o">=</span><span class="mf">1.</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Sediment erosion/deposition computation took (s): &#39;</span><span class="p">,</span><span class="n">time</span><span class="o">.</span><span class="n">clock</span><span class="p">()</span><span class="o">-</span><span class="n">t0</span><span class="p">)</span>
+
+<span class="ne">NameError</span>: name &#39;wavesed&#39; is not defined
 </pre></div>
 </div>
 </div>
@@ -849,7 +792,7 @@ Removing build directory /tmp/tmp5gpsk9gv
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">size</span> <span class="o">=</span> <span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">8</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">size</span> <span class="o">=</span> <span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">6</span><span class="p">)</span>
 <span class="c1"># i1 = 0 </span>
 <span class="c1"># i2 = -1</span>
 <span class="c1"># j1 = 0</span>
@@ -873,9 +816,18 @@ Removing build directory /tmp/tmp5gpsk9gv
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/sedtransport_30_0.png" src="../_images/sedtransport_30_0.png" />
-<img alt="../_images/sedtransport_30_1.png" src="../_images/sedtransport_30_1.png" />
-<img alt="../_images/sedtransport_30_2.png" src="../_images/sedtransport_30_2.png" />
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">17</span><span class="o">-</span><span class="n">e3117de9bd5f</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">     </span><span class="mi">11</span> <span class="n">j2</span> <span class="o">=</span> <span class="mi">170</span>
+<span class="g g-Whitespace">     </span><span class="mi">12</span> 
+<span class="ne">---&gt; </span><span class="mi">13</span> <span class="n">wavesed</span><span class="o">.</span><span class="n">plotData</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s1">&#39;bathy&#39;</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="n">size</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=-</span><span class="mi">100</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> 
+<span class="g g-Whitespace">     </span><span class="mi">14</span>                  <span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">stream</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">imin</span><span class="o">=</span><span class="n">i1</span><span class="p">,</span> <span class="n">imax</span><span class="o">=</span><span class="n">i2</span><span class="p">,</span> <span class="n">jmin</span><span class="o">=</span><span class="n">j1</span><span class="p">,</span> <span class="n">jmax</span><span class="o">=</span><span class="n">j2</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">15</span> 
+
+<span class="ne">NameError</span>: name &#39;wavesed&#39; is not defined
+</pre></div>
+</div>
 </div>
 </div>
 </div>
