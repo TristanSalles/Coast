@@ -40,6 +40,14 @@ jobs:
     - name: Build the book
       shell: bash
       run: |
+        cd book/coastevol/COVE/driver_files;
+        make -f spiral_bay_make.make;
+        mv spiral_bay.out ../../cove
+
+    # Build the book
+    - name: Build the book
+      shell: bash
+      run: |
         eval "$(conda shell.bash hook)" && conda activate coast
         jupyter-book build book
 
