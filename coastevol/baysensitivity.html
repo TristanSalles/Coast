@@ -1,0 +1,1456 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sensitivities of crenulate bay shorelines to wave climates &#8212; Coastal Processes, Environments &amp; Systems</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.e7340bb3dbd8dde6db86f25597f54a1b.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Coastal Processes, Environments & Systems</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <p class="caption collapsible-parent">
+ <span class="caption-text">
+  Part 1
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../queryocean/notes.html">
+   Notes on ocean data query
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../pracenv/intronotebook.html">
+     Introduction to Jupyter notebook
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../queryocean/buoygoldcoast.html">
+     AODN - Wave buoys Gold Coast
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../queryocean/oceandata1.html">
+     Using the IMOS User Code Library with Python
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../queryocean/oceandata2.html">
+     IMOS Ocean Radar Data Query
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../queryocean/waverider.html">
+     Analysing historical records of wave data from IMOS
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../queryocean/oceanforecast.html">
+     Access data from Forecast Model
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Part 2
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../waveclimate/notes.html">
+   Analysing wave climate notes
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../waveclimate/tileanalysis.html">
+     Satellite tile analysis
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../waveclimate/climatevariability.html">
+     Climate variability
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../waveclimate/cycloneyasi.html">
+     Cyclone track
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../waveclimate/sar_waves.html">
+     Wave measurements from SAR
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Part 3
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="notes.html">
+   Quantifying coastal changes notes
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="waverunup.html">
+     Runup models
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="runupdataset.html">
+     Runup dataset
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="pybeach.html">
+     pybeach
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="sedtransport.html">
+     Simple wave sediment modelling
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="inshorewaves.html">
+     Inshore wave data Narrabeen
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="selectprofiles.html">
+     Narrabeen beach profile adjustment
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="grainsettling.html">
+     Exploring grain settling
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Part 4
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../reefmodel.html">
+   Coral reef evolution
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Jupyter
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../pracenv/notebooks.html">
+   Interactive notebooks
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../pracenv/environment.html">
+     Managing environments
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../pracenv/jupyter.html">
+     Jupyter notebook
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/coastevol/baysensitivity.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/TristanSalles/Coast"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/TristanSalles/Coast/issues/new?title=Issue%20on%20page%20%2Fcoastevol/baysensitivity.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/TristanSalles/Coast/edit/main/book/coastevol/baysensitivity.ipynb"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+            <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                    data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                    title="Fullscreen mode"><i
+                        class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/TristanSalles/Coast/main?urlpath=lab/tree/book/coastevol/baysensitivity.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i>
+            Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#running-cove">
+   Running COVE
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#set-the-wave-direction-and-spreading">
+     Set the wave direction and spreading
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#plotting-shoreline-evolution">
+   Plotting shoreline evolution
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#read-the-output-file">
+     Read the output file
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#define-output-time-to-visualise">
+     Define output time to visualise
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#plot-the-results">
+     Plot the results
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#clean-run">
+   Clean run
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="c1"># Customise figure style </span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">rc</span>
+<span class="n">rc</span><span class="p">(</span><span class="s1">&#39;font&#39;</span><span class="p">,</span><span class="n">size</span><span class="o">=</span><span class="mi">13</span><span class="p">)</span>
+<span class="n">rc</span><span class="p">(</span><span class="s1">&#39;ytick.major&#39;</span><span class="p">,</span><span class="n">pad</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">rc</span><span class="p">(</span><span class="s1">&#39;xtick.major&#39;</span><span class="p">,</span><span class="n">pad</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">padding</span> <span class="o">=</span> <span class="mi">5</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>ls COV
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ls: cannot access &#39;COV&#39;: No such file or directory
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>git clone --depth<span class="o">=</span><span class="m">1</span> https://github.com/COVE-Model/COVE-v1.1.0.git<span class="p">;</span> <span class="nb">cd</span> COVE-v1.1.0/driver_files<span class="p">;</span> make -f spiral_bay_make.make<span class="p">;</span> mv spiral_bay.out cove_run<span class="p">;</span> mv cove_run ../../
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cloning into &#39;COVE-v1.1.0&#39;...
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>remote: Enumerating objects: 97, done.
+remote: Counting objects:   1% (1/97)
+remote: Counting objects:   2% (2/97)
+remote: Counting objects:   3% (3/97)
+remote: Counting objects:   4% (4/97)
+remote: Counting objects:   5% (5/97)
+remote: Counting objects:   6% (6/97)
+remote: Counting objects:   7% (7/97)
+remote: Counting objects:   8% (8/97)
+remote: Counting objects:   9% (9/97)
+remote: Counting objects:  10% (10/97)
+remote: Counting objects:  11% (11/97)
+remote: Counting objects:  12% (12/97)
+remote: Counting objects:  13% (13/97)
+remote: Counting objects:  14% (14/97)
+remote: Counting objects:  15% (15/97)
+remote: Counting objects:  16% (16/97)
+remote: Counting objects:  17% (17/97)
+remote: Counting objects:  18% (18/97)
+remote: Counting objects:  19% (19/97)
+remote: Counting objects:  20% (20/97)
+remote: Counting objects:  21% (21/97)
+remote: Counting objects:  22% (22/97)
+remote: Counting objects:  23% (23/97)
+remote: Counting objects:  24% (24/97)
+remote: Counting objects:  25% (25/97)
+remote: Counting objects:  26% (26/97)
+remote: Counting objects:  27% (27/97)
+remote: Counting objects:  28% (28/97)
+remote: Counting objects:  29% (29/97)
+remote: Counting objects:  30% (30/97)
+remote: Counting objects:  31% (31/97)
+remote: Counting objects:  32% (32/97)
+remote: Counting objects:  34% (33/97)
+remote: Counting objects:  35% (34/97)
+remote: Counting objects:  36% (35/97)
+remote: Counting objects:  37% (36/97)
+remote: Counting objects:  38% (37/97)
+remote: Counting objects:  39% (38/97)
+remote: Counting objects:  40% (39/97)
+remote: Counting objects:  41% (40/97)
+remote: Counting objects:  42% (41/97)
+remote: Counting objects:  43% (42/97)
+remote: Counting objects:  44% (43/97)
+remote: Counting objects:  45% (44/97)
+remote: Counting objects:  46% (45/97)
+remote: Counting objects:  47% (46/97)
+remote: Counting objects:  48% (47/97)
+remote: Counting objects:  49% (48/97)
+remote: Counting objects:  50% (49/97)
+remote: Counting objects:  51% (50/97)
+remote: Counting objects:  52% (51/97)
+remote: Counting objects:  53% (52/97)
+remote: Counting objects:  54% (53/97)
+remote: Counting objects:  55% (54/97)
+remote: Counting objects:  56% (55/97)
+remote: Counting objects:  57% (56/97)
+remote: Counting objects:  58% (57/97)
+remote: Counting objects:  59% (58/97)
+remote: Counting objects:  60% (59/97)
+remote: Counting objects:  61% (60/97)
+remote: Counting objects:  62% (61/97)
+remote: Counting objects:  63% (62/97)
+remote: Counting objects:  64% (63/97)
+remote: Counting objects:  65% (64/97)
+remote: Counting objects:  67% (65/97)
+remote: Counting objects:  68% (66/97)
+remote: Counting objects:  69% (67/97)
+remote: Counting objects:  70% (68/97)
+remote: Counting objects:  71% (69/97)
+remote: Counting objects:  72% (70/97)
+remote: Counting objects:  73% (71/97)
+remote: Counting objects:  74% (72/97)
+remote: Counting objects:  75% (73/97)
+remote: Counting objects:  76% (74/97)
+remote: Counting objects:  77% (75/97)
+remote: Counting objects:  78% (76/97)
+remote: Counting objects:  79% (77/97)
+remote: Counting objects:  80% (78/97)
+remote: Counting objects:  81% (79/97)
+remote: Counting objects:  82% (80/97)
+remote: Counting objects:  83% (81/97)
+remote: Counting objects:  84% (82/97)
+remote: Counting objects:  85% (83/97)
+remote: Counting objects:  86% (84/97)
+remote: Counting objects:  87% (85/97)
+remote: Counting objects:  88% (86/97)
+remote: Counting objects:  89% (87/97)
+remote: Counting objects:  90% (88/97)
+remote: Counting objects:  91% (89/97)
+remote: Counting objects:  92% (90/97)
+remote: Counting objects:  93% (91/97)
+remote: Counting objects:  94% (92/97)
+remote: Counting objects:  95% (93/97)
+remote: Counting objects:  96% (94/97)
+remote: Counting objects:  97% (95/97)
+remote: Counting objects:  98% (96/97)
+remote: Counting objects: 100% (97/97)
+remote: Counting objects: 100% (97/97), done.
+remote: Compressing objects:   1% (1/56)
+remote: Compressing objects:   3% (2/56)
+remote: Compressing objects:   5% (3/56)
+remote: Compressing objects:   7% (4/56)
+remote: Compressing objects:   8% (5/56)
+remote: Compressing objects:  10% (6/56)
+remote: Compressing objects:  12% (7/56)
+remote: Compressing objects:  14% (8/56)
+remote: Compressing objects:  16% (9/56)
+remote: Compressing objects:  17% (10/56)
+remote: Compressing objects:  19% (11/56)
+remote: Compressing objects:  21% (12/56)
+remote: Compressing objects:  23% (13/56)
+remote: Compressing objects:  25% (14/56)
+remote: Compressing objects:  26% (15/56)
+remote: Compressing objects:  28% (16/56)
+remote: Compressing objects:  30% (17/56)
+remote: Compressing objects:  32% (18/56)
+remote: Compressing objects:  33% (19/56)
+remote: Compressing objects:  35% (20/56)
+remote: Compressing objects:  37% (21/56)
+remote: Compressing objects:  39% (22/56)
+remote: Compressing objects:  41% (23/56)
+remote: Compressing objects:  42% (24/56)
+remote: Compressing objects:  44% (25/56)
+remote: Compressing objects:  46% (26/56)
+remote: Compressing objects:  48% (27/56)
+remote: Compressing objects:  50% (28/56)
+remote: Compressing objects:  51% (29/56)
+remote: Compressing objects:  53% (30/56)
+remote: Compressing objects:  55% (31/56)
+remote: Compressing objects:  57% (32/56)
+remote: Compressing objects:  58% (33/56)
+remote: Compressing objects:  60% (34/56)
+remote: Compressing objects:  62% (35/56)
+remote: Compressing objects:  64% (36/56)
+remote: Compressing objects:  66% (37/56)
+remote: Compressing objects:  67% (38/56)
+remote: Compressing objects:  69% (39/56)
+remote: Compressing objects:  71% (40/56)
+remote: Compressing objects:  73% (41/56)
+remote: Compressing objects:  75% (42/56)
+remote: Compressing objects:  76% (43/56)
+remote: Compressing objects:  78% (44/56)
+remote: Compressing objects:  80% (45/56)
+remote: Compressing objects:  82% (46/56)
+remote: Compressing objects:  83% (47/56)
+remote: Compressing objects:  85% (48/56)
+remote: Compressing objects:  87% (49/56)
+remote: Compressing objects:  89% (50/56)
+remote: Compressing objects:  91% (51/56)
+remote: Compressing objects:  92% (52/56)
+remote: Compressing objects:  94% (53/56)
+remote: Compressing objects:  96% (54/56)
+remote: Compressing objects:  98% (55/56)
+remote: Compressing objects: 100% (56/56)
+remote: Compressing objects: 100% (56/56), done.
+Receiving objects:   1% (1/97)
+Receiving objects:   2% (2/97)
+Receiving objects:   3% (3/97)
+Receiving objects:   4% (4/97)
+Receiving objects:   5% (5/97)
+Receiving objects:   6% (6/97)
+Receiving objects:   7% (7/97)
+Receiving objects:   8% (8/97)
+Receiving objects:   9% (9/97)
+Receiving objects:  10% (10/97)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Receiving objects:  11% (11/97)
+Receiving objects:  12% (12/97)
+Receiving objects:  13% (13/97)
+Receiving objects:  14% (14/97)
+Receiving objects:  15% (15/97)
+Receiving objects:  16% (16/97)
+Receiving objects:  17% (17/97)
+Receiving objects:  18% (18/97)
+Receiving objects:  19% (19/97)
+Receiving objects:  20% (20/97)
+Receiving objects:  21% (21/97)
+Receiving objects:  22% (22/97)
+Receiving objects:  23% (23/97)
+Receiving objects:  24% (24/97)
+Receiving objects:  25% (25/97)
+Receiving objects:  26% (26/97)
+Receiving objects:  27% (27/97)
+Receiving objects:  28% (28/97)
+Receiving objects:  29% (29/97)
+Receiving objects:  30% (30/97)
+remote: Total 97 (delta 41), reused 95 (delta 41), pack-reused 0
+Receiving objects:  31% (31/97)
+Receiving objects:  32% (32/97)
+Receiving objects:  34% (33/97)
+Receiving objects:  35% (34/97)
+Receiving objects:  36% (35/97)
+Receiving objects:  37% (36/97)
+Receiving objects:  38% (37/97)
+Receiving objects:  39% (38/97)
+Receiving objects:  40% (39/97)
+Receiving objects:  41% (40/97)
+Receiving objects:  42% (41/97)
+Receiving objects:  43% (42/97)
+Receiving objects:  44% (43/97)
+Receiving objects:  45% (44/97)
+Receiving objects:  46% (45/97)
+Receiving objects:  47% (46/97)
+Receiving objects:  48% (47/97)
+Receiving objects:  49% (48/97)
+Receiving objects:  50% (49/97)
+Receiving objects:  51% (50/97)
+Receiving objects:  52% (51/97)
+Receiving objects:  53% (52/97)
+Receiving objects:  54% (53/97)
+Receiving objects:  55% (54/97)
+Receiving objects:  56% (55/97)
+Receiving objects:  57% (56/97)
+Receiving objects:  58% (57/97)
+Receiving objects:  59% (58/97)
+Receiving objects:  60% (59/97)
+Receiving objects:  61% (60/97)
+Receiving objects:  62% (61/97)
+Receiving objects:  63% (62/97)
+Receiving objects:  64% (63/97)
+Receiving objects:  65% (64/97)
+Receiving objects:  67% (65/97)
+Receiving objects:  68% (66/97)
+Receiving objects:  69% (67/97)
+Receiving objects:  70% (68/97)
+Receiving objects:  71% (69/97)
+Receiving objects:  72% (70/97)
+Receiving objects:  73% (71/97)
+Receiving objects:  74% (72/97)
+Receiving objects:  75% (73/97)
+Receiving objects:  76% (74/97)
+Receiving objects:  77% (75/97)
+Receiving objects:  78% (76/97)
+Receiving objects:  79% (77/97)
+Receiving objects:  80% (78/97)
+Receiving objects:  81% (79/97)
+Receiving objects:  82% (80/97)
+Receiving objects:  83% (81/97)
+Receiving objects:  84% (82/97)
+Receiving objects:  85% (83/97)
+Receiving objects:  86% (84/97)
+Receiving objects:  87% (85/97)
+Receiving objects:  88% (86/97)
+Receiving objects:  89% (87/97)
+Receiving objects:  90% (88/97)
+Receiving objects:  91% (89/97)
+Receiving objects:  92% (90/97)
+Receiving objects:  93% (91/97)
+Receiving objects:  94% (92/97)
+Receiving objects:  95% (93/97)
+Receiving objects:  96% (94/97)
+Receiving objects:  97% (95/97)
+Receiving objects:  98% (96/97)
+Receiving objects: 100% (97/97)
+Receiving objects: 100% (97/97), 1.59 MiB | 27.65 MiB/s, done.
+Resolving deltas:   0% (0/41)
+Resolving deltas:   2% (1/41)
+Resolving deltas:   4% (2/41)
+Resolving deltas:   7% (3/41)
+Resolving deltas:   9% (4/41)
+Resolving deltas:  12% (5/41)
+Resolving deltas:  14% (6/41)
+Resolving deltas:  17% (7/41)
+Resolving deltas:  19% (8/41)
+Resolving deltas:  21% (9/41)
+Resolving deltas:  24% (10/41)
+Resolving deltas:  26% (11/41)
+Resolving deltas:  29% (12/41)
+Resolving deltas:  31% (13/41)
+Resolving deltas:  34% (14/41)
+Resolving deltas:  36% (15/41)
+Resolving deltas:  39% (16/41)
+Resolving deltas:  41% (17/41)
+Resolving deltas:  43% (18/41)
+Resolving deltas:  46% (19/41)
+Resolving deltas:  48% (20/41)
+Resolving deltas:  51% (21/41)
+Resolving deltas:  53% (22/41)
+Resolving deltas:  56% (23/41)
+Resolving deltas:  58% (24/41)
+Resolving deltas:  60% (25/41)
+Resolving deltas:  63% (26/41)
+Resolving deltas:  65% (27/41)
+Resolving deltas:  68% (28/41)
+Resolving deltas:  70% (29/41)
+Resolving deltas:  73% (30/41)
+Resolving deltas:  75% (31/41)
+Resolving deltas:  78% (32/41)
+Resolving deltas:  80% (33/41)
+Resolving deltas:  82% (34/41)
+Resolving deltas:  85% (35/41)
+Resolving deltas:  87% (36/41)
+Resolving deltas:  90% (37/41)
+Resolving deltas:  92% (38/41)
+Resolving deltas:  95% (39/41)
+Resolving deltas:  97% (40/41)
+Resolving deltas: 100% (41/41)
+Resolving deltas: 100% (41/41), done.
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>g++ -g -c -Wall -pg   ../coastline.cpp -o ../coastline.o
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>g++ -g -c -Wall -pg   ../cliffline.cpp -o ../cliffline.o
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>g++ -g -c -Wall -pg   ../waveclimate.cpp -o ../waveclimate.o
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>g++ -g -c -Wall -pg   spiral_bay_driver.cpp -o spiral_bay_driver.o
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold">spiral_bay_driver.cpp:</span> In function &#39;<span class=" -Color -Color-Bold">int main(int, char**)</span>&#39;:
+<span class=" -Color -Color-Bold">spiral_bay_driver.cpp:101:6:</span> <span class=" -Color -Color-Bold -Color-Bold-Magenta">warning: </span>unused variable &#39;<span class=" -Color -Color-Bold">MeanNodeSpacing</span>&#39; [<span class=" -Color -Color-Bold -Color-Bold-Magenta">-Wunused-variable</span>]
+  101 |  int <span class=" -Color -Color-Bold -Color-Bold-Magenta">MeanNodeSpacing</span> = 50;  // in metres
+      |      <span class=" -Color -Color-Bold -Color-Bold-Magenta">^~~~~~~~~~~~~~~</span>
+<span class=" -Color -Color-Bold">spiral_bay_driver.cpp:102:9:</span> <span class=" -Color -Color-Bold -Color-Bold-Magenta">warning: </span>unused variable &#39;<span class=" -Color -Color-Bold">CoastLength</span>&#39; [<span class=" -Color -Color-Bold -Color-Bold-Magenta">-Wunused-variable</span>]
+  102 |  double <span class=" -Color -Color-Bold -Color-Bold-Magenta">CoastLength</span> = 2000; // in metres
+      |         <span class=" -Color -Color-Bold -Color-Bold-Magenta">^~~~~~~~~~~</span>
+<span class=" -Color -Color-Bold">spiral_bay_driver.cpp:103:9:</span> <span class=" -Color -Color-Bold -Color-Bold-Magenta">warning: </span>unused variable &#39;<span class=" -Color -Color-Bold">Trend</span>&#39; [<span class=" -Color -Color-Bold -Color-Bold-Magenta">-Wunused-variable</span>]
+  103 |  double <span class=" -Color -Color-Bold -Color-Bold-Magenta">Trend</span> = 315.;  // azimuth in degrees
+      |         <span class=" -Color -Color-Bold -Color-Bold-Magenta">^~~~~</span>
+<span class=" -Color -Color-Bold">spiral_bay_driver.cpp:110:6:</span> <span class=" -Color -Color-Bold -Color-Bold-Magenta">warning: </span>unused variable &#39;<span class=" -Color -Color-Bold">StartBoundary</span>&#39; [<span class=" -Color -Color-Bold -Color-Bold-Magenta">-Wunused-variable</span>]
+  110 |  int <span class=" -Color -Color-Bold -Color-Bold-Magenta">StartBoundary</span> = 2;
+      |      <span class=" -Color -Color-Bold -Color-Bold-Magenta">^~~~~~~~~~~~~</span>
+<span class=" -Color -Color-Bold">spiral_bay_driver.cpp:111:6:</span> <span class=" -Color -Color-Bold -Color-Bold-Magenta">warning: </span>unused variable &#39;<span class=" -Color -Color-Bold">EndBoundary</span>&#39; [<span class=" -Color -Color-Bold -Color-Bold-Magenta">-Wunused-variable</span>]
+  111 |  int <span class=" -Color -Color-Bold -Color-Bold-Magenta">EndBoundary</span> = 2;
+      |      <span class=" -Color -Color-Bold -Color-Bold-Magenta">^~~~~~~~~~~</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>g++  ../coastline.o ../cliffline.o ../waveclimate.o ./spiral_bay_driver.o -lm -lstdc++  -o spiral_bay.out
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span><span class="nb">cd</span> COVE/driver_files<span class="p">;</span> make -f spiral_bay_make.make<span class="p">;</span> mv spiral_bay.out cove<span class="p">;</span> mv cove ../../
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>g++  ../coastline.o ../waveclimate.o ./spiral_bay_driver.o -lm -lstdc++  -o spiral_bay.out
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="sensitivities-of-crenulate-bay-shorelines-to-wave-climates">
+<h1>Sensitivities of crenulate bay shorelines to wave climates<a class="headerlink" href="#sensitivities-of-crenulate-bay-shorelines-to-wave-climates" title="Permalink to this headline">¶</a></h1>
+<p>We will use a vector-based one-line model called COVE to study to explore how the wave direction <span class="math notranslate nohighlight">\(\theta_o\)</span> and spreading <span class="math notranslate nohighlight">\(\theta_{std}\)</span> is influencing shorelines evolution.</p>
+<div class="section" id="running-cove">
+<h2>Running COVE<a class="headerlink" href="#running-cove" title="Permalink to this headline">¶</a></h2>
+<p>The COVE model has been already compiled on the system. To run the model, you will use the following command (don’t forget to put <code class="docutils literal notranslate"><span class="pre">!</span></code> before calling the executable).</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">!</span></code> in IPython Notebook is a command <code class="docutils literal notranslate"><span class="pre">magic</span></code> which enable you to run terminal command directly from the IPython cell interface.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>./cove
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Program needs 6 input arguments:	 
+	- MeanWavePeriod
+	- StDWavePeriod
+	- MeanWaveHeight
+	- StDWaveHeight
+	- MeanWaveDirection
+	- StDWaveDirection
+</pre></div>
+</div>
+</div>
+</div>
+<p>As shown in previous output the model requires 6 arguments. We will give the following values for each of them:</p>
+<ul class="simple">
+<li><p>MeanWavePeriod <span class="math notranslate nohighlight">\(T_{mean}=6s\)</span></p></li>
+<li><p>StDWavePeriod <span class="math notranslate nohighlight">\(T_{std}=1s\)</span></p></li>
+<li><p>MeanWaveHeight <span class="math notranslate nohighlight">\(H_{mean}=1.m\)</span></p></li>
+<li><p>StDWaveHeight <span class="math notranslate nohighlight">\(H_{std}=0.1m\)</span></p></li>
+<li><p>TimeStep <span class="math notranslate nohighlight">\(dt=0.2\)</span> days</p></li>
+<li><p>EndTime <span class="math notranslate nohighlight">\(50\)</span> years</p></li>
+</ul>
+<p>And for this first run we will use the following value for the wave direction and spreading:</p>
+<ul class="simple">
+<li><p>MeanWaveDirection <span class="math notranslate nohighlight">\(\theta_{mean}\)</span>=<span class="math notranslate nohighlight">\(25^o\)</span></p></li>
+<li><p>StDWaveDirection <span class="math notranslate nohighlight">\(\theta_{std}\)</span>=<span class="math notranslate nohighlight">\(10^o\)</span></p></li>
+</ul>
+<div class="section" id="set-the-wave-direction-and-spreading">
+<h3>Set the wave direction and spreading<a class="headerlink" href="#set-the-wave-direction-and-spreading" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define wave climate params</span>
+<span class="n">Tmean</span> <span class="o">=</span> <span class="mi">6</span>
+<span class="n">Tstd</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">Hmean</span> <span class="o">=</span> <span class="mf">1.0</span>
+<span class="n">Hstd</span> <span class="o">=</span> <span class="mf">0.1</span>
+<span class="n">Theta</span> <span class="o">=</span> <span class="mi">25</span>
+<span class="n">ThetaStd</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">dt</span> <span class="o">=</span> <span class="mf">0.2</span>
+<span class="n">end</span> <span class="o">=</span> <span class="mi">50</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>./cove <span class="nv">$Tmean</span> <span class="nv">$Tstd</span> <span class="nv">$Hmean</span> <span class="nv">$Hstd</span>  <span class="nv">$Theta</span> <span class="nv">$ThetaStd</span> 
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Initialising Coastline as straight segment
+	 MeanNodeSpacing = 50
+	 CoastLength = 2000
+	 Boundary Conditions = 2, 2
+
+Coastline: Time is 0.00 years
+Simulated time is 0.00 years
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Time is 0.10 years
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Time is 0.20 years
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Time is 0.30 years
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Time is 0.40 years
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Time is 0.50 years
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Time is 0.60 years
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Time is 0.70 years
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Time is 0.80 years
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Time is 0.90 years
+Coastline: Time is 1.00 years
+Simulated time is 1.00 years
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Time is 1.10 years
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Time is 1.20 years
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Time is 1.30 years
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Time is 1.40 years
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Time is 1.50 years
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Time is 1.60 years
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Time is 1.70 years
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Time is 1.80 years
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Time is 1.90 years
+Coastline: Time is 2.00 years
+Simulated time is 2.00 years
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Time is 2.10 years
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Time is 2.20 years
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Time is 2.30 years
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Time is 2.40 years
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Time is 2.50 years
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Time is 2.60 years
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Time is 2.70 years
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Time is 2.80 years
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Time is 2.90 years
+Coastline: Time is 3.00 years
+Simulated time is 3.00 years
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Time is 3.10 years
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Time is 3.20 years
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Time is 3.30 years
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Time is 3.40 years
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Time is 3.50 years
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Time is 3.60 years
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Time is 3.70 years
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Time is 3.80 years
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Time is 3.90 years
+Coastline: Time is 4.00 years
+Simulated time is 4.00 years
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Time is 4.10 years
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Time is 4.20 years
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Time is 4.30 years
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Time is 4.40 years
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Time is 4.50 years
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Time is 4.60 years
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Time is 4.70 years
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Time is 4.80 years
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Time is 4.90 years
+Coastline: Time is 5.00 years
+Simulated time is 5.00 years
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Time is 5.10 years
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Time is 5.20 years
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Time is 5.30 years
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Time is 5.40 years
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Time is 5.50 years
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Time is 5.60 years
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Time is 5.70 years
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Time is 5.80 years
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Time is 5.90 years
+Coastline: Time is 6.00 years
+Simulated time is 6.00 years
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Time is 6.10 years
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Time is 6.20 years
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Time is 6.30 years
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Time is 6.40 years
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Time is 6.50 years
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Time is 6.60 years
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Time is 6.70 years
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Time is 6.80 years
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Time is 6.90 years
+Coastline: Time is 7.00 years
+Simulated time is 7.00 years
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Time is 7.10 years
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Time is 7.20 years
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Time is 7.30 years
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Time is 7.40 years
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Time is 7.50 years
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Time is 7.60 years
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Time is 7.70 years
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Time is 7.80 years
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Time is 7.90 years
+Coastline: Time is 8.00 years
+Simulated time is 8.00 years
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Time is 8.10 years
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Time is 8.20 years
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Time is 8.30 years
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Time is 8.40 years
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Time is 8.50 years
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Time is 8.60 years
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Time is 8.70 years
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Time is 8.80 years
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Time is 8.90 years
+Coastline: Time is 9.00 years
+Simulated time is 9.00 years
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Time is 9.10 years
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Time is 9.20 years
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Time is 9.30 years
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Time is 9.40 years
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Time is 9.50 years
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Time is 9.60 years
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Time is 9.70 years
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Time is 9.80 years
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Time is 9.90 years
+Coastline: Time is 10.00 years
+Simulated time is 10.00 years
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Time is 10.10 years
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Time is 10.20 years
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Time is 10.30 years
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Time is 10.40 years
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Time is 10.50 years
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Time is 10.60 years
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Time is 10.70 years
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Time is 10.80 years
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Time is 10.90 years
+Coastline: Time is 11.00 years
+Simulated time is 11.00 years
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Time is 11.10 years
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Time is 11.20 years
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Time is 11.30 years
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Time is 11.40 years
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Time is 11.50 years
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Time is 11.60 years
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Time is 11.70 years
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Time is 11.80 years
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Time is 11.90 years
+Coastline: Time is 12.00 years
+Simulated time is 12.00 years
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Time is 12.10 years
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Time is 12.20 years
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Time is 12.30 years
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>^C
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>./cove <span class="m">6</span> <span class="m">1</span> <span class="m">1</span>. <span class="m">0</span>.1 <span class="m">25</span> <span class="m">10</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Initialising Coastline as straight segment
+	 MeanNodeSpacing = 50
+	 CoastLength = 2000
+	 Boundary Conditions = 2, 2
+
+Simulated time is 0.00 yearss
+^C
+</pre></div>
+</div>
+</div>
+</div>
+<p>The model results have been written in a file called <code class="docutils literal notranslate"><span class="pre">Spiral_6_1_1._0.1_25_10.xy</span></code>. As you can see the output file is named based on the input parameters given for the model run.</p>
+</div>
+</div>
+<div class="section" id="plotting-shoreline-evolution">
+<h2>Plotting shoreline evolution<a class="headerlink" href="#plotting-shoreline-evolution" title="Permalink to this headline">¶</a></h2>
+<p>First we need to load the usually IPython libraries (<strong>numpy</strong> and <strong>matplotlib</strong>).</p>
+<div class="section" id="read-the-output-file">
+<h3>Read the output file<a class="headerlink" href="#read-the-output-file" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Open coastline evolution file</span>
+<span class="n">filename</span> <span class="o">=</span> <span class="s2">&quot;Spiral_&quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">Tmean</span><span class="p">)</span><span class="o">+</span><span class="s2">&quot;_&quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">Tstd</span><span class="p">)</span><span class="o">+</span><span class="s2">&quot;_&quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">Hmean</span><span class="p">)</span><span class="o">+</span><span class="s2">&quot;_&quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">Hstd</span><span class="p">)</span><span class="o">+</span><span class="s2">&quot;_&quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">Theta</span><span class="p">)</span><span class="o">+</span><span class="s2">&quot;_&quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">ThetaStd</span><span class="p">)</span><span class="o">+</span><span class="s2">&quot;.xy&quot;</span>
+
+<span class="c1"># Read the header info and get the lines</span>
+<span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span><span class="s2">&quot;r&quot;</span><span class="p">)</span>
+<span class="n">Lines</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
+<span class="n">NoLines</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">Lines</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span>
+<span class="n">Header</span> <span class="o">=</span> <span class="n">Lines</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="define-output-time-to-visualise">
+<h3>Define output time to visualise<a class="headerlink" href="#define-output-time-to-visualise" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">TimeIntervals</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.2</span><span class="p">,</span><span class="mf">0.5</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">16</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">30</span><span class="p">,</span><span class="mi">40</span><span class="p">,</span><span class="mi">50</span><span class="p">]</span>
+
+<span class="n">Time</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">NoLines</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">NoLines</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">):</span>
+    <span class="n">Time</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">Lines</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="plot-the-results">
+<h3>Plot the results<a class="headerlink" href="#plot-the-results" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define outputfile name</span>
+<span class="n">outputfile</span> <span class="o">=</span> <span class="s2">&quot;mean&quot;</span><span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">Theta</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;std&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">ThetaStd</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;.png&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Setup the figure space, axis and line to animate</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">12</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplots_adjust</span><span class="p">(</span><span class="mf">0.2</span><span class="p">,</span><span class="mf">0.15</span><span class="p">,</span><span class="mf">0.9</span><span class="p">,</span><span class="mf">0.85</span><span class="p">)</span>
+
+
+<span class="c1"># Get the shoreline positions</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">Lines</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">)[</span><span class="mi">1</span><span class="p">:],</span><span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;float64&#39;</span><span class="p">)</span>
+<span class="n">Y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">Lines</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">)[</span><span class="mi">1</span><span class="p">:],</span><span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;float64&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">Y</span><span class="p">,</span><span class="s1">&#39;b.&#39;</span><span class="p">,</span><span class="n">ms</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s2">&quot;Initial Coastline&quot;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;X-coordinate (m)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Y-coordinate (m)&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="o">-</span><span class="mi">500</span><span class="p">,</span><span class="mi">2000</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="o">-</span><span class="mi">2100</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">TimeInt</span> <span class="ow">in</span> <span class="n">TimeIntervals</span><span class="p">:</span>
+    <span class="n">Diff</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">Time</span><span class="o">-</span><span class="n">TimeInt</span><span class="p">)</span>
+    <span class="n">Line</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmin</span><span class="p">(</span><span class="n">Diff</span><span class="p">)</span>
+    <span class="n">Xt</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">Lines</span><span class="p">[</span><span class="n">Line</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">)[</span><span class="mi">1</span><span class="p">:],</span><span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;float64&#39;</span><span class="p">)</span>
+    <span class="n">Yt</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">Lines</span><span class="p">[</span><span class="n">Line</span><span class="o">+</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">)[</span><span class="mi">1</span><span class="p">:],</span><span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;float64&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">Xt</span><span class="p">,</span><span class="n">Yt</span><span class="p">,</span><span class="s1">&#39;r--&#39;</span><span class="p">,</span><span class="n">lw</span><span class="o">=</span><span class="mf">1.5</span><span class="p">)</span>
+
+<span class="n">xmin</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">Xt</span><span class="p">)</span><span class="o">-</span><span class="mf">500.</span>
+<span class="n">xmax</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">Xt</span><span class="p">)</span><span class="o">+</span><span class="mi">500</span>
+<span class="n">ymin</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">Yt</span><span class="p">)</span><span class="o">-</span><span class="mf">500.</span>
+<span class="n">ymax</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">Yt</span><span class="p">)</span><span class="o">+</span><span class="mi">500</span>
+
+<span class="n">SeaX</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">Xt</span><span class="p">,[</span><span class="n">xmax</span><span class="p">,</span><span class="n">xmax</span><span class="p">,</span><span class="n">Xt</span><span class="p">[</span><span class="mi">0</span><span class="p">]])</span>
+<span class="n">SeaY</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">Yt</span><span class="p">,[</span><span class="n">ymin</span><span class="p">,</span><span class="n">ymax</span><span class="p">,</span><span class="n">Yt</span><span class="p">[</span><span class="mi">0</span><span class="p">]])</span>
+<span class="n">BeachX</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">Xt</span><span class="p">,[</span><span class="n">xmin</span><span class="p">,</span><span class="n">xmin</span><span class="p">,</span><span class="n">Xt</span><span class="p">[</span><span class="mi">0</span><span class="p">]])</span>
+<span class="n">BeachY</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">Yt</span><span class="p">,[</span><span class="n">ymin</span><span class="p">,</span><span class="n">ymax</span><span class="p">,</span><span class="n">Yt</span><span class="p">[</span><span class="mi">0</span><span class="p">]])</span>
+    
+<span class="n">plt</span><span class="o">.</span><span class="n">fill</span><span class="p">(</span><span class="n">SeaX</span><span class="p">,</span> <span class="n">SeaY</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="p">[</span><span class="mf">0.7</span><span class="p">,</span><span class="mf">0.9</span><span class="p">,</span><span class="mf">1.0</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">fill</span><span class="p">(</span><span class="n">BeachX</span><span class="p">,</span> <span class="n">BeachY</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="p">[</span><span class="mf">1.0</span><span class="p">,</span><span class="mf">0.9</span><span class="p">,</span><span class="mf">0.6</span><span class="p">])</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">Xt</span><span class="p">,</span><span class="n">Yt</span><span class="p">,</span><span class="s1">&#39;r--&#39;</span><span class="p">,</span><span class="n">lw</span><span class="o">=</span><span class="mf">1.5</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s2">&quot;Intermediate Coastlines&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">Xt</span><span class="p">,</span><span class="n">Yt</span><span class="p">,</span><span class="s1">&#39;r-&#39;</span><span class="p">,</span><span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s2">&quot;50 Year Coastline&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">Xt</span><span class="p">,</span><span class="n">Yt</span><span class="p">,</span><span class="s1">&#39;ro&#39;</span><span class="p">,</span><span class="n">ms</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">],</span><span class="n">Y</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">],</span><span class="s1">&#39;k-&#39;</span><span class="p">,</span><span class="n">lw</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">:],</span><span class="n">Y</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">:],</span><span class="s1">&#39;k-&#39;</span><span class="p">,</span><span class="n">lw</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+
+<span class="c1"># Display legend</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s1">&#39;legend.labelspacing&#39;</span><span class="p">:</span><span class="mf">0.1</span><span class="p">})</span> 
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s1">&#39;legend.numpoints&#39;</span><span class="p">:</span><span class="mi">2</span><span class="p">})</span> 
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s1">&#39;legend.frameon&#39;</span><span class="p">:</span><span class="kc">False</span><span class="p">})</span> 
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s1">&#39;legend.handlelength&#39;</span><span class="p">:</span><span class="mf">1.5</span><span class="p">})</span> 
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">leg</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">get_legend</span><span class="p">()</span>
+
+<span class="c1"># Set fontsize to small</span>
+<span class="n">ltext</span>  <span class="o">=</span> <span class="n">leg</span><span class="o">.</span><span class="n">get_texts</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">setp</span><span class="p">(</span><span class="n">ltext</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span> 
+
+<span class="c1"># Bin all wave data</span>
+<span class="n">Waves</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">Theta</span><span class="p">,</span><span class="n">ThetaStd</span><span class="p">,</span><span class="mi">10000</span><span class="p">)</span>
+<span class="n">widths</span> <span class="o">=</span> <span class="mi">15</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mf">180.0</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">axes</span><span class="p">([</span><span class="mf">0.65</span><span class="p">,</span><span class="mf">0.55</span><span class="p">,</span><span class="mf">0.25</span><span class="p">,</span><span class="mf">0.25</span><span class="p">],</span><span class="n">polar</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">hist</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">histogram</span><span class="p">(</span><span class="n">Waves</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mf">180.0</span><span class="p">,</span><span class="n">bins</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">361</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mf">180.0</span><span class="p">,</span><span class="n">widths</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">hist</span><span class="p">[</span><span class="mi">1</span><span class="p">][:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span><span class="n">hist</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">widths</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span><span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_theta_zero_location</span><span class="p">(</span><span class="s2">&quot;N&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_theta_direction</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_facecolor</span><span class="p">(</span><span class="s1">&#39;none&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">([])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">([])</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">outputfile</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="clean-run">
+<h2>Clean run<a class="headerlink" href="#clean-run" title="Permalink to this headline">¶</a></h2>
+<p>To avoid storage of extensive data on the server delete the output file using the cmmand <code class="docutils literal notranslate"><span class="pre">rm</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>rm Spiral_*.xy
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./coastevol"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Tristan Salles<br/>
+        
+            &copy; Copyright 2020-2022.<br/>
+          <div class="extra_footer">
+            <p>
+<a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">
+  <img align="right" class="margin" src="https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by.svg" width="88px">
+</a>
+These lecture notes and exercises are licensed under a <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">Creative Commons Attribution 4.0 International (CC BY 4.0) license</a>.
+<br>
+&copy; Copyright 2020-2022.
+</p>
+
+          </div>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+  </body>
+</html>
