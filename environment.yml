@@ -26,7 +26,7 @@ dependencies:
   - sympy         # Symbolic expression
   - cmocean       # Colormaps for oceanography
   - jupyterlab    # Jupyter Lab environment
-  - jupyter-book  # Jupyter book environment
+  - jupyter-book==0.10.1  # Jupyter book environment
   - basemap       # Mapping package
   - h5py          # Wrapper for HDF5
   - pymannkendall # Mann-Kendall trend analysis
@@ -38,3 +38,4 @@ dependencies:
     - pyproj      # Geographic projections
     - radwave
     - wavespectra
+    - jupyter-book==0.10.1

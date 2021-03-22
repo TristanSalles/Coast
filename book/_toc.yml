@@ -28,6 +28,8 @@
         - file: coastevol/waverunup
         - file: coastevol/runupdataset
         - file: coastevol/pybeach
+        # - file: coastevol/baysensitivity
+        - file: coastevol/sedtransport
         - file: coastevol/inshorewaves
         - file: coastevol/selectprofiles
         - file: coastevol/grainsettling
