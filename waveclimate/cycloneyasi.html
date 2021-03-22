@@ -479,24 +479,24 @@
 <span class="ne">----&gt; </span><span class="mi">4</span> <span class="n">wa_east</span><span class="o">.</span><span class="n">processAltimeterData</span><span class="p">(</span><span class="n">max_qc</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">altimeter_pick</span><span class="o">=</span><span class="s1">&#39;all&#39;</span><span class="p">,</span> <span class="n">saveCSV</span> <span class="o">=</span> <span class="s1">&#39;altimeterDataE.csv&#39;</span><span class="p">)</span>
 
 <span class="nn">/usr/share/miniconda/envs/coast/lib/python3.6/site-packages/RADWave/altiwave.py</span> in <span class="ni">processAltimeterData</span><span class="nt">(self, max_qc, altimeter_pick, saveCSV)</span>
-<span class="g g-Whitespace">    </span><span class="mi">296</span>                 <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">picked_url</span><span class="p">)):</span>
-<span class="g g-Whitespace">    </span><span class="mi">297</span> 
-<span class="ne">--&gt; </span><span class="mi">298</span>                     <span class="n">ncs</span> <span class="o">=</span> <span class="n">NetCDFFile</span><span class="p">(</span><span class="n">picked_url</span><span class="p">[</span><span class="n">k</span><span class="p">])</span>
-<span class="g g-Whitespace">    </span><span class="mi">299</span>                     <span class="k">if</span> <span class="n">k</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">300</span>                         <span class="nb">print</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">333</span>                         <span class="n">ws</span> <span class="o">=</span> <span class="n">ncs</span><span class="o">.</span><span class="n">variables</span><span class="p">[</span><span class="s2">&quot;WSPD_CAL&quot;</span><span class="p">][:]</span>
+<span class="g g-Whitespace">    </span><span class="mi">334</span>                         <span class="k">if</span> <span class="s1">&#39;SWH_KU_CAL&#39;</span> <span class="ow">in</span> <span class="n">keysname</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">335</span>                             <span class="n">wh</span> <span class="o">=</span> <span class="n">ncs</span><span class="o">.</span><span class="n">variables</span><span class="p">[</span><span class="s2">&quot;SWH_KU_CAL&quot;</span><span class="p">][:]</span>
+<span class="g g-Whitespace">    </span><span class="mi">336</span>                             <span class="n">qc</span> <span class="o">=</span> <span class="n">ncs</span><span class="o">.</span><span class="n">variables</span><span class="p">[</span><span class="s2">&quot;SWH_KU_quality_control&quot;</span><span class="p">][:]</span>
+<span class="g g-Whitespace">    </span><span class="mi">337</span>                             <span class="n">back</span> <span class="o">=</span> <span class="n">ncs</span><span class="o">.</span><span class="n">variables</span><span class="p">[</span><span class="s2">&quot;SIG0_KU&quot;</span><span class="p">][:]</span>
 
-<span class="nn">src/netCDF4/_netCDF4.pyx</span> in <span class="ni">netCDF4._netCDF4.Dataset.__init__</span><span class="nt">()</span>
+<span class="nn">src/netCDF4/_netCDF4.pyx</span> in <span class="ni">netCDF4._netCDF4.Variable.__getitem__</span><span class="nt">()</span>
 
-<span class="nn">src/netCDF4/_netCDF4.pyx</span> in <span class="ni">netCDF4._netCDF4._get_vars</span><span class="nt">()</span>
+<span class="nn">src/netCDF4/_netCDF4.pyx</span> in <span class="ni">netCDF4._netCDF4.Variable._toma</span><span class="nt">()</span>
 
-<span class="nn">src/netCDF4/_netCDF4.pyx</span> in <span class="ni">netCDF4._netCDF4.Variable.__init__</span><span class="nt">()</span>
+<span class="nn">src/netCDF4/_netCDF4.pyx</span> in <span class="ni">netCDF4._netCDF4.Variable._check_safecast</span><span class="nt">()</span>
 
-<span class="nn">/usr/share/miniconda/envs/coast/lib/python3.6/site-packages/netCDF4/utils.py</span> in <span class="ni">_find_dim</span><span class="nt">(grp, dimname)</span>
-<span class="g g-Whitespace">     </span><span class="mi">39</span>     <span class="k">return</span> <span class="p">[</span><span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">A</span><span class="p">)),</span> <span class="n">key</span><span class="o">=</span><span class="n">B</span><span class="o">.</span><span class="fm">__getitem__</span><span class="p">)]</span>
-<span class="g g-Whitespace">     </span><span class="mi">40</span> 
-<span class="ne">---&gt; </span><span class="mi">41</span> <span class="k">def</span> <span class="nf">_find_dim</span><span class="p">(</span><span class="n">grp</span><span class="p">,</span> <span class="n">dimname</span><span class="p">):</span>
-<span class="g g-Whitespace">     </span><span class="mi">42</span>     <span class="c1"># find Dimension instance given group and name.</span>
-<span class="g g-Whitespace">     </span><span class="mi">43</span>     <span class="c1"># look in current group, and parents.</span>
+<span class="nn">/usr/share/miniconda/envs/coast/lib/python3.6/site-packages/netCDF4/utils.py</span> in <span class="ni">_safecast</span><span class="nt">(a, b)</span>
+<span class="g g-Whitespace">     </span><span class="mi">22</span>     <span class="nb">bytes</span> <span class="o">=</span> <span class="nb">str</span>
+<span class="g g-Whitespace">     </span><span class="mi">23</span> 
+<span class="ne">---&gt; </span><span class="mi">24</span> <span class="k">def</span> <span class="nf">_safecast</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">):</span>
+<span class="g g-Whitespace">     </span><span class="mi">25</span>     <span class="c1"># check to see if array a can be safely cast</span>
+<span class="g g-Whitespace">     </span><span class="mi">26</span>     <span class="c1"># to array b.  A little less picky than numpy.can_cast.</span>
 
 <span class="ne">KeyboardInterrupt</span>: 
 </pre></div>

@@ -527,28 +527,75 @@
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   +  name SARAL       / number of tracks                               4   
 </pre></div>
 </div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   +  name SENTINEL-3A / number of tracks                               4   
+</pre></div>
+</div>
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
 <span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">3</span><span class="o">-</span><span class="n">a77cf9e50a80</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">wa</span><span class="o">.</span><span class="n">processAltimeterData</span><span class="p">(</span><span class="n">max_qc</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">altimeter_pick</span><span class="o">=</span><span class="s1">&#39;all&#39;</span><span class="p">,</span> <span class="n">saveCSV</span> <span class="o">=</span> <span class="s1">&#39;altimeterData.csv&#39;</span><span class="p">)</span>
 
 <span class="nn">/usr/share/miniconda/envs/coast/lib/python3.6/site-packages/RADWave/altiwave.py</span> in <span class="ni">processAltimeterData</span><span class="nt">(self, max_qc, altimeter_pick, saveCSV)</span>
-<span class="g g-Whitespace">    </span><span class="mi">306</span> 
-<span class="g g-Whitespace">    </span><span class="mi">307</span>                     <span class="c1"># Get desired bounding box</span>
-<span class="ne">--&gt; </span><span class="mi">308</span>                     <span class="n">lats</span> <span class="o">=</span> <span class="n">ncs</span><span class="o">.</span><span class="n">variables</span><span class="p">[</span><span class="s2">&quot;LATITUDE&quot;</span><span class="p">][:]</span>
-<span class="g g-Whitespace">    </span><span class="mi">309</span>                     <span class="n">lons</span> <span class="o">=</span> <span class="n">ncs</span><span class="o">.</span><span class="n">variables</span><span class="p">[</span><span class="s2">&quot;LONGITUDE&quot;</span><span class="p">][:]</span>
-<span class="g g-Whitespace">    </span><span class="mi">310</span>                     <span class="n">latbound</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">366</span>                             <span class="n">time_m</span> <span class="o">=</span> <span class="n">dataframe</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s2">&quot;year&quot;</span><span class="p">,</span> <span class="s2">&quot;month&quot;</span><span class="p">,</span> <span class="s2">&quot;day&quot;</span><span class="p">])[</span>
+<span class="g g-Whitespace">    </span><span class="mi">367</span>                                 <span class="p">[</span><span class="s2">&quot;time&quot;</span><span class="p">]</span>
+<span class="ne">--&gt; </span><span class="mi">368</span>                             <span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">median</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">369</span>                             <span class="n">time_m</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;time&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">370</span>                             <span class="n">qc_m</span> <span class="o">=</span> <span class="n">dataframe</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s2">&quot;year&quot;</span><span class="p">,</span> <span class="s2">&quot;month&quot;</span><span class="p">,</span> <span class="s2">&quot;day&quot;</span><span class="p">])[</span>
 
-<span class="nn">src/netCDF4/_netCDF4.pyx</span> in <span class="ni">netCDF4._netCDF4.Variable.__getitem__</span><span class="nt">()</span>
+<span class="nn">/usr/share/miniconda/envs/coast/lib/python3.6/site-packages/pandas/core/groupby/groupby.py</span> in <span class="ni">apply</span><span class="nt">(self, func, *args, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">857</span>         <span class="k">with</span> <span class="n">option_context</span><span class="p">(</span><span class="s2">&quot;mode.chained_assignment&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">858</span>             <span class="k">try</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">859</span>                 <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_python_apply_general</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_selected_obj</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">860</span>             <span class="k">except</span> <span class="ne">TypeError</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">861</span>                 <span class="c1"># gh-20949</span>
 
-<span class="nn">src/netCDF4/_netCDF4.pyx</span> in <span class="ni">netCDF4._netCDF4.Variable._toma</span><span class="nt">()</span>
+<span class="nn">/usr/share/miniconda/envs/coast/lib/python3.6/site-packages/pandas/core/groupby/groupby.py</span> in <span class="ni">_python_apply_general</span><span class="nt">(self, f, data)</span>
+<span class="g g-Whitespace">    </span><span class="mi">890</span>             <span class="n">data</span> <span class="n">after</span> <span class="n">applying</span> <span class="n">f</span>
+<span class="g g-Whitespace">    </span><span class="mi">891</span>         <span class="sd">&quot;&quot;&quot;</span>
+<span class="ne">--&gt; </span><span class="mi">892</span><span class="sd">         keys, values, mutated = self.grouper.apply(f, data, self.axis)</span>
+<span class="g g-Whitespace">    </span><span class="mi">893</span><span class="sd"> </span>
+<span class="g g-Whitespace">    </span><span class="mi">894</span><span class="sd">         return self._wrap_applied_output(</span>
 
-<span class="nn">/usr/share/miniconda/envs/coast/lib/python3.6/site-packages/numpy/core/_methods.py</span> in <span class="ni">_any</span><span class="nt">(a, axis, dtype, out, keepdims)</span>
-<span class="g g-Whitespace">     </span><span class="mi">51</span>     <span class="k">return</span> <span class="n">umr_prod</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">axis</span><span class="p">,</span> <span class="n">dtype</span><span class="p">,</span> <span class="n">out</span><span class="p">,</span> <span class="n">keepdims</span><span class="p">,</span> <span class="n">initial</span><span class="p">,</span> <span class="n">where</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">52</span> 
-<span class="ne">---&gt; </span><span class="mi">53</span> <span class="k">def</span> <span class="nf">_any</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">out</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">keepdims</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
-<span class="g g-Whitespace">     </span><span class="mi">54</span>     <span class="k">return</span> <span class="n">umr_any</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">axis</span><span class="p">,</span> <span class="n">dtype</span><span class="p">,</span> <span class="n">out</span><span class="p">,</span> <span class="n">keepdims</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">55</span> 
+<span class="nn">/usr/share/miniconda/envs/coast/lib/python3.6/site-packages/pandas/core/groupby/ops.py</span> in <span class="ni">apply</span><span class="nt">(self, f, data, axis)</span>
+<span class="g g-Whitespace">    </span><span class="mi">184</span><span class="sd">         ):</span>
+<span class="g g-Whitespace">    </span><span class="mi">185</span><span class="sd">             try:</span>
+<span class="ne">--&gt; </span><span class="mi">186</span><span class="sd">                 result_values, mutated = splitter.fast_apply(f, sdata, group_keys)</span>
+<span class="g g-Whitespace">    </span><span class="mi">187</span><span class="sd"> </span>
+<span class="g g-Whitespace">    </span><span class="mi">188</span><span class="sd">             except libreduction.InvalidApply as err:</span>
+
+<span class="nn">/usr/share/miniconda/envs/coast/lib/python3.6/site-packages/pandas/core/groupby/ops.py</span> in <span class="ni">fast_apply</span><span class="nt">(self, f, sdata, names)</span>
+<span class="g g-Whitespace">    </span><span class="mi">971</span><span class="sd">         # must return keys::list, values::list, mutated::bool</span>
+<span class="g g-Whitespace">    </span><span class="mi">972</span><span class="sd">         starts, ends = lib.generate_slices(self.slabels, self.ngroups)</span>
+<span class="ne">--&gt; </span><span class="mi">973</span><span class="sd">         return libreduction.apply_frame_axis0(sdata, f, names, starts, ends)</span>
+<span class="g g-Whitespace">    </span><span class="mi">974</span><span class="sd"> </span>
+<span class="g g-Whitespace">    </span><span class="mi">975</span><span class="sd">     def _chop(self, sdata: DataFrame, slice_obj: slice) -&gt; DataFrame:</span>
+
+<span class="nn">pandas/_libs/reduction.pyx</span> in <span class="ni">pandas._libs.reduction.apply_frame_axis0</span><span class="nt">()</span>
+
+<span class="nn">&lt;__array_function__ internals&gt;</span> in <span class="ni">median</span><span class="nt">(*args, **kwargs)</span>
+
+<span class="nn">/usr/share/miniconda/envs/coast/lib/python3.6/site-packages/numpy/lib/function_base.py</span> in <span class="ni">median</span><span class="nt">(a, axis, out, overwrite_input, keepdims)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3519</span><span class="sd">     &quot;&quot;&quot;</span>
+<span class="g g-Whitespace">   </span><span class="mi">3520</span>     <span class="n">r</span><span class="p">,</span> <span class="n">k</span> <span class="o">=</span> <span class="n">_ureduce</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">func</span><span class="o">=</span><span class="n">_median</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="n">axis</span><span class="p">,</span> <span class="n">out</span><span class="o">=</span><span class="n">out</span><span class="p">,</span>
+<span class="ne">-&gt; </span><span class="mi">3521</span>                     <span class="n">overwrite_input</span><span class="o">=</span><span class="n">overwrite_input</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3522</span>     <span class="k">if</span> <span class="n">keepdims</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">3523</span>         <span class="k">return</span> <span class="n">r</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">k</span><span class="p">)</span>
+
+<span class="nn">/usr/share/miniconda/envs/coast/lib/python3.6/site-packages/numpy/lib/function_base.py</span> in <span class="ni">_ureduce</span><span class="nt">(a, func, **kwargs)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3427</span>         <span class="n">keepdim</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,)</span> <span class="o">*</span> <span class="n">a</span><span class="o">.</span><span class="n">ndim</span>
+<span class="g g-Whitespace">   </span><span class="mi">3428</span> 
+<span class="ne">-&gt; </span><span class="mi">3429</span>     <span class="n">r</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3430</span>     <span class="k">return</span> <span class="n">r</span><span class="p">,</span> <span class="n">keepdim</span>
+<span class="g g-Whitespace">   </span><span class="mi">3431</span> 
+
+<span class="nn">/usr/share/miniconda/envs/coast/lib/python3.6/site-packages/numpy/lib/function_base.py</span> in <span class="ni">_median</span><span class="nt">(a, axis, out, overwrite_input)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3553</span>             <span class="n">part</span> <span class="o">=</span> <span class="n">a</span>
+<span class="g g-Whitespace">   </span><span class="mi">3554</span>     <span class="k">else</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">3555</span>         <span class="n">part</span> <span class="o">=</span> <span class="n">partition</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">kth</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="n">axis</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3556</span> 
+<span class="g g-Whitespace">   </span><span class="mi">3557</span>     <span class="k">if</span> <span class="n">part</span><span class="o">.</span><span class="n">shape</span> <span class="o">==</span> <span class="p">():</span>
+
+<span class="nn">&lt;__array_function__ internals&gt;</span> in <span class="ni">partition</span><span class="nt">(*args, **kwargs)</span>
 
 <span class="ne">KeyboardInterrupt</span>: 
 </pre></div>

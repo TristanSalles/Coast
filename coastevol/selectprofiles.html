@@ -446,18 +446,11 @@
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
 <span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">1</span><span class="o">-</span><span class="mi">25318</span><span class="n">c87d075</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">      </span><span class="mi">9</span> <span class="kn">import</span> <span class="nn">matplotlib.dates</span> <span class="k">as</span> <span class="nn">mdates</span>
-<span class="g g-Whitespace">     </span><span class="mi">10</span> 
-<span class="ne">---&gt; </span><span class="mi">11</span> <span class="kn">from</span> <span class="nn">beach.beach</span> <span class="kn">import</span> <span class="n">Profile</span>
-<span class="g g-Whitespace">     </span><span class="mi">12</span> <span class="kn">from</span> <span class="nn">beach.support</span> <span class="kn">import</span> <span class="n">data_support</span> <span class="k">as</span> <span class="n">ds</span>
-<span class="g g-Whitespace">     </span><span class="mi">13</span> <span class="kn">from</span> <span class="nn">beach.support</span> <span class="kn">import</span> <span class="n">classifier_support</span> <span class="k">as</span> <span class="n">cs</span>
-
-<span class="o">~/</span><span class="n">work</span><span class="o">/</span><span class="n">Coast</span><span class="o">/</span><span class="n">Coast</span><span class="o">/</span><span class="n">book</span><span class="o">/</span><span class="n">coastevol</span><span class="o">/</span><span class="n">beach</span><span class="o">/</span><span class="n">beach</span><span class="o">.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">      </span><span class="mi">7</span> 
-<span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="ne">----&gt; </span><span class="mi">9</span> <span class="kn">from</span> <span class="nn">pybeach.support</span> <span class="kn">import</span> <span class="n">data_support</span> <span class="k">as</span> <span class="n">ds</span>
-<span class="g g-Whitespace">     </span><span class="mi">10</span> <span class="kn">from</span> <span class="nn">pybeach.support</span> <span class="kn">import</span> <span class="n">classifier_support</span> <span class="k">as</span> <span class="n">cs</span>
-<span class="g g-Whitespace">     </span><span class="mi">11</span> 
+<span class="g g-Whitespace">     </span><span class="mi">18</span> <span class="n">register_matplotlib_converters</span><span class="p">()</span>
+<span class="g g-Whitespace">     </span><span class="mi">19</span> 
+<span class="ne">---&gt; </span><span class="mi">20</span> <span class="kn">from</span> <span class="nn">pybeach.beach</span> <span class="kn">import</span> <span class="n">Profile</span>
+<span class="g g-Whitespace">     </span><span class="mi">21</span> <span class="kn">import</span> <span class="nn">warnings</span>
+<span class="g g-Whitespace">     </span><span class="mi">22</span> <span class="n">warnings</span><span class="o">.</span><span class="n">simplefilter</span><span class="p">(</span><span class="s2">&quot;ignore&quot;</span><span class="p">,</span> <span class="ne">UserWarning</span><span class="p">)</span>
 
 <span class="ne">ModuleNotFoundError</span>: No module named &#39;pybeach&#39;
 </pre></div>
@@ -694,21 +687,7 @@ This is a commonly used data format that opens easily in a range of software pro
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">5</span><span class="o">-</span><span class="mi">21</span><span class="n">f33664e550</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">plotProfiles</span><span class="p">(</span><span class="n">PID</span><span class="o">=</span><span class="s1">&#39;PF1&#39;</span><span class="p">,</span> <span class="n">start_date</span> <span class="o">=</span> <span class="s1">&#39;2007-5-1&#39;</span><span class="p">,</span> <span class="n">end_date</span> <span class="o">=</span> <span class="s1">&#39;2007-8-1&#39;</span><span class="p">)</span>
-
-<span class="nn">&lt;ipython-input-4-fa38d6298689&gt;</span> in <span class="ni">plotProfiles</span><span class="nt">(PID, start_date, end_date)</span>
-<span class="g g-Whitespace">     </span><span class="mi">11</span>         <span class="n">profiletime</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">timeval</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">.</span><span class="n">date</span><span class="p">()))</span>
-<span class="g g-Whitespace">     </span><span class="mi">12</span> 
-<span class="ne">---&gt; </span><span class="mi">13</span>     <span class="n">MyDateFormatter</span> <span class="o">=</span> <span class="n">DateFormatter</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%d</span><span class="s1">-%b-%Y&#39;</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">14</span>     <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">11</span><span class="p">,</span><span class="mi">4</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">160</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">15</span> 
-
-<span class="ne">NameError</span>: name &#39;DateFormatter&#39; is not defined
-</pre></div>
-</div>
+<img alt="../_images/selectprofiles_6_0.png" src="../_images/selectprofiles_6_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -718,21 +697,7 @@ This is a commonly used data format that opens easily in a range of software pro
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">6</span><span class="o">-</span><span class="n">afd02646edcb</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">plotProfiles</span><span class="p">(</span><span class="n">PID</span><span class="o">=</span><span class="s1">&#39;PF4&#39;</span><span class="p">,</span> <span class="n">start_date</span> <span class="o">=</span> <span class="s1">&#39;2007-5-1&#39;</span><span class="p">,</span> <span class="n">end_date</span> <span class="o">=</span> <span class="s1">&#39;2007-8-1&#39;</span><span class="p">)</span>
-
-<span class="nn">&lt;ipython-input-4-fa38d6298689&gt;</span> in <span class="ni">plotProfiles</span><span class="nt">(PID, start_date, end_date)</span>
-<span class="g g-Whitespace">     </span><span class="mi">11</span>         <span class="n">profiletime</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">timeval</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">.</span><span class="n">date</span><span class="p">()))</span>
-<span class="g g-Whitespace">     </span><span class="mi">12</span> 
-<span class="ne">---&gt; </span><span class="mi">13</span>     <span class="n">MyDateFormatter</span> <span class="o">=</span> <span class="n">DateFormatter</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%d</span><span class="s1">-%b-%Y&#39;</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">14</span>     <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">11</span><span class="p">,</span><span class="mi">4</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">160</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">15</span> 
-
-<span class="ne">NameError</span>: name &#39;DateFormatter&#39; is not defined
-</pre></div>
-</div>
+<img alt="../_images/selectprofiles_7_0.png" src="../_images/selectprofiles_7_0.png" />
 </div>
 </div>
 </div>
@@ -791,21 +756,7 @@ This is a commonly used data format that opens easily in a range of software pro
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">8</span><span class="o">-</span><span class="mf">1e3</span><span class="n">dc8000425</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">prof</span> <span class="o">=</span> <span class="n">getOneProfile</span><span class="p">(</span><span class="n">PID</span><span class="o">=</span><span class="s1">&#39;PF4&#39;</span><span class="p">,</span> <span class="n">date</span><span class="o">=</span><span class="s1">&#39;2007-05-14&#39;</span><span class="p">)</span>
-
-<span class="nn">&lt;ipython-input-7-f759591489e8&gt;</span> in <span class="ni">getOneProfile</span><span class="nt">(PID, date)</span>
-<span class="g g-Whitespace">     </span><span class="mi">10</span>     <span class="n">profiletime</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">timeval</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">date</span><span class="p">()))</span>
-<span class="g g-Whitespace">     </span><span class="mi">11</span> 
-<span class="ne">---&gt; </span><span class="mi">12</span>     <span class="n">MyDateFormatter</span> <span class="o">=</span> <span class="n">DateFormatter</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%d</span><span class="s1">-%b-%Y&#39;</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">13</span>     <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">11</span><span class="p">,</span><span class="mi">4</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">160</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">14</span> 
-
-<span class="ne">NameError</span>: name &#39;DateFormatter&#39; is not defined
-</pre></div>
-</div>
+<img alt="../_images/selectprofiles_10_0.png" src="../_images/selectprofiles_10_0.png" />
 </div>
 </div>
 </div>
@@ -835,20 +786,6 @@ This is a commonly used data format that opens easily in a range of software pro
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">9</span><span class="o">-</span><span class="mi">75</span><span class="n">f4a31ddde0</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># Profile data</span>
-<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">x</span> <span class="o">=</span> <span class="n">prof</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">z</span> <span class="o">=</span> <span class="n">prof</span><span class="p">[</span><span class="s1">&#39;z&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> 
-<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="c1"># Instantiate</span>
-
-<span class="ne">NameError</span>: name &#39;prof&#39; is not defined
-</pre></div>
-</div>
-</div>
 </div>
 <div class="section" id="predict-dune-toe-location">
 <h3>Predict dune toe location<a class="headerlink" href="#predict-dune-toe-location" title="Permalink to this headline">¶</a></h3>
@@ -861,19 +798,6 @@ This is a commonly used data format that opens easily in a range of software pro
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">10</span><span class="o">-</span><span class="mi">25</span><span class="n">fa72ed5e17</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">toe_ml</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">predict_dunetoe_ml</span><span class="p">(</span><span class="s1">&#39;wave_embayed_clf&#39;</span><span class="p">)</span> <span class="c1"># use the machine learning (ML) method</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">toe_mc</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">predict_dunetoe_mc</span><span class="p">()</span> <span class="c1"># use the maximum curvature (MC) method</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">toe_rr</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">predict_dunetoe_rr</span><span class="p">()</span> <span class="c1"># use the relative relief (RR) method</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">toe_pd</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">predict_dunetoe_pd</span><span class="p">()</span> <span class="c1"># use the perpendicular distance (PD) method</span>
-
-<span class="ne">NameError</span>: name &#39;p&#39; is not defined
-</pre></div>
-</div>
-</div>
 </div>
 </div>
 <div class="section" id="predict-shoreline-and-dune-crest-location">
@@ -882,17 +806,6 @@ This is a commonly used data format that opens easily in a range of software pro
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">crest</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">predict_dunecrest</span><span class="p">()</span>
 <span class="n">shoreline</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">predict_shoreline</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">11</span><span class="o">-</span><span class="n">fe6153937d2e</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">crest</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">predict_dunecrest</span><span class="p">()</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">shoreline</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">predict_shoreline</span><span class="p">()</span>
-
-<span class="ne">NameError</span>: name &#39;p&#39; is not defined
 </pre></div>
 </div>
 </div>
@@ -927,19 +840,7 @@ This is a commonly used data format that opens easily in a range of software pro
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">12</span><span class="o">-</span><span class="mi">226</span><span class="n">c642e8a2a</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">n</span><span class="o">=</span><span class="mi">0</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
-<span class="ne">----&gt; </span><span class="mi">3</span> <span class="n">toes</span> <span class="o">=</span> <span class="p">[</span><span class="n">toe_ml</span><span class="p">[</span><span class="n">n</span><span class="p">],</span> <span class="n">toe_mc</span><span class="p">[</span><span class="n">n</span><span class="p">],</span> <span class="n">toe_rr</span><span class="p">[</span><span class="n">n</span><span class="p">],</span> <span class="n">toe_pd</span><span class="p">[</span><span class="n">n</span><span class="p">]]</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> 
-<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">labels</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Machine learning&#39;</span><span class="p">,</span> <span class="s1">&#39;Maximum curvature&#39;</span><span class="p">,</span> <span class="s1">&#39;Relative relief&#39;</span><span class="p">,</span> <span class="s1">&#39;Perpendicular distance&#39;</span><span class="p">]</span>
-
-<span class="ne">NameError</span>: name &#39;toe_ml&#39; is not defined
-</pre></div>
-</div>
-<img alt="../_images/selectprofiles_17_1.png" src="../_images/selectprofiles_17_1.png" />
+<img alt="../_images/selectprofiles_17_0.png" src="../_images/selectprofiles_17_0.png" />
 </div>
 </div>
 </div>
