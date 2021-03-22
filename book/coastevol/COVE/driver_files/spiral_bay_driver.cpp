@@ -70,7 +70,7 @@ int main(int argc, char* argv[])
 {
 	if (argc != 9)
 	{
-		cout << "Program needs 6 input arguments:	 \n\t- MeanWavePeriod\n\t- StDWavePeriod"
+		cout << "Program needs 8 input arguments:	 \n\t- MeanWavePeriod\n\t- StDWavePeriod"
 												<<	"\n\t- MeanWaveHeight\n\t- StDWaveHeight"
 												<<	"\n\t- MeanWaveDirection\n\t- StDWaveDirection"
 												<<	"\n\t- TimeStep\n\t- EndTime" << endl;
