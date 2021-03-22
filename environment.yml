@@ -9,6 +9,7 @@ dependencies:
   - llvm-openmp
   - scikit-learn==0.21.2  # Machine learning library
   - sphinx
+  - importlib_resources
   - pip           # Python package
   - pandas        # Labeled array library
   - netCDF4       # Wrapper for netcdf4
