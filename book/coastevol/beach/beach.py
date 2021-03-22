@@ -6,8 +6,8 @@ Created on Wed Mar 6 12:43:40 2019
 """
 
 import numpy as np
-from pybeach.support import data_support as ds
-from pybeach.support import classifier_support as cs
+from beach.support import data_support as ds
+from beach.support import classifier_support as cs
 
 
 class Profile:

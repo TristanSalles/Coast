@@ -10,7 +10,7 @@ import joblib
 import pkg_resources
 import numpy as np
 from sklearn.ensemble import RandomForestClassifier
-from pybeach.support import data_support as ds
+import beach.support.data_support as ds
 
 
 def create_classifier(x, z, toe, window=40, min_buffer=40, max_buffer=200):
@@ -84,7 +84,7 @@ def load_classifier(clf_name):
 #         "pybeach", "classifiers/" + clf_name + ".joblib"
 #     )
     clf_path = '../classifiers/'+clf_name+'.joblib'
-    
+
     with open(clf_path, 'rb') as f:
         clf = joblib.load(f)
     return clf
