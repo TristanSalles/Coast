@@ -479,24 +479,97 @@
 <span class="ne">----&gt; </span><span class="mi">4</span> <span class="n">wa_east</span><span class="o">.</span><span class="n">processAltimeterData</span><span class="p">(</span><span class="n">max_qc</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">altimeter_pick</span><span class="o">=</span><span class="s1">&#39;all&#39;</span><span class="p">,</span> <span class="n">saveCSV</span> <span class="o">=</span> <span class="s1">&#39;altimeterDataE.csv&#39;</span><span class="p">)</span>
 
 <span class="nn">/usr/share/miniconda/envs/coast/lib/python3.6/site-packages/RADWave/altiwave.py</span> in <span class="ni">processAltimeterData</span><span class="nt">(self, max_qc, altimeter_pick, saveCSV)</span>
-<span class="g g-Whitespace">    </span><span class="mi">333</span>                         <span class="n">ws</span> <span class="o">=</span> <span class="n">ncs</span><span class="o">.</span><span class="n">variables</span><span class="p">[</span><span class="s2">&quot;WSPD_CAL&quot;</span><span class="p">][:]</span>
-<span class="g g-Whitespace">    </span><span class="mi">334</span>                         <span class="k">if</span> <span class="s1">&#39;SWH_KU_CAL&#39;</span> <span class="ow">in</span> <span class="n">keysname</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">335</span>                             <span class="n">wh</span> <span class="o">=</span> <span class="n">ncs</span><span class="o">.</span><span class="n">variables</span><span class="p">[</span><span class="s2">&quot;SWH_KU_CAL&quot;</span><span class="p">][:]</span>
-<span class="g g-Whitespace">    </span><span class="mi">336</span>                             <span class="n">qc</span> <span class="o">=</span> <span class="n">ncs</span><span class="o">.</span><span class="n">variables</span><span class="p">[</span><span class="s2">&quot;SWH_KU_quality_control&quot;</span><span class="p">][:]</span>
-<span class="g g-Whitespace">    </span><span class="mi">337</span>                             <span class="n">back</span> <span class="o">=</span> <span class="n">ncs</span><span class="o">.</span><span class="n">variables</span><span class="p">[</span><span class="s2">&quot;SIG0_KU&quot;</span><span class="p">][:]</span>
+<span class="g g-Whitespace">    </span><span class="mi">370</span>                             <span class="n">qc_m</span> <span class="o">=</span> <span class="n">dataframe</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s2">&quot;year&quot;</span><span class="p">,</span> <span class="s2">&quot;month&quot;</span><span class="p">,</span> <span class="s2">&quot;day&quot;</span><span class="p">])[</span>
+<span class="g g-Whitespace">    </span><span class="mi">371</span>                                 <span class="p">[</span><span class="s2">&quot;qc&quot;</span><span class="p">]</span>
+<span class="ne">--&gt; </span><span class="mi">372</span>                             <span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">median</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">373</span>                             <span class="n">qc_m</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;qc&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">374</span>                             <span class="n">back_m</span> <span class="o">=</span> <span class="n">dataframe</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s2">&quot;year&quot;</span><span class="p">,</span> <span class="s2">&quot;month&quot;</span><span class="p">,</span> <span class="s2">&quot;day&quot;</span><span class="p">])[</span>
 
-<span class="nn">src/netCDF4/_netCDF4.pyx</span> in <span class="ni">netCDF4._netCDF4.Variable.__getitem__</span><span class="nt">()</span>
+<span class="nn">/usr/share/miniconda/envs/coast/lib/python3.6/site-packages/pandas/core/groupby/groupby.py</span> in <span class="ni">apply</span><span class="nt">(self, func, *args, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">857</span>         <span class="k">with</span> <span class="n">option_context</span><span class="p">(</span><span class="s2">&quot;mode.chained_assignment&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">858</span>             <span class="k">try</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">859</span>                 <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_python_apply_general</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_selected_obj</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">860</span>             <span class="k">except</span> <span class="ne">TypeError</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">861</span>                 <span class="c1"># gh-20949</span>
 
-<span class="nn">src/netCDF4/_netCDF4.pyx</span> in <span class="ni">netCDF4._netCDF4.Variable._toma</span><span class="nt">()</span>
+<span class="nn">/usr/share/miniconda/envs/coast/lib/python3.6/site-packages/pandas/core/groupby/groupby.py</span> in <span class="ni">_python_apply_general</span><span class="nt">(self, f, data)</span>
+<span class="g g-Whitespace">    </span><span class="mi">890</span>             <span class="n">data</span> <span class="n">after</span> <span class="n">applying</span> <span class="n">f</span>
+<span class="g g-Whitespace">    </span><span class="mi">891</span>         <span class="sd">&quot;&quot;&quot;</span>
+<span class="ne">--&gt; </span><span class="mi">892</span><span class="sd">         keys, values, mutated = self.grouper.apply(f, data, self.axis)</span>
+<span class="g g-Whitespace">    </span><span class="mi">893</span><span class="sd"> </span>
+<span class="g g-Whitespace">    </span><span class="mi">894</span><span class="sd">         return self._wrap_applied_output(</span>
 
-<span class="nn">src/netCDF4/_netCDF4.pyx</span> in <span class="ni">netCDF4._netCDF4.Variable._check_safecast</span><span class="nt">()</span>
+<span class="nn">/usr/share/miniconda/envs/coast/lib/python3.6/site-packages/pandas/core/groupby/ops.py</span> in <span class="ni">apply</span><span class="nt">(self, f, data, axis)</span>
+<span class="g g-Whitespace">    </span><span class="mi">165</span><span class="sd">     def apply(self, f: F, data: FrameOrSeries, axis: int = 0):</span>
+<span class="g g-Whitespace">    </span><span class="mi">166</span><span class="sd">         mutated = self.mutated</span>
+<span class="ne">--&gt; </span><span class="mi">167</span><span class="sd">         splitter = self._get_splitter(data, axis=axis)</span>
+<span class="g g-Whitespace">    </span><span class="mi">168</span><span class="sd">         group_keys = self._get_group_keys()</span>
+<span class="g g-Whitespace">    </span><span class="mi">169</span><span class="sd">         result_values = None</span>
 
-<span class="nn">/usr/share/miniconda/envs/coast/lib/python3.6/site-packages/netCDF4/utils.py</span> in <span class="ni">_safecast</span><span class="nt">(a, b)</span>
-<span class="g g-Whitespace">     </span><span class="mi">22</span>     <span class="nb">bytes</span> <span class="o">=</span> <span class="nb">str</span>
-<span class="g g-Whitespace">     </span><span class="mi">23</span> 
-<span class="ne">---&gt; </span><span class="mi">24</span> <span class="k">def</span> <span class="nf">_safecast</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">):</span>
-<span class="g g-Whitespace">     </span><span class="mi">25</span>     <span class="c1"># check to see if array a can be safely cast</span>
-<span class="g g-Whitespace">     </span><span class="mi">26</span>     <span class="c1"># to array b.  A little less picky than numpy.can_cast.</span>
+<span class="nn">/usr/share/miniconda/envs/coast/lib/python3.6/site-packages/pandas/core/groupby/ops.py</span> in <span class="ni">_get_splitter</span><span class="nt">(self, data, axis)</span>
+<span class="g g-Whitespace">    </span><span class="mi">142</span><span class="sd">         __finalize__ has not been called for the the subsetted objects returned.</span>
+<span class="g g-Whitespace">    </span><span class="mi">143</span><span class="sd">         &quot;&quot;&quot;</span>
+<span class="ne">--&gt; </span><span class="mi">144</span>         <span class="n">comp_ids</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">ngroups</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">group_info</span>
+<span class="g g-Whitespace">    </span><span class="mi">145</span>         <span class="k">return</span> <span class="n">get_splitter</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">comp_ids</span><span class="p">,</span> <span class="n">ngroups</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="n">axis</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">146</span> 
+
+<span class="nn">pandas/_libs/properties.pyx</span> in <span class="ni">pandas._libs.properties.CachedProperty.__get__</span><span class="nt">()</span>
+
+<span class="nn">/usr/share/miniconda/envs/coast/lib/python3.6/site-packages/pandas/core/groupby/ops.py</span> in <span class="ni">group_info</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">276</span>     <span class="nd">@cache_readonly</span>
+<span class="g g-Whitespace">    </span><span class="mi">277</span>     <span class="k">def</span> <span class="nf">group_info</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="ne">--&gt; </span><span class="mi">278</span>         <span class="n">comp_ids</span><span class="p">,</span> <span class="n">obs_group_ids</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_compressed_codes</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">279</span> 
+<span class="g g-Whitespace">    </span><span class="mi">280</span>         <span class="n">ngroups</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">obs_group_ids</span><span class="p">)</span>
+
+<span class="nn">/usr/share/miniconda/envs/coast/lib/python3.6/site-packages/pandas/core/groupby/ops.py</span> in <span class="ni">_get_compressed_codes</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">292</span> 
+<span class="g g-Whitespace">    </span><span class="mi">293</span>     <span class="k">def</span> <span class="nf">_get_compressed_codes</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]:</span>
+<span class="ne">--&gt; </span><span class="mi">294</span>         <span class="n">all_codes</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">codes</span>
+<span class="g g-Whitespace">    </span><span class="mi">295</span>         <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">all_codes</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">296</span>             <span class="n">group_index</span> <span class="o">=</span> <span class="n">get_group_index</span><span class="p">(</span><span class="n">all_codes</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">sort</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">xnull</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="nn">/usr/share/miniconda/envs/coast/lib/python3.6/site-packages/pandas/core/groupby/ops.py</span> in <span class="ni">codes</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">237</span>     <span class="nd">@property</span>
+<span class="g g-Whitespace">    </span><span class="mi">238</span>     <span class="k">def</span> <span class="nf">codes</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]:</span>
+<span class="ne">--&gt; </span><span class="mi">239</span>         <span class="k">return</span> <span class="p">[</span><span class="n">ping</span><span class="o">.</span><span class="n">codes</span> <span class="k">for</span> <span class="n">ping</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">groupings</span><span class="p">]</span>
+<span class="g g-Whitespace">    </span><span class="mi">240</span> 
+<span class="g g-Whitespace">    </span><span class="mi">241</span>     <span class="nd">@property</span>
+
+<span class="nn">/usr/share/miniconda/envs/coast/lib/python3.6/site-packages/pandas/core/groupby/ops.py</span> in <span class="ni">&lt;listcomp&gt;</span><span class="nt">(.0)</span>
+<span class="g g-Whitespace">    </span><span class="mi">237</span>     <span class="nd">@property</span>
+<span class="g g-Whitespace">    </span><span class="mi">238</span>     <span class="k">def</span> <span class="nf">codes</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]:</span>
+<span class="ne">--&gt; </span><span class="mi">239</span>         <span class="k">return</span> <span class="p">[</span><span class="n">ping</span><span class="o">.</span><span class="n">codes</span> <span class="k">for</span> <span class="n">ping</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">groupings</span><span class="p">]</span>
+<span class="g g-Whitespace">    </span><span class="mi">240</span> 
+<span class="g g-Whitespace">    </span><span class="mi">241</span>     <span class="nd">@property</span>
+
+<span class="nn">/usr/share/miniconda/envs/coast/lib/python3.6/site-packages/pandas/core/groupby/grouper.py</span> in <span class="ni">codes</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">568</span>     <span class="k">def</span> <span class="nf">codes</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">569</span>         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_codes</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">570</span>             <span class="bp">self</span><span class="o">.</span><span class="n">_make_codes</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">571</span>         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_codes</span>
+<span class="g g-Whitespace">    </span><span class="mi">572</span> 
+
+<span class="nn">/usr/share/miniconda/envs/coast/lib/python3.6/site-packages/pandas/core/groupby/grouper.py</span> in <span class="ni">_make_codes</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">597</span>                     <span class="n">na_sentinel</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+<span class="g g-Whitespace">    </span><span class="mi">598</span>                 <span class="n">codes</span><span class="p">,</span> <span class="n">uniques</span> <span class="o">=</span> <span class="n">algorithms</span><span class="o">.</span><span class="n">factorize</span><span class="p">(</span>
+<span class="ne">--&gt; </span><span class="mi">599</span>                     <span class="bp">self</span><span class="o">.</span><span class="n">grouper</span><span class="p">,</span> <span class="n">sort</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">sort</span><span class="p">,</span> <span class="n">na_sentinel</span><span class="o">=</span><span class="n">na_sentinel</span>
+<span class="g g-Whitespace">    </span><span class="mi">600</span>                 <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">601</span>                 <span class="n">uniques</span> <span class="o">=</span> <span class="n">Index</span><span class="p">(</span><span class="n">uniques</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+
+<span class="nn">/usr/share/miniconda/envs/coast/lib/python3.6/site-packages/pandas/core/algorithms.py</span> in <span class="ni">factorize</span><span class="nt">(values, sort, na_sentinel, size_hint)</span>
+<span class="g g-Whitespace">    </span><span class="mi">692</span>         <span class="n">dtype</span> <span class="o">=</span> <span class="n">original</span><span class="o">.</span><span class="n">dtype</span>
+<span class="g g-Whitespace">    </span><span class="mi">693</span>     <span class="k">else</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">694</span>         <span class="n">values</span><span class="p">,</span> <span class="n">dtype</span> <span class="o">=</span> <span class="n">_ensure_data</span><span class="p">(</span><span class="n">values</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">695</span> 
+<span class="g g-Whitespace">    </span><span class="mi">696</span>         <span class="k">if</span> <span class="n">original</span><span class="o">.</span><span class="n">dtype</span><span class="o">.</span><span class="n">kind</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;m&quot;</span><span class="p">,</span> <span class="s2">&quot;M&quot;</span><span class="p">]:</span>
+
+<span class="nn">/usr/share/miniconda/envs/coast/lib/python3.6/site-packages/pandas/core/algorithms.py</span> in <span class="ni">_ensure_data</span><span class="nt">(values, dtype)</span>
+<span class="g g-Whitespace">     </span><span class="mi">96</span>     <span class="s2">&quot;&quot;&quot;</span>
+<span class="g g-Whitespace">     </span><span class="mi">97</span><span class="s2"> </span>
+<span class="ne">---&gt; </span><span class="mi">98</span><span class="s2">     if not isinstance(values, ABCMultiIndex):</span>
+<span class="g g-Whitespace">     </span><span class="mi">99</span><span class="s2">         # extract_array would raise</span>
+<span class="g g-Whitespace">    </span><span class="mi">100</span><span class="s2">         values = extract_array(values, extract_numpy=True)</span>
 
 <span class="ne">KeyboardInterrupt</span>: 
 </pre></div>

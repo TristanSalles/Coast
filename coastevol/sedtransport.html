@@ -474,8 +474,8 @@ running build_src
 build_src
 building extension &quot;ocean&quot; sources
 f2py options: []
-f2py:&gt; /tmp/tmpxbdn4z_n/src.linux-x86_64-3.6/oceanmodule.c
-creating /tmp/tmpxbdn4z_n/src.linux-x86_64-3.6
+f2py:&gt; /tmp/tmp6s06gd08/src.linux-x86_64-3.6/oceanmodule.c
+creating /tmp/tmp6s06gd08/src.linux-x86_64-3.6
 Reading fortran codes...
 	Reading file &#39;ocean.f90&#39; (format:free)
 </pre></div>
@@ -498,29 +498,29 @@ Building modules...
 		Constructing F90 module support for &quot;ocean&quot;...
 		  Variables: pi onpi pi2 pion2 onpi2 grav
 			Constructing wrapper function &quot;ocean.airymodel&quot;...
+			  c,l,travel,waveh = airymodel(dx,dd,h0,depth,src,inland,shadow,[numrow,numcol])
+			Constructing wrapper function &quot;ocean.transport&quot;...
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>			  c,l,travel,waveh = airymodel(dx,dd,h0,depth,src,inland,shadow,[numrow,numcol])
-			Constructing wrapper function &quot;ocean.transport&quot;...
-			  dz,dist = transport(iter,depth,hent,transx,transy,[numrow,numcol])
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>			  dz,dist = transport(iter,depth,hent,transx,transy,[numrow,numcol])
 			Constructing wrapper function &quot;ocean.diffusion&quot;...
 			  depo = diffusion(oelev,dz,coeff,maxth,tstep,nstep,[numrow,numcol])
-	Wrote C/API module &quot;ocean&quot; to file &quot;/tmp/tmpxbdn4z_n/src.linux-x86_64-3.6/oceanmodule.c&quot;
-	Fortran 90 wrappers are saved to &quot;/tmp/tmpxbdn4z_n/src.linux-x86_64-3.6/ocean-f2pywrappers2.f90&quot;
-  adding &#39;/tmp/tmpxbdn4z_n/src.linux-x86_64-3.6/fortranobject.c&#39; to sources.
-  adding &#39;/tmp/tmpxbdn4z_n/src.linux-x86_64-3.6&#39; to include_dirs.
-copying /usr/share/miniconda/envs/coast/lib/python3.6/site-packages/numpy/f2py/src/fortranobject.c -&gt; /tmp/tmpxbdn4z_n/src.linux-x86_64-3.6
-copying /usr/share/miniconda/envs/coast/lib/python3.6/site-packages/numpy/f2py/src/fortranobject.h -&gt; /tmp/tmpxbdn4z_n/src.linux-x86_64-3.6
-  adding &#39;/tmp/tmpxbdn4z_n/src.linux-x86_64-3.6/ocean-f2pywrappers2.f90&#39; to sources.
+	Wrote C/API module &quot;ocean&quot; to file &quot;/tmp/tmp6s06gd08/src.linux-x86_64-3.6/oceanmodule.c&quot;
+	Fortran 90 wrappers are saved to &quot;/tmp/tmp6s06gd08/src.linux-x86_64-3.6/ocean-f2pywrappers2.f90&quot;
+  adding &#39;/tmp/tmp6s06gd08/src.linux-x86_64-3.6/fortranobject.c&#39; to sources.
+  adding &#39;/tmp/tmp6s06gd08/src.linux-x86_64-3.6&#39; to include_dirs.
+copying /usr/share/miniconda/envs/coast/lib/python3.6/site-packages/numpy/f2py/src/fortranobject.c -&gt; /tmp/tmp6s06gd08/src.linux-x86_64-3.6
+copying /usr/share/miniconda/envs/coast/lib/python3.6/site-packages/numpy/f2py/src/fortranobject.h -&gt; /tmp/tmp6s06gd08/src.linux-x86_64-3.6
+  adding &#39;/tmp/tmp6s06gd08/src.linux-x86_64-3.6/ocean-f2pywrappers2.f90&#39; to sources.
 build_src: building npy-pkg config files
 running build_ext
 customize UnixCCompiler
 C compiler: /usr/share/miniconda/envs/coast/bin/x86_64-conda-linux-gnu-cc -DNDEBUG -fwrapv -O2 -Wall -Wstrict-prototypes -march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 -ffunction-sections -pipe -isystem /usr/share/miniconda/envs/coast/include -DNDEBUG -D_FORTIFY_SOURCE=2 -O2 -isystem /usr/share/miniconda/envs/coast/include -fPIC
 
-creating /tmp/tmpm_1b7ikq/tmp
-creating /tmp/tmpm_1b7ikq/tmp/tmpm_1b7ikq
-compile options: &#39;-MMD -MF /tmp/tmpm_1b7ikq/file.c.d -c&#39;
-x86_64-conda-linux-gnu-cc: /tmp/tmpm_1b7ikq/file.c
+creating /tmp/tmp86qfzm14/tmp
+creating /tmp/tmp86qfzm14/tmp/tmp86qfzm14
+compile options: &#39;-MMD -MF /tmp/tmp86qfzm14/file.c.d -c&#39;
+x86_64-conda-linux-gnu-cc: /tmp/tmp86qfzm14/file.c
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>customize UnixCCompiler using build_ext
@@ -538,33 +538,33 @@ building &#39;ocean&#39; extension
 compiling C sources
 C compiler: /usr/share/miniconda/envs/coast/bin/x86_64-conda-linux-gnu-cc -DNDEBUG -fwrapv -O2 -Wall -Wstrict-prototypes -march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 -ffunction-sections -pipe -isystem /usr/share/miniconda/envs/coast/include -DNDEBUG -D_FORTIFY_SOURCE=2 -O2 -isystem /usr/share/miniconda/envs/coast/include -fPIC
 
-creating /tmp/tmpxbdn4z_n/tmp
-creating /tmp/tmpxbdn4z_n/tmp/tmpxbdn4z_n
-creating /tmp/tmpxbdn4z_n/tmp/tmpxbdn4z_n/src.linux-x86_64-3.6
-compile options: &#39;-I/tmp/tmpxbdn4z_n/src.linux-x86_64-3.6 -I/usr/share/miniconda/envs/coast/lib/python3.6/site-packages/numpy/core/include -I/usr/share/miniconda/envs/coast/include/python3.6m -c&#39;
-x86_64-conda-linux-gnu-cc: /tmp/tmpxbdn4z_n/src.linux-x86_64-3.6/oceanmodule.c
-x86_64-conda-linux-gnu-cc: /tmp/tmpxbdn4z_n/src.linux-x86_64-3.6/fortranobject.c
+creating /tmp/tmp6s06gd08/tmp
+creating /tmp/tmp6s06gd08/tmp/tmp6s06gd08
+creating /tmp/tmp6s06gd08/tmp/tmp6s06gd08/src.linux-x86_64-3.6
+compile options: &#39;-I/tmp/tmp6s06gd08/src.linux-x86_64-3.6 -I/usr/share/miniconda/envs/coast/lib/python3.6/site-packages/numpy/core/include -I/usr/share/miniconda/envs/coast/include/python3.6m -c&#39;
+x86_64-conda-linux-gnu-cc: /tmp/tmp6s06gd08/src.linux-x86_64-3.6/oceanmodule.c
+x86_64-conda-linux-gnu-cc: /tmp/tmp6s06gd08/src.linux-x86_64-3.6/fortranobject.c
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>In file included from <span class=" -Color -Color-Bold">/usr/share/miniconda/envs/coast/lib/python3.6/site-packages/numpy/core/include/numpy/ndarraytypes.h:1822</span>,
                  from <span class=" -Color -Color-Bold">/usr/share/miniconda/envs/coast/lib/python3.6/site-packages/numpy/core/include/numpy/ndarrayobject.h:12</span>,
                  from <span class=" -Color -Color-Bold">/usr/share/miniconda/envs/coast/lib/python3.6/site-packages/numpy/core/include/numpy/arrayobject.h:4</span>,
-                 from <span class=" -Color -Color-Bold">/tmp/tmpxbdn4z_n/src.linux-x86_64-3.6/fortranobject.h:13</span>,
-                 from <span class=" -Color -Color-Bold">/tmp/tmpxbdn4z_n/src.linux-x86_64-3.6/oceanmodule.c:16</span>:
-<span class=" -Color -Color-Bold">/usr/share/miniconda/envs/coast/lib/python3.6/site-packages/numpy/core/include/numpy/npy_1_7_deprecated_api.h:17:2:</span> <span class=" -Color -Color-Bold -Color-Bold-Magenta">warning: </span>#warning &quot;Using deprecated NumPy API, disable it with &quot; &quot;#define NPY_NO_DEPRECATED_API NPY_1_7_API_VERSION&quot; [<span class=" -Color -Color-Bold -Color-Bold-Magenta">-Wcpp</span>]
-   17 | #<span class=" -Color -Color-Bold -Color-Bold-Magenta">warning</span> &quot;Using deprecated NumPy API, disable it with &quot; \
-      |  <span class=" -Color -Color-Bold -Color-Bold-Magenta">^~~~~~~</span>
-In file included from <span class=" -Color -Color-Bold">/usr/share/miniconda/envs/coast/lib/python3.6/site-packages/numpy/core/include/numpy/ndarraytypes.h:1822</span>,
-                 from <span class=" -Color -Color-Bold">/usr/share/miniconda/envs/coast/lib/python3.6/site-packages/numpy/core/include/numpy/ndarrayobject.h:12</span>,
-                 from <span class=" -Color -Color-Bold">/usr/share/miniconda/envs/coast/lib/python3.6/site-packages/numpy/core/include/numpy/arrayobject.h:4</span>,
-                 from <span class=" -Color -Color-Bold">/tmp/tmpxbdn4z_n/src.linux-x86_64-3.6/fortranobject.h:13</span>,
-                 from <span class=" -Color -Color-Bold">/tmp/tmpxbdn4z_n/src.linux-x86_64-3.6/fortranobject.c:2</span>:
+                 from <span class=" -Color -Color-Bold">/tmp/tmp6s06gd08/src.linux-x86_64-3.6/fortranobject.h:13</span>,
+                 from <span class=" -Color -Color-Bold">/tmp/tmp6s06gd08/src.linux-x86_64-3.6/oceanmodule.c:16</span>:
 <span class=" -Color -Color-Bold">/usr/share/miniconda/envs/coast/lib/python3.6/site-packages/numpy/core/include/numpy/npy_1_7_deprecated_api.h:17:2:</span> <span class=" -Color -Color-Bold -Color-Bold-Magenta">warning: </span>#warning &quot;Using deprecated NumPy API, disable it with &quot; &quot;#define NPY_NO_DEPRECATED_API NPY_1_7_API_VERSION&quot; [<span class=" -Color -Color-Bold -Color-Bold-Magenta">-Wcpp</span>]
    17 | #<span class=" -Color -Color-Bold -Color-Bold-Magenta">warning</span> &quot;Using deprecated NumPy API, disable it with &quot; \
       |  <span class=" -Color -Color-Bold -Color-Bold-Magenta">^~~~~~~</span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold">/tmp/tmpxbdn4z_n/src.linux-x86_64-3.6/oceanmodule.c:109:12:</span> <span class=" -Color -Color-Bold -Color-Bold-Magenta">warning: </span>&#39;<span class=" -Color -Color-Bold">f2py_size</span>&#39; defined but not used [<span class=" -Color -Color-Bold -Color-Bold-Magenta">-Wunused-function</span>]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>In file included from <span class=" -Color -Color-Bold">/usr/share/miniconda/envs/coast/lib/python3.6/site-packages/numpy/core/include/numpy/ndarraytypes.h:1822</span>,
+                 from <span class=" -Color -Color-Bold">/usr/share/miniconda/envs/coast/lib/python3.6/site-packages/numpy/core/include/numpy/ndarrayobject.h:12</span>,
+                 from <span class=" -Color -Color-Bold">/usr/share/miniconda/envs/coast/lib/python3.6/site-packages/numpy/core/include/numpy/arrayobject.h:4</span>,
+                 from <span class=" -Color -Color-Bold">/tmp/tmp6s06gd08/src.linux-x86_64-3.6/fortranobject.h:13</span>,
+                 from <span class=" -Color -Color-Bold">/tmp/tmp6s06gd08/src.linux-x86_64-3.6/fortranobject.c:2</span>:
+<span class=" -Color -Color-Bold">/usr/share/miniconda/envs/coast/lib/python3.6/site-packages/numpy/core/include/numpy/npy_1_7_deprecated_api.h:17:2:</span> <span class=" -Color -Color-Bold -Color-Bold-Magenta">warning: </span>#warning &quot;Using deprecated NumPy API, disable it with &quot; &quot;#define NPY_NO_DEPRECATED_API NPY_1_7_API_VERSION&quot; [<span class=" -Color -Color-Bold -Color-Bold-Magenta">-Wcpp</span>]
+   17 | #<span class=" -Color -Color-Bold -Color-Bold-Magenta">warning</span> &quot;Using deprecated NumPy API, disable it with &quot; \
+      |  <span class=" -Color -Color-Bold -Color-Bold-Magenta">^~~~~~~</span>
+<span class=" -Color -Color-Bold">/tmp/tmp6s06gd08/src.linux-x86_64-3.6/oceanmodule.c:109:12:</span> <span class=" -Color -Color-Bold -Color-Bold-Magenta">warning: </span>&#39;<span class=" -Color -Color-Bold">f2py_size</span>&#39; defined but not used [<span class=" -Color -Color-Bold -Color-Bold-Magenta">-Wunused-function</span>]
   109 | static int <span class=" -Color -Color-Bold -Color-Bold-Magenta">f2py_size</span>(PyArrayObject* var, ...)
       |            <span class=" -Color -Color-Bold -Color-Bold-Magenta">^~~~~~~~~</span>
 </pre></div>
@@ -573,8 +573,8 @@ In file included from <span class=" -Color -Color-Bold">/usr/share/miniconda/env
 Fortran f77 compiler: /usr/share/miniconda/envs/coast/bin/x86_64-conda-linux-gnu-gfortran -Wall -g -ffixed-form -fno-second-underscore -fPIC -fopenmp -march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 -ffunction-sections -pipe -isystem /usr/share/miniconda/envs/coast/include -O3 -funroll-loops
 Fortran f90 compiler: /usr/share/miniconda/envs/coast/bin/x86_64-conda-linux-gnu-gfortran -Wall -g -fno-second-underscore -fPIC -fopenmp -march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 -ffunction-sections -pipe -isystem /usr/share/miniconda/envs/coast/include -O3 -funroll-loops
 Fortran fix compiler: /usr/share/miniconda/envs/coast/bin/x86_64-conda-linux-gnu-gfortran -Wall -g -ffixed-form -fno-second-underscore -Wall -g -fno-second-underscore -fPIC -fopenmp -march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 -ffunction-sections -pipe -isystem /usr/share/miniconda/envs/coast/include -O3 -funroll-loops
-compile options: &#39;-I/tmp/tmpxbdn4z_n/src.linux-x86_64-3.6 -I/usr/share/miniconda/envs/coast/lib/python3.6/site-packages/numpy/core/include -I/usr/share/miniconda/envs/coast/include/python3.6m -c&#39;
-extra options: &#39;-J/tmp/tmpxbdn4z_n/ -I/tmp/tmpxbdn4z_n/&#39;
+compile options: &#39;-I/tmp/tmp6s06gd08/src.linux-x86_64-3.6 -I/usr/share/miniconda/envs/coast/lib/python3.6/site-packages/numpy/core/include -I/usr/share/miniconda/envs/coast/include/python3.6m -c&#39;
+extra options: &#39;-J/tmp/tmp6s06gd08/ -I/tmp/tmp6s06gd08/&#39;
 x86_64-conda-linux-gnu-gfortran:f90: ocean.f90
 </pre></div>
 </div>
@@ -582,13 +582,13 @@ x86_64-conda-linux-gnu-gfortran:f90: ocean.f90
 Fortran f77 compiler: /usr/share/miniconda/envs/coast/bin/x86_64-conda-linux-gnu-gfortran -Wall -g -ffixed-form -fno-second-underscore -fPIC -fopenmp -march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 -ffunction-sections -pipe -isystem /usr/share/miniconda/envs/coast/include -O3 -funroll-loops
 Fortran f90 compiler: /usr/share/miniconda/envs/coast/bin/x86_64-conda-linux-gnu-gfortran -Wall -g -fno-second-underscore -fPIC -fopenmp -march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 -ffunction-sections -pipe -isystem /usr/share/miniconda/envs/coast/include -O3 -funroll-loops
 Fortran fix compiler: /usr/share/miniconda/envs/coast/bin/x86_64-conda-linux-gnu-gfortran -Wall -g -ffixed-form -fno-second-underscore -Wall -g -fno-second-underscore -fPIC -fopenmp -march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 -ffunction-sections -pipe -isystem /usr/share/miniconda/envs/coast/include -O3 -funroll-loops
-compile options: &#39;-I/tmp/tmpxbdn4z_n/src.linux-x86_64-3.6 -I/usr/share/miniconda/envs/coast/lib/python3.6/site-packages/numpy/core/include -I/usr/share/miniconda/envs/coast/include/python3.6m -c&#39;
-extra options: &#39;-J/tmp/tmpxbdn4z_n/ -I/tmp/tmpxbdn4z_n/&#39;
-x86_64-conda-linux-gnu-gfortran:f90: /tmp/tmpxbdn4z_n/src.linux-x86_64-3.6/ocean-f2pywrappers2.f90
+compile options: &#39;-I/tmp/tmp6s06gd08/src.linux-x86_64-3.6 -I/usr/share/miniconda/envs/coast/lib/python3.6/site-packages/numpy/core/include -I/usr/share/miniconda/envs/coast/include/python3.6m -c&#39;
+extra options: &#39;-J/tmp/tmp6s06gd08/ -I/tmp/tmp6s06gd08/&#39;
+x86_64-conda-linux-gnu-gfortran:f90: /tmp/tmp6s06gd08/src.linux-x86_64-3.6/ocean-f2pywrappers2.f90
+/usr/share/miniconda/envs/coast/bin/x86_64-conda-linux-gnu-gfortran -Wall -g -Wall -g -shared -Wl,-O2 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--disable-new-dtags -Wl,--gc-sections -Wl,-rpath,/usr/share/miniconda/envs/coast/lib -Wl,-rpath-link,/usr/share/miniconda/envs/coast/lib -L/usr/share/miniconda/envs/coast/lib /tmp/tmp6s06gd08/tmp/tmp6s06gd08/src.linux-x86_64-3.6/oceanmodule.o /tmp/tmp6s06gd08/tmp/tmp6s06gd08/src.linux-x86_64-3.6/fortranobject.o /tmp/tmp6s06gd08/ocean.o /tmp/tmp6s06gd08/tmp/tmp6s06gd08/src.linux-x86_64-3.6/ocean-f2pywrappers2.o -L/usr/share/miniconda/envs/coast/bin/../x86_64-conda-linux-gnu/sysroot/lib/../lib -L/usr/share/miniconda/envs/coast/bin/../x86_64-conda-linux-gnu/sysroot/lib/../lib -lgfortran -o ./ocean.cpython-36m-x86_64-linux-gnu.so
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/share/miniconda/envs/coast/bin/x86_64-conda-linux-gnu-gfortran -Wall -g -Wall -g -shared -Wl,-O2 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--disable-new-dtags -Wl,--gc-sections -Wl,-rpath,/usr/share/miniconda/envs/coast/lib -Wl,-rpath-link,/usr/share/miniconda/envs/coast/lib -L/usr/share/miniconda/envs/coast/lib /tmp/tmpxbdn4z_n/tmp/tmpxbdn4z_n/src.linux-x86_64-3.6/oceanmodule.o /tmp/tmpxbdn4z_n/tmp/tmpxbdn4z_n/src.linux-x86_64-3.6/fortranobject.o /tmp/tmpxbdn4z_n/ocean.o /tmp/tmpxbdn4z_n/tmp/tmpxbdn4z_n/src.linux-x86_64-3.6/ocean-f2pywrappers2.o -L/usr/share/miniconda/envs/coast/bin/../x86_64-conda-linux-gnu/sysroot/lib/../lib -L/usr/share/miniconda/envs/coast/bin/../x86_64-conda-linux-gnu/sysroot/lib/../lib -lgfortran -o ./ocean.cpython-36m-x86_64-linux-gnu.so
-Removing build directory /tmp/tmpxbdn4z_n
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Removing build directory /tmp/tmp6s06gd08
 </pre></div>
 </div>
 </div>
@@ -701,7 +701,7 @@ Removing build directory /tmp/tmpxbdn4z_n
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Definition of shoreline position took (s): 0.001978999999999953
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Definition of shoreline position took (s): 0.002658999999999967
 </pre></div>
 </div>
 </div>
@@ -737,7 +737,7 @@ Removing build directory /tmp/tmpxbdn4z_n
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Wave evolution computation took (s):  0.4709430000000001
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Wave evolution computation took (s):  0.6626479999999999
 </pre></div>
 </div>
 </div>
@@ -823,7 +823,7 @@ Removing build directory /tmp/tmpxbdn4z_n
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Sediment erosion/deposition computation took (s):  0.5581080000000007
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Sediment erosion/deposition computation took (s):  0.6067250000000008
 </pre></div>
 </div>
 </div>

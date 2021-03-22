@@ -688,7 +688,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Error in callback &lt;function flush_figures at 0x7f2c59c72730&gt; (for post_execute):
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Error in callback &lt;function flush_figures at 0x7f8668f14730&gt; (for post_execute):
 </pre></div>
 </div>
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
@@ -773,43 +773,36 @@
 <span class="g g-Whitespace">    </span><span class="mi">288</span> 
 
 <span class="nn">/usr/share/miniconda/envs/coast/lib/python3.6/site-packages/matplotlib/path.py</span> in <span class="ni">get_extents</span><span class="nt">(self, transform, **kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">595</span>         <span class="k">else</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">596</span>             <span class="n">xys</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="ne">--&gt; </span><span class="mi">597</span>             <span class="k">for</span> <span class="n">curve</span><span class="p">,</span> <span class="n">code</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">iter_bezier</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">597</span>             <span class="k">for</span> <span class="n">curve</span><span class="p">,</span> <span class="n">code</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">iter_bezier</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span class="g g-Whitespace">    </span><span class="mi">598</span>                 <span class="c1"># places where the derivative is zero can be extrema</span>
-<span class="g g-Whitespace">    </span><span class="mi">599</span>                 <span class="n">_</span><span class="p">,</span> <span class="n">dzeros</span> <span class="o">=</span> <span class="n">curve</span><span class="o">.</span><span class="n">axis_aligned_extrema</span><span class="p">()</span>
+<span class="ne">--&gt; </span><span class="mi">599</span>                 <span class="n">_</span><span class="p">,</span> <span class="n">dzeros</span> <span class="o">=</span> <span class="n">curve</span><span class="o">.</span><span class="n">axis_aligned_extrema</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">600</span>                 <span class="c1"># as can the ends of the curve</span>
+<span class="g g-Whitespace">    </span><span class="mi">601</span>                 <span class="n">xys</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">curve</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="o">*</span><span class="n">dzeros</span><span class="p">,</span> <span class="mi">1</span><span class="p">]))</span>
 
-<span class="nn">/usr/share/miniconda/envs/coast/lib/python3.6/site-packages/matplotlib/path.py</span> in <span class="ni">iter_bezier</span><span class="nt">(self, **kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">439</span>         <span class="n">first_vert</span> <span class="o">=</span> <span class="kc">None</span>
-<span class="g g-Whitespace">    </span><span class="mi">440</span>         <span class="n">prev_vert</span> <span class="o">=</span> <span class="kc">None</span>
-<span class="ne">--&gt; </span><span class="mi">441</span>         <span class="k">for</span> <span class="n">verts</span><span class="p">,</span> <span class="n">code</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">iter_segments</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-<span class="g g-Whitespace">    </span><span class="mi">442</span>             <span class="k">if</span> <span class="n">first_vert</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">443</span>                 <span class="k">if</span> <span class="n">code</span> <span class="o">!=</span> <span class="n">Path</span><span class="o">.</span><span class="n">MOVETO</span><span class="p">:</span>
+<span class="nn">/usr/share/miniconda/envs/coast/lib/python3.6/site-packages/matplotlib/bezier.py</span> in <span class="ni">axis_aligned_extrema</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">296</span>         <span class="n">roots</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="g g-Whitespace">    </span><span class="mi">297</span>         <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">pi</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">dCj</span><span class="o">.</span><span class="n">T</span><span class="p">):</span>
+<span class="ne">--&gt; </span><span class="mi">298</span>             <span class="n">r</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">roots</span><span class="p">(</span><span class="n">pi</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+<span class="g g-Whitespace">    </span><span class="mi">299</span>             <span class="n">roots</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">300</span>             <span class="n">dims</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">full_like</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">i</span><span class="p">))</span>
 
-<span class="nn">/usr/share/miniconda/envs/coast/lib/python3.6/site-packages/matplotlib/path.py</span> in <span class="ni">iter_segments</span><span class="nt">(self, transform, remove_nans, clip, snap, stroke_width, simplify, curves, sketch)</span>
-<span class="g g-Whitespace">    </span><span class="mi">412</span>                 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">extra_vertices</span><span class="p">):</span>
-<span class="g g-Whitespace">    </span><span class="mi">413</span>                     <span class="nb">next</span><span class="p">(</span><span class="n">codes</span><span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">414</span>                     <span class="n">curr_vertices</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">curr_vertices</span><span class="p">,</span> <span class="nb">next</span><span class="p">(</span><span class="n">vertices</span><span class="p">))</span>
-<span class="g g-Whitespace">    </span><span class="mi">415</span>             <span class="k">yield</span> <span class="n">curr_vertices</span><span class="p">,</span> <span class="n">code</span>
-<span class="g g-Whitespace">    </span><span class="mi">416</span> 
+<span class="nn">&lt;__array_function__ internals&gt;</span> in <span class="ni">roots</span><span class="nt">(*args, **kwargs)</span>
 
-<span class="nn">&lt;__array_function__ internals&gt;</span> in <span class="ni">append</span><span class="nt">(*args, **kwargs)</span>
+<span class="nn">/usr/share/miniconda/envs/coast/lib/python3.6/site-packages/numpy/lib/polynomial.py</span> in <span class="ni">roots</span><span class="nt">(p)</span>
+<span class="g g-Whitespace">    </span><span class="mi">241</span>         <span class="n">A</span> <span class="o">=</span> <span class="n">diag</span><span class="p">(</span><span class="n">NX</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="n">N</span><span class="o">-</span><span class="mi">2</span><span class="p">,),</span> <span class="n">p</span><span class="o">.</span><span class="n">dtype</span><span class="p">),</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">242</span>         <span class="n">A</span><span class="p">[</span><span class="mi">0</span><span class="p">,:]</span> <span class="o">=</span> <span class="o">-</span><span class="n">p</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">/</span> <span class="n">p</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="ne">--&gt; </span><span class="mi">243</span>         <span class="n">roots</span> <span class="o">=</span> <span class="n">eigvals</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">244</span>     <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">245</span>         <span class="n">roots</span> <span class="o">=</span> <span class="n">NX</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>
 
-<span class="nn">/usr/share/miniconda/envs/coast/lib/python3.6/site-packages/numpy/lib/function_base.py</span> in <span class="ni">append</span><span class="nt">(arr, values, axis)</span>
-<span class="g g-Whitespace">   </span><span class="mi">4669</span>         <span class="n">values</span> <span class="o">=</span> <span class="n">ravel</span><span class="p">(</span><span class="n">values</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">4670</span>         <span class="n">axis</span> <span class="o">=</span> <span class="n">arr</span><span class="o">.</span><span class="n">ndim</span><span class="o">-</span><span class="mi">1</span>
-<span class="ne">-&gt; </span><span class="mi">4671</span>     <span class="k">return</span> <span class="n">concatenate</span><span class="p">((</span><span class="n">arr</span><span class="p">,</span> <span class="n">values</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="n">axis</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">4672</span> 
-<span class="g g-Whitespace">   </span><span class="mi">4673</span> 
+<span class="nn">&lt;__array_function__ internals&gt;</span> in <span class="ni">eigvals</span><span class="nt">(*args, **kwargs)</span>
 
-<span class="nn">&lt;__array_function__ internals&gt;</span> in <span class="ni">concatenate</span><span class="nt">(*args, **kwargs)</span>
-
-<span class="nn">/usr/share/miniconda/envs/coast/lib/python3.6/site-packages/numpy/core/multiarray.py</span> in <span class="ni">concatenate</span><span class="nt">(arrays, axis, out)</span>
-<span class="g g-Whitespace">    </span><span class="mi">141</span> 
-<span class="g g-Whitespace">    </span><span class="mi">142</span> 
-<span class="ne">--&gt; </span><span class="mi">143</span> <span class="nd">@array_function_from_c_func_and_dispatcher</span><span class="p">(</span><span class="n">_multiarray_umath</span><span class="o">.</span><span class="n">concatenate</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">144</span> <span class="k">def</span> <span class="nf">concatenate</span><span class="p">(</span><span class="n">arrays</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">out</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-<span class="g g-Whitespace">    </span><span class="mi">145</span>     <span class="s2">&quot;&quot;&quot;</span>
+<span class="nn">/usr/share/miniconda/envs/coast/lib/python3.6/site-packages/numpy/linalg/linalg.py</span> in <span class="ni">eigvals</span><span class="nt">(a)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1067</span>         <span class="n">_raise_linalgerror_eigenvalues_nonconvergence</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1068</span>     <span class="n">signature</span> <span class="o">=</span> <span class="s1">&#39;D-&gt;D&#39;</span> <span class="k">if</span> <span class="n">isComplexType</span><span class="p">(</span><span class="n">t</span><span class="p">)</span> <span class="k">else</span> <span class="s1">&#39;d-&gt;D&#39;</span>
+<span class="ne">-&gt; </span><span class="mi">1069</span>     <span class="n">w</span> <span class="o">=</span> <span class="n">_umath_linalg</span><span class="o">.</span><span class="n">eigvals</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">signature</span><span class="o">=</span><span class="n">signature</span><span class="p">,</span> <span class="n">extobj</span><span class="o">=</span><span class="n">extobj</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1070</span> 
+<span class="g g-Whitespace">   </span><span class="mi">1071</span>     <span class="k">if</span> <span class="ow">not</span> <span class="n">isComplexType</span><span class="p">(</span><span class="n">t</span><span class="p">):</span>
 
 <span class="ne">KeyboardInterrupt</span>: 
 </pre></div>
