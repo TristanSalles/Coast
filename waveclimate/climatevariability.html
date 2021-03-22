@@ -26,7 +26,7 @@
 
     
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/sphinx-book-theme.c441f2ba0852f4cabcb80105e3a46ae6.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.e7340bb3dbd8dde6db86f25597f54a1b.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
@@ -88,7 +88,7 @@
 <nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
     <p class="caption collapsible-parent">
  <span class="caption-text">
-  week 1
+  Part 1
  </span>
 </p>
 <ul class="nav sidenav_l1">
@@ -134,7 +134,7 @@
 </ul>
 <p class="caption collapsible-parent">
  <span class="caption-text">
-  week 2
+  Part 2
  </span>
 </p>
 <ul class="current nav sidenav_l1">
@@ -170,19 +170,58 @@
 </ul>
 <p class="caption collapsible-parent">
  <span class="caption-text">
-  week 3
+  Part 3
  </span>
 </p>
 <ul class="nav sidenav_l1">
- <li class="toctree-l1">
-  <a class="reference internal" href="../coastevol.html">
-   Quantifying coastal changes
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../coastevol/notes.html">
+   Quantifying coastal changes notes
   </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../coastevol/waverunup.html">
+     Runup models
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../coastevol/runupdataset.html">
+     Runup dataset
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../coastevol/pybeach.html">
+     pybeach
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../coastevol/sedtransport.html">
+     Simple wave sediment modelling
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../coastevol/inshorewaves.html">
+     Inshore wave data Narrabeen
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../coastevol/selectprofiles.html">
+     Narrabeen beach profile adjustment
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../coastevol/grainsettling.html">
+     Exploring grain settling
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
  </li>
 </ul>
 <p class="caption collapsible-parent">
  <span class="caption-text">
-  week 4
+  Part 4
  </span>
 </p>
 <ul class="nav sidenav_l1">
@@ -493,7 +532,7 @@
 <span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">3</span><span class="o">-</span><span class="n">a77cf9e50a80</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">wa</span><span class="o">.</span><span class="n">processAltimeterData</span><span class="p">(</span><span class="n">max_qc</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">altimeter_pick</span><span class="o">=</span><span class="s1">&#39;all&#39;</span><span class="p">,</span> <span class="n">saveCSV</span> <span class="o">=</span> <span class="s1">&#39;altimeterData.csv&#39;</span><span class="p">)</span>
 
-<span class="nn">/usr/share/miniconda/envs/coast/lib/python3.8/site-packages/RADWave/altiwave.py</span> in <span class="ni">processAltimeterData</span><span class="nt">(self, max_qc, altimeter_pick, saveCSV)</span>
+<span class="nn">/usr/share/miniconda/envs/coast/lib/python3.6/site-packages/RADWave/altiwave.py</span> in <span class="ni">processAltimeterData</span><span class="nt">(self, max_qc, altimeter_pick, saveCSV)</span>
 <span class="g g-Whitespace">    </span><span class="mi">306</span> 
 <span class="g g-Whitespace">    </span><span class="mi">307</span>                     <span class="c1"># Get desired bounding box</span>
 <span class="ne">--&gt; </span><span class="mi">308</span>                     <span class="n">lats</span> <span class="o">=</span> <span class="n">ncs</span><span class="o">.</span><span class="n">variables</span><span class="p">[</span><span class="s2">&quot;LATITUDE&quot;</span><span class="p">][:]</span>
@@ -504,12 +543,12 @@
 
 <span class="nn">src/netCDF4/_netCDF4.pyx</span> in <span class="ni">netCDF4._netCDF4.Variable._toma</span><span class="nt">()</span>
 
-<span class="nn">/usr/share/miniconda/envs/coast/lib/python3.8/site-packages/numpy/core/_methods.py</span> in <span class="ni">_any</span><span class="nt">(a, axis, dtype, out, keepdims, where)</span>
+<span class="nn">/usr/share/miniconda/envs/coast/lib/python3.6/site-packages/numpy/core/_methods.py</span> in <span class="ni">_any</span><span class="nt">(a, axis, dtype, out, keepdims)</span>
 <span class="g g-Whitespace">     </span><span class="mi">51</span>     <span class="k">return</span> <span class="n">umr_prod</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">axis</span><span class="p">,</span> <span class="n">dtype</span><span class="p">,</span> <span class="n">out</span><span class="p">,</span> <span class="n">keepdims</span><span class="p">,</span> <span class="n">initial</span><span class="p">,</span> <span class="n">where</span><span class="p">)</span>
 <span class="g g-Whitespace">     </span><span class="mi">52</span> 
-<span class="ne">---&gt; </span><span class="mi">53</span> <span class="k">def</span> <span class="nf">_any</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">out</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">keepdims</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">where</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
-<span class="g g-Whitespace">     </span><span class="mi">54</span>     <span class="c1"># Parsing keyword arguments is currently fairly slow, so avoid it for now</span>
-<span class="g g-Whitespace">     </span><span class="mi">55</span>     <span class="k">if</span> <span class="n">where</span> <span class="ow">is</span> <span class="kc">True</span><span class="p">:</span>
+<span class="ne">---&gt; </span><span class="mi">53</span> <span class="k">def</span> <span class="nf">_any</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">out</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">keepdims</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<span class="g g-Whitespace">     </span><span class="mi">54</span>     <span class="k">return</span> <span class="n">umr_any</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">axis</span><span class="p">,</span> <span class="n">dtype</span><span class="p">,</span> <span class="n">out</span><span class="p">,</span> <span class="n">keepdims</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">55</span> 
 
 <span class="ne">KeyboardInterrupt</span>: 
 </pre></div>
@@ -527,9 +566,9 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/getafix/anaconda3/envs/coast/lib/python3.8/site-packages/cartopy/mpl/gridliner.py:307: UserWarning: The .xlabels_top attribute is deprecated. Please use .top_labels to toggle visibility instead.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/getafix/anaconda3/envs/coast/lib/python3.6/site-packages/cartopy/mpl/gridliner.py:307: UserWarning: The .xlabels_top attribute is deprecated. Please use .top_labels to toggle visibility instead.
   warnings.warn(&#39;The .xlabels_top attribute is deprecated. Please &#39;
-/Users/getafix/anaconda3/envs/coast/lib/python3.8/site-packages/cartopy/mpl/gridliner.py:331: UserWarning: The .ylabels_left attribute is deprecated. Please use .left_labels to toggle visibility instead.
+/Users/getafix/anaconda3/envs/coast/lib/python3.6/site-packages/cartopy/mpl/gridliner.py:331: UserWarning: The .ylabels_left attribute is deprecated. Please use .left_labels to toggle visibility instead.
   warnings.warn(&#39;The .ylabels_left attribute is deprecated. Please &#39;
 </pre></div>
 </div>

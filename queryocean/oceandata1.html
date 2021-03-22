@@ -26,7 +26,7 @@
 
     
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/sphinx-book-theme.c441f2ba0852f4cabcb80105e3a46ae6.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.e7340bb3dbd8dde6db86f25597f54a1b.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
@@ -88,7 +88,7 @@
 <nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
     <p class="caption collapsible-parent">
  <span class="caption-text">
-  week 1
+  Part 1
  </span>
 </p>
 <ul class="current nav sidenav_l1">
@@ -134,7 +134,7 @@
 </ul>
 <p class="caption collapsible-parent">
  <span class="caption-text">
-  week 2
+  Part 2
  </span>
 </p>
 <ul class="nav sidenav_l1">
@@ -170,19 +170,58 @@
 </ul>
 <p class="caption collapsible-parent">
  <span class="caption-text">
-  week 3
+  Part 3
  </span>
 </p>
 <ul class="nav sidenav_l1">
- <li class="toctree-l1">
-  <a class="reference internal" href="../coastevol.html">
-   Quantifying coastal changes
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../coastevol/notes.html">
+   Quantifying coastal changes notes
   </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../coastevol/waverunup.html">
+     Runup models
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../coastevol/runupdataset.html">
+     Runup dataset
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../coastevol/pybeach.html">
+     pybeach
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../coastevol/sedtransport.html">
+     Simple wave sediment modelling
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../coastevol/inshorewaves.html">
+     Inshore wave data Narrabeen
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../coastevol/selectprofiles.html">
+     Narrabeen beach profile adjustment
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../coastevol/grainsettling.html">
+     Exploring grain settling
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
  </li>
 </ul>
 <p class="caption collapsible-parent">
  <span class="caption-text">
-  week 4
+  Part 4
  </span>
 </p>
 <ul class="nav sidenav_l1">
@@ -653,8 +692,11 @@ class Dataset(builtins.object)
  |      **`info`**: MPI_Info object for parallel access. Default `None`, which
  |      means MPI_INFO_NULL will be used.  Ignored if `parallel=False`.
  |  
+ |  __new__(*args, **kwargs) from builtins.type
+ |      Create and return a new object.  See help(type) for accurate signature.
+ |  
  |  __reduce__(...)
- |      Helper for pickle.
+ |      helper for pickle
  |  
  |  __repr__(self, /)
  |      Return repr(self).
@@ -1082,9 +1124,6 @@ class Dataset(builtins.object)
  |  ----------------------------------------------------------------------
  |  Static methods defined here:
  |  
- |  __new__(*args, **kwargs) from builtins.type
- |      Create and return a new object.  See help(type) for accurate signature.
- |  
  |  fromcdl(...)
  |      **`fromcdl(cdlfilename, ncfilename=None, mode=&#39;a&#39;,format=&#39;NETCDF4&#39;)`**
  |      
@@ -1243,51 +1282,59 @@ root group (NETCDF3_CLASSIC data model, file format DAP2):
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;project&#39;: &#39;Integrated Marine Observing System (IMOS)&#39;,
- &#39;conventions&#39;: &#39;IMOS-1.2&#39;,
- &#39;date_created&#39;: &#39;2012-09-13T07:27:03Z&#39;,
- &#39;title&#39;: &#39;Temperature, Salinity and Depth profiles in near real time&#39;,
- &#39;institution&#39;: &#39;AATAMS&#39;,
- &#39;site&#39;: &#39;CTD Satellite Relay Data Logger&#39;,
- &#39;abstract&#39;: &#39;CTD Satellite Relay Data Loggers are used to explore how marine mammal behaviour relates to their oceanic environment. Loggers developped at the University of St Andrews Sea Mammal Research Unit transmit data in near real time via the Argo satellite system&#39;,
- &#39;source&#39;: &#39;SMRU CTD Satellite relay Data Logger on marine mammals&#39;,
- &#39;keywords&#39;: &#39;Oceans&gt;Ocean Temperature&gt;Water Temperature ;Oceans&gt;Salinity/Density&gt;Conductivity ;Oceans&gt;Marine Biology&gt;Marine Mammals&#39;,
- &#39;references&#39;: &#39;http://imos.org.au/aatams.html&#39;,
- &#39;unique_reference_code&#39;: &#39;ct64-M746-09&#39;,
- &#39;platform_code&#39;: &#39;Q9900335&#39;,
- &#39;netcdf_version&#39;: &#39;3.6&#39;,
- &#39;naming_authority&#39;: &#39;IMOS&#39;,
- &#39;quality_control_set&#39;: &#39;1&#39;,
- &#39;cdm_data_type&#39;: &#39;Trajectory&#39;,
- &#39;geospatial_lat_min&#39;: -73.2633350301659,
- &#39;geospatial_lat_max&#39;: -54.4634576271227,
- &#39;geospatial_lat_units&#39;: &#39;degrees_north&#39;,
- &#39;geospatial_lon_min&#39;: -179.903050293358,
- &#39;geospatial_lon_max&#39;: 179.942919142718,
- &#39;geospatial_lon_units&#39;: &#39;degrees_east&#39;,
- &#39;geospatial_vertical_min&#39;: 6.0,
- &#39;geospatial_vertical_max&#39;: 1138.0,
- &#39;geospatial_vertical_units&#39;: &#39;dbar&#39;,
- &#39;time_coverage_start&#39;: &#39;2010-02-05T04:30:00Z&#39;,
- &#39;time_coverage_end&#39;: &#39;2010-10-29T07:10:00Z&#39;,
- &#39;data_centre_email&#39;: &#39;info@emii.org.au&#39;,
- &#39;data_centre&#39;: &#39;eMarine Information Infrastructure (eMII)&#39;,
- &#39;author&#39;: &#39;Besnard, Laurent&#39;,
- &#39;author_email&#39;: &#39;laurent.besnard@utas.edu.au&#39;,
- &#39;institution_references&#39;: &#39;http://imos.org.au/emii.html&#39;,
- &#39;principal_investigator&#39;: &#39;Harcourt, Rob&#39;,
- &#39;citation&#39;: &#39;Citation to be used in publications should follow the format: IMOS, [year-of-data-download], [Title], [data-access-URL],accessed [date-of-access]&#39;,
- &#39;acknowledgment&#39;: &#39;Any users of IMOS data are required to clearly acknowledge the source of the material in the format: &quot;Data was sourced from the Integrated Marine Observing System (IMOS) - IMOS is supported by the Australian Government through the National Collaborative Research Infrastructure Strategy (NCRIS) and the Super Science Initiative (SSI)&quot;&#39;,
- &#39;distribution_statement&#39;: &#39;AATAMS data may be re-used, provided that related  metadata explaining the data has been reviewed by the user and the data is appropriately acknowledged. Data, products and services from IMOS are provided &quot;as is&quot; without any warranty as to fitness for a particular purpose&#39;,
- &#39;file_version&#39;: &#39;Level 0 - Raw data&#39;,
- &#39;file_version_quality_control&#39;: &#39;Data in this file has not undergone quality control. There has been no QC performed on this real-time data.&#39;,
- &#39;metadata_uuid&#39;: &#39;dbe1e98e-f447-4cf6-bb1c-412baae171ab&#39;,
- &#39;body_code&#39;: &#39;11449&#39;,
- &#39;ptt_code&#39;: &#39;54746&#39;,
- &#39;species_name&#39;: &#39;Southern ellie&#39;,
- &#39;release_site&#39;: &#39;Macquarie&#39;,
- &#39;sattag_program&#39;: &#39;ct64&#39;,
- &#39;EXTRA_DIMENSION.length_char&#39;: 8}
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>OrderedDict([(&#39;project&#39;, &#39;Integrated Marine Observing System (IMOS)&#39;),
+             (&#39;conventions&#39;, &#39;IMOS-1.2&#39;),
+             (&#39;date_created&#39;, &#39;2012-09-13T07:27:03Z&#39;),
+             (&#39;title&#39;,
+              &#39;Temperature, Salinity and Depth profiles in near real time&#39;),
+             (&#39;institution&#39;, &#39;AATAMS&#39;),
+             (&#39;site&#39;, &#39;CTD Satellite Relay Data Logger&#39;),
+             (&#39;abstract&#39;,
+              &#39;CTD Satellite Relay Data Loggers are used to explore how marine mammal behaviour relates to their oceanic environment. Loggers developped at the University of St Andrews Sea Mammal Research Unit transmit data in near real time via the Argo satellite system&#39;),
+             (&#39;source&#39;,
+              &#39;SMRU CTD Satellite relay Data Logger on marine mammals&#39;),
+             (&#39;keywords&#39;,
+              &#39;Oceans&gt;Ocean Temperature&gt;Water Temperature ;Oceans&gt;Salinity/Density&gt;Conductivity ;Oceans&gt;Marine Biology&gt;Marine Mammals&#39;),
+             (&#39;references&#39;, &#39;http://imos.org.au/aatams.html&#39;),
+             (&#39;unique_reference_code&#39;, &#39;ct64-M746-09&#39;),
+             (&#39;platform_code&#39;, &#39;Q9900335&#39;),
+             (&#39;netcdf_version&#39;, &#39;3.6&#39;),
+             (&#39;naming_authority&#39;, &#39;IMOS&#39;),
+             (&#39;quality_control_set&#39;, &#39;1&#39;),
+             (&#39;cdm_data_type&#39;, &#39;Trajectory&#39;),
+             (&#39;geospatial_lat_min&#39;, -73.2633350301659),
+             (&#39;geospatial_lat_max&#39;, -54.4634576271227),
+             (&#39;geospatial_lat_units&#39;, &#39;degrees_north&#39;),
+             (&#39;geospatial_lon_min&#39;, -179.903050293358),
+             (&#39;geospatial_lon_max&#39;, 179.942919142718),
+             (&#39;geospatial_lon_units&#39;, &#39;degrees_east&#39;),
+             (&#39;geospatial_vertical_min&#39;, 6.0),
+             (&#39;geospatial_vertical_max&#39;, 1138.0),
+             (&#39;geospatial_vertical_units&#39;, &#39;dbar&#39;),
+             (&#39;time_coverage_start&#39;, &#39;2010-02-05T04:30:00Z&#39;),
+             (&#39;time_coverage_end&#39;, &#39;2010-10-29T07:10:00Z&#39;),
+             (&#39;data_centre_email&#39;, &#39;info@emii.org.au&#39;),
+             (&#39;data_centre&#39;, &#39;eMarine Information Infrastructure (eMII)&#39;),
+             (&#39;author&#39;, &#39;Besnard, Laurent&#39;),
+             (&#39;author_email&#39;, &#39;laurent.besnard@utas.edu.au&#39;),
+             (&#39;institution_references&#39;, &#39;http://imos.org.au/emii.html&#39;),
+             (&#39;principal_investigator&#39;, &#39;Harcourt, Rob&#39;),
+             (&#39;citation&#39;,
+              &#39;Citation to be used in publications should follow the format: IMOS, [year-of-data-download], [Title], [data-access-URL],accessed [date-of-access]&#39;),
+             (&#39;acknowledgment&#39;,
+              &#39;Any users of IMOS data are required to clearly acknowledge the source of the material in the format: &quot;Data was sourced from the Integrated Marine Observing System (IMOS) - IMOS is supported by the Australian Government through the National Collaborative Research Infrastructure Strategy (NCRIS) and the Super Science Initiative (SSI)&quot;&#39;),
+             (&#39;distribution_statement&#39;,
+              &#39;AATAMS data may be re-used, provided that related  metadata explaining the data has been reviewed by the user and the data is appropriately acknowledged. Data, products and services from IMOS are provided &quot;as is&quot; without any warranty as to fitness for a particular purpose&#39;),
+             (&#39;file_version&#39;, &#39;Level 0 - Raw data&#39;),
+             (&#39;file_version_quality_control&#39;,
+              &#39;Data in this file has not undergone quality control. There has been no QC performed on this real-time data.&#39;),
+             (&#39;metadata_uuid&#39;, &#39;dbe1e98e-f447-4cf6-bb1c-412baae171ab&#39;),
+             (&#39;body_code&#39;, &#39;11449&#39;),
+             (&#39;ptt_code&#39;, &#39;54746&#39;),
+             (&#39;species_name&#39;, &#39;Southern ellie&#39;),
+             (&#39;release_site&#39;, &#39;Macquarie&#39;),
+             (&#39;sattag_program&#39;, &#39;ct64&#39;),
+             (&#39;EXTRA_DIMENSION.length_char&#39;, 8)])
 </pre></div>
 </div>
 </div>
@@ -1304,7 +1351,7 @@ root group (NETCDF3_CLASSIC data model, file format DAP2):
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dict_keys([&#39;TIME&#39;, &#39;LATITUDE&#39;, &#39;LONGITUDE&#39;, &#39;TEMP&#39;, &#39;PRES&#39;, &#39;PSAL&#39;, &#39;parentIndex&#39;, &#39;TIME_quality_control&#39;, &#39;LATITUDE_quality_control&#39;, &#39;LONGITUDE_quality_control&#39;, &#39;TEMP_quality_control&#39;, &#39;PRES_quality_control&#39;, &#39;PSAL_quality_control&#39;])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>odict_keys([&#39;TIME&#39;, &#39;LATITUDE&#39;, &#39;LONGITUDE&#39;, &#39;TEMP&#39;, &#39;PRES&#39;, &#39;PSAL&#39;, &#39;parentIndex&#39;, &#39;TIME_quality_control&#39;, &#39;LATITUDE_quality_control&#39;, &#39;LONGITUDE_quality_control&#39;, &#39;TEMP_quality_control&#39;, &#39;PRES_quality_control&#39;, &#39;PSAL_quality_control&#39;])
 </pre></div>
 </div>
 </div>

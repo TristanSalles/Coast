@@ -1,0 +1,684 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Runup models &#8212; Coastal Processes, Environments &amp; Systems</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.e7340bb3dbd8dde6db86f25597f54a1b.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Runup dataset" href="runupdataset.html" />
+    <link rel="prev" title="Quantifying coastal changes notes" href="notes.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Coastal Processes, Environments & Systems</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <p class="caption collapsible-parent">
+ <span class="caption-text">
+  Part 1
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../queryocean/notes.html">
+   Notes on ocean data query
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../pracenv/intronotebook.html">
+     Introduction to Jupyter notebook
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../queryocean/buoygoldcoast.html">
+     AODN - Wave buoys Gold Coast
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../queryocean/oceandata1.html">
+     Using the IMOS User Code Library with Python
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../queryocean/oceandata2.html">
+     IMOS Ocean Radar Data Query
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../queryocean/waverider.html">
+     Analysing historical records of wave data from IMOS
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../queryocean/oceanforecast.html">
+     Access data from Forecast Model
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Part 2
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../waveclimate/notes.html">
+   Analysing wave climate notes
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../waveclimate/tileanalysis.html">
+     Satellite tile analysis
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../waveclimate/climatevariability.html">
+     Climate variability
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../waveclimate/cycloneyasi.html">
+     Cyclone track
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../waveclimate/sar_waves.html">
+     Wave measurements from SAR
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Part 3
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1 current active collapsible-parent">
+  <a class="reference internal" href="notes.html">
+   Quantifying coastal changes notes
+  </a>
+  <ul class="current collapse-ul">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Runup models
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="runupdataset.html">
+     Runup dataset
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="pybeach.html">
+     pybeach
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="sedtransport.html">
+     Simple wave sediment modelling
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="inshorewaves.html">
+     Inshore wave data Narrabeen
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="selectprofiles.html">
+     Narrabeen beach profile adjustment
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="grainsettling.html">
+     Exploring grain settling
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Part 4
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../reefmodel.html">
+   Coral reef evolution
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Jupyter
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../pracenv/notebooks.html">
+   Interactive notebooks
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../pracenv/environment.html">
+     Managing environments
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../pracenv/jupyter.html">
+     Jupyter notebook
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/coastevol/waverunup.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/TristanSalles/Coast"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/TristanSalles/Coast/issues/new?title=Issue%20on%20page%20%2Fcoastevol/waverunup.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/TristanSalles/Coast/edit/main/book/coastevol/waverunup.ipynb"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+            <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                    data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                    title="Fullscreen mode"><i
+                        class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/TristanSalles/Coast/main?urlpath=lab/tree/book/coastevol/waverunup.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i>
+            Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#power-et-al-2018-model">
+   Power et al. (2018) model
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="runup-models">
+<h1>Runup models<a class="headerlink" href="#runup-models" title="Permalink to this headline">¶</a></h1>
+<p>Runup is the final stage of a wave’s landward propagation, and thus the determinant of the most landward position a wave can reach before receding seaward. Runup above the local ocean level outside the surf zone results from a combination of two processes:</p>
+<ul class="simple">
+<li><p>wave induced setup and</p></li>
+<li><p>swash.</p></li>
+</ul>
+<p><img alt="alt text" src="https://github.com/TristanSalles/CoastProc/blob/master/src/docs/images/runup.jpg?raw=true" /></p>
+<p>Past research has focussed on modelling maximum wave runup values, most commonly <strong>Rmax</strong> and <strong>R2%</strong>.</p>
+<p><strong>Rmax</strong> is the greatest elevation obtained by a single runup event within a given time period and is therefore a function of record length.</p>
+<p><strong>R2%</strong> is a statistical measure of the elevation exceeded by only 2% of all runup or swash events within a time period.</p>
+<p>In this example, we will evaluate the accuracy of the <strong>Stockdon et al (2006) runup
+model</strong>.</p>
+<blockquote>
+<div><p>Stockdon, H. F., Holman, R. A., Howd, P. A., &amp; Sallenger, A. H. (2006). Empirical parameterization of setup, swash, and runup. Coastal Engineering, 53(7), 573–588. <a class="reference external" href="https://doi.org/10.1016/j.coastaleng.2005.12.005">https://doi.org/10.1016/j.coastaleng.2005.12.005</a></p>
+</div></blockquote>
+<p>To do this, we will use the compiled wave runup observations provided by <strong>Power
+et al (2018)</strong>.</p>
+<blockquote>
+<div><p>Power, H.E., Gharabaghi, B., Bonakdari, H., Robertson, B., Atkinson, A.L., Baldock, T.E., 2018. Prediction of wave runup on beaches using Gene-Expression Programming and empirical relationships. Coastal Engineering. <a class="reference external" href="https://doi.org/10.1016/j.coastaleng.2018.10.006">https://doi.org/10.1016/j.coastaleng.2018.10.006</a></p>
+</div></blockquote>
+<p>The <strong>Stockdon et al (2006)</strong> wave runup model comprises of two relationships, one for
+<em>dissipative</em> beaches (i.e. <span class="math notranslate nohighlight">\(\zeta &lt; 0.3\)</span>) Eqn (18):</p>
+<div class="amsmath math notranslate nohighlight" id="equation-94aef5db-b136-4022-8a12-c5d3b3763e54">
+<span class="eqno">(1)<a class="headerlink" href="#equation-94aef5db-b136-4022-8a12-c5d3b3763e54" title="Permalink to this equation">¶</a></span>\[\begin{align}R_{2} = 0.043(H_{s}L_{p})^{0.5}\end{align}\]</div>
+<p>and a seperate relationship for <em>intermediate</em> and <em>reflective</em> beaches (<em>i.e.</em>
+<span class="math notranslate nohighlight">\(\zeta &gt; 0.3\)</span>):</p>
+<div class="amsmath math notranslate nohighlight" id="equation-e128ea5d-c805-4450-a4dc-bcd5651ef9a4">
+<span class="eqno">(2)<a class="headerlink" href="#equation-e128ea5d-c805-4450-a4dc-bcd5651ef9a4" title="Permalink to this equation">¶</a></span>\[\begin{align}R_{2} = 1.1 \left( 0.35 \beta (H_{s}L_{p})^{0.5} + \frac{H_{s}L_{p}(
+    0.563 \beta^{2} +0.004)^{0.5}}{2} \right)\end{align}\]</div>
+<p>First, let’s import our required packages:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">mean_squared_error</span><span class="p">,</span> <span class="n">r2_score</span>
+
+<span class="kn">import</span> <span class="nn">waverunup</span> <span class="k">as</span> <span class="nn">ru</span>
+
+<span class="o">%</span><span class="k">matplotlib</span> inline
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s import the Power et al (2018) runup data, which is included in this
+package.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="c1"># Manually define names for each column</span>
+<span class="n">names</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">&quot;dataset&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;beach&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;case&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;lab_field&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;hs&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;tp&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;beta&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;d50&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;roughness&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;r2&quot;</span><span class="p">,</span>
+<span class="p">]</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;../pracenv/dataset/power18.csv&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf8&quot;</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="n">names</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>        dataset      beach    case lab_field        hs   tp   beta       d50  \
+0  ATKINSON2017  AUSTINMER  AU24-1         F  0.739477  6.4  0.102  0.000445   
+1  ATKINSON2017  AUSTINMER  AU24-2         F  0.729347  6.4  0.101  0.000445   
+2  ATKINSON2017  AUSTINMER  AU24-3         F  0.729347  6.4  0.115  0.000445   
+3  ATKINSON2017  AUSTINMER  AU24-4         F  0.719217  6.4  0.115  0.000445   
+4  ATKINSON2017  AUSTINMER  AU24-5         F  0.719217  6.4  0.115  0.000445   
+
+   roughness     r2  
+0   0.001112  1.979  
+1   0.001112  1.862  
+2   0.001112  1.695  
+3   0.001112  1.604  
+4   0.001112  1.515  
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can see that this dataset gives us <span class="math notranslate nohighlight">\(H_{s}\)</span> (significant wave height),
+<span class="math notranslate nohighlight">\(T_{p}\)</span> (peak wave period), <span class="math notranslate nohighlight">\(\tan \beta\)</span> (beach slope). Let’s import
+the Stockdon runup model and calculate the estimated <span class="math notranslate nohighlight">\(R_{2}\)</span> runup value for
+each row in this dataset.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Initalize the Stockdon 2006 model with values from the dataset</span>
+<span class="n">sto06</span> <span class="o">=</span> <span class="n">ru</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">Stockdon2006</span><span class="p">(</span><span class="n">Hs</span><span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">hs</span><span class="p">,</span> <span class="n">Tp</span><span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">tp</span><span class="p">,</span> <span class="n">beta</span><span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">beta</span><span class="p">)</span>
+
+<span class="c1"># Append a new column at the end of our dataset with Stockdon 2006 R2 estimations</span>
+<span class="n">df</span><span class="p">[</span><span class="s2">&quot;sto06_r2&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">sto06</span><span class="o">.</span><span class="n">R2</span>
+
+<span class="c1"># Check the first few rows of observed vs. modelled R2</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">[[</span><span class="s2">&quot;r2&quot;</span><span class="p">,</span> <span class="s2">&quot;sto06_r2&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>      r2  sto06_r2
+0  1.979  0.645571
+1  1.862  0.636336
+2  1.695  0.704238
+3  1.604  0.699330
+4  1.515  0.699330
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now let’s create a plot of observed R2 values vs. predicted R2 values:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot data</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax1</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">150</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">r2</span><span class="p">,</span> <span class="n">df</span><span class="o">.</span><span class="n">sto06_r2</span><span class="p">,</span> <span class="s2">&quot;b.&quot;</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+
+<span class="c1"># Add 1:1 line to indicate perfect fit</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">12</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">12</span><span class="p">],</span> <span class="s2">&quot;r-&quot;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># Add axis labels</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Observed R2 (m)&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Modelled R2 (m)&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Stockdon et al. (2006) Runup Model&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">9</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">7</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">7</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/waverunup_7_0.png" src="../_images/waverunup_7_0.png" />
+</div>
+</div>
+<p>We can see there is a fair amount of scatter, especially as we get larger wave
+runup heights. This indicates that the model might not be working as well as we
+might have hoped.</p>
+<p>Let’s also check RMSE and coefficient of determination values:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;R2 Score: </span><span class="si">{0:.2f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">r2_score</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">r2</span><span class="p">,</span> <span class="n">df</span><span class="o">.</span><span class="n">sto06_r2</span><span class="p">)))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;RMSE: </span><span class="si">{0:.2f}</span><span class="s2"> m&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">mean_squared_error</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">r2</span><span class="p">,</span> <span class="n">df</span><span class="o">.</span><span class="n">sto06_r2</span><span class="p">))))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>R2 Score: 0.54
+RMSE: 1.21 m
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="power-et-al-2018-model">
+<h2>Power et al. (2018) model<a class="headerlink" href="#power-et-al-2018-model" title="Permalink to this headline">¶</a></h2>
+<p>Let us try the Power et al. (2018) model:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;../pracenv/dataset/power18.csv&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf8&quot;</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="n">names</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Initalize the Nielsen 2009 model with values from the dataset</span>
+<span class="n">pow18</span> <span class="o">=</span> <span class="n">ru</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">Power2018</span><span class="p">(</span><span class="n">Hs</span><span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">hs</span><span class="p">,</span> <span class="n">Tp</span><span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">tp</span><span class="p">,</span> <span class="n">beta</span><span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">beta</span><span class="p">,</span> <span class="n">r</span><span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">roughness</span><span class="p">)</span>
+
+<span class="c1"># Append a new column at the end of our dataset with Stockdon 2006 R2 estimations</span>
+<span class="n">df</span><span class="p">[</span><span class="s2">&quot;pow18_r2&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pow18</span><span class="o">.</span><span class="n">R2</span>
+
+<span class="c1"># Check the first few rows of observed vs. modelled R2</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">[[</span><span class="s2">&quot;r2&quot;</span><span class="p">,</span> <span class="s2">&quot;pow18_r2&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>      r2  pow18_r2
+0  1.979  1.034144
+1  1.862  1.015685
+2  1.695  1.127796
+3  1.604  1.115673
+4  1.515  1.115673
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot data</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax1</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">150</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">r2</span><span class="p">,</span> <span class="n">df</span><span class="o">.</span><span class="n">pow18_r2</span><span class="p">,</span> <span class="s2">&quot;g.&quot;</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+
+<span class="c1"># Add 1:1 line to indicate perfect fit</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">12</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">12</span><span class="p">],</span> <span class="s2">&quot;k-&quot;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># Add axis labels</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Observed R2 (m)&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Modelled R2 (m)&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Power et al. (2018) Runup Model&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">9</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">7</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">7</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/waverunup_13_0.png" src="../_images/waverunup_13_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;R2 Score: </span><span class="si">{0:.2f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">r2_score</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">r2</span><span class="p">,</span> <span class="n">df</span><span class="o">.</span><span class="n">pow18_r2</span><span class="p">)))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;RMSE: </span><span class="si">{0:.2f}</span><span class="s2"> m&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">mean_squared_error</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">r2</span><span class="p">,</span> <span class="n">df</span><span class="o">.</span><span class="n">pow18_r2</span><span class="p">))))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>R2 Score: 0.82
+RMSE: 0.75 m
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./coastevol"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="notes.html" title="previous page">Quantifying coastal changes notes</a>
+    <a class='right-next' id="next-link" href="runupdataset.html" title="next page">Runup dataset</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Tristan Salles<br/>
+        
+            &copy; Copyright 2020-2022.<br/>
+          <div class="extra_footer">
+            <p>
+<a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">
+  <img align="right" class="margin" src="https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by.svg" width="88px">
+</a>
+These lecture notes and exercises are licensed under a <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">Creative Commons Attribution 4.0 International (CC BY 4.0) license</a>.
+<br>
+&copy; Copyright 2020-2022.
+</p>
+
+          </div>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+  </body>
+</html>

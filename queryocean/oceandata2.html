@@ -26,7 +26,7 @@
 
     
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/sphinx-book-theme.c441f2ba0852f4cabcb80105e3a46ae6.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.e7340bb3dbd8dde6db86f25597f54a1b.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
@@ -90,7 +90,7 @@
 <nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
     <p class="caption collapsible-parent">
  <span class="caption-text">
-  week 1
+  Part 1
  </span>
 </p>
 <ul class="current nav sidenav_l1">
@@ -136,7 +136,7 @@
 </ul>
 <p class="caption collapsible-parent">
  <span class="caption-text">
-  week 2
+  Part 2
  </span>
 </p>
 <ul class="nav sidenav_l1">
@@ -172,19 +172,58 @@
 </ul>
 <p class="caption collapsible-parent">
  <span class="caption-text">
-  week 3
+  Part 3
  </span>
 </p>
 <ul class="nav sidenav_l1">
- <li class="toctree-l1">
-  <a class="reference internal" href="../coastevol.html">
-   Quantifying coastal changes
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../coastevol/notes.html">
+   Quantifying coastal changes notes
   </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../coastevol/waverunup.html">
+     Runup models
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../coastevol/runupdataset.html">
+     Runup dataset
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../coastevol/pybeach.html">
+     pybeach
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../coastevol/sedtransport.html">
+     Simple wave sediment modelling
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../coastevol/inshorewaves.html">
+     Inshore wave data Narrabeen
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../coastevol/selectprofiles.html">
+     Narrabeen beach profile adjustment
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../coastevol/grainsettling.html">
+     Exploring grain settling
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
  </li>
 </ul>
 <p class="caption collapsible-parent">
  <span class="caption-text">
-  week 4
+  Part 4
  </span>
 </p>
 <ul class="nav sidenav_l1">
@@ -534,7 +573,7 @@ root group (NETCDF3_CLASSIC data model, file format DAP2):
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dict_keys([&#39;TIME&#39;, &#39;I&#39;, &#39;J&#39;, &#39;LATITUDE&#39;, &#39;LONGITUDE&#39;, &#39;GDOP&#39;, &#39;UCUR&#39;, &#39;VCUR&#39;, &#39;UCUR_sd&#39;, &#39;VCUR_sd&#39;, &#39;NOBS1&#39;, &#39;NOBS2&#39;, &#39;UCUR_quality_control&#39;, &#39;VCUR_quality_control&#39;])
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>odict_keys([&#39;TIME&#39;, &#39;I&#39;, &#39;J&#39;, &#39;LATITUDE&#39;, &#39;LONGITUDE&#39;, &#39;GDOP&#39;, &#39;UCUR&#39;, &#39;VCUR&#39;, &#39;UCUR_sd&#39;, &#39;VCUR_sd&#39;, &#39;NOBS1&#39;, &#39;NOBS2&#39;, &#39;UCUR_quality_control&#39;, &#39;VCUR_quality_control&#39;])
 </pre></div>
 </div>
 </div>
@@ -731,8 +770,8 @@ It's a good idea to regularly view your data throughout the code development pro
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ipython-input-13-a39f9ac32d8f&gt;:14: MatplotlibDeprecationWarning: shading=&#39;flat&#39; when X and Y have the same dimensions as C is deprecated since 3.3.  Either specify the corners of the quadrilaterals with X and Y, or pass shading=&#39;auto&#39;, &#39;nearest&#39; or &#39;gouraud&#39;, or set rcParams[&#39;pcolor.shading&#39;].  This will become an error two minor releases later.
-  plt.pcolor(lonData , latData, sData[0,:,:],cmap=cmo.cm.matter)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/share/miniconda/envs/coast/lib/python3.6/site-packages/ipykernel_launcher.py:14: MatplotlibDeprecationWarning: shading=&#39;flat&#39; when X and Y have the same dimensions as C is deprecated since 3.3.  Either specify the corners of the quadrilaterals with X and Y, or pass shading=&#39;auto&#39;, &#39;nearest&#39; or &#39;gouraud&#39;, or set rcParams[&#39;pcolor.shading&#39;].  This will become an error two minor releases later.
+  
 </pre></div>
 </div>
 <img alt="../_images/oceandata2_31_1.svg" src="../_images/oceandata2_31_1.svg" /></div>

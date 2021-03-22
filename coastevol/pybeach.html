@@ -1,0 +1,936 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>pybeach &#8212; Coastal Processes, Environments &amp; Systems</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.e7340bb3dbd8dde6db86f25597f54a1b.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Simple wave sediment modelling" href="sedtransport.html" />
+    <link rel="prev" title="Runup dataset" href="runupdataset.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Coastal Processes, Environments & Systems</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <p class="caption collapsible-parent">
+ <span class="caption-text">
+  Part 1
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../queryocean/notes.html">
+   Notes on ocean data query
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../pracenv/intronotebook.html">
+     Introduction to Jupyter notebook
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../queryocean/buoygoldcoast.html">
+     AODN - Wave buoys Gold Coast
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../queryocean/oceandata1.html">
+     Using the IMOS User Code Library with Python
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../queryocean/oceandata2.html">
+     IMOS Ocean Radar Data Query
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../queryocean/waverider.html">
+     Analysing historical records of wave data from IMOS
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../queryocean/oceanforecast.html">
+     Access data from Forecast Model
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Part 2
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../waveclimate/notes.html">
+   Analysing wave climate notes
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../waveclimate/tileanalysis.html">
+     Satellite tile analysis
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../waveclimate/climatevariability.html">
+     Climate variability
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../waveclimate/cycloneyasi.html">
+     Cyclone track
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../waveclimate/sar_waves.html">
+     Wave measurements from SAR
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Part 3
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1 current active collapsible-parent">
+  <a class="reference internal" href="notes.html">
+   Quantifying coastal changes notes
+  </a>
+  <ul class="current collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="waverunup.html">
+     Runup models
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="runupdataset.html">
+     Runup dataset
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     pybeach
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="sedtransport.html">
+     Simple wave sediment modelling
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="inshorewaves.html">
+     Inshore wave data Narrabeen
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="selectprofiles.html">
+     Narrabeen beach profile adjustment
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="grainsettling.html">
+     Exploring grain settling
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Part 4
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../reefmodel.html">
+   Coral reef evolution
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Jupyter
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../pracenv/notebooks.html">
+   Interactive notebooks
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../pracenv/environment.html">
+     Managing environments
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../pracenv/jupyter.html">
+     Jupyter notebook
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/coastevol/pybeach.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/TristanSalles/Coast"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/TristanSalles/Coast/issues/new?title=Issue%20on%20page%20%2Fcoastevol/pybeach.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/TristanSalles/Coast/edit/main/book/coastevol/pybeach.ipynb"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+            <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                    data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                    title="Fullscreen mode"><i
+                        class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/TristanSalles/Coast/main?urlpath=lab/tree/book/coastevol/pybeach.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i>
+            Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#a-python-package-for-locating-the-dune-toe-on-cross-shore-beach-profile-transects">
+   A Python package for locating the dune toe on cross-shore beach profile transects.
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#table-of-contents">
+   Table of Contents
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#load-test-data">
+     Load test data
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#predicting-dune-toes-a-name-1-a">
+     1. Predicting dune toes
+     <a name="1">
+     </a>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#example-plots-and-results-a-name-2-a">
+     2. Example plots and results
+     <a name="2">
+     </a>
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+        </nav>
+        
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="pybeach">
+<h1>pybeach<a class="headerlink" href="#pybeach" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="a-python-package-for-locating-the-dune-toe-on-cross-shore-beach-profile-transects">
+<h2>A Python package for locating the dune toe on cross-shore beach profile transects.<a class="headerlink" href="#a-python-package-for-locating-the-dune-toe-on-cross-shore-beach-profile-transects" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">pickle</span>
+<span class="kn">import</span> <span class="nn">joblib</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">beach.beach</span> <span class="kn">import</span> <span class="n">Profile</span>
+<span class="kn">from</span> <span class="nn">beach.support</span> <span class="kn">import</span> <span class="n">data_support</span> <span class="k">as</span> <span class="n">ds</span>
+<span class="kn">from</span> <span class="nn">beach.support</span> <span class="kn">import</span> <span class="n">classifier_support</span> <span class="k">as</span> <span class="n">cs</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">1</span><span class="o">-</span><span class="mi">16</span><span class="n">bdcd001a10</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="ne">----&gt; </span><span class="mi">7</span> <span class="kn">from</span> <span class="nn">beach.beach</span> <span class="kn">import</span> <span class="n">Profile</span>
+<span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="kn">from</span> <span class="nn">beach.support</span> <span class="kn">import</span> <span class="n">data_support</span> <span class="k">as</span> <span class="n">ds</span>
+<span class="g g-Whitespace">      </span><span class="mi">9</span> <span class="kn">from</span> <span class="nn">beach.support</span> <span class="kn">import</span> <span class="n">classifier_support</span> <span class="k">as</span> <span class="n">cs</span>
+
+<span class="o">~/</span><span class="n">work</span><span class="o">/</span><span class="n">Coast</span><span class="o">/</span><span class="n">Coast</span><span class="o">/</span><span class="n">book</span><span class="o">/</span><span class="n">coastevol</span><span class="o">/</span><span class="n">beach</span><span class="o">/</span><span class="n">beach</span><span class="o">.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span> 
+<span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="ne">----&gt; </span><span class="mi">9</span> <span class="kn">from</span> <span class="nn">pybeach.support</span> <span class="kn">import</span> <span class="n">data_support</span> <span class="k">as</span> <span class="n">ds</span>
+<span class="g g-Whitespace">     </span><span class="mi">10</span> <span class="kn">from</span> <span class="nn">pybeach.support</span> <span class="kn">import</span> <span class="n">classifier_support</span> <span class="k">as</span> <span class="n">cs</span>
+<span class="g g-Whitespace">     </span><span class="mi">11</span> 
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;pybeach&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">beach.beach</span> <span class="kn">import</span> <span class="n">Profile</span>
+
+<span class="c1"># example data</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span>
+<span class="n">z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">40</span><span class="p">),</span>
+                    <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span>
+                    <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">91</span><span class="p">)[</span><span class="mi">1</span><span class="p">:],</span>
+                    <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">20</span><span class="p">)))</span>
+
+<span class="c1"># instantiate</span>
+<span class="n">p</span> <span class="o">=</span> <span class="n">Profile</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">z</span><span class="p">)</span>
+
+<span class="c1"># predict dune toe, dune crest, shoreline location</span>
+<span class="n">toe_ml</span><span class="p">,</span> <span class="n">prob_ml</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">predict_dunetoe_ml</span><span class="p">(</span><span class="s1">&#39;wave_embayed_clf&#39;</span><span class="p">)</span>  <span class="c1"># predict toe using machine learning model</span>
+<span class="n">toe_mc</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">predict_dunetoe_mc</span><span class="p">()</span>    <span class="c1"># predict toe using maximum curvature method (Stockdon et al, 2007)</span>
+<span class="n">toe_rr</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">predict_dunetoe_rr</span><span class="p">()</span>    <span class="c1"># predict toe using relative relief method (Wernette et al, 2016)</span>
+<span class="n">toe_pd</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">predict_dunetoe_pd</span><span class="p">()</span>    <span class="c1"># predict toe using perpendicular distance method</span>
+<span class="n">crest</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">predict_dunecrest</span><span class="p">()</span>      <span class="c1"># predict dune crest</span>
+<span class="n">shoreline</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">predict_shoreline</span><span class="p">()</span>  <span class="c1"># predict shoreline</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">2</span><span class="o">-</span><span class="mi">88</span><span class="n">b6879fe7b9</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">from</span> <span class="nn">beach.beach</span> <span class="kn">import</span> <span class="n">Profile</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> 
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="c1"># example data</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">40</span><span class="p">),</span>
+
+<span class="o">~/</span><span class="n">work</span><span class="o">/</span><span class="n">Coast</span><span class="o">/</span><span class="n">Coast</span><span class="o">/</span><span class="n">book</span><span class="o">/</span><span class="n">coastevol</span><span class="o">/</span><span class="n">beach</span><span class="o">/</span><span class="n">beach</span><span class="o">.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span> 
+<span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="ne">----&gt; </span><span class="mi">9</span> <span class="kn">from</span> <span class="nn">pybeach.support</span> <span class="kn">import</span> <span class="n">data_support</span> <span class="k">as</span> <span class="n">ds</span>
+<span class="g g-Whitespace">     </span><span class="mi">10</span> <span class="kn">from</span> <span class="nn">pybeach.support</span> <span class="kn">import</span> <span class="n">classifier_support</span> <span class="k">as</span> <span class="n">cs</span>
+<span class="g g-Whitespace">     </span><span class="mi">11</span> 
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;pybeach&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">beach.beach</span> <span class="kn">import</span> <span class="n">Profile</span>
+<span class="kn">import</span> <span class="nn">warnings</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">simplefilter</span><span class="p">(</span><span class="s2">&quot;ignore&quot;</span><span class="p">,</span> <span class="ne">UserWarning</span><span class="p">)</span>
+
+<span class="c1"># Plotting Paramaters</span>
+<span class="n">params</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;legend.fontsize&#39;</span><span class="p">:</span> <span class="mi">12</span><span class="p">,</span>
+           <span class="s1">&#39;axes.labelsize&#39;</span><span class="p">:</span> <span class="mi">14</span><span class="p">,</span>
+           <span class="s1">&#39;axes.labelweight&#39;</span><span class="p">:</span> <span class="s1">&#39;bold&#39;</span><span class="p">,</span>
+           <span class="s1">&#39;axes.titlesize&#39;</span><span class="p">:</span> <span class="mi">14</span><span class="p">,</span>
+           <span class="s1">&#39;axes.titleweight&#39;</span><span class="p">:</span> <span class="s1">&#39;bold&#39;</span><span class="p">,</span>
+           <span class="s1">&#39;xtick.labelsize&#39;</span><span class="p">:</span> <span class="mi">14</span><span class="p">,</span>
+           <span class="s1">&#39;ytick.labelsize&#39;</span><span class="p">:</span> <span class="mi">14</span><span class="p">,</span>
+           <span class="s1">&#39;mathtext.default&#39;</span><span class="p">:</span><span class="s1">&#39;regular&#39;</span><span class="p">}</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">params</span><span class="p">)</span>
+
+<span class="c1"># example data</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span>
+<span class="n">z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">40</span><span class="p">),</span>
+                    <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span>
+                    <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">91</span><span class="p">)[</span><span class="mi">1</span><span class="p">:],</span>
+                    <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">20</span><span class="p">)))</span>
+
+<span class="c1"># instantiate</span>
+<span class="n">p</span> <span class="o">=</span> <span class="n">Profile</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">z</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">3</span><span class="o">-</span><span class="n">b3f9c87ee46a</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">from</span> <span class="nn">beach.beach</span> <span class="kn">import</span> <span class="n">Profile</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">import</span> <span class="nn">warnings</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">warnings</span><span class="o">.</span><span class="n">simplefilter</span><span class="p">(</span><span class="s2">&quot;ignore&quot;</span><span class="p">,</span> <span class="ne">UserWarning</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> 
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="c1"># Plotting Paramaters</span>
+
+<span class="o">~/</span><span class="n">work</span><span class="o">/</span><span class="n">Coast</span><span class="o">/</span><span class="n">Coast</span><span class="o">/</span><span class="n">book</span><span class="o">/</span><span class="n">coastevol</span><span class="o">/</span><span class="n">beach</span><span class="o">/</span><span class="n">beach</span><span class="o">.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span> 
+<span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="ne">----&gt; </span><span class="mi">9</span> <span class="kn">from</span> <span class="nn">pybeach.support</span> <span class="kn">import</span> <span class="n">data_support</span> <span class="k">as</span> <span class="n">ds</span>
+<span class="g g-Whitespace">     </span><span class="mi">10</span> <span class="kn">from</span> <span class="nn">pybeach.support</span> <span class="kn">import</span> <span class="n">classifier_support</span> <span class="k">as</span> <span class="n">cs</span>
+<span class="g g-Whitespace">     </span><span class="mi">11</span> 
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;pybeach&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Predict dune toe location</span>
+<span class="n">toe_ml</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">predict_dunetoe_ml</span><span class="p">(</span><span class="s1">&#39;wave_embayed_clf&#39;</span><span class="p">)</span> <span class="c1"># use the machine learning (ML) method</span>
+<span class="n">toe_mc</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">predict_dunetoe_mc</span><span class="p">()</span> <span class="c1"># use the maximum curvature (MC) method</span>
+<span class="n">toe_rr</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">predict_dunetoe_rr</span><span class="p">()</span> <span class="c1"># use the relative relief (RR) method</span>
+<span class="n">toe_pd</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">predict_dunetoe_pd</span><span class="p">()</span> <span class="c1"># use the perpendicular distance (PD) method</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">4</span><span class="o">-</span><span class="mi">9386515</span><span class="n">fe087</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># Predict dune toe location</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">toe_ml</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">predict_dunetoe_ml</span><span class="p">(</span><span class="s1">&#39;wave_embayed_clf&#39;</span><span class="p">)</span> <span class="c1"># use the machine learning (ML) method</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">toe_mc</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">predict_dunetoe_mc</span><span class="p">()</span> <span class="c1"># use the maximum curvature (MC) method</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">toe_rr</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">predict_dunetoe_rr</span><span class="p">()</span> <span class="c1"># use the relative relief (RR) method</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">toe_pd</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">predict_dunetoe_pd</span><span class="p">()</span> <span class="c1"># use the perpendicular distance (PD) method</span>
+
+<span class="ne">NameError</span>: name &#39;p&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Predict shoreline and dune crest location</span>
+<span class="n">crest</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">predict_dunecrest</span><span class="p">()</span>
+<span class="n">shoreline</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">predict_shoreline</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">5</span><span class="o">-</span><span class="n">d1cb1c57be42</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># Predict shoreline and dune crest location</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">crest</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">predict_dunecrest</span><span class="p">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">shoreline</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">predict_shoreline</span><span class="p">()</span>
+
+<span class="ne">NameError</span>: name &#39;p&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span><span class="o">=</span><span class="mi">0</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
+<span class="n">toes</span> <span class="o">=</span> <span class="p">[</span><span class="n">toe_ml</span><span class="p">[</span><span class="n">n</span><span class="p">],</span> <span class="n">toe_mc</span><span class="p">[</span><span class="n">n</span><span class="p">],</span> <span class="n">toe_rr</span><span class="p">[</span><span class="n">n</span><span class="p">],</span> <span class="n">toe_pd</span><span class="p">[</span><span class="n">n</span><span class="p">]]</span>
+
+<span class="n">labels</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Machine learning&#39;</span><span class="p">,</span> <span class="s1">&#39;Maximum curvature&#39;</span><span class="p">,</span> <span class="s1">&#39;Relative relief&#39;</span><span class="p">,</span> <span class="s1">&#39;Perpendicular distance&#39;</span><span class="p">]</span>
+<span class="n">colors</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;tomato&#39;</span><span class="p">,</span> <span class="s1">&#39;cornflowerblue&#39;</span><span class="p">,</span> <span class="s1">&#39;gold&#39;</span><span class="p">,</span> <span class="s1">&#39;limegreen&#39;</span><span class="p">]</span>
+
+<span class="n">axes</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="s1">&#39;-k&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="o">.</span><span class="n">fill_between</span><span class="p">([</span><span class="mi">70</span><span class="p">,</span> <span class="mi">100</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">y2</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;lightskyblue&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">axes</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">y2</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;cornsilk&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">axes</span><span class="o">.</span><span class="n">axvspan</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="o">-</span><span class="mi">9</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;tomato&#39;</span><span class="p">,</span> <span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.6</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;ML Toe probability&#39;</span><span class="p">)</span> <span class="c1"># legend placeholder</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">itoe</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">toes</span><span class="p">):</span> 
+    <span class="n">axes</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">itoe</span><span class="p">],</span> <span class="n">z</span><span class="p">[</span><span class="n">itoe</span><span class="p">],</span>
+              <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">colors</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">ms</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">mec</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">labels</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+<span class="n">axes</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">crest</span><span class="p">[</span><span class="n">n</span><span class="p">]],</span> <span class="n">z</span><span class="p">[</span><span class="n">crest</span><span class="p">[</span><span class="n">n</span><span class="p">]],</span> <span class="s1">&#39;v&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">ms</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">mec</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Crest&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">shoreline</span><span class="p">[</span><span class="n">n</span><span class="p">]],</span> <span class="n">z</span><span class="p">[</span><span class="n">shoreline</span><span class="p">[</span><span class="n">n</span><span class="p">]],</span> <span class="s1">&#39;^&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">ms</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">mec</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Shoreline&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">axes</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
+<span class="n">axes</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Example profile&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Cross-shore distance (m)&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Elevation (m)&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+<span class="n">axes</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">framealpha</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">6</span><span class="o">-</span><span class="n">b6fe79bde759</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">n</span><span class="o">=</span><span class="mi">0</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
+<span class="ne">----&gt; </span><span class="mi">3</span> <span class="n">toes</span> <span class="o">=</span> <span class="p">[</span><span class="n">toe_ml</span><span class="p">[</span><span class="n">n</span><span class="p">],</span> <span class="n">toe_mc</span><span class="p">[</span><span class="n">n</span><span class="p">],</span> <span class="n">toe_rr</span><span class="p">[</span><span class="n">n</span><span class="p">],</span> <span class="n">toe_pd</span><span class="p">[</span><span class="n">n</span><span class="p">]]</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> 
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">labels</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Machine learning&#39;</span><span class="p">,</span> <span class="s1">&#39;Maximum curvature&#39;</span><span class="p">,</span> <span class="s1">&#39;Relative relief&#39;</span><span class="p">,</span> <span class="s1">&#39;Perpendicular distance&#39;</span><span class="p">]</span>
+
+<span class="ne">NameError</span>: name &#39;toe_ml&#39; is not defined
+</pre></div>
+</div>
+<img alt="../_images/pybeach_6_1.png" src="../_images/pybeach_6_1.png" />
+</div>
+</div>
+</div>
+<div class="section" id="table-of-contents">
+<h2>Table of Contents<a class="headerlink" href="#table-of-contents" title="Permalink to this headline">¶</a></h2>
+<p>This notebook demonstrates a few key elements of pybeach, including:</p>
+<ol class="simple">
+<li><p><a class="reference external" href="#1">Predicting dune toes</a></p></li>
+<li><p><a class="reference external" href="#2">Example plots and results</a></p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">pickle</span>
+<span class="kn">import</span> <span class="nn">joblib</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">pybeach.beach</span> <span class="kn">import</span> <span class="n">Profile</span>
+<span class="kn">from</span> <span class="nn">pybeach.support</span> <span class="kn">import</span> <span class="n">data_support</span> <span class="k">as</span> <span class="n">ds</span>
+<span class="kn">from</span> <span class="nn">pybeach.support</span> <span class="kn">import</span> <span class="n">classifier_support</span> <span class="k">as</span> <span class="n">cs</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">7</span><span class="o">-</span><span class="n">efb464eaff60</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="ne">----&gt; </span><span class="mi">7</span> <span class="kn">from</span> <span class="nn">pybeach.beach</span> <span class="kn">import</span> <span class="n">Profile</span>
+<span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="kn">from</span> <span class="nn">pybeach.support</span> <span class="kn">import</span> <span class="n">data_support</span> <span class="k">as</span> <span class="n">ds</span>
+<span class="g g-Whitespace">      </span><span class="mi">9</span> <span class="kn">from</span> <span class="nn">pybeach.support</span> <span class="kn">import</span> <span class="n">classifier_support</span> <span class="k">as</span> <span class="n">cs</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;pybeach&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="load-test-data">
+<h3>Load test data<a class="headerlink" href="#load-test-data" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load some test data of 200 profiles</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;../pracenv/dataset/test_profiles.pkl&#39;</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">pickle</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+<span class="n">x</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">toe</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">],</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;z&#39;</span><span class="p">],</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;toe&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="predicting-dune-toes-a-name-1-a">
+<h3>1. Predicting dune toes <a name="1"></a><a class="headerlink" href="#predicting-dune-toes-a-name-1-a" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Instantiate Profile class</span>
+<span class="n">p</span> <span class="o">=</span> <span class="n">Profile</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">z</span><span class="p">)</span>
+<span class="c1"># Make predictions of dune toe</span>
+<span class="n">toe_ml</span><span class="p">,</span> <span class="n">prob_ml</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">predict_dunetoe_ml</span><span class="p">(</span><span class="s1">&#39;barrier_island_clf&#39;</span><span class="p">,</span> <span class="n">dune_crest</span><span class="o">=</span><span class="s1">&#39;rr&#39;</span><span class="p">,</span> <span class="n">window_size</span><span class="o">=</span><span class="mi">101</span><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="mf">0.97</span><span class="p">)</span>
+<span class="n">toe_mc</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">predict_dunetoe_mc</span><span class="p">(</span><span class="n">dune_crest</span><span class="o">=</span><span class="s1">&#39;rr&#39;</span><span class="p">,</span> <span class="n">window_size</span><span class="o">=</span><span class="mi">101</span><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="mf">0.97</span><span class="p">)</span>
+<span class="n">toe_rr</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">predict_dunetoe_rr</span><span class="p">(</span><span class="n">dune_crest</span><span class="o">=</span><span class="s1">&#39;rr&#39;</span><span class="p">,</span> <span class="n">window_size</span><span class="o">=</span><span class="mi">101</span><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="mf">0.97</span><span class="p">,</span> <span class="n">toe_threshold</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">toe_pd</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">predict_dunetoe_pd</span><span class="p">(</span><span class="n">dune_crest</span><span class="o">=</span><span class="s1">&#39;rr&#39;</span><span class="p">,</span> <span class="n">window_size</span><span class="o">=</span><span class="mi">101</span><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="mf">0.97</span><span class="p">)</span>
+<span class="c1"># Predict dune crest</span>
+<span class="n">crest</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">predict_dunecrest</span><span class="p">()</span>
+<span class="c1"># Predict shoreline</span>
+<span class="n">shoreline</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">predict_shoreline</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">9</span><span class="o">-</span><span class="n">ff52867de392</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># Instantiate Profile class</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">p</span> <span class="o">=</span> <span class="n">Profile</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">z</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="c1"># Make predictions of dune toe</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">toe_ml</span><span class="p">,</span> <span class="n">prob_ml</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">predict_dunetoe_ml</span><span class="p">(</span><span class="s1">&#39;barrier_island_clf&#39;</span><span class="p">,</span> <span class="n">dune_crest</span><span class="o">=</span><span class="s1">&#39;rr&#39;</span><span class="p">,</span> <span class="n">window_size</span><span class="o">=</span><span class="mi">101</span><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="mf">0.97</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">toe_mc</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">predict_dunetoe_mc</span><span class="p">(</span><span class="n">dune_crest</span><span class="o">=</span><span class="s1">&#39;rr&#39;</span><span class="p">,</span> <span class="n">window_size</span><span class="o">=</span><span class="mi">101</span><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="mf">0.97</span><span class="p">)</span>
+
+<span class="ne">NameError</span>: name &#39;Profile&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="example-plots-and-results-a-name-2-a">
+<h3>2. Example plots and results <a name="2"></a><a class="headerlink" href="#example-plots-and-results-a-name-2-a" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plotting Paramaters</span>
+<span class="n">params</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;legend.fontsize&#39;</span><span class="p">:</span> <span class="mi">12</span><span class="p">,</span>
+           <span class="s1">&#39;axes.labelsize&#39;</span><span class="p">:</span> <span class="mi">14</span><span class="p">,</span>
+           <span class="s1">&#39;axes.labelweight&#39;</span><span class="p">:</span> <span class="s1">&#39;bold&#39;</span><span class="p">,</span>
+           <span class="s1">&#39;axes.titlesize&#39;</span><span class="p">:</span> <span class="mi">14</span><span class="p">,</span>
+           <span class="s1">&#39;axes.titleweight&#39;</span><span class="p">:</span> <span class="s1">&#39;bold&#39;</span><span class="p">,</span>
+           <span class="s1">&#39;xtick.labelsize&#39;</span><span class="p">:</span> <span class="mi">14</span><span class="p">,</span>
+           <span class="s1">&#39;ytick.labelsize&#39;</span><span class="p">:</span> <span class="mi">14</span><span class="p">,</span>
+           <span class="s1">&#39;mathtext.default&#39;</span><span class="p">:</span><span class="s1">&#39;regular&#39;</span><span class="p">}</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">params</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Specify profile to plot</span>
+<span class="n">n</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="c1"># Figure metadata</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">7</span><span class="p">))</span>
+<span class="n">toes</span> <span class="o">=</span> <span class="p">[</span><span class="n">toe</span><span class="p">[</span><span class="n">n</span><span class="p">],</span> <span class="n">toe_ml</span><span class="p">[</span><span class="n">n</span><span class="p">],</span> <span class="n">toe_mc</span><span class="p">[</span><span class="n">n</span><span class="p">],</span> <span class="n">toe_rr</span><span class="p">[</span><span class="n">n</span><span class="p">],</span> <span class="n">toe_pd</span><span class="p">[</span><span class="n">n</span><span class="p">]]</span>
+<span class="n">labels</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;True toe&#39;</span><span class="p">,</span> <span class="s1">&#39;Machine learning&#39;</span><span class="p">,</span> <span class="s1">&#39;Maximum curvature&#39;</span><span class="p">,</span> <span class="s1">&#39;Relative relief&#39;</span><span class="p">,</span> <span class="s1">&#39;Perpendicular distance&#39;</span><span class="p">]</span>
+<span class="n">colors</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="s1">&#39;tomato&#39;</span><span class="p">,</span> <span class="s1">&#39;cornflowerblue&#39;</span><span class="p">,</span> <span class="s1">&#39;gold&#39;</span><span class="p">,</span> <span class="s1">&#39;limegreen&#39;</span><span class="p">]</span>
+<span class="c1"># Generate figure</span>
+<span class="n">axes</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">z</span><span class="p">[</span><span class="n">n</span><span class="p">],</span> <span class="s1">&#39;-k&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="o">.</span><span class="n">fill_between</span><span class="p">([</span><span class="mi">70</span><span class="p">,</span> <span class="mi">100</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">y2</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;lightskyblue&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">axes</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">z</span><span class="p">[</span><span class="n">n</span><span class="p">],</span> <span class="n">y2</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;cornsilk&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">axes</span><span class="o">.</span><span class="n">axvspan</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="o">-</span><span class="mi">9</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;tomato&#39;</span><span class="p">,</span> <span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.6</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;ML Toe probability&#39;</span><span class="p">)</span> <span class="c1"># legend placeholder</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">itoe</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">toes</span><span class="p">):</span> 
+    <span class="n">axes</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">itoe</span><span class="p">],</span> <span class="n">z</span><span class="p">[</span><span class="n">n</span><span class="p">,</span> <span class="n">itoe</span><span class="p">],</span>
+              <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">colors</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">ms</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">mec</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">labels</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+<span class="n">axes</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">crest</span><span class="p">[</span><span class="n">n</span><span class="p">]],</span> <span class="n">z</span><span class="p">[</span><span class="n">n</span><span class="p">,</span> <span class="n">crest</span><span class="p">[</span><span class="n">n</span><span class="p">]],</span> <span class="s1">&#39;v&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">ms</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">mec</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Crest&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">shoreline</span><span class="p">[</span><span class="n">n</span><span class="p">]],</span> <span class="n">z</span><span class="p">[</span><span class="n">n</span><span class="p">,</span> <span class="n">shoreline</span><span class="p">[</span><span class="n">n</span><span class="p">]],</span> <span class="s1">&#39;^&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">ms</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">mec</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Shoreline&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="mi">400</span><span class="p">)</span>
+<span class="n">axes</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
+<span class="n">axes</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Example profile&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Cross-shore distance (m)&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Elevation (m)&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+<span class="n">axes</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">framealpha</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="c1"># Plot dune toe ML probability</span>
+<span class="n">axes2</span> <span class="o">=</span> <span class="n">axes</span><span class="o">.</span><span class="n">twinx</span><span class="p">()</span> 
+<span class="n">axes2</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">prob_ml</span><span class="p">[</span><span class="n">n</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;tomato&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">axes2</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
+<span class="n">axes2</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+<span class="n">axes2</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="n">labelcolor</span><span class="o">=</span><span class="s1">&#39;tomato&#39;</span><span class="p">)</span>
+<span class="n">axes2</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">set_label_coords</span><span class="p">(</span><span class="mf">1.1</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">)</span>
+<span class="n">axes2</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Toe probability&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;tomato&#39;</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">270</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">11</span><span class="o">-</span><span class="n">aeb5cd2eef8c</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="c1"># Figure metadata</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">7</span><span class="p">))</span>
+<span class="ne">----&gt; </span><span class="mi">5</span> <span class="n">toes</span> <span class="o">=</span> <span class="p">[</span><span class="n">toe</span><span class="p">[</span><span class="n">n</span><span class="p">],</span> <span class="n">toe_ml</span><span class="p">[</span><span class="n">n</span><span class="p">],</span> <span class="n">toe_mc</span><span class="p">[</span><span class="n">n</span><span class="p">],</span> <span class="n">toe_rr</span><span class="p">[</span><span class="n">n</span><span class="p">],</span> <span class="n">toe_pd</span><span class="p">[</span><span class="n">n</span><span class="p">]]</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="n">labels</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;True toe&#39;</span><span class="p">,</span> <span class="s1">&#39;Machine learning&#39;</span><span class="p">,</span> <span class="s1">&#39;Maximum curvature&#39;</span><span class="p">,</span> <span class="s1">&#39;Relative relief&#39;</span><span class="p">,</span> <span class="s1">&#39;Perpendicular distance&#39;</span><span class="p">]</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="n">colors</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="s1">&#39;tomato&#39;</span><span class="p">,</span> <span class="s1">&#39;cornflowerblue&#39;</span><span class="p">,</span> <span class="s1">&#39;gold&#39;</span><span class="p">,</span> <span class="s1">&#39;limegreen&#39;</span><span class="p">]</span>
+
+<span class="ne">NameError</span>: name &#39;toe_ml&#39; is not defined
+</pre></div>
+</div>
+<img alt="../_images/pybeach_15_1.png" src="../_images/pybeach_15_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Figure metadata</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">7</span><span class="p">))</span>
+<span class="n">colors</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;tomato&#39;</span><span class="p">,</span> <span class="s1">&#39;cornflowerblue&#39;</span><span class="p">,</span> <span class="s1">&#39;gold&#39;</span><span class="p">,</span> <span class="s1">&#39;limegreen&#39;</span><span class="p">]</span>
+<span class="n">labels</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Machine</span><span class="se">\n</span><span class="s1">Learning</span><span class="se">\n</span><span class="s1">(MC)&#39;</span><span class="p">,</span> <span class="s1">&#39;Max.</span><span class="se">\n</span><span class="s1">Curvature</span><span class="se">\n</span><span class="s1">(MC)&#39;</span><span class="p">,</span> <span class="s1">&#39;Relative</span><span class="se">\n</span><span class="s1">Relief</span><span class="se">\n</span><span class="s1">(RR)&#39;</span><span class="p">,</span> <span class="s1">&#39;Perp.</span><span class="se">\n</span><span class="s1">Distance</span><span class="se">\n</span><span class="s1">(PD)&#39;</span><span class="p">]</span>
+<span class="c1"># Generate figure</span>
+<span class="n">data</span> <span class="o">=</span> <span class="p">(</span><span class="n">toe</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">((</span><span class="n">toe_ml</span><span class="p">,</span> <span class="n">toe_mc</span><span class="p">,</span> <span class="n">toe_rr</span><span class="p">,</span> <span class="n">toe_pd</span><span class="p">)))</span><span class="o">.</span><span class="n">T</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s2">&quot;float64&quot;</span><span class="p">)</span>
+<span class="c1"># data1[:,2] *= 0.7</span>
+<span class="n">bplot</span> <span class="o">=</span> <span class="n">axes</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">data</span><span class="p">,</span>
+                     <span class="n">labels</span><span class="o">=</span><span class="n">labels</span><span class="p">,</span>
+                     <span class="n">patch_artist</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                     <span class="n">medianprops</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">linewidth</span><span class="o">=</span><span class="mf">2.5</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">patch</span><span class="p">,</span> <span class="n">color</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">bplot</span><span class="p">[</span><span class="s1">&#39;boxes&#39;</span><span class="p">],</span> <span class="n">colors</span><span class="p">):</span>
+    <span class="n">patch</span><span class="o">.</span><span class="n">set_facecolor</span><span class="p">(</span><span class="n">color</span><span class="p">)</span>
+<span class="n">axes</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Prediction error (m)&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Method&#39;</span><span class="p">,</span> <span class="n">labelpad</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">axes</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="o">-</span><span class="mi">40</span><span class="p">,</span> <span class="mi">40</span><span class="p">)</span>
+<span class="n">axes</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+<span class="n">axes</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Performance on test dataset&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">12</span><span class="o">-</span><span class="n">b63cbd10b554</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">labels</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Machine</span><span class="se">\n</span><span class="s1">Learning</span><span class="se">\n</span><span class="s1">(MC)&#39;</span><span class="p">,</span> <span class="s1">&#39;Max.</span><span class="se">\n</span><span class="s1">Curvature</span><span class="se">\n</span><span class="s1">(MC)&#39;</span><span class="p">,</span> <span class="s1">&#39;Relative</span><span class="se">\n</span><span class="s1">Relief</span><span class="se">\n</span><span class="s1">(RR)&#39;</span><span class="p">,</span> <span class="s1">&#39;Perp.</span><span class="se">\n</span><span class="s1">Distance</span><span class="se">\n</span><span class="s1">(PD)&#39;</span><span class="p">]</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="c1"># Generate figure</span>
+<span class="ne">----&gt; </span><span class="mi">6</span> <span class="n">data</span> <span class="o">=</span> <span class="p">(</span><span class="n">toe</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">((</span><span class="n">toe_ml</span><span class="p">,</span> <span class="n">toe_mc</span><span class="p">,</span> <span class="n">toe_rr</span><span class="p">,</span> <span class="n">toe_pd</span><span class="p">)))</span><span class="o">.</span><span class="n">T</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s2">&quot;float64&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="c1"># data1[:,2] *= 0.7</span>
+<span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="n">bplot</span> <span class="o">=</span> <span class="n">axes</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">data</span><span class="p">,</span>
+
+<span class="ne">NameError</span>: name &#39;toe_ml&#39; is not defined
+</pre></div>
+</div>
+<img alt="../_images/pybeach_16_1.png" src="../_images/pybeach_16_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;MAE&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">absolute</span><span class="p">(</span><span class="n">toe</span><span class="o">-</span><span class="n">toe_ml</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span>
+                           <span class="n">np</span><span class="o">.</span><span class="n">absolute</span><span class="p">(</span><span class="n">toe</span><span class="o">-</span><span class="n">toe_mc</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span>
+                           <span class="n">np</span><span class="o">.</span><span class="n">absolute</span><span class="p">(</span><span class="n">toe</span><span class="o">-</span><span class="n">toe_rr</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span>
+                           <span class="n">np</span><span class="o">.</span><span class="n">absolute</span><span class="p">(</span><span class="n">toe</span><span class="o">-</span><span class="n">toe_pd</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()],</span>
+                   <span class="s1">&#39;RMSE&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">square</span><span class="p">(</span><span class="n">toe</span><span class="o">-</span><span class="n">toe_ml</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()),</span>
+                            <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">square</span><span class="p">(</span><span class="n">toe</span><span class="o">-</span><span class="n">toe_mc</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()),</span>
+                            <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">square</span><span class="p">(</span><span class="n">toe</span><span class="o">-</span><span class="n">toe_rr</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()),</span>
+                            <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">square</span><span class="p">(</span><span class="n">toe</span><span class="o">-</span><span class="n">toe_pd</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">())],</span>
+                   <span class="s1">&#39;R2&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span> <span class="o">-</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">square</span><span class="p">(</span><span class="n">toe</span><span class="o">-</span><span class="n">toe_ml</span><span class="p">))</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">/</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">square</span><span class="p">(</span><span class="n">toe</span><span class="o">-</span><span class="n">toe</span><span class="o">.</span><span class="n">mean</span><span class="p">()))</span><span class="o">.</span><span class="n">sum</span><span class="p">(),</span>
+                          <span class="mi">1</span> <span class="o">-</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">square</span><span class="p">(</span><span class="n">toe</span><span class="o">-</span><span class="n">toe_mc</span><span class="p">))</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">/</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">square</span><span class="p">(</span><span class="n">toe</span><span class="o">-</span><span class="n">toe</span><span class="o">.</span><span class="n">mean</span><span class="p">()))</span><span class="o">.</span><span class="n">sum</span><span class="p">(),</span>
+                          <span class="mi">1</span> <span class="o">-</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">square</span><span class="p">(</span><span class="n">toe</span><span class="o">-</span><span class="n">toe_rr</span><span class="p">))</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">/</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">square</span><span class="p">(</span><span class="n">toe</span><span class="o">-</span><span class="n">toe</span><span class="o">.</span><span class="n">mean</span><span class="p">()))</span><span class="o">.</span><span class="n">sum</span><span class="p">(),</span>
+                          <span class="mi">1</span> <span class="o">-</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">square</span><span class="p">(</span><span class="n">toe</span><span class="o">-</span><span class="n">toe_pd</span><span class="p">))</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">/</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">square</span><span class="p">(</span><span class="n">toe</span><span class="o">-</span><span class="n">toe</span><span class="o">.</span><span class="n">mean</span><span class="p">()))</span><span class="o">.</span><span class="n">sum</span><span class="p">()]},</span>
+                  <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;ML&#39;</span><span class="p">,</span> <span class="s1">&#39;MC&#39;</span><span class="p">,</span> <span class="s1">&#39;RR&#39;</span><span class="p">,</span> <span class="s1">&#39;PD&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">13</span><span class="o">-</span><span class="n">e3dc1fc7809d</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;MAE&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">absolute</span><span class="p">(</span><span class="n">toe</span><span class="o">-</span><span class="n">toe_ml</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span>                            <span class="n">np</span><span class="o">.</span><span class="n">absolute</span><span class="p">(</span><span class="n">toe</span><span class="o">-</span><span class="n">toe_mc</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span>                            <span class="n">np</span><span class="o">.</span><span class="n">absolute</span><span class="p">(</span><span class="n">toe</span><span class="o">-</span><span class="n">toe_rr</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span>                            <span class="n">np</span><span class="o">.</span><span class="n">absolute</span><span class="p">(</span><span class="n">toe</span><span class="o">-</span><span class="n">toe_pd</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()],</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span>                    <span class="s1">&#39;RMSE&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">square</span><span class="p">(</span><span class="n">toe</span><span class="o">-</span><span class="n">toe_ml</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()),</span>
+
+<span class="ne">NameError</span>: name &#39;toe_ml&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./coastevol"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="runupdataset.html" title="previous page">Runup dataset</a>
+    <a class='right-next' id="next-link" href="sedtransport.html" title="next page">Simple wave sediment modelling</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Tristan Salles<br/>
+        
+            &copy; Copyright 2020-2022.<br/>
+          <div class="extra_footer">
+            <p>
+<a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">
+  <img align="right" class="margin" src="https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by.svg" width="88px">
+</a>
+These lecture notes and exercises are licensed under a <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">Creative Commons Attribution 4.0 International (CC BY 4.0) license</a>.
+<br>
+&copy; Copyright 2020-2022.
+</p>
+
+          </div>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+  </body>
+</html>

@@ -1,0 +1,964 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simple wave sediment modelling &#8212; Coastal Processes, Environments &amp; Systems</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.e7340bb3dbd8dde6db86f25597f54a1b.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Inshore wave data Narrabeen" href="inshorewaves.html" />
+    <link rel="prev" title="pybeach" href="pybeach.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Coastal Processes, Environments & Systems</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <p class="caption collapsible-parent">
+ <span class="caption-text">
+  Part 1
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../queryocean/notes.html">
+   Notes on ocean data query
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../pracenv/intronotebook.html">
+     Introduction to Jupyter notebook
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../queryocean/buoygoldcoast.html">
+     AODN - Wave buoys Gold Coast
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../queryocean/oceandata1.html">
+     Using the IMOS User Code Library with Python
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../queryocean/oceandata2.html">
+     IMOS Ocean Radar Data Query
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../queryocean/waverider.html">
+     Analysing historical records of wave data from IMOS
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../queryocean/oceanforecast.html">
+     Access data from Forecast Model
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Part 2
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../waveclimate/notes.html">
+   Analysing wave climate notes
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../waveclimate/tileanalysis.html">
+     Satellite tile analysis
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../waveclimate/climatevariability.html">
+     Climate variability
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../waveclimate/cycloneyasi.html">
+     Cyclone track
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../waveclimate/sar_waves.html">
+     Wave measurements from SAR
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Part 3
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1 current active collapsible-parent">
+  <a class="reference internal" href="notes.html">
+   Quantifying coastal changes notes
+  </a>
+  <ul class="current collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="waverunup.html">
+     Runup models
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="runupdataset.html">
+     Runup dataset
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="pybeach.html">
+     pybeach
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Simple wave sediment modelling
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="inshorewaves.html">
+     Inshore wave data Narrabeen
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="selectprofiles.html">
+     Narrabeen beach profile adjustment
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="grainsettling.html">
+     Exploring grain settling
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Part 4
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../reefmodel.html">
+   Coral reef evolution
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Jupyter
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../pracenv/notebooks.html">
+   Interactive notebooks
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../pracenv/environment.html">
+     Managing environments
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../pracenv/jupyter.html">
+     Jupyter notebook
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/coastevol/sedtransport.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/TristanSalles/Coast"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/TristanSalles/Coast/issues/new?title=Issue%20on%20page%20%2Fcoastevol/sedtransport.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/TristanSalles/Coast/edit/main/book/coastevol/sedtransport.ipynb"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+            <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                    data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                    title="Fullscreen mode"><i
+                        class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/TristanSalles/Coast/main?urlpath=lab/tree/book/coastevol/sedtransport.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i>
+            Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#a-name-setup-a-model-set-up">
+   <a name="setup">
+   </a>
+   Model set-up
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#model-domain-grid-parameters">
+     Model domain / grid parameters
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#definition-of-wave-parameters">
+     Definition of wave parameters
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#definition-of-sediment-parameters">
+     Definition of sediment parameters
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#a-name-init-a-model-initialisation-function">
+   <a name="init">
+   </a>
+   Model initialisation function
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#a-name-evol-a-waves-evolution">
+   <a name="evol">
+   </a>
+   Waves evolution
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#plotting-simulated-wave-characteristics">
+     Plotting simulated wave characteristics
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#a-name-sed-a-sediment-entrainment-transport-deposition">
+   <a name="sed">
+   </a>
+   Sediment entrainment, transport &amp; deposition
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#plotting-morphological-changes">
+     Plotting morphological changes
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#a-name-save-a-saving-wave-sedimentation-data">
+   <a name="save">
+   </a>
+   Saving wave/sedimentation data
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="simple-wave-sediment-modelling">
+<h1>Simple wave sediment modelling<a class="headerlink" href="#simple-wave-sediment-modelling" title="Permalink to this headline">¶</a></h1>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Using a wave propagation model based on linear wave theory, we investigate the cumulative effect of a given wave forcing condition on erosional and depositional trend across a regional coastal system.</div></p>
+</div>
+<hr class="docutils" />
+<p><strong>Content:</strong></p>
+<ul class="simple">
+<li><p><a class="reference external" href="#setup">Model set-up</a></p></li>
+<li><p><a class="reference external" href="#init">Model initialisation function</a></p></li>
+<li><p><a class="reference external" href="#evol">Waves evolution</a></p></li>
+<li><p><a class="reference external" href="#sed">Sediment entrainment, transport &amp; deposition</a></p></li>
+</ul>
+<hr class="docutils" />
+<p>Loading required modules for this exercise. The main module here is <strong>wavesed</strong> a piece of code that was developed for this course and that can be found on <a class="reference external" href="https://github.com/pyReef-model/wavesed">GitHub</a></p>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span><span class="nb">cd</span> wavesed/<span class="p">;</span> f2py -c -m ocean ocean.f90    
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>running build
+running config_cc
+unifing config_cc, config, build_clib, build_ext, build commands --compiler options
+running config_fc
+unifing config_fc, config, build_clib, build_ext, build commands --fcompiler options
+running build_src
+build_src
+building extension &quot;ocean&quot; sources
+f2py options: []
+f2py:&gt; /tmp/tmp9r1nk1f5/src.linux-x86_64-3.6/oceanmodule.c
+creating /tmp/tmp9r1nk1f5/src.linux-x86_64-3.6
+Reading fortran codes...
+	Reading file &#39;ocean.f90&#39; (format:free)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Post-processing...
+	Block: ocean
+			Block: ocean
+				Block: airymodel
+				Block: transport
+				Block: diffusion
+Post-processing (stage 2)...
+	Block: ocean
+		Block: unknown_interface
+			Block: ocean
+				Block: airymodel
+				Block: transport
+				Block: diffusion
+Building modules...
+	Building module &quot;ocean&quot;...
+		Constructing F90 module support for &quot;ocean&quot;...
+		  Variables: pi onpi pi2 pion2 onpi2 grav
+			Constructing wrapper function &quot;ocean.airymodel&quot;...
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>			  c,l,travel,waveh = airymodel(dx,dd,h0,depth,src,inland,shadow,[numrow,numcol])
+			Constructing wrapper function &quot;ocean.transport&quot;...
+			  dz,dist = transport(iter,depth,hent,transx,transy,[numrow,numcol])
+			Constructing wrapper function &quot;ocean.diffusion&quot;...
+			  depo = diffusion(oelev,dz,coeff,maxth,tstep,nstep,[numrow,numcol])
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>	Wrote C/API module &quot;ocean&quot; to file &quot;/tmp/tmp9r1nk1f5/src.linux-x86_64-3.6/oceanmodule.c&quot;
+	Fortran 90 wrappers are saved to &quot;/tmp/tmp9r1nk1f5/src.linux-x86_64-3.6/ocean-f2pywrappers2.f90&quot;
+  adding &#39;/tmp/tmp9r1nk1f5/src.linux-x86_64-3.6/fortranobject.c&#39; to sources.
+  adding &#39;/tmp/tmp9r1nk1f5/src.linux-x86_64-3.6&#39; to include_dirs.
+copying /usr/share/miniconda/envs/coast/lib/python3.6/site-packages/numpy/f2py/src/fortranobject.c -&gt; /tmp/tmp9r1nk1f5/src.linux-x86_64-3.6
+copying /usr/share/miniconda/envs/coast/lib/python3.6/site-packages/numpy/f2py/src/fortranobject.h -&gt; /tmp/tmp9r1nk1f5/src.linux-x86_64-3.6
+  adding &#39;/tmp/tmp9r1nk1f5/src.linux-x86_64-3.6/ocean-f2pywrappers2.f90&#39; to sources.
+build_src: building npy-pkg config files
+running build_ext
+customize UnixCCompiler
+C compiler: /usr/share/miniconda/envs/coast/bin/x86_64-conda-linux-gnu-cc -DNDEBUG -fwrapv -O2 -Wall -Wstrict-prototypes -march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 -ffunction-sections -pipe -isystem /usr/share/miniconda/envs/coast/include -DNDEBUG -D_FORTIFY_SOURCE=2 -O2 -isystem /usr/share/miniconda/envs/coast/include -fPIC
+
+creating /tmp/tmpl7_ilf1o/tmp
+creating /tmp/tmpl7_ilf1o/tmp/tmpl7_ilf1o
+compile options: &#39;-MMD -MF /tmp/tmpl7_ilf1o/file.c.d -c&#39;
+x86_64-conda-linux-gnu-cc: /tmp/tmpl7_ilf1o/file.c
+customize UnixCCompiler using build_ext
+get_default_fcompiler: matching types: &#39;[&#39;gnu95&#39;, &#39;intel&#39;, &#39;lahey&#39;, &#39;pg&#39;, &#39;nv&#39;, &#39;absoft&#39;, &#39;nag&#39;, &#39;vast&#39;, &#39;compaq&#39;, &#39;intele&#39;, &#39;intelem&#39;, &#39;gnu&#39;, &#39;g95&#39;, &#39;pathf95&#39;, &#39;nagfor&#39;]&#39;
+customize Gnu95FCompiler
+Found executable /usr/share/miniconda/envs/coast/bin/x86_64-conda-linux-gnu-gfortran
+Found executable /usr/share/miniconda/envs/coast/bin/x86_64-conda-linux-gnu-ld
+Found executable /usr/share/miniconda/envs/coast/bin/x86_64-conda-linux-gnu-ar
+Found executable /usr/share/miniconda/envs/coast/bin/x86_64-conda-linux-gnu-ranlib
+customize Gnu95FCompiler
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>customize Gnu95FCompiler using build_ext
+building &#39;ocean&#39; extension
+compiling C sources
+C compiler: /usr/share/miniconda/envs/coast/bin/x86_64-conda-linux-gnu-cc -DNDEBUG -fwrapv -O2 -Wall -Wstrict-prototypes -march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 -ffunction-sections -pipe -isystem /usr/share/miniconda/envs/coast/include -DNDEBUG -D_FORTIFY_SOURCE=2 -O2 -isystem /usr/share/miniconda/envs/coast/include -fPIC
+
+creating /tmp/tmp9r1nk1f5/tmp
+creating /tmp/tmp9r1nk1f5/tmp/tmp9r1nk1f5
+creating /tmp/tmp9r1nk1f5/tmp/tmp9r1nk1f5/src.linux-x86_64-3.6
+compile options: &#39;-I/tmp/tmp9r1nk1f5/src.linux-x86_64-3.6 -I/usr/share/miniconda/envs/coast/lib/python3.6/site-packages/numpy/core/include -I/usr/share/miniconda/envs/coast/include/python3.6m -c&#39;
+x86_64-conda-linux-gnu-cc: /tmp/tmp9r1nk1f5/src.linux-x86_64-3.6/oceanmodule.c
+x86_64-conda-linux-gnu-cc: /tmp/tmp9r1nk1f5/src.linux-x86_64-3.6/fortranobject.c
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>In file included from <span class=" -Color -Color-Bold">/usr/share/miniconda/envs/coast/lib/python3.6/site-packages/numpy/core/include/numpy/ndarraytypes.h:1822</span>,
+                 from <span class=" -Color -Color-Bold">/usr/share/miniconda/envs/coast/lib/python3.6/site-packages/numpy/core/include/numpy/ndarrayobject.h:12</span>,
+                 from <span class=" -Color -Color-Bold">/usr/share/miniconda/envs/coast/lib/python3.6/site-packages/numpy/core/include/numpy/arrayobject.h:4</span>,
+                 from <span class=" -Color -Color-Bold">/tmp/tmp9r1nk1f5/src.linux-x86_64-3.6/fortranobject.h:13</span>,
+                 from <span class=" -Color -Color-Bold">/tmp/tmp9r1nk1f5/src.linux-x86_64-3.6/oceanmodule.c:16</span>:
+<span class=" -Color -Color-Bold">/usr/share/miniconda/envs/coast/lib/python3.6/site-packages/numpy/core/include/numpy/npy_1_7_deprecated_api.h:17:2:</span> <span class=" -Color -Color-Bold -Color-Bold-Magenta">warning: </span>#warning &quot;Using deprecated NumPy API, disable it with &quot; &quot;#define NPY_NO_DEPRECATED_API NPY_1_7_API_VERSION&quot; [<span class=" -Color -Color-Bold -Color-Bold-Magenta">-Wcpp</span>]
+   17 | #<span class=" -Color -Color-Bold -Color-Bold-Magenta">warning</span> &quot;Using deprecated NumPy API, disable it with &quot; \
+      |  <span class=" -Color -Color-Bold -Color-Bold-Magenta">^~~~~~~</span>
+In file included from <span class=" -Color -Color-Bold">/usr/share/miniconda/envs/coast/lib/python3.6/site-packages/numpy/core/include/numpy/ndarraytypes.h:1822</span>,
+                 from <span class=" -Color -Color-Bold">/usr/share/miniconda/envs/coast/lib/python3.6/site-packages/numpy/core/include/numpy/ndarrayobject.h:12</span>,
+                 from <span class=" -Color -Color-Bold">/usr/share/miniconda/envs/coast/lib/python3.6/site-packages/numpy/core/include/numpy/arrayobject.h:4</span>,
+                 from <span class=" -Color -Color-Bold">/tmp/tmp9r1nk1f5/src.linux-x86_64-3.6/fortranobject.h:13</span>,
+                 from <span class=" -Color -Color-Bold">/tmp/tmp9r1nk1f5/src.linux-x86_64-3.6/fortranobject.c:2</span>:
+<span class=" -Color -Color-Bold">/usr/share/miniconda/envs/coast/lib/python3.6/site-packages/numpy/core/include/numpy/npy_1_7_deprecated_api.h:17:2:</span> <span class=" -Color -Color-Bold -Color-Bold-Magenta">warning: </span>#warning &quot;Using deprecated NumPy API, disable it with &quot; &quot;#define NPY_NO_DEPRECATED_API NPY_1_7_API_VERSION&quot; [<span class=" -Color -Color-Bold -Color-Bold-Magenta">-Wcpp</span>]
+   17 | #<span class=" -Color -Color-Bold -Color-Bold-Magenta">warning</span> &quot;Using deprecated NumPy API, disable it with &quot; \
+      |  <span class=" -Color -Color-Bold -Color-Bold-Magenta">^~~~~~~</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold">/tmp/tmp9r1nk1f5/src.linux-x86_64-3.6/oceanmodule.c:109:12:</span> <span class=" -Color -Color-Bold -Color-Bold-Magenta">warning: </span>&#39;<span class=" -Color -Color-Bold">f2py_size</span>&#39; defined but not used [<span class=" -Color -Color-Bold -Color-Bold-Magenta">-Wunused-function</span>]
+  109 | static int <span class=" -Color -Color-Bold -Color-Bold-Magenta">f2py_size</span>(PyArrayObject* var, ...)
+      |            <span class=" -Color -Color-Bold -Color-Bold-Magenta">^~~~~~~~~</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>compiling Fortran 90 module sources
+Fortran f77 compiler: /usr/share/miniconda/envs/coast/bin/x86_64-conda-linux-gnu-gfortran -Wall -g -ffixed-form -fno-second-underscore -fPIC -fopenmp -march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 -ffunction-sections -pipe -isystem /usr/share/miniconda/envs/coast/include -O3 -funroll-loops
+Fortran f90 compiler: /usr/share/miniconda/envs/coast/bin/x86_64-conda-linux-gnu-gfortran -Wall -g -fno-second-underscore -fPIC -fopenmp -march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 -ffunction-sections -pipe -isystem /usr/share/miniconda/envs/coast/include -O3 -funroll-loops
+Fortran fix compiler: /usr/share/miniconda/envs/coast/bin/x86_64-conda-linux-gnu-gfortran -Wall -g -ffixed-form -fno-second-underscore -Wall -g -fno-second-underscore -fPIC -fopenmp -march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 -ffunction-sections -pipe -isystem /usr/share/miniconda/envs/coast/include -O3 -funroll-loops
+compile options: &#39;-I/tmp/tmp9r1nk1f5/src.linux-x86_64-3.6 -I/usr/share/miniconda/envs/coast/lib/python3.6/site-packages/numpy/core/include -I/usr/share/miniconda/envs/coast/include/python3.6m -c&#39;
+extra options: &#39;-J/tmp/tmp9r1nk1f5/ -I/tmp/tmp9r1nk1f5/&#39;
+x86_64-conda-linux-gnu-gfortran:f90: ocean.f90
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>compiling Fortran sources
+Fortran f77 compiler: /usr/share/miniconda/envs/coast/bin/x86_64-conda-linux-gnu-gfortran -Wall -g -ffixed-form -fno-second-underscore -fPIC -fopenmp -march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 -ffunction-sections -pipe -isystem /usr/share/miniconda/envs/coast/include -O3 -funroll-loops
+Fortran f90 compiler: /usr/share/miniconda/envs/coast/bin/x86_64-conda-linux-gnu-gfortran -Wall -g -fno-second-underscore -fPIC -fopenmp -march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 -ffunction-sections -pipe -isystem /usr/share/miniconda/envs/coast/include -O3 -funroll-loops
+Fortran fix compiler: /usr/share/miniconda/envs/coast/bin/x86_64-conda-linux-gnu-gfortran -Wall -g -ffixed-form -fno-second-underscore -Wall -g -fno-second-underscore -fPIC -fopenmp -march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 -ffunction-sections -pipe -isystem /usr/share/miniconda/envs/coast/include -O3 -funroll-loops
+compile options: &#39;-I/tmp/tmp9r1nk1f5/src.linux-x86_64-3.6 -I/usr/share/miniconda/envs/coast/lib/python3.6/site-packages/numpy/core/include -I/usr/share/miniconda/envs/coast/include/python3.6m -c&#39;
+extra options: &#39;-J/tmp/tmp9r1nk1f5/ -I/tmp/tmp9r1nk1f5/&#39;
+x86_64-conda-linux-gnu-gfortran:f90: /tmp/tmp9r1nk1f5/src.linux-x86_64-3.6/ocean-f2pywrappers2.f90
+/usr/share/miniconda/envs/coast/bin/x86_64-conda-linux-gnu-gfortran -Wall -g -Wall -g -shared -Wl,-O2 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--disable-new-dtags -Wl,--gc-sections -Wl,-rpath,/usr/share/miniconda/envs/coast/lib -Wl,-rpath-link,/usr/share/miniconda/envs/coast/lib -L/usr/share/miniconda/envs/coast/lib /tmp/tmp9r1nk1f5/tmp/tmp9r1nk1f5/src.linux-x86_64-3.6/oceanmodule.o /tmp/tmp9r1nk1f5/tmp/tmp9r1nk1f5/src.linux-x86_64-3.6/fortranobject.o /tmp/tmp9r1nk1f5/ocean.o /tmp/tmp9r1nk1f5/tmp/tmp9r1nk1f5/src.linux-x86_64-3.6/ocean-f2pywrappers2.o -L/usr/share/miniconda/envs/coast/bin/../x86_64-conda-linux-gnu/sysroot/lib/../lib -L/usr/share/miniconda/envs/coast/bin/../x86_64-conda-linux-gnu/sysroot/lib/../lib -lgfortran -o ./ocean.cpython-36m-x86_64-linux-gnu.so
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Removing build directory /tmp/tmp9r1nk1f5
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">wavesed.wave</span> <span class="k">as</span> <span class="nn">ocean</span>
+
+<span class="o">%</span><span class="k">matplotlib</span> inline
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="a-name-setup-a-model-set-up">
+<h2><a name="setup"></a>  Model set-up<a class="headerlink" href="#a-name-setup-a-model-set-up" title="Permalink to this headline">¶</a></h2>
+<p>The model requires several parameters to be defined before being run. The most important one being the initial bathymetry. For this example, we will use the region around <a class="reference external" href="https://www.google.com.au/maps/&#64;-24.8590806,152.2555941,236264m/data=%213m1%211e3?hl=en">Fraser Island</a> at a resolution of 1000 m. The <em>digital elevation model</em> (DEM) comes from the <a class="reference external" href="http://eatlas.org.au/data/uuid/200aba6b-6fb6-443e-b84b-86b0bbdb53ac">Project 3DGBR</a>.</p>
+<a class="reference internal image-reference" href="../_images/ex4-fig1.png"><img alt="../_images/ex4-fig1.png" src="../_images/ex4-fig1.png" style="width: 60%;" /></a>
+<p>The file is called <strong>FraserDEM.csv</strong> and is located in the <strong>data</strong> folder. It is made of 3 columns containing the X, Y, and Z coordinates.</p>
+<div class="section" id="model-domain-grid-parameters">
+<h3>Model domain / grid parameters<a class="headerlink" href="#model-domain-grid-parameters" title="Permalink to this headline">¶</a></h3>
+<p>It is possible to change the initial resolution by using the <code class="docutils literal notranslate"><span class="pre">rfac</span></code> parameter, as an example:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">rfac</span> <span class="pre">=</span> <span class="pre">1</span></code> corresponds to a model at 1000 m resolution (similar to the initial DEM)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">rfac</span> <span class="pre">=</span> <span class="pre">2</span></code> transforms the dataset to 2000 m resolution</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Bathymetric filename</span>
+<span class="n">bfile</span> <span class="o">=</span> <span class="s1">&#39;../pracenv/dataset/FraserDEM.csv&#39;</span>
+<span class="c1"># Resolution factor</span>
+<span class="n">rfac</span> <span class="o">=</span> <span class="mi">1</span> 
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="definition-of-wave-parameters">
+<h3>Definition of wave parameters<a class="headerlink" href="#definition-of-wave-parameters" title="Permalink to this headline">¶</a></h3>
+<p>Now we need to define the forcing parameters for our simulation:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">H0</span></code> the deep water wave height in [m],</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dir</span></code> the deep water wave source direction at the boundary in degrees (angle is defined counterclock wise from horizontal axis)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">wbase</span></code> the maximum depth for wave influence on seabed [m]</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">slvl</span></code> the sea-level position in [m]</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Wave height</span>
+<span class="n">H0</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="c1"># Wave direction at boundary </span>
+<span class="nb">dir</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="c1"># Maximum depth for wave influence (m)</span>
+<span class="n">wbase</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="c1"># Sea level position (m)</span>
+<span class="n">slvl</span> <span class="o">=</span> <span class="mf">0.</span>
+<span class="c1"># Output figure name</span>
+<span class="n">outname</span> <span class="o">=</span> <span class="s1">&#39;wdir0&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="definition-of-sediment-parameters">
+<h3>Definition of sediment parameters<a class="headerlink" href="#definition-of-sediment-parameters" title="Permalink to this headline">¶</a></h3>
+<p>To estimate wave-induced sediment transport, this simple model only accounts for a single grain size that needs to be defined (<code class="docutils literal notranslate"><span class="pre">d50</span></code>).</p>
+<p>There are also additional parameters that can be set to perform longshore and diffusive transport but we will use the default values for this example…</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Mean grain size diameter in m</span>
+<span class="n">d50</span> <span class="o">=</span> <span class="mf">0.0001</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="a-name-init-a-model-initialisation-function">
+<h2><a name="init"></a>  Model initialisation function<a class="headerlink" href="#a-name-init-a-model-initialisation-function" title="Permalink to this headline">¶</a></h2>
+<p>Now that all the parameters are defined in our python environment, we can initialise the simulation by calling the wavesed module:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#help(ocean.wave.__init__)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">wavesed</span> <span class="o">=</span> <span class="n">ocean</span><span class="o">.</span><span class="n">wave</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="n">bfile</span><span class="p">,</span> <span class="n">wavebase</span><span class="o">=</span><span class="n">wbase</span><span class="p">,</span> <span class="n">resfac</span><span class="o">=</span><span class="n">rfac</span><span class="p">,</span> <span class="n">dia</span><span class="o">=</span><span class="n">d50</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>As you can see from the command above there are still some parameters that have not been passed to the module:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">slvl</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dir</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">H0</span></code></p></li>
+</ul>
+<p>These parameters are sent separately so that multiple climatic conditions could be simulate more easily.</p>
+<p>First we define the sea-level position <code class="docutils literal notranslate"><span class="pre">slvl</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">t0</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">clock</span><span class="p">()</span>
+<span class="n">wavesed</span><span class="o">.</span><span class="n">findland</span><span class="p">(</span><span class="n">slvl</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Definition of shoreline position took (s):&#39;</span><span class="p">,</span><span class="n">time</span><span class="o">.</span><span class="n">clock</span><span class="p">()</span><span class="o">-</span><span class="n">t0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Definition of shoreline position took (s): 0.0024849999999998484
+</pre></div>
+</div>
+</div>
+</div>
+<p>Initialising wave boundary direction <code class="docutils literal notranslate"><span class="pre">dir</span></code> is then done with the <code class="docutils literal notranslate"><span class="pre">wavesource</span></code> function:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">wdir</span> <span class="o">=</span> <span class="n">wavesed</span><span class="o">.</span><span class="n">wavesource</span><span class="p">(</span><span class="nb">dir</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="a-name-evol-a-waves-evolution">
+<h2><a name="evol"></a>  Waves evolution<a class="headerlink" href="#a-name-evol-a-waves-evolution" title="Permalink to this headline">¶</a></h2>
+<p>The waves are then transformed using the <strong>linear wave theory</strong> from deep (set-up conditions) to shallow water assuming shore-parallel depth contours.</p>
+<p>The orientation of wave fronts is determined by wave <em>celerity</em> and <em>refraction</em> due to depth variations.</p>
+<p>Travel time in the domain is calculated from <strong>Huygen’s principle</strong> (using an order <span class="math notranslate nohighlight">\(\sqrt{5}\)</span> approximation).</p>
+<p>Assuming no refraction or loss of energy due to bottom friction, wave power <span class="math notranslate nohighlight">\(P\)</span> is conserved from deep to shallow water.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#help(wavesed.cmptwaves)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">t0</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">clock</span><span class="p">()</span>
+<span class="n">wavesed</span><span class="o">.</span><span class="n">cmptwaves</span><span class="p">(</span><span class="n">src</span><span class="o">=</span><span class="n">wdir</span><span class="p">,</span> <span class="n">h0</span><span class="o">=</span><span class="n">H0</span><span class="p">,</span> <span class="n">sigma</span><span class="o">=</span><span class="mf">1.</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Wave evolution computation took (s): &#39;</span><span class="p">,</span><span class="n">time</span><span class="o">.</span><span class="n">clock</span><span class="p">()</span><span class="o">-</span><span class="n">t0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Wave evolution computation took (s):  0.6207820000000002
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="plotting-simulated-wave-characteristics">
+<h3>Plotting simulated wave characteristics<a class="headerlink" href="#plotting-simulated-wave-characteristics" title="Permalink to this headline">¶</a></h3>
+<p>A series of graph can be visualised to show the following characteristics:</p>
+<ul class="simple">
+<li><p><em>bathy</em>: coarse bathymetric map</p></li>
+<li><p><em>wlength</em>: coarse wave lenght map</p></li>
+<li><p><em>travel</em>: coarse wave travel time map</p></li>
+<li><p><em>wcelerity</em>: coarse wave celerity map</p></li>
+<li><p><em>wheight</em>: coarse wave height map</p></li>
+<li><p><em>wpower</em>: coarse wave power map</p></li>
+<li><p><em>ubot</em>: coarse wave induced bottom velocity map</p></li>
+<li><p><em>shear</em>: coarse wave induced shear stress map</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#help(wavesed.plotData)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">size</span> <span class="o">=</span> <span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">8</span><span class="p">)</span>
+<span class="c1"># i1 = 0 </span>
+<span class="c1"># i2 = -1</span>
+<span class="c1"># j1 = 0</span>
+<span class="c1"># j2 = -1</span>
+
+<span class="c1"># Zooming to a specific region</span>
+<span class="n">i1</span> <span class="o">=</span> <span class="mi">80</span> 
+<span class="n">i2</span> <span class="o">=</span> <span class="mi">250</span> 
+<span class="n">j1</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">j2</span> <span class="o">=</span> <span class="mi">170</span> 
+
+<span class="n">wavesed</span><span class="o">.</span><span class="n">plotData</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s1">&#39;bathy&#39;</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="n">size</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=-</span><span class="mi">100</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> 
+                 <span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">imin</span><span class="o">=</span><span class="n">i1</span><span class="p">,</span> <span class="n">imax</span><span class="o">=</span><span class="n">i2</span><span class="p">,</span> <span class="n">jmin</span><span class="o">=</span><span class="n">j1</span><span class="p">,</span> <span class="n">jmax</span><span class="o">=</span><span class="n">j2</span><span class="p">)</span>
+
+<span class="n">wavesed</span><span class="o">.</span><span class="n">plotData</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s1">&#39;travel&#39;</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="n">size</span><span class="p">,</span> <span class="n">tstep</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mf">5.e4</span><span class="p">,</span> 
+                 <span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">imin</span><span class="o">=</span><span class="n">i1</span><span class="p">,</span> <span class="n">imax</span><span class="o">=</span><span class="n">i2</span><span class="p">,</span> <span class="n">jmin</span><span class="o">=</span><span class="n">j1</span><span class="p">,</span> <span class="n">jmax</span><span class="o">=</span><span class="n">j2</span><span class="p">)</span>
+
+<span class="n">wavesed</span><span class="o">.</span><span class="n">plotData</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s1">&#39;wcelerity&#39;</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="n">size</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span> 
+                 <span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">stream</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">imin</span><span class="o">=</span><span class="n">i1</span><span class="p">,</span> <span class="n">imax</span><span class="o">=</span><span class="n">i2</span><span class="p">,</span> <span class="n">jmin</span><span class="o">=</span><span class="n">j1</span><span class="p">,</span> <span class="n">jmax</span><span class="o">=</span><span class="n">j2</span><span class="p">)</span>
+
+<span class="n">wavesed</span><span class="o">.</span><span class="n">plotData</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s1">&#39;ubot&#39;</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="n">size</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> 
+                 <span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">imin</span><span class="o">=</span><span class="n">i1</span><span class="p">,</span> <span class="n">imax</span><span class="o">=</span><span class="n">i2</span><span class="p">,</span> <span class="n">jmin</span><span class="o">=</span><span class="n">j1</span><span class="p">,</span> <span class="n">jmax</span><span class="o">=</span><span class="n">j2</span><span class="p">)</span>
+
+<span class="n">wavesed</span><span class="o">.</span><span class="n">plotData</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s1">&#39;shear&#39;</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="n">size</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=-</span><span class="mi">10</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> 
+                  <span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">imin</span><span class="o">=</span><span class="n">i1</span><span class="p">,</span> <span class="n">imax</span><span class="o">=</span><span class="n">i2</span><span class="p">,</span> <span class="n">jmin</span><span class="o">=</span><span class="n">j1</span><span class="p">,</span> <span class="n">jmax</span><span class="o">=</span><span class="n">j2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/sedtransport_24_0.png" src="../_images/sedtransport_24_0.png" />
+<img alt="../_images/sedtransport_24_1.png" src="../_images/sedtransport_24_1.png" />
+<img alt="../_images/sedtransport_24_2.png" src="../_images/sedtransport_24_2.png" />
+<img alt="../_images/sedtransport_24_3.png" src="../_images/sedtransport_24_3.png" />
+<img alt="../_images/sedtransport_24_4.png" src="../_images/sedtransport_24_4.png" />
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="a-name-sed-a-sediment-entrainment-transport-deposition">
+<h2><a name="sed"></a>  Sediment entrainment, transport &amp; deposition<a class="headerlink" href="#a-name-sed-a-sediment-entrainment-transport-deposition" title="Permalink to this headline">¶</a></h2>
+<p><strong>Sediment entrainment</strong> relates to wave induced shear stress.</p>
+<p>The transport is computed according to both wave direction and longshore transport. Deposition is dependent of shear stress and diffusion.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#help(wavesed.cmptsed)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">t0</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">clock</span><span class="p">()</span>
+<span class="n">wavesed</span><span class="o">.</span><span class="n">cmptsed</span><span class="p">(</span><span class="n">sigma</span><span class="o">=</span><span class="mf">1.</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Sediment erosion/deposition computation took (s): &#39;</span><span class="p">,</span><span class="n">time</span><span class="o">.</span><span class="n">clock</span><span class="p">()</span><span class="o">-</span><span class="n">t0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Sediment erosion/deposition computation took (s):  0.5271590000000002
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="plotting-morphological-changes">
+<h3>Plotting morphological changes<a class="headerlink" href="#plotting-morphological-changes" title="Permalink to this headline">¶</a></h3>
+<p>Using the same plotting function (<code class="docutils literal notranslate"><span class="pre">plotData</span></code>), we can now plot the following metrics:</p>
+<ul class="simple">
+<li><p><em>ent</em>: coarse sediment entrainment map</p></li>
+<li><p><em>dz</em>: coarse erosion/deposition map</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#help(wavesed.plotData)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">size</span> <span class="o">=</span> <span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">8</span><span class="p">)</span>
+<span class="c1"># i1 = 0 </span>
+<span class="c1"># i2 = -1</span>
+<span class="c1"># j1 = 0</span>
+<span class="c1"># j2 = -1</span>
+
+<span class="c1"># Zooming to a specific region</span>
+<span class="n">i1</span> <span class="o">=</span> <span class="mi">80</span> 
+<span class="n">i2</span> <span class="o">=</span> <span class="mi">250</span> 
+<span class="n">j1</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">j2</span> <span class="o">=</span> <span class="mi">170</span>
+
+<span class="n">wavesed</span><span class="o">.</span><span class="n">plotData</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s1">&#39;bathy&#39;</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="n">size</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=-</span><span class="mi">100</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> 
+                 <span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">stream</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">imin</span><span class="o">=</span><span class="n">i1</span><span class="p">,</span> <span class="n">imax</span><span class="o">=</span><span class="n">i2</span><span class="p">,</span> <span class="n">jmin</span><span class="o">=</span><span class="n">j1</span><span class="p">,</span> <span class="n">jmax</span><span class="o">=</span><span class="n">j2</span><span class="p">)</span>
+
+<span class="n">wavesed</span><span class="o">.</span><span class="n">plotData</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s1">&#39;ent&#39;</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="n">size</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="mf">0.</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mf">5.</span><span class="p">,</span> 
+                 <span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">stream</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">imin</span><span class="o">=</span><span class="n">i1</span><span class="p">,</span> <span class="n">imax</span><span class="o">=</span><span class="n">i2</span><span class="p">,</span> <span class="n">jmin</span><span class="o">=</span><span class="n">j1</span><span class="p">,</span> <span class="n">jmax</span><span class="o">=</span><span class="n">j2</span><span class="p">)</span>
+
+<span class="n">wavesed</span><span class="o">.</span><span class="n">plotData</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s1">&#39;dz&#39;</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="n">size</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=-</span><span class="mf">1.</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mf">1.</span><span class="p">,</span> 
+                 <span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">stream</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">imin</span><span class="o">=</span><span class="n">i1</span><span class="p">,</span> <span class="n">imax</span><span class="o">=</span><span class="n">i2</span><span class="p">,</span> <span class="n">jmin</span><span class="o">=</span><span class="n">j1</span><span class="p">,</span> <span class="n">jmax</span><span class="o">=</span><span class="n">j2</span><span class="p">)</span> <span class="c1">#, save=outname)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/sedtransport_30_0.png" src="../_images/sedtransport_30_0.png" />
+<img alt="../_images/sedtransport_30_1.png" src="../_images/sedtransport_30_1.png" />
+<img alt="../_images/sedtransport_30_2.png" src="../_images/sedtransport_30_2.png" />
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="a-name-save-a-saving-wave-sedimentation-data">
+<h2><a name="save"></a>  Saving wave/sedimentation data<a class="headerlink" href="#a-name-save-a-saving-wave-sedimentation-data" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#waveparams.outputCSV(filename=&#39;erodep.csv&#39;, seddata=1)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ol class="simple">
+<li><p>Change the initial wave direction conditions to 90 and then to 270. Evaluate the impact on the morphological patterns.</p></li>
+<li><p>Change the resolution factor to see how it impacts on erosion/deposition resolution.</div></p></li>
+</ol>
+</div>
+<hr class="docutils" />
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./coastevol"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="pybeach.html" title="previous page">pybeach</a>
+    <a class='right-next' id="next-link" href="inshorewaves.html" title="next page">Inshore wave data Narrabeen</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Tristan Salles<br/>
+        
+            &copy; Copyright 2020-2022.<br/>
+          <div class="extra_footer">
+            <p>
+<a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">
+  <img align="right" class="margin" src="https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by.svg" width="88px">
+</a>
+These lecture notes and exercises are licensed under a <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">Creative Commons Attribution 4.0 International (CC BY 4.0) license</a>.
+<br>
+&copy; Copyright 2020-2022.
+</p>
+
+          </div>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+  </body>
+</html>

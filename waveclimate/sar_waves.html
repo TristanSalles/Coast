@@ -26,7 +26,7 @@
 
     
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/sphinx-book-theme.c441f2ba0852f4cabcb80105e3a46ae6.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.e7340bb3dbd8dde6db86f25597f54a1b.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
@@ -55,7 +55,7 @@
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Quantifying coastal changes" href="../coastevol.html" />
+    <link rel="next" title="Quantifying coastal changes notes" href="../coastevol/notes.html" />
     <link rel="prev" title="Cyclone track" href="cycloneyasi.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -88,7 +88,7 @@
 <nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
     <p class="caption collapsible-parent">
  <span class="caption-text">
-  week 1
+  Part 1
  </span>
 </p>
 <ul class="nav sidenav_l1">
@@ -134,7 +134,7 @@
 </ul>
 <p class="caption collapsible-parent">
  <span class="caption-text">
-  week 2
+  Part 2
  </span>
 </p>
 <ul class="current nav sidenav_l1">
@@ -170,19 +170,58 @@
 </ul>
 <p class="caption collapsible-parent">
  <span class="caption-text">
-  week 3
+  Part 3
  </span>
 </p>
 <ul class="nav sidenav_l1">
- <li class="toctree-l1">
-  <a class="reference internal" href="../coastevol.html">
-   Quantifying coastal changes
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../coastevol/notes.html">
+   Quantifying coastal changes notes
   </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../coastevol/waverunup.html">
+     Runup models
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../coastevol/runupdataset.html">
+     Runup dataset
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../coastevol/pybeach.html">
+     pybeach
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../coastevol/sedtransport.html">
+     Simple wave sediment modelling
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../coastevol/inshorewaves.html">
+     Inshore wave data Narrabeen
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../coastevol/selectprofiles.html">
+     Narrabeen beach profile adjustment
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../coastevol/grainsettling.html">
+     Exploring grain settling
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
  </li>
 </ul>
 <p class="caption collapsible-parent">
  <span class="caption-text">
-  week 4
+  Part 4
  </span>
 </p>
 <ul class="nav sidenav_l1">
@@ -425,9 +464,7 @@
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">reset</span> -f
-
-<span class="kn">import</span> <span class="nn">os</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">import</span> <span class="nn">sys</span>
 <span class="kn">import</span> <span class="nn">warnings</span>
 
@@ -651,119 +688,121 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Error in callback &lt;function flush_figures at 0x7f90019c3dc0&gt; (for post_execute):
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Error in callback &lt;function flush_figures at 0x7f70c72bd730&gt; (for post_execute):
 </pre></div>
 </div>
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
-<span class="nn">/usr/share/miniconda/envs/coast/lib/python3.8/site-packages/ipykernel/pylab/backend_inline.py</span> in <span class="ni">flush_figures</span><span class="nt">()</span>
+<span class="nn">/usr/share/miniconda/envs/coast/lib/python3.6/site-packages/ipykernel/pylab/backend_inline.py</span> in <span class="ni">flush_figures</span><span class="nt">()</span>
 <span class="g g-Whitespace">    </span><span class="mi">118</span>         <span class="c1"># ignore the tracking, just draw and close all figures</span>
 <span class="g g-Whitespace">    </span><span class="mi">119</span>         <span class="k">try</span><span class="p">:</span>
 <span class="ne">--&gt; </span><span class="mi">120</span>             <span class="k">return</span> <span class="n">show</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
 <span class="g g-Whitespace">    </span><span class="mi">121</span>         <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
 <span class="g g-Whitespace">    </span><span class="mi">122</span>             <span class="c1"># safely show traceback if in IPython, else raise</span>
 
-<span class="nn">/usr/share/miniconda/envs/coast/lib/python3.8/site-packages/ipykernel/pylab/backend_inline.py</span> in <span class="ni">show</span><span class="nt">(close, block)</span>
-<span class="g g-Whitespace">     </span><span class="mi">38</span>     <span class="k">try</span><span class="p">:</span>
-<span class="g g-Whitespace">     </span><span class="mi">39</span>         <span class="k">for</span> <span class="n">figure_manager</span> <span class="ow">in</span> <span class="n">Gcf</span><span class="o">.</span><span class="n">get_all_fig_managers</span><span class="p">():</span>
-<span class="ne">---&gt; </span><span class="mi">40</span>             <span class="n">display</span><span class="p">(</span>
+<span class="nn">/usr/share/miniconda/envs/coast/lib/python3.6/site-packages/ipykernel/pylab/backend_inline.py</span> in <span class="ni">show</span><span class="nt">(close, block)</span>
+<span class="g g-Whitespace">     </span><span class="mi">40</span>             <span class="n">display</span><span class="p">(</span>
 <span class="g g-Whitespace">     </span><span class="mi">41</span>                 <span class="n">figure_manager</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">figure</span><span class="p">,</span>
-<span class="g g-Whitespace">     </span><span class="mi">42</span>                 <span class="n">metadata</span><span class="o">=</span><span class="n">_fetch_figure_metadata</span><span class="p">(</span><span class="n">figure_manager</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">figure</span><span class="p">)</span>
+<span class="ne">---&gt; </span><span class="mi">42</span>                 <span class="n">metadata</span><span class="o">=</span><span class="n">_fetch_figure_metadata</span><span class="p">(</span><span class="n">figure_manager</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">figure</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">43</span>             <span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">44</span>     <span class="k">finally</span><span class="p">:</span>
 
-<span class="nn">/usr/share/miniconda/envs/coast/lib/python3.8/site-packages/IPython/core/display.py</span> in <span class="ni">display</span><span class="nt">(include, exclude, metadata, transient, display_id, *objs, **kwargs)</span>
+<span class="nn">/usr/share/miniconda/envs/coast/lib/python3.6/site-packages/IPython/core/display.py</span> in <span class="ni">display</span><span class="nt">(include, exclude, metadata, transient, display_id, *objs, **kwargs)</span>
 <span class="g g-Whitespace">    </span><span class="mi">311</span>             <span class="n">publish_display_data</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">obj</span><span class="p">,</span> <span class="n">metadata</span><span class="o">=</span><span class="n">metadata</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 <span class="g g-Whitespace">    </span><span class="mi">312</span>         <span class="k">else</span><span class="p">:</span>
 <span class="ne">--&gt; </span><span class="mi">313</span>             <span class="n">format_dict</span><span class="p">,</span> <span class="n">md_dict</span> <span class="o">=</span> <span class="nb">format</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">include</span><span class="o">=</span><span class="n">include</span><span class="p">,</span> <span class="n">exclude</span><span class="o">=</span><span class="n">exclude</span><span class="p">)</span>
 <span class="g g-Whitespace">    </span><span class="mi">314</span>             <span class="k">if</span> <span class="ow">not</span> <span class="n">format_dict</span><span class="p">:</span>
 <span class="g g-Whitespace">    </span><span class="mi">315</span>                 <span class="c1"># nothing to display (e.g. _ipython_display_ took over)</span>
 
-<span class="nn">/usr/share/miniconda/envs/coast/lib/python3.8/site-packages/IPython/core/formatters.py</span> in <span class="ni">format</span><span class="nt">(self, obj, include, exclude)</span>
+<span class="nn">/usr/share/miniconda/envs/coast/lib/python3.6/site-packages/IPython/core/formatters.py</span> in <span class="ni">format</span><span class="nt">(self, obj, include, exclude)</span>
 <span class="g g-Whitespace">    </span><span class="mi">178</span>             <span class="n">md</span> <span class="o">=</span> <span class="kc">None</span>
 <span class="g g-Whitespace">    </span><span class="mi">179</span>             <span class="k">try</span><span class="p">:</span>
 <span class="ne">--&gt; </span><span class="mi">180</span>                 <span class="n">data</span> <span class="o">=</span> <span class="n">formatter</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span>
 <span class="g g-Whitespace">    </span><span class="mi">181</span>             <span class="k">except</span><span class="p">:</span>
 <span class="g g-Whitespace">    </span><span class="mi">182</span>                 <span class="c1"># FIXME: log the exception</span>
 
-<span class="nn">&lt;decorator-gen-2&gt;</span> in <span class="ni">__call__</span><span class="nt">(self, obj)</span>
+<span class="nn">&lt;decorator-gen-9&gt;</span> in <span class="ni">__call__</span><span class="nt">(self, obj)</span>
 
-<span class="nn">/usr/share/miniconda/envs/coast/lib/python3.8/site-packages/IPython/core/formatters.py</span> in <span class="ni">catch_format_error</span><span class="nt">(method, self, *args, **kwargs)</span>
+<span class="nn">/usr/share/miniconda/envs/coast/lib/python3.6/site-packages/IPython/core/formatters.py</span> in <span class="ni">catch_format_error</span><span class="nt">(method, self, *args, **kwargs)</span>
 <span class="g g-Whitespace">    </span><span class="mi">222</span>     <span class="sd">&quot;&quot;&quot;show traceback on failed format call&quot;&quot;&quot;</span>
 <span class="g g-Whitespace">    </span><span class="mi">223</span>     <span class="k">try</span><span class="p">:</span>
 <span class="ne">--&gt; </span><span class="mi">224</span>         <span class="n">r</span> <span class="o">=</span> <span class="n">method</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 <span class="g g-Whitespace">    </span><span class="mi">225</span>     <span class="k">except</span> <span class="ne">NotImplementedError</span><span class="p">:</span>
 <span class="g g-Whitespace">    </span><span class="mi">226</span>         <span class="c1"># don&#39;t warn on NotImplementedErrors</span>
 
-<span class="nn">/usr/share/miniconda/envs/coast/lib/python3.8/site-packages/IPython/core/formatters.py</span> in <span class="ni">__call__</span><span class="nt">(self, obj)</span>
+<span class="nn">/usr/share/miniconda/envs/coast/lib/python3.6/site-packages/IPython/core/formatters.py</span> in <span class="ni">__call__</span><span class="nt">(self, obj)</span>
 <span class="g g-Whitespace">    </span><span class="mi">339</span>                 <span class="k">pass</span>
 <span class="g g-Whitespace">    </span><span class="mi">340</span>             <span class="k">else</span><span class="p">:</span>
 <span class="ne">--&gt; </span><span class="mi">341</span>                 <span class="k">return</span> <span class="n">printer</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span>
 <span class="g g-Whitespace">    </span><span class="mi">342</span>             <span class="c1"># Finally look for special method names</span>
 <span class="g g-Whitespace">    </span><span class="mi">343</span>             <span class="n">method</span> <span class="o">=</span> <span class="n">get_real_method</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">print_method</span><span class="p">)</span>
 
-<span class="nn">/usr/share/miniconda/envs/coast/lib/python3.8/site-packages/IPython/core/pylabtools.py</span> in <span class="ni">&lt;lambda&gt;</span><span class="nt">(fig)</span>
+<span class="nn">/usr/share/miniconda/envs/coast/lib/python3.6/site-packages/IPython/core/pylabtools.py</span> in <span class="ni">&lt;lambda&gt;</span><span class="nt">(fig)</span>
 <span class="g g-Whitespace">    </span><span class="mi">246</span> 
 <span class="g g-Whitespace">    </span><span class="mi">247</span>     <span class="k">if</span> <span class="s1">&#39;png&#39;</span> <span class="ow">in</span> <span class="n">formats</span><span class="p">:</span>
 <span class="ne">--&gt; </span><span class="mi">248</span>         <span class="n">png_formatter</span><span class="o">.</span><span class="n">for_type</span><span class="p">(</span><span class="n">Figure</span><span class="p">,</span> <span class="k">lambda</span> <span class="n">fig</span><span class="p">:</span> <span class="n">print_figure</span><span class="p">(</span><span class="n">fig</span><span class="p">,</span> <span class="s1">&#39;png&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">))</span>
 <span class="g g-Whitespace">    </span><span class="mi">249</span>     <span class="k">if</span> <span class="s1">&#39;retina&#39;</span> <span class="ow">in</span> <span class="n">formats</span> <span class="ow">or</span> <span class="s1">&#39;png2x&#39;</span> <span class="ow">in</span> <span class="n">formats</span><span class="p">:</span>
 <span class="g g-Whitespace">    </span><span class="mi">250</span>         <span class="n">png_formatter</span><span class="o">.</span><span class="n">for_type</span><span class="p">(</span><span class="n">Figure</span><span class="p">,</span> <span class="k">lambda</span> <span class="n">fig</span><span class="p">:</span> <span class="n">retina_figure</span><span class="p">(</span><span class="n">fig</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">))</span>
 
-<span class="nn">/usr/share/miniconda/envs/coast/lib/python3.8/site-packages/IPython/core/pylabtools.py</span> in <span class="ni">print_figure</span><span class="nt">(fig, fmt, bbox_inches, **kwargs)</span>
+<span class="nn">/usr/share/miniconda/envs/coast/lib/python3.6/site-packages/IPython/core/pylabtools.py</span> in <span class="ni">print_figure</span><span class="nt">(fig, fmt, bbox_inches, **kwargs)</span>
 <span class="g g-Whitespace">    </span><span class="mi">130</span>         <span class="n">FigureCanvasBase</span><span class="p">(</span><span class="n">fig</span><span class="p">)</span>
 <span class="g g-Whitespace">    </span><span class="mi">131</span> 
 <span class="ne">--&gt; </span><span class="mi">132</span>     <span class="n">fig</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">print_figure</span><span class="p">(</span><span class="n">bytes_io</span><span class="p">,</span> <span class="o">**</span><span class="n">kw</span><span class="p">)</span>
 <span class="g g-Whitespace">    </span><span class="mi">133</span>     <span class="n">data</span> <span class="o">=</span> <span class="n">bytes_io</span><span class="o">.</span><span class="n">getvalue</span><span class="p">()</span>
 <span class="g g-Whitespace">    </span><span class="mi">134</span>     <span class="k">if</span> <span class="n">fmt</span> <span class="o">==</span> <span class="s1">&#39;svg&#39;</span><span class="p">:</span>
 
-<span class="nn">/usr/share/miniconda/envs/coast/lib/python3.8/site-packages/matplotlib/backend_bases.py</span> in <span class="ni">print_figure</span><span class="nt">(self, filename, dpi, facecolor, edgecolor, orientation, format, bbox_inches, pad_inches, bbox_extra_artists, backend, **kwargs)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2193</span>                         <span class="bp">self</span><span class="o">.</span><span class="n">figure</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">renderer</span><span class="p">)</span>
+<span class="nn">/usr/share/miniconda/envs/coast/lib/python3.6/site-packages/matplotlib/backend_bases.py</span> in <span class="ni">print_figure</span><span class="nt">(self, filename, dpi, facecolor, edgecolor, orientation, format, bbox_inches, pad_inches, bbox_extra_artists, backend, **kwargs)</span>
 <span class="g g-Whitespace">   </span><span class="mi">2194</span> 
-<span class="ne">-&gt; </span><span class="mi">2195</span>                     <span class="n">bbox_inches</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">figure</span><span class="o">.</span><span class="n">get_tightbbox</span><span class="p">(</span>
-<span class="g g-Whitespace">   </span><span class="mi">2196</span>                         <span class="n">renderer</span><span class="p">,</span> <span class="n">bbox_extra_artists</span><span class="o">=</span><span class="n">bbox_extra_artists</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2195</span>                     <span class="n">bbox_inches</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">figure</span><span class="o">.</span><span class="n">get_tightbbox</span><span class="p">(</span>
+<span class="ne">-&gt; </span><span class="mi">2196</span>                         <span class="n">renderer</span><span class="p">,</span> <span class="n">bbox_extra_artists</span><span class="o">=</span><span class="n">bbox_extra_artists</span><span class="p">)</span>
 <span class="g g-Whitespace">   </span><span class="mi">2197</span>                     <span class="k">if</span> <span class="n">pad_inches</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">2198</span>                         <span class="n">pad_inches</span> <span class="o">=</span> <span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;savefig.pad_inches&#39;</span><span class="p">]</span>
 
-<span class="nn">/usr/share/miniconda/envs/coast/lib/python3.8/site-packages/matplotlib/figure.py</span> in <span class="ni">get_tightbbox</span><span class="nt">(self, renderer, bbox_extra_artists)</span>
+<span class="nn">/usr/share/miniconda/envs/coast/lib/python3.6/site-packages/matplotlib/figure.py</span> in <span class="ni">get_tightbbox</span><span class="nt">(self, renderer, bbox_extra_artists)</span>
 <span class="g g-Whitespace">   </span><span class="mi">2504</span> 
 <span class="g g-Whitespace">   </span><span class="mi">2505</span>         <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">artists</span><span class="p">:</span>
 <span class="ne">-&gt; </span><span class="mi">2506</span>             <span class="n">bbox</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="n">get_tightbbox</span><span class="p">(</span><span class="n">renderer</span><span class="p">)</span>
 <span class="g g-Whitespace">   </span><span class="mi">2507</span>             <span class="k">if</span> <span class="n">bbox</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="p">(</span><span class="n">bbox</span><span class="o">.</span><span class="n">width</span> <span class="o">!=</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">bbox</span><span class="o">.</span><span class="n">height</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">):</span>
 <span class="g g-Whitespace">   </span><span class="mi">2508</span>                 <span class="n">bb</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">bbox</span><span class="p">)</span>
 
-<span class="nn">/usr/share/miniconda/envs/coast/lib/python3.8/site-packages/matplotlib/artist.py</span> in <span class="ni">get_tightbbox</span><span class="nt">(self, renderer)</span>
-<span class="g g-Whitespace">    </span><span class="mi">276</span>             <span class="n">The</span> <span class="n">enclosing</span> <span class="n">bounding</span> <span class="n">box</span> <span class="p">(</span><span class="ow">in</span> <span class="n">figure</span> <span class="n">pixel</span> <span class="n">coordinates</span><span class="p">)</span><span class="o">.</span>
-<span class="g g-Whitespace">    </span><span class="mi">277</span>         <span class="sd">&quot;&quot;&quot;</span>
-<span class="ne">--&gt; </span><span class="mi">278</span><span class="sd">         bbox = self.get_window_extent(renderer)</span>
-<span class="g g-Whitespace">    </span><span class="mi">279</span><span class="sd">         if self.get_clip_on():</span>
-<span class="g g-Whitespace">    </span><span class="mi">280</span><span class="sd">             clip_box = self.get_clip_box()</span>
+<span class="nn">/usr/share/miniconda/envs/coast/lib/python3.6/site-packages/matplotlib/artist.py</span> in <span class="ni">get_tightbbox</span><span class="nt">(self, renderer)</span>
+<span class="g g-Whitespace">    </span><span class="mi">284</span>             <span class="k">if</span> <span class="n">clip_path</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">bbox</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">285</span>                 <span class="n">clip_path</span> <span class="o">=</span> <span class="n">clip_path</span><span class="o">.</span><span class="n">get_fully_transformed_path</span><span class="p">()</span>
+<span class="ne">--&gt; </span><span class="mi">286</span>                 <span class="n">bbox</span> <span class="o">=</span> <span class="n">Bbox</span><span class="o">.</span><span class="n">intersection</span><span class="p">(</span><span class="n">bbox</span><span class="p">,</span> <span class="n">clip_path</span><span class="o">.</span><span class="n">get_extents</span><span class="p">())</span>
+<span class="g g-Whitespace">    </span><span class="mi">287</span>         <span class="k">return</span> <span class="n">bbox</span>
+<span class="g g-Whitespace">    </span><span class="mi">288</span> 
 
-<span class="nn">/usr/share/miniconda/envs/coast/lib/python3.8/site-packages/matplotlib/patches.py</span> in <span class="ni">get_window_extent</span><span class="nt">(self, renderer)</span>
-<span class="g g-Whitespace">    </span><span class="mi">596</span><span class="sd"> </span>
-<span class="g g-Whitespace">    </span><span class="mi">597</span><span class="sd">     def get_window_extent(self, renderer=None):</span>
-<span class="ne">--&gt; </span><span class="mi">598</span><span class="sd">         return self.get_path().get_extents(self.get_transform())</span>
-<span class="g g-Whitespace">    </span><span class="mi">599</span><span class="sd"> </span>
-<span class="g g-Whitespace">    </span><span class="mi">600</span><span class="sd">     def _convert_xy_units(self, xy):</span>
+<span class="nn">/usr/share/miniconda/envs/coast/lib/python3.6/site-packages/matplotlib/path.py</span> in <span class="ni">get_extents</span><span class="nt">(self, transform, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">597</span>             <span class="k">for</span> <span class="n">curve</span><span class="p">,</span> <span class="n">code</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">iter_bezier</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">598</span>                 <span class="c1"># places where the derivative is zero can be extrema</span>
+<span class="ne">--&gt; </span><span class="mi">599</span>                 <span class="n">_</span><span class="p">,</span> <span class="n">dzeros</span> <span class="o">=</span> <span class="n">curve</span><span class="o">.</span><span class="n">axis_aligned_extrema</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">600</span>                 <span class="c1"># as can the ends of the curve</span>
+<span class="g g-Whitespace">    </span><span class="mi">601</span>                 <span class="n">xys</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">curve</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="o">*</span><span class="n">dzeros</span><span class="p">,</span> <span class="mi">1</span><span class="p">]))</span>
 
-<span class="nn">/usr/share/miniconda/envs/coast/lib/python3.8/site-packages/matplotlib/path.py</span> in <span class="ni">get_extents</span><span class="nt">(self, transform, **kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">597</span><span class="sd">             for curve, code in self.iter_bezier(**kwargs):</span>
-<span class="g g-Whitespace">    </span><span class="mi">598</span><span class="sd">                 # places where the derivative is zero can be extrema</span>
-<span class="ne">--&gt; </span><span class="mi">599</span><span class="sd">                 _, dzeros = curve.axis_aligned_extrema()</span>
-<span class="g g-Whitespace">    </span><span class="mi">600</span><span class="sd">                 # as can the ends of the curve</span>
-<span class="g g-Whitespace">    </span><span class="mi">601</span><span class="sd">                 xys.append(curve([0, *dzeros, 1]))</span>
-
-<span class="nn">/usr/share/miniconda/envs/coast/lib/python3.8/site-packages/matplotlib/bezier.py</span> in <span class="ni">axis_aligned_extrema</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">    </span><span class="mi">296</span><span class="sd">         roots = []</span>
-<span class="g g-Whitespace">    </span><span class="mi">297</span><span class="sd">         for i, pi in enumerate(dCj.T):</span>
-<span class="ne">--&gt; </span><span class="mi">298</span><span class="sd">             r = np.roots(pi[::-1])</span>
-<span class="g g-Whitespace">    </span><span class="mi">299</span><span class="sd">             roots.append(r)</span>
-<span class="g g-Whitespace">    </span><span class="mi">300</span><span class="sd">             dims.append(np.full_like(r, i))</span>
+<span class="nn">/usr/share/miniconda/envs/coast/lib/python3.6/site-packages/matplotlib/bezier.py</span> in <span class="ni">axis_aligned_extrema</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">296</span>         <span class="n">roots</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="g g-Whitespace">    </span><span class="mi">297</span>         <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">pi</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">dCj</span><span class="o">.</span><span class="n">T</span><span class="p">):</span>
+<span class="ne">--&gt; </span><span class="mi">298</span>             <span class="n">r</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">roots</span><span class="p">(</span><span class="n">pi</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+<span class="g g-Whitespace">    </span><span class="mi">299</span>             <span class="n">roots</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">300</span>             <span class="n">dims</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">full_like</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">i</span><span class="p">))</span>
 
 <span class="nn">&lt;__array_function__ internals&gt;</span> in <span class="ni">roots</span><span class="nt">(*args, **kwargs)</span>
 
-<span class="nn">/usr/share/miniconda/envs/coast/lib/python3.8/site-packages/numpy/lib/polynomial.py</span> in <span class="ni">roots</span><span class="nt">(p)</span>
-<span class="g g-Whitespace">    </span><span class="mi">170</span><span class="sd"> </span>
-<span class="g g-Whitespace">    </span><span class="mi">171</span><span class="sd"> </span>
-<span class="ne">--&gt; </span><span class="mi">172</span><span class="sd"> @array_function_dispatch(_roots_dispatcher)</span>
-<span class="g g-Whitespace">    </span><span class="mi">173</span><span class="sd"> def roots(p):</span>
-<span class="g g-Whitespace">    </span><span class="mi">174</span><span class="sd">     &quot;&quot;&quot;</span>
+<span class="nn">/usr/share/miniconda/envs/coast/lib/python3.6/site-packages/numpy/lib/polynomial.py</span> in <span class="ni">roots</span><span class="nt">(p)</span>
+<span class="g g-Whitespace">    </span><span class="mi">241</span>         <span class="n">A</span> <span class="o">=</span> <span class="n">diag</span><span class="p">(</span><span class="n">NX</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="n">N</span><span class="o">-</span><span class="mi">2</span><span class="p">,),</span> <span class="n">p</span><span class="o">.</span><span class="n">dtype</span><span class="p">),</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">242</span>         <span class="n">A</span><span class="p">[</span><span class="mi">0</span><span class="p">,:]</span> <span class="o">=</span> <span class="o">-</span><span class="n">p</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">/</span> <span class="n">p</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="ne">--&gt; </span><span class="mi">243</span>         <span class="n">roots</span> <span class="o">=</span> <span class="n">eigvals</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">244</span>     <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">245</span>         <span class="n">roots</span> <span class="o">=</span> <span class="n">NX</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>
+
+<span class="nn">&lt;__array_function__ internals&gt;</span> in <span class="ni">eigvals</span><span class="nt">(*args, **kwargs)</span>
+
+<span class="nn">/usr/share/miniconda/envs/coast/lib/python3.6/site-packages/numpy/linalg/linalg.py</span> in <span class="ni">eigvals</span><span class="nt">(a)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1067</span>         <span class="n">_raise_linalgerror_eigenvalues_nonconvergence</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1068</span>     <span class="n">signature</span> <span class="o">=</span> <span class="s1">&#39;D-&gt;D&#39;</span> <span class="k">if</span> <span class="n">isComplexType</span><span class="p">(</span><span class="n">t</span><span class="p">)</span> <span class="k">else</span> <span class="s1">&#39;d-&gt;D&#39;</span>
+<span class="ne">-&gt; </span><span class="mi">1069</span>     <span class="n">w</span> <span class="o">=</span> <span class="n">_umath_linalg</span><span class="o">.</span><span class="n">eigvals</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">signature</span><span class="o">=</span><span class="n">signature</span><span class="p">,</span> <span class="n">extobj</span><span class="o">=</span><span class="n">extobj</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1070</span> 
+<span class="g g-Whitespace">   </span><span class="mi">1071</span>     <span class="k">if</span> <span class="ow">not</span> <span class="n">isComplexType</span><span class="p">(</span><span class="n">t</span><span class="p">):</span>
 
 <span class="ne">KeyboardInterrupt</span>: 
 </pre></div>
@@ -878,7 +917,7 @@
         <div class='prev-next-bottom'>
             
     <a class='left-prev' id="prev-link" href="cycloneyasi.html" title="previous page">Cyclone track</a>
-    <a class='right-next' id="next-link" href="../coastevol.html" title="next page">Quantifying coastal changes</a>
+    <a class='right-next' id="next-link" href="../coastevol/notes.html" title="next page">Quantifying coastal changes notes</a>
 
         </div>
         

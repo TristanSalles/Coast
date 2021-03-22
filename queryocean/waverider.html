@@ -26,7 +26,7 @@
 
     
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/sphinx-book-theme.c441f2ba0852f4cabcb80105e3a46ae6.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.e7340bb3dbd8dde6db86f25597f54a1b.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
@@ -90,7 +90,7 @@
 <nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
     <p class="caption collapsible-parent">
  <span class="caption-text">
-  week 1
+  Part 1
  </span>
 </p>
 <ul class="current nav sidenav_l1">
@@ -136,7 +136,7 @@
 </ul>
 <p class="caption collapsible-parent">
  <span class="caption-text">
-  week 2
+  Part 2
  </span>
 </p>
 <ul class="nav sidenav_l1">
@@ -172,19 +172,58 @@
 </ul>
 <p class="caption collapsible-parent">
  <span class="caption-text">
-  week 3
+  Part 3
  </span>
 </p>
 <ul class="nav sidenav_l1">
- <li class="toctree-l1">
-  <a class="reference internal" href="../coastevol.html">
-   Quantifying coastal changes
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../coastevol/notes.html">
+   Quantifying coastal changes notes
   </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../coastevol/waverunup.html">
+     Runup models
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../coastevol/runupdataset.html">
+     Runup dataset
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../coastevol/pybeach.html">
+     pybeach
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../coastevol/sedtransport.html">
+     Simple wave sediment modelling
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../coastevol/inshorewaves.html">
+     Inshore wave data Narrabeen
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../coastevol/selectprofiles.html">
+     Narrabeen beach profile adjustment
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../coastevol/grainsettling.html">
+     Exploring grain settling
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
  </li>
 </ul>
 <p class="caption collapsible-parent">
  <span class="caption-text">
-  week 4
+  Part 4
  </span>
 </p>
 <ul class="nav sidenav_l1">
@@ -412,8 +451,9 @@
 <span class="kn">import</span> <span class="nn">datetime</span> <span class="k">as</span> <span class="nn">dt</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">cftime</span>
 
-<span class="kn">from</span> <span class="nn">pylab</span> <span class="kn">import</span> <span class="n">rcParams</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">import</span> <span class="nn">warnings</span>
 <span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
 </pre></div>
@@ -447,7 +487,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dict_keys([&#39;TIME&#39;, &#39;TIMESERIES&#39;, &#39;LATITUDE&#39;, &#39;LONGITUDE&#39;, &#39;WHTH&#39;, &#39;WMSH&#39;, &#39;HRMS&#39;, &#39;WHTE&#39;, &#39;WMXH&#39;, &#39;TCREST&#39;, &#39;WPMH&#39;, &#39;WPTH&#39;, &#39;YRMS&#39;, &#39;WPPE&#39;, &#39;TP2&#39;, &#39;M0&#39;, &#39;WPDI&#39;])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>odict_keys([&#39;TIME&#39;, &#39;TIMESERIES&#39;, &#39;LATITUDE&#39;, &#39;LONGITUDE&#39;, &#39;WHTH&#39;, &#39;WMSH&#39;, &#39;HRMS&#39;, &#39;WHTE&#39;, &#39;WMXH&#39;, &#39;TCREST&#39;, &#39;WPMH&#39;, &#39;WPTH&#39;, &#39;YRMS&#39;, &#39;WPPE&#39;, &#39;TP2&#39;, &#39;M0&#39;, &#39;WPDI&#39;])
 </pre></div>
 </div>
 </div>
@@ -479,6 +519,16 @@ filling on, default _FillValue of 9.969209968386869e+36 used
 <div class="section" id="find-out-time-interval-record">
 <h2>Find out time interval record<a class="headerlink" href="#find-out-time-interval-record" title="Permalink to this headline">¶</a></h2>
 <p>Get the time extension of the gathered data…</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">units</span> <span class="o">=</span> <span class="n">nc_data</span><span class="o">.</span><span class="n">variables</span><span class="p">[</span><span class="s1">&#39;TIME&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">units</span>
+<span class="n">calendar</span> <span class="o">=</span> <span class="n">nc_data</span><span class="o">.</span><span class="n">variables</span><span class="p">[</span><span class="s1">&#39;TIME&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">calendar</span>
+
+<span class="n">times</span> <span class="o">=</span> <span class="n">netCDF4</span><span class="o">.</span><span class="n">num2date</span><span class="p">(</span><span class="n">nc_data</span><span class="o">.</span><span class="n">variables</span><span class="p">[</span><span class="s1">&#39;TIME&#39;</span><span class="p">][:],</span> <span class="n">units</span><span class="o">=</span><span class="n">units</span><span class="p">,</span> <span class="n">calendar</span><span class="o">=</span><span class="n">calendar</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">start</span> <span class="o">=</span> <span class="n">dt</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">1985</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
@@ -582,7 +632,8 @@ filling on, default _FillValue of 9.969209968386869e+36 used
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">times</span> <span class="o">=</span> <span class="n">nc_data</span><span class="o">.</span><span class="n">variables</span><span class="p">[</span><span class="s1">&#39;TIME&#39;</span><span class="p">]</span>
-<span class="n">jd_data</span> <span class="o">=</span> <span class="n">netCDF4</span><span class="o">.</span><span class="n">num2date</span><span class="p">(</span><span class="n">times</span><span class="p">[:],</span><span class="n">times</span><span class="o">.</span><span class="n">units</span><span class="p">)</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
+<span class="n">jd_data</span> <span class="o">=</span> <span class="n">netCDF4</span><span class="o">.</span><span class="n">num2date</span><span class="p">(</span><span class="n">times</span><span class="p">[:],</span><span class="n">times</span><span class="o">.</span><span class="n">units</span><span class="p">,</span> <span class="n">only_use_cftime_datetimes</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> 
+                           <span class="n">only_use_python_datetimes</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
 <span class="n">hm_data</span> <span class="o">=</span> <span class="n">nc_data</span><span class="o">.</span><span class="n">variables</span><span class="p">[</span><span class="s1">&#39;HRMS&#39;</span><span class="p">][:]</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
 <span class="c1">#T_data = ???</span>
 </pre></div>
@@ -590,10 +641,10 @@ filling on, default _FillValue of 9.969209968386869e+36 used
 </div>
 </div>
 <p>Now plot the exported dataset</p>
-<div class="cell tag_hide-output docutils container">
+<div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">MyDateFormatter</span> <span class="o">=</span> <span class="n">DateFormatter</span><span class="p">(</span><span class="s1">&#39;%Y-%b-</span><span class="si">%d</span><span class="s1">&#39;</span><span class="p">)</span>
-<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span><span class="mi">10</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">80</span><span class="p">)</span> 
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">6</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">80</span><span class="p">)</span> 
 <span class="n">ax1</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">)</span>
 
 <span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">jd_data</span><span class="p">[</span><span class="n">itime</span><span class="p">:</span><span class="n">itime2</span><span class="p">],</span><span class="n">hm_data</span><span class="p">[</span><span class="n">itime</span><span class="p">:</span><span class="n">itime2</span><span class="p">],</span><span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> 
@@ -608,75 +659,10 @@ filling on, default _FillValue of 9.969209968386869e+36 used
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">10</span><span class="o">-</span><span class="n">e66477ddd93b</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">ax1</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> 
-<span class="ne">----&gt; </span><span class="mi">5</span> <span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">jd_data</span><span class="p">[</span><span class="n">itime</span><span class="p">:</span><span class="n">itime2</span><span class="p">],</span><span class="n">hm_data</span><span class="p">[</span><span class="n">itime</span><span class="p">:</span><span class="n">itime2</span><span class="p">],</span><span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="n">ax1</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_major_locator</span><span class="p">(</span><span class="n">WeekdayLocator</span><span class="p">(</span><span class="n">byweekday</span><span class="o">=</span><span class="n">MO</span><span class="p">,</span><span class="n">interval</span><span class="o">=</span><span class="mi">12</span><span class="p">))</span>
-<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="n">ax1</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_major_formatter</span><span class="p">(</span><span class="n">MyDateFormatter</span><span class="p">)</span>
-
-<span class="nn">/usr/share/miniconda/envs/coast/lib/python3.8/site-packages/matplotlib/axes/_axes.py</span> in <span class="ni">plot</span><span class="nt">(self, scalex, scaley, data, *args, **kwargs)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1743</span>         <span class="n">lines</span> <span class="o">=</span> <span class="p">[</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">_get_lines</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)]</span>
-<span class="g g-Whitespace">   </span><span class="mi">1744</span>         <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">lines</span><span class="p">:</span>
-<span class="ne">-&gt; </span><span class="mi">1745</span>             <span class="bp">self</span><span class="o">.</span><span class="n">add_line</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1746</span>         <span class="bp">self</span><span class="o">.</span><span class="n">_request_autoscale_view</span><span class="p">(</span><span class="n">scalex</span><span class="o">=</span><span class="n">scalex</span><span class="p">,</span> <span class="n">scaley</span><span class="o">=</span><span class="n">scaley</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1747</span>         <span class="k">return</span> <span class="n">lines</span>
-
-<span class="nn">/usr/share/miniconda/envs/coast/lib/python3.8/site-packages/matplotlib/axes/_base.py</span> in <span class="ni">add_line</span><span class="nt">(self, line)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1962</span>             <span class="n">line</span><span class="o">.</span><span class="n">set_clip_path</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">patch</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1963</span> 
-<span class="ne">-&gt; </span><span class="mi">1964</span>         <span class="bp">self</span><span class="o">.</span><span class="n">_update_line_limits</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1965</span>         <span class="k">if</span> <span class="ow">not</span> <span class="n">line</span><span class="o">.</span><span class="n">get_label</span><span class="p">():</span>
-<span class="g g-Whitespace">   </span><span class="mi">1966</span>             <span class="n">line</span><span class="o">.</span><span class="n">set_label</span><span class="p">(</span><span class="s1">&#39;_line</span><span class="si">%d</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">lines</span><span class="p">))</span>
-
-<span class="nn">/usr/share/miniconda/envs/coast/lib/python3.8/site-packages/matplotlib/axes/_base.py</span> in <span class="ni">_update_line_limits</span><span class="nt">(self, line)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1984</span>         <span class="n">Figures</span> <span class="n">out</span> <span class="n">the</span> <span class="n">data</span> <span class="n">limit</span> <span class="n">of</span> <span class="n">the</span> <span class="n">given</span> <span class="n">line</span><span class="p">,</span> <span class="n">updating</span> <span class="bp">self</span><span class="o">.</span><span class="n">dataLim</span><span class="o">.</span>
-<span class="g g-Whitespace">   </span><span class="mi">1985</span>         <span class="sd">&quot;&quot;&quot;</span>
-<span class="ne">-&gt; </span><span class="mi">1986</span><span class="sd">         path = line.get_path()</span>
-<span class="g g-Whitespace">   </span><span class="mi">1987</span><span class="sd">         if path.vertices.size == 0:</span>
-<span class="g g-Whitespace">   </span><span class="mi">1988</span><span class="sd">             return</span>
-
-<span class="nn">/usr/share/miniconda/envs/coast/lib/python3.8/site-packages/matplotlib/lines.py</span> in <span class="ni">get_path</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1009</span><span class="sd">         &quot;&quot;&quot;</span>
-<span class="g g-Whitespace">   </span><span class="mi">1010</span>         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_invalidy</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">_invalidx</span><span class="p">:</span>
-<span class="ne">-&gt; </span><span class="mi">1011</span>             <span class="bp">self</span><span class="o">.</span><span class="n">recache</span><span class="p">()</span>
-<span class="g g-Whitespace">   </span><span class="mi">1012</span>         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_path</span>
-<span class="g g-Whitespace">   </span><span class="mi">1013</span> 
-
-<span class="nn">/usr/share/miniconda/envs/coast/lib/python3.8/site-packages/matplotlib/lines.py</span> in <span class="ni">recache</span><span class="nt">(self, always)</span>
-<span class="g g-Whitespace">    </span><span class="mi">651</span>         <span class="k">if</span> <span class="n">always</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">_invalidx</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">652</span>             <span class="n">xconv</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">convert_xunits</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_xorig</span><span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">653</span>             <span class="n">x</span> <span class="o">=</span> <span class="n">_to_unmasked_float_array</span><span class="p">(</span><span class="n">xconv</span><span class="p">)</span><span class="o">.</span><span class="n">ravel</span><span class="p">()</span>
-<span class="g g-Whitespace">    </span><span class="mi">654</span>         <span class="k">else</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">655</span>             <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_x</span>
-
-<span class="nn">/usr/share/miniconda/envs/coast/lib/python3.8/site-packages/matplotlib/cbook/__init__.py</span> in <span class="ni">_to_unmasked_float_array</span><span class="nt">(x)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1285</span>     <span class="sd">&quot;&quot;&quot;</span>
-<span class="g g-Whitespace">   </span><span class="mi">1286</span><span class="sd">     if hasattr(x, &#39;mask&#39;):</span>
-<span class="ne">-&gt; </span><span class="mi">1287</span><span class="sd">         return np.ma.asarray(x, float).filled(np.nan)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1288</span><span class="sd">     else:</span>
-<span class="g g-Whitespace">   </span><span class="mi">1289</span><span class="sd">         return np.asarray(x, float)</span>
-
-<span class="nn">/usr/share/miniconda/envs/coast/lib/python3.8/site-packages/numpy/ma/core.py</span> in <span class="ni">asarray</span><span class="nt">(a, dtype, order)</span>
-<span class="g g-Whitespace">   </span><span class="mi">7947</span><span class="sd">     &quot;&quot;&quot;</span>
-<span class="g g-Whitespace">   </span><span class="mi">7948</span>     <span class="n">order</span> <span class="o">=</span> <span class="n">order</span> <span class="ow">or</span> <span class="s1">&#39;C&#39;</span>
-<span class="ne">-&gt; </span><span class="mi">7949</span>     <span class="k">return</span> <span class="n">masked_array</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">,</span> <span class="n">copy</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">keep_mask</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">7950</span>                         <span class="n">subok</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="n">order</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">7951</span> 
-
-<span class="nn">/usr/share/miniconda/envs/coast/lib/python3.8/site-packages/numpy/ma/core.py</span> in <span class="ni">__new__</span><span class="nt">(cls, data, mask, dtype, copy, subok, ndmin, fill_value, keep_mask, hard_mask, shrink, order)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2823</span>         <span class="s2">&quot;&quot;&quot;</span>
-<span class="g g-Whitespace">   </span><span class="mi">2824</span><span class="s2">         # Process data.</span>
-<span class="ne">-&gt; </span><span class="mi">2825</span><span class="s2">         _data = np.array(data, dtype=dtype, copy=copy,</span>
-<span class="g g-Whitespace">   </span><span class="mi">2826</span><span class="s2">                          order=order, subok=True, ndmin=ndmin)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2827</span><span class="s2">         _baseclass = getattr(data, &#39;_baseclass&#39;, type(_data))</span>
-
-<span class="ne">TypeError</span>: float() argument must be a string or a number, not &#39;cftime._cftime.DatetimeGregorian&#39;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7facc1df8b38&gt;
 </pre></div>
 </div>
-<img alt="../_images/waverider_17_1.png" src="../_images/waverider_17_1.png" />
+<img alt="../_images/waverider_18_1.png" src="../_images/waverider_18_1.png" />
 </div>
 </div>
 </div>
@@ -713,7 +699,7 @@ storm_period = ???
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span>  File &quot;&lt;ipython-input-12-fe94d0bdf1fd&gt;&quot;, line 1
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span>  File &quot;&lt;ipython-input-13-fe94d0bdf1fd&gt;&quot;, line 1
     storm_time = ???
                  ^
 SyntaxError: invalid syntax
@@ -742,7 +728,7 @@ SyntaxError: invalid syntax
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">13</span><span class="o">-</span><span class="n">ded4484b3192</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">14</span><span class="o">-</span><span class="n">ded4484b3192</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">ax1</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">)</span>
 <span class="g g-Whitespace">      </span><span class="mi">4</span> 
 <span class="ne">----&gt; </span><span class="mi">5</span> <span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">storm_time</span><span class="p">,</span><span class="n">storm_hrms</span><span class="p">,</span><span class="n">linewidth</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
@@ -752,7 +738,7 @@ SyntaxError: invalid syntax
 <span class="ne">NameError</span>: name &#39;storm_time&#39; is not defined
 </pre></div>
 </div>
-<img alt="../_images/waverider_22_1.png" src="../_images/waverider_22_1.png" />
+<img alt="../_images/waverider_23_1.png" src="../_images/waverider_23_1.png" />
 </div>
 </div>
 </div>
@@ -791,7 +777,7 @@ def wave_energy(rho,g,h):
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span>  File &quot;&lt;ipython-input-14-8bef0c28790a&gt;&quot;, line 2
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span>  File &quot;&lt;ipython-input-15-8bef0c28790a&gt;&quot;, line 2
     power = ???
             ^
 SyntaxError: invalid syntax
@@ -807,7 +793,7 @@ storm_energy = wave_energy(???)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span>  File &quot;&lt;ipython-input-15-a325881b658e&gt;&quot;, line 1
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span>  File &quot;&lt;ipython-input-16-a325881b658e&gt;&quot;, line 1
     storm_power = wave_power(???)
                              ^
 SyntaxError: invalid syntax
@@ -820,71 +806,29 @@ SyntaxError: invalid syntax
 <h3>Plot the data over the storm duration<a class="headerlink" href="#plot-the-data-over-the-storm-duration" title="Permalink to this headline">¶</a></h3>
 <div class="cell tag_hide-output docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dates</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">data_df</span><span class="p">[</span><span class="s1">&#39;TIME&#39;</span><span class="p">],</span> <span class="nb">format</span> <span class="o">=</span> <span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1">T%H:%M:%SZ&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>MyDateFormatter = DateFormatter(&#39;%b-%d %H:%M&#39;)
+fig = plt.figure(figsize=(10,10), dpi=80) 
+ax1 = fig.add_subplot(111)
+
+ax1.plot(???,???,linewidth=4) 
+ax1.xaxis.set_major_locator(HourLocator(byhour=range(24),interval=6))
+ax1.xaxis.set_major_formatter(MyDateFormatter)
+ax1.grid(True)
+setp(gca().get_xticklabels(), rotation=45, horizontalalignment=&#39;right&#39;)
+plt.title(&#39;Offshore Sydney Buoy Data for April 2015 storm&#39;)
+ax1.set_ylabel(&#39;meters&#39;)
+names = [&#39;HRMS&#39;]
+ax1.legend(names,loc=&#39;upper right&#39;)
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">16</span><span class="o">-</span><span class="mi">7</span><span class="n">cd780b92450</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">dates</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">data_df</span><span class="p">[</span><span class="s1">&#39;TIME&#39;</span><span class="p">],</span> <span class="nb">format</span> <span class="o">=</span> <span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1">T%H:%M:%SZ&#39;</span><span class="p">)</span>
-
-<span class="ne">NameError</span>: name &#39;data_df&#39; is not defined
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span>  File &quot;&lt;ipython-input-17-e71f2fa9da41&gt;&quot;, line 5
+    ax1.plot(???,???,linewidth=4)
+             ^
+SyntaxError: invalid syntax
 </pre></div>
 </div>
-</div>
-</div>
-<div class="cell tag_hide-output docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_df</span><span class="p">[</span><span class="s1">&#39;WHTH&#39;</span><span class="p">]</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">17</span><span class="o">-</span><span class="mi">4</span><span class="n">cca52094a3f</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">data_df</span><span class="p">[</span><span class="s1">&#39;WHTH&#39;</span><span class="p">]</span>
-
-<span class="ne">NameError</span>: name &#39;data_df&#39; is not defined
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell tag_hide-output docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.dates</span> <span class="k">as</span> <span class="nn">mdates</span>
-<span class="n">MyDateFormatter</span> <span class="o">=</span> <span class="n">DateFormatter</span><span class="p">(</span><span class="s1">&#39;%Y-%b-</span><span class="si">%d</span><span class="s1">&#39;</span><span class="p">)</span>
-<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span><span class="mi">10</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">160</span><span class="p">)</span> 
-<span class="n">ax1</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">)</span>
-<span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">dates</span><span class="p">,</span><span class="n">data_df</span><span class="p">[</span><span class="s1">&#39;WHTH&#39;</span><span class="p">],</span><span class="n">linewidth</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span> 
-<span class="n">locator</span> <span class="o">=</span> <span class="n">mdates</span><span class="o">.</span><span class="n">AutoDateLocator</span><span class="p">()</span>
-<span class="n">ax1</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_major_locator</span><span class="p">(</span><span class="n">locator</span><span class="p">)</span>
-<span class="n">ax1</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_major_formatter</span><span class="p">(</span><span class="n">MyDateFormatter</span><span class="p">)</span>
-<span class="n">ax1</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">setp</span><span class="p">(</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">get_xticklabels</span><span class="p">(),</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">45</span><span class="p">,</span> <span class="n">horizontalalignment</span><span class="o">=</span><span class="s1">&#39;right&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;IMOS Offshore Sydney Buoy Data since 2015&#39;</span><span class="p">)</span>
-<span class="n">ax1</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;meters&#39;</span><span class="p">)</span>
-
-<span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">18</span><span class="o">-</span><span class="mi">1</span><span class="n">d239550b86d</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span><span class="mi">10</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">160</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">ax1</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">)</span>
-<span class="ne">----&gt; </span><span class="mi">5</span> <span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">dates</span><span class="p">,</span><span class="n">data_df</span><span class="p">[</span><span class="s1">&#39;WHTH&#39;</span><span class="p">],</span><span class="n">linewidth</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="n">locator</span> <span class="o">=</span> <span class="n">mdates</span><span class="o">.</span><span class="n">AutoDateLocator</span><span class="p">()</span>
-<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="n">ax1</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_major_locator</span><span class="p">(</span><span class="n">locator</span><span class="p">)</span>
-
-<span class="ne">NameError</span>: name &#39;dates&#39; is not defined
-</pre></div>
-</div>
-<img alt="../_images/waverider_29_1.png" src="../_images/waverider_29_1.png" />
 </div>
 </div>
 </div>

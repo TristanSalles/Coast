@@ -1,0 +1,938 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exploring grain settling &#8212; Coastal Processes, Environments &amp; Systems</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.e7340bb3dbd8dde6db86f25597f54a1b.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Coral reef evolution" href="../reefmodel.html" />
+    <link rel="prev" title="Narrabeen beach profile adjustment" href="selectprofiles.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Coastal Processes, Environments & Systems</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <p class="caption collapsible-parent">
+ <span class="caption-text">
+  Part 1
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../queryocean/notes.html">
+   Notes on ocean data query
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../pracenv/intronotebook.html">
+     Introduction to Jupyter notebook
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../queryocean/buoygoldcoast.html">
+     AODN - Wave buoys Gold Coast
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../queryocean/oceandata1.html">
+     Using the IMOS User Code Library with Python
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../queryocean/oceandata2.html">
+     IMOS Ocean Radar Data Query
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../queryocean/waverider.html">
+     Analysing historical records of wave data from IMOS
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../queryocean/oceanforecast.html">
+     Access data from Forecast Model
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Part 2
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../waveclimate/notes.html">
+   Analysing wave climate notes
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../waveclimate/tileanalysis.html">
+     Satellite tile analysis
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../waveclimate/climatevariability.html">
+     Climate variability
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../waveclimate/cycloneyasi.html">
+     Cyclone track
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../waveclimate/sar_waves.html">
+     Wave measurements from SAR
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Part 3
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1 current active collapsible-parent">
+  <a class="reference internal" href="notes.html">
+   Quantifying coastal changes notes
+  </a>
+  <ul class="current collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="waverunup.html">
+     Runup models
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="runupdataset.html">
+     Runup dataset
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="pybeach.html">
+     pybeach
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="sedtransport.html">
+     Simple wave sediment modelling
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="inshorewaves.html">
+     Inshore wave data Narrabeen
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="selectprofiles.html">
+     Narrabeen beach profile adjustment
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Exploring grain settling
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Part 4
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../reefmodel.html">
+   Coral reef evolution
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Jupyter
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../pracenv/notebooks.html">
+   Interactive notebooks
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../pracenv/environment.html">
+     Managing environments
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../pracenv/jupyter.html">
+     Jupyter notebook
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/coastevol/grainsettling.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/TristanSalles/Coast"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/TristanSalles/Coast/issues/new?title=Issue%20on%20page%20%2Fcoastevol/grainsettling.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/TristanSalles/Coast/edit/main/book/coastevol/grainsettling.ipynb"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+            <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                    data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                    title="Fullscreen mode"><i
+                        class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/TristanSalles/Coast/main?urlpath=lab/tree/book/coastevol/grainsettling.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i>
+            Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#a-name-laws-a-settling-laws">
+   <a name="laws">
+   </a>
+   Settling laws
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#stokes-law">
+     Stokes’ Law
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#turbulent-law">
+     Turbulent Law
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ferguson-church-law">
+     Ferguson &amp; Church Law
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#a-name-pylaws-a-implementation-in-python">
+   <a name="pylaws">
+   </a>
+   Implementation in Python
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#laws-performance-for-sand-sediment-classes">
+     Laws performance  for sand sediment classes
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#laws-performance-for-coarser-sediment-size">
+     Laws performance for coarser sediment size
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#log-plot">
+     Log plot
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#a-name-dimensionless-a-dimensionless-diagram">
+   <a name="dimensionless">
+   </a>
+   Dimensionless diagram
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#reynolds-number">
+     Reynolds number
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#drag-coefficient">
+     Drag coefficient
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#plotting-the-adimensional-graph">
+     Plotting the adimensional graph
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+        </nav>
+        
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="exploring-grain-settling">
+<h1>Exploring grain settling<a class="headerlink" href="#exploring-grain-settling" title="Permalink to this headline">¶</a></h1>
+<p>Grain settling is one of the most important problems in sedimentology (and therefore sedimentary geology), as neither sediment transport nor deposition can be understood and modeled without knowing what is the <strong>settling velocity</strong> of a particle of a certain grain size.</p>
+<p>Using <strong>Python</strong> we will explore the condition of validity and differences between 3 settling velocity laws:</p>
+<ol class="simple">
+<li><p>Stokes’s Law</p></li>
+<li><p>Turbulent Law</p></li>
+<li><p>Ferguson &amp; Church Law</p></li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Writing some simple Python codes and plotting settling velocity against grain size will help you to better understand these relationships through exploring them graphically. Then we will look at the advantages of using nondimensionally based curves instead of dimensional ones.</p>
+</div>
+<hr class="docutils" />
+<p><strong>Content:</strong></p>
+<ul class="simple">
+<li><p><a class="reference external" href="#laws">Settling laws</a></p></li>
+<li><p><a class="reference external" href="#pylaws">Implementation in Python</a></p></li>
+<li><p><a class="reference external" href="#dimensionless">Dimensionless diagram</a></p></li>
+</ul>
+<hr class="docutils" />
+<div class="section" id="a-name-laws-a-settling-laws">
+<h2><a name="laws"></a>  Settling laws<a class="headerlink" href="#a-name-laws-a-settling-laws" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="stokes-law">
+<h3>Stokes’ Law<a class="headerlink" href="#stokes-law" title="Permalink to this headline">¶</a></h3>
+<blockquote>Very **small grains**, when submerged in water, have a mass small enough that they reach a settling velocity before any turbulence develops. This is true for **clay- and silt-sized** particles settling in water, and for these grain size classes **Stokes' Law** can be used to calculate the settling velocity:
+<div class="math notranslate nohighlight">
+\[ w=\frac{RgD^2}{C_1\nu}\]</div>
+<p>where <span class="math notranslate nohighlight">\(R\)</span>=specific submerged gravity, <span class="math notranslate nohighlight">\(g\)</span>=gravitational acceleration, <span class="math notranslate nohighlight">\(D\)</span> is the particle diameter, <span class="math notranslate nohighlight">\(C_1\)</span> is a constant with a theoretical value of <span class="math notranslate nohighlight">\(18\)</span>, and <span class="math notranslate nohighlight">\(\nu\)</span> is the kinematic viscosity.</blockquote></p>
+<p>For grain sizes coarser than silt, a category that clearly includes a lot of sediment and rock types of great interest for coastal applications, things get more complicated. The reason for this is the development of a separation wake behind the falling grain; the appearance of this wake results in turbulence and large pressure differences between the front and back of the particle.</p>
+</div>
+<div class="section" id="turbulent-law">
+<h3>Turbulent Law<a class="headerlink" href="#turbulent-law" title="Permalink to this headline">¶</a></h3>
+<blockquote>For large grains - **pebbles, cobbles** - this effect is so strong that viscous forces become insignificant and turbulent drag dominates; the settling velocity can be estimated using the empirical equation:
+<div class="math notranslate nohighlight">
+\[w=\sqrt{\frac{4RgD}{3C_2} }\]</div>
+</blockquote>
+<p>For the grain size in between such as <strong>sand</strong>, grains are small enough that viscous forces still play an important role in their subaqueous settling behavior, but large enough that the departure from Stokes’ Law is significant and wake turbulence cannot be ignored.</p>
+</div>
+<div class="section" id="ferguson-church-law">
+<h3>Ferguson &amp; Church Law<a class="headerlink" href="#ferguson-church-law" title="Permalink to this headline">¶</a></h3>
+<blockquote>There are several empirical - and fairly complicated - equations that try to bridge this gap; here we focus on the simplest one, published by 
+<a href='http://dx.doi.org/10.1306/051204740933'>Ferguson & Church (2004)</a> which states:
+<div class="math notranslate nohighlight">
+\[ w=\frac{RgD^2}{C_1\nu+\sqrt{0.75C_2RgD^3}}\]</div>
+<p>At small values of <span class="math notranslate nohighlight">\(D\)</span>, the left term in the denominator is much larger than the one containing the third power of <span class="math notranslate nohighlight">\(D\)</span>, and the equation is equivalent of Stokes’ Law. At large values of <span class="math notranslate nohighlight">\(D\)</span>, the second term dominates and the settling velocity converges to the solution of the turbulent drag equation.</p>
+</blockquote></div>
+</div>
+<div class="section" id="a-name-pylaws-a-implementation-in-python">
+<h2><a name="pylaws"></a>  Implementation in Python<a class="headerlink" href="#a-name-pylaws-a-implementation-in-python" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">pi</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="o">%</span><span class="k">config</span> InlineBackend.figure_format = &#39;svg&#39; 
+
+<span class="c1"># Density of particle in kg/m3</span>
+<span class="n">rop</span> <span class="o">=</span> <span class="mf">2650.0</span> 
+<span class="c1"># Density of fluid in kg/m3</span>
+<span class="n">rof</span> <span class="o">=</span> <span class="mf">1000.0</span> 
+<span class="c1"># Dynamic viscosity in Pa*s (N*s/m^2)</span>
+<span class="n">visc</span> <span class="o">=</span> <span class="mf">1.002</span><span class="o">*</span><span class="mf">1E-3</span> <span class="c1">#8.9*1E-4 </span>
+<span class="c1"># Constant in Ferguson-Church equation and Stokes</span>
+<span class="n">C1</span> <span class="o">=</span> <span class="mi">18</span> 
+<span class="c1"># Constant in Ferguson-Church equation, valid for natural sand grains and turbulent law</span>
+<span class="n">C2</span> <span class="o">=</span> <span class="mi">1</span> 
+</pre></div>
+</div>
+</div>
+</div>
+<p>Declaration of the python functions for each settling velocity formulation.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">v_stokes</span><span class="p">(</span><span class="n">rop</span><span class="p">,</span><span class="n">rof</span><span class="p">,</span><span class="n">d</span><span class="p">,</span><span class="n">visc</span><span class="p">,</span><span class="n">C1</span><span class="p">):</span>
+        <span class="n">R</span> <span class="o">=</span> <span class="p">(</span><span class="n">rop</span><span class="o">-</span><span class="n">rof</span><span class="p">)</span><span class="o">/</span><span class="n">rof</span> <span class="c1"># submerged specific gravity</span>
+        <span class="n">w</span> <span class="o">=</span> <span class="n">R</span><span class="o">*</span><span class="mf">9.81</span><span class="o">*</span><span class="p">(</span><span class="n">d</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">C1</span><span class="o">*</span><span class="n">visc</span><span class="o">/</span><span class="n">rof</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">w</span>
+
+<span class="k">def</span> <span class="nf">v_turbulent</span><span class="p">(</span><span class="n">rop</span><span class="p">,</span><span class="n">rof</span><span class="p">,</span><span class="n">d</span><span class="p">,</span><span class="n">visc</span><span class="p">,</span><span class="n">C2</span><span class="p">):</span>
+        <span class="n">R</span> <span class="o">=</span> <span class="p">(</span><span class="n">rop</span><span class="o">-</span><span class="n">rof</span><span class="p">)</span><span class="o">/</span><span class="n">rof</span> 
+        <span class="n">w</span> <span class="o">=</span> <span class="p">(</span><span class="mi">4</span><span class="o">*</span><span class="n">R</span><span class="o">*</span><span class="mf">9.81</span><span class="o">*</span><span class="n">d</span><span class="o">/</span><span class="p">(</span><span class="mi">3</span><span class="o">*</span><span class="n">C2</span><span class="p">))</span><span class="o">**</span><span class="mf">0.5</span>
+        <span class="k">return</span> <span class="n">w</span>
+    
+<span class="k">def</span> <span class="nf">v_ferg</span><span class="p">(</span><span class="n">rop</span><span class="p">,</span><span class="n">rof</span><span class="p">,</span><span class="n">d</span><span class="p">,</span><span class="n">visc</span><span class="p">,</span><span class="n">C1</span><span class="p">,</span><span class="n">C2</span><span class="p">):</span>
+        <span class="n">R</span> <span class="o">=</span> <span class="p">(</span><span class="n">rop</span><span class="o">-</span><span class="n">rof</span><span class="p">)</span><span class="o">/</span><span class="n">rof</span>
+        <span class="n">w</span> <span class="o">=</span> <span class="p">(</span><span class="n">R</span><span class="o">*</span><span class="mf">9.81</span><span class="o">*</span><span class="n">d</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">C1</span><span class="o">*</span><span class="n">visc</span><span class="o">/</span><span class="n">rof</span><span class="o">+</span><span class="p">(</span><span class="mf">0.75</span><span class="o">*</span><span class="n">C2</span><span class="o">*</span><span class="n">R</span><span class="o">*</span><span class="mf">9.91</span><span class="o">*</span><span class="n">d</span><span class="o">**</span><span class="mi">3</span><span class="p">)</span><span class="o">**</span><span class="mf">0.5</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">w</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="laws-performance-for-sand-sediment-classes">
+<h3>Laws performance  for sand sediment classes<a class="headerlink" href="#laws-performance-for-sand-sediment-classes" title="Permalink to this headline">¶</a></h3>
+<p>Now we plot these equations for a range of particle diameters.</p>
+<p>To illustrate how the curves fits to measured particle settling velocities, we also plot the data from settling experiments performed with natural river sands (Table 2 in <a href='http://dx.doi.org/10.1306/051204740933'>Ferguson &amp; Church (2004)</a>).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define evenly spaced grain diameter between 0 and 0.5 mm at a step of 0.000001 m.</span>
+<span class="n">d</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.0005</span><span class="p">,</span><span class="mf">0.000001</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define evenly spaced grain diameter between 0 and 0.5 mm at a step of 0.000001 m.</span>
+<span class="n">d</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.0005</span><span class="p">,</span><span class="mf">0.000001</span><span class="p">)</span>
+
+<span class="c1"># Settling velocity Stokes</span>
+<span class="n">ws</span> <span class="o">=</span> <span class="n">v_stokes</span><span class="p">(</span><span class="n">rop</span><span class="p">,</span><span class="n">rof</span><span class="p">,</span><span class="n">d</span><span class="p">,</span><span class="n">visc</span><span class="p">,</span><span class="n">C1</span><span class="p">)</span>
+
+<span class="c1"># Settling velocity Turbuent</span>
+<span class="n">wt</span> <span class="o">=</span> <span class="n">v_turbulent</span><span class="p">(</span><span class="n">rop</span><span class="p">,</span><span class="n">rof</span><span class="p">,</span><span class="n">d</span><span class="p">,</span><span class="n">visc</span><span class="p">,</span><span class="n">C2</span><span class="p">)</span>
+
+<span class="c1"># Settling velocity Fergusson Church</span>
+<span class="n">wf</span> <span class="o">=</span> <span class="n">v_ferg</span><span class="p">(</span><span class="n">rop</span><span class="p">,</span><span class="n">rof</span><span class="p">,</span><span class="n">d</span><span class="p">,</span><span class="n">visc</span><span class="p">,</span><span class="n">C1</span><span class="p">,</span><span class="n">C2</span><span class="p">)</span>
+
+<span class="c1"># Set figure parameter</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+
+<span class="c1"># Plot settling velocities</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">d</span><span class="o">*</span><span class="mi">1000</span><span class="p">,</span><span class="n">ws</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;Stokes&#39;</span><span class="p">,</span><span class="n">linewidth</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">d</span><span class="o">*</span><span class="mi">1000</span><span class="p">,</span><span class="n">wt</span><span class="p">,</span><span class="s1">&#39;g&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;Turbulent&#39;</span><span class="p">,</span><span class="n">linewidth</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">d</span><span class="o">*</span><span class="mi">1000</span><span class="p">,</span><span class="n">wf</span><span class="p">,</span><span class="s1">&#39;r&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;Ferguson-Church&#39;</span><span class="p">,</span><span class="n">linewidth</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+
+<span class="c1"># Plot vertical dot lines between sediment classes</span>
+<span class="c1"># define the line like this [x1,x2],[y1,y2]</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="mf">0.25</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.15</span><span class="p">],</span><span class="s1">&#39;k--&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="mf">0.25</span><span class="o">/</span><span class="mf">2.0</span><span class="p">,</span> <span class="mf">0.25</span><span class="o">/</span><span class="mf">2.0</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.15</span><span class="p">],</span><span class="s1">&#39;k--&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="mf">0.25</span><span class="o">/</span><span class="mf">4.0</span><span class="p">,</span> <span class="mf">0.25</span><span class="o">/</span><span class="mf">4.0</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.15</span><span class="p">],</span><span class="s1">&#39;k--&#39;</span><span class="p">)</span>
+
+<span class="c1"># Plot sediment class types</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">0.36</span><span class="p">,</span> <span class="mf">0.11</span><span class="p">,</span> <span class="s1">&#39;medium sand&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">0.16</span><span class="p">,</span> <span class="mf">0.11</span><span class="p">,</span> <span class="s1">&#39;fine sand&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">0.075</span><span class="p">,</span> <span class="mf">0.11</span><span class="p">,</span> <span class="s1">&#39;v. fine&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">0.08</span><span class="p">,</span> <span class="mf">0.105</span><span class="p">,</span> <span class="s1">&#39;sand&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">0.01</span><span class="p">,</span> <span class="mf">0.11</span><span class="p">,</span> <span class="s1">&#39;silt and&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">0.019</span><span class="p">,</span> <span class="mf">0.105</span><span class="p">,</span> <span class="s1">&#39;clay&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+
+<span class="c1"># Show the legend and axis</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;grain diameter (mm)&#39;</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;settling velocity (m/s)&#39;</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.5</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.15</span><span class="p">]);</span>
+
+<span class="c1"># Data from settling experiments performed with natural river sands </span>
+<span class="c1"># Diameters in mm</span>
+<span class="n">D</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.068</span><span class="p">,</span> <span class="mf">0.081</span><span class="p">,</span> <span class="mf">0.096</span><span class="p">,</span> <span class="mf">0.115</span><span class="p">,</span> <span class="mf">0.136</span><span class="p">,</span> <span class="mf">0.273</span><span class="p">,</span> <span class="mf">0.386</span><span class="p">,</span> <span class="mf">0.55</span><span class="p">,</span> <span class="mf">0.77</span><span class="p">,</span> <span class="mf">1.09</span><span class="p">,</span> <span class="mf">2.18</span><span class="p">,</span> <span class="mf">4.36</span><span class="p">]</span>
+<span class="c1"># Measured velocities in m/s</span>
+<span class="n">w</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.00425</span><span class="p">,</span> <span class="mf">0.0060</span><span class="p">,</span> <span class="mf">0.0075</span><span class="p">,</span> <span class="mf">0.0110</span><span class="p">,</span> <span class="mf">0.0139</span><span class="p">,</span> <span class="mf">0.0388</span><span class="p">,</span> <span class="mf">0.0551</span><span class="p">,</span> <span class="mf">0.0729</span><span class="p">,</span> <span class="mf">0.0930</span><span class="p">,</span> <span class="mf">0.141</span><span class="p">,</span> <span class="mf">0.209</span><span class="p">,</span> <span class="mf">0.307</span><span class="p">]</span>
+
+<span class="c1"># Plot measured data</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">D</span><span class="p">,</span><span class="n">w</span><span class="p">,</span><span class="s1">&#39;o&#39;</span><span class="p">,</span><span class="n">markerfacecolor</span><span class="o">=</span><span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">7</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/grainsettling_12_0.svg" src="../_images/grainsettling_12_0.svg" /></div>
+</div>
+<p><strong>It is obvious that the departure from Stokes’ Law is already significant for very fine sand and Stokes settling is completely inadequate for describing the settling of medium sand.</strong></p>
+</div>
+<div class="section" id="laws-performance-for-coarser-sediment-size">
+<h3>Laws performance for coarser sediment size<a class="headerlink" href="#laws-performance-for-coarser-sediment-size" title="Permalink to this headline">¶</a></h3>
+<p>The plot above only captures particle sizes finer than medium sand; let’s see what happens as we move to coarser sediment.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define evenly spaced grain diameter between 0 and 1cm at a step of 0.00001 m.</span>
+<span class="n">d</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.01</span><span class="p">,</span><span class="mf">0.00001</span><span class="p">)</span>
+
+<span class="c1"># Settling velocity Stokes</span>
+<span class="n">ws</span> <span class="o">=</span> <span class="n">v_stokes</span><span class="p">(</span><span class="n">rop</span><span class="p">,</span><span class="n">rof</span><span class="p">,</span><span class="n">d</span><span class="p">,</span><span class="n">visc</span><span class="p">,</span><span class="n">C1</span><span class="p">)</span>
+<span class="c1"># Settling velocity Turbuent</span>
+<span class="n">wt</span> <span class="o">=</span> <span class="n">v_turbulent</span><span class="p">(</span><span class="n">rop</span><span class="p">,</span><span class="n">rof</span><span class="p">,</span><span class="n">d</span><span class="p">,</span><span class="n">visc</span><span class="p">,</span><span class="n">C2</span><span class="p">)</span>
+<span class="c1"># Settling velocity Fergusson Church</span>
+<span class="n">wf</span> <span class="o">=</span> <span class="n">v_ferg</span><span class="p">(</span><span class="n">rop</span><span class="p">,</span><span class="n">rof</span><span class="p">,</span><span class="n">d</span><span class="p">,</span><span class="n">visc</span><span class="p">,</span><span class="n">C1</span><span class="p">,</span><span class="n">C2</span><span class="p">)</span>
+
+<span class="c1"># Set figure parameter</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+
+<span class="c1"># Plot settling velocities</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">d</span><span class="o">*</span><span class="mi">1000</span><span class="p">,</span><span class="n">ws</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;Stokes&#39;</span><span class="p">,</span><span class="n">linewidth</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">d</span><span class="o">*</span><span class="mi">1000</span><span class="p">,</span><span class="n">wt</span><span class="p">,</span><span class="s1">&#39;g&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;Turbulent&#39;</span><span class="p">,</span><span class="n">linewidth</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">d</span><span class="o">*</span><span class="mi">1000</span><span class="p">,</span><span class="n">wf</span><span class="p">,</span><span class="s1">&#39;r&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;Ferguson-Church&#39;</span><span class="p">,</span><span class="n">linewidth</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+
+<span class="c1"># Plot vertical dot lines between sediment classes</span>
+<span class="c1"># define the line like this [x1,x2],[y1,y2]</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="mf">0.25</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span><span class="s1">&#39;k--&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span><span class="s1">&#39;k--&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span><span class="s1">&#39;k--&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span><span class="s1">&#39;k--&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span><span class="s1">&#39;k--&#39;</span><span class="p">)</span>
+
+<span class="c1"># Plot sediment class types</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">0.33</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="s1">&#39;medium sand&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=</span><span class="s1">&#39;vertical&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">0.09</span><span class="p">,</span> <span class="mf">1.15</span><span class="p">,</span> <span class="s1">&#39;fine sand, silt and clay&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=</span><span class="s1">&#39;vertical&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">0.7</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="s1">&#39;coarse sand&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=</span><span class="s1">&#39;vertical&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">1.5</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="s1">&#39;very coarse sand&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=</span><span class="s1">&#39;vertical&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="s1">&#39;granules&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=</span><span class="s1">&#39;vertical&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">4.5</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="s1">&#39;pebbles&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=</span><span class="s1">&#39;vertical&#39;</span><span class="p">)</span>
+
+<span class="c1"># Show the legend and axis</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;grain diameter (mm)&#39;</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;settling velocity (m/s)&#39;</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/grainsettling_15_0.svg" src="../_images/grainsettling_15_0.svg" /></div>
+</div>
+</div>
+<div class="section" id="log-plot">
+<h3>Log plot<a class="headerlink" href="#log-plot" title="Permalink to this headline">¶</a></h3>
+<p>A log-log plot is much better for looking at a wide spectrum of grain sizes.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define evenly spaced grain diameter between 0 and 1cm at a step of 0.00001 m.</span>
+<span class="n">d</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.01</span><span class="p">,</span><span class="mf">0.00001</span><span class="p">)</span>
+
+<span class="c1"># Settling velocity Stokes</span>
+<span class="n">ws</span> <span class="o">=</span> <span class="n">v_stokes</span><span class="p">(</span><span class="n">rop</span><span class="p">,</span><span class="n">rof</span><span class="p">,</span><span class="n">d</span><span class="p">,</span><span class="n">visc</span><span class="p">,</span><span class="n">C1</span><span class="p">)</span>
+<span class="c1"># Settling velocity Turbuent</span>
+<span class="n">wt</span> <span class="o">=</span> <span class="n">v_turbulent</span><span class="p">(</span><span class="n">rop</span><span class="p">,</span><span class="n">rof</span><span class="p">,</span><span class="n">d</span><span class="p">,</span><span class="n">visc</span><span class="p">,</span><span class="n">C2</span><span class="p">)</span>
+<span class="c1"># Settling velocity Fergusson Church</span>
+<span class="n">wf</span> <span class="o">=</span> <span class="n">v_ferg</span><span class="p">(</span><span class="n">rop</span><span class="p">,</span><span class="n">rof</span><span class="p">,</span><span class="n">d</span><span class="p">,</span><span class="n">visc</span><span class="p">,</span><span class="n">C1</span><span class="p">,</span><span class="n">C2</span><span class="p">)</span>
+
+<span class="c1"># Set figure parameter</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+
+<span class="c1"># Plot settling velocities using log scale: plt.loglog</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">loglog</span><span class="p">(</span><span class="n">d</span><span class="o">*</span><span class="mi">1000</span><span class="p">,</span><span class="n">ws</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;Stokes&#39;</span><span class="p">,</span><span class="n">linewidth</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">loglog</span><span class="p">(</span><span class="n">d</span><span class="o">*</span><span class="mi">1000</span><span class="p">,</span><span class="n">wt</span><span class="p">,</span><span class="s1">&#39;g&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;Turbulent&#39;</span><span class="p">,</span><span class="n">linewidth</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">loglog</span><span class="p">(</span><span class="n">d</span><span class="o">*</span><span class="mi">1000</span><span class="p">,</span><span class="n">wf</span><span class="p">,</span><span class="s1">&#39;r&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;Ferguson-Church&#39;</span><span class="p">,</span><span class="n">linewidth</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+
+<span class="c1"># Plot vertical dot lines between sediment classes</span>
+<span class="c1"># define the line like this [x1,x2],[y1,y2]</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="mf">1.0</span><span class="o">/</span><span class="mi">64</span><span class="p">,</span> <span class="mf">1.0</span><span class="o">/</span><span class="mi">64</span><span class="p">],[</span><span class="mf">0.00001</span><span class="p">,</span> <span class="mi">10</span><span class="p">],</span><span class="s1">&#39;k--&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="mf">1.0</span><span class="o">/</span><span class="mi">32</span><span class="p">,</span> <span class="mf">1.0</span><span class="o">/</span><span class="mi">32</span><span class="p">],[</span><span class="mf">0.00001</span><span class="p">,</span> <span class="mi">10</span><span class="p">],</span><span class="s1">&#39;k--&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="mf">1.0</span><span class="o">/</span><span class="mi">16</span><span class="p">,</span> <span class="mf">1.0</span><span class="o">/</span><span class="mi">16</span><span class="p">],[</span><span class="mf">0.00001</span><span class="p">,</span> <span class="mi">10</span><span class="p">],</span><span class="s1">&#39;k--&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="mf">1.0</span><span class="o">/</span><span class="mi">8</span><span class="p">,</span> <span class="mf">1.0</span><span class="o">/</span><span class="mi">8</span><span class="p">],[</span><span class="mf">0.00001</span><span class="p">,</span> <span class="mi">10</span><span class="p">],</span><span class="s1">&#39;k--&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="mf">0.25</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">],[</span><span class="mf">0.00001</span><span class="p">,</span> <span class="mi">10</span><span class="p">],</span><span class="s1">&#39;k--&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">],[</span><span class="mf">0.00001</span><span class="p">,</span> <span class="mi">10</span><span class="p">],</span><span class="s1">&#39;k--&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],[</span><span class="mf">0.00001</span><span class="p">,</span> <span class="mi">10</span><span class="p">],</span><span class="s1">&#39;k--&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">],[</span><span class="mf">0.00001</span><span class="p">,</span> <span class="mi">10</span><span class="p">],</span><span class="s1">&#39;k--&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">],[</span><span class="mf">0.00001</span><span class="p">,</span> <span class="mi">10</span><span class="p">],</span><span class="s1">&#39;k--&#39;</span><span class="p">)</span>
+
+<span class="c1"># Plot sediment class types</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">0.012</span><span class="p">,</span> <span class="mf">0.0007</span><span class="p">,</span> <span class="s1">&#39;fine silt&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=</span><span class="s1">&#39;vertical&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">0.17</span><span class="o">/</span><span class="mi">8</span><span class="p">,</span> <span class="mf">0.0007</span><span class="p">,</span> <span class="s1">&#39;medium silt&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=</span><span class="s1">&#39;vertical&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">0.17</span><span class="o">/</span><span class="mi">4</span><span class="p">,</span> <span class="mf">0.0007</span><span class="p">,</span> <span class="s1">&#39;coarse silt&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=</span><span class="s1">&#39;vertical&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">0.17</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="mf">0.001</span><span class="p">,</span> <span class="s1">&#39;very fine sand&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=</span><span class="s1">&#39;vertical&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">0.17</span><span class="p">,</span> <span class="mf">0.001</span><span class="p">,</span> <span class="s1">&#39;fine sand&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=</span><span class="s1">&#39;vertical&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">0.33</span><span class="p">,</span> <span class="mf">0.001</span><span class="p">,</span> <span class="s1">&#39;medium sand&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=</span><span class="s1">&#39;vertical&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">0.7</span><span class="p">,</span> <span class="mf">0.001</span><span class="p">,</span> <span class="s1">&#39;coarse sand&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=</span><span class="s1">&#39;vertical&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">1.3</span><span class="p">,</span> <span class="mf">0.001</span><span class="p">,</span> <span class="s1">&#39;very coarse sand&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=</span><span class="s1">&#39;vertical&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">2.7</span><span class="p">,</span> <span class="mf">0.001</span><span class="p">,</span> <span class="s1">&#39;granules&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=</span><span class="s1">&#39;vertical&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mf">0.001</span><span class="p">,</span> <span class="s1">&#39;pebbles&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=</span><span class="s1">&#39;vertical&#39;</span><span class="p">)</span>
+
+<span class="c1"># Show the legend and axis</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;grain diameter (mm)&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;settling velocity (m/s)&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">10</span><span class="p">]);</span>
+
+<span class="c1"># Plot measured data</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">D</span><span class="p">,</span><span class="n">w</span><span class="p">,</span><span class="s1">&#39;o&#39;</span><span class="p">,</span><span class="n">markerfacecolor</span><span class="o">=</span><span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/share/miniconda/envs/coast/lib/python3.6/site-packages/ipykernel_launcher.py:47: UserWarning: Attempted to set non-positive left xlim on a log-scaled axis.
+Invalid limit will be ignored.
+/usr/share/miniconda/envs/coast/lib/python3.6/site-packages/ipykernel_launcher.py:47: UserWarning: Attempted to set non-positive bottom ylim on a log-scaled axis.
+Invalid limit will be ignored.
+</pre></div>
+</div>
+<img alt="../_images/grainsettling_17_1.svg" src="../_images/grainsettling_17_1.svg" /></div>
+</div>
+<p>This plot shows how neither Stokes’ Law, nor the velocity based on turbulent drag are valid for calculating settling velocities of sand-size grains in water, whereas <strong>the Ferguson-Church equation provides a good fit for natural river sand.</strong></p>
+</div>
+</div>
+<div class="section" id="a-name-dimensionless-a-dimensionless-diagram">
+<h2><a name="dimensionless"></a>  Dimensionless diagram<a class="headerlink" href="#a-name-dimensionless-a-dimensionless-diagram" title="Permalink to this headline">¶</a></h2>
+<p>The analysis and plots above are all dimensional, that is, you can quickly check by looking at the plots what is the approximate settling velocity of very fine sand. That is great, but you would have to generate a new plot - and potentially do a new experiment - if you wanted to look at the behavior of particles in some other fluid than water.</p>
+<p>A more general treatment as we discussed in the lecture involves dimensionless variables.</p>
+<p>For grain settling, these variables are the <strong>Reynolds number</strong> (Re) and the <strong>drag coefficient</strong> (Cd). We will reproduce this plot, using settling velocities that come from the three equations above.</p>
+<div class="section" id="reynolds-number">
+<h3>Reynolds number<a class="headerlink" href="#reynolds-number" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+At terminal settling velocity, the particle **Re** is defined as:
+<div class="math notranslate nohighlight">
+\[Re=\frac{\rho_f w d}{\mu}\]</div>
+<p>where <span class="math notranslate nohighlight">\(\mu\)</span> is the dynamic viscosity of the fluid (Pa·s or N·s/m² or kg/(m·s)). At the begining of this notebook we’ve defined the kinematic viscosity (<span class="math notranslate nohighlight">\(\nu = \mu / \rho\)</span>) (m²/s).</p>
+</blockquote>
+</div>
+<div class="section" id="drag-coefficient">
+<h3>Drag coefficient<a class="headerlink" href="#drag-coefficient" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+**$C_d$** is essentially a dimensionless version of the drag force:
+<div class="math notranslate nohighlight">
+\[C_d=\frac{2F_d}{\rho_f w^2 A}=\frac{8 F_d}{\rho_f w^2 \pi d^2}\]</div>
+<p><span class="math notranslate nohighlight">\(d\)</span> is the particle diameter, <span class="math notranslate nohighlight">\(A\)</span> is the reference area,  for a sphere <span class="math notranslate nohighlight">\(A=\pi r^2\)</span>, (note this is not the surface area <span class="math notranslate nohighlight">\(=4\pi r^2\)</span>).</p>
+<p>At terminal velocity, the gravitational force <span class="math notranslate nohighlight">\(F_g\)</span> equals the drag force <span class="math notranslate nohighlight">\(F_d\)</span>. That is
+<span class="math notranslate nohighlight">\(F_d=F_g\)</span>
+and the gravitational force is given by the submerged weight of the grain:
+$<span class="math notranslate nohighlight">\(F_g=(\rho_p-\rho_f)\frac{4}{3}\pi r^3 g=(\rho_p-\rho_f)\frac{4}{3}\pi \left(\frac{d}{2}\right)^3 g\)</span><span class="math notranslate nohighlight">\(
+where \)</span>\rho_p<span class="math notranslate nohighlight">\( &amp; \)</span>\rho_f<span class="math notranslate nohighlight">\( are the density of particle and the fluid respectively in kg/m3, \)</span>r$ is the radius of the sphere representing the idealised particle.</p>
+</blockquote>
+<p>Using these relationships it is possible to generate the plot of <strong>drag coefficient vs. Reynolds number</strong>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define evenly spaced grain diameter between 0.000001 and 0.3m at a step of 0.00001 m.</span>
+<span class="n">d</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mf">0.000001</span><span class="p">,</span><span class="mf">0.3</span><span class="p">,</span><span class="mf">0.00001</span><span class="p">)</span>
+
+<span class="c1"># Constant in Ferguson-Church equation, valid for natural sand grains and turbulent law</span>
+<span class="c1"># this constant is 0.4 for spheres, 1 for natural grains</span>
+<span class="n">C2</span> <span class="o">=</span> <span class="mf">0.4</span> 
+
+<span class="c1"># Settling velocity Stokes</span>
+<span class="n">ws</span> <span class="o">=</span> <span class="n">v_stokes</span><span class="p">(</span><span class="n">rop</span><span class="p">,</span><span class="n">rof</span><span class="p">,</span><span class="n">d</span><span class="p">,</span><span class="n">visc</span><span class="p">,</span><span class="n">C1</span><span class="p">)</span>
+<span class="c1"># Settling velocity Turbuent</span>
+<span class="n">wt</span> <span class="o">=</span> <span class="n">v_turbulent</span><span class="p">(</span><span class="n">rop</span><span class="p">,</span><span class="n">rof</span><span class="p">,</span><span class="n">d</span><span class="p">,</span><span class="n">visc</span><span class="p">,</span><span class="n">C2</span><span class="p">)</span>
+<span class="c1"># Settling velocity Fergusson Church</span>
+<span class="n">wf</span> <span class="o">=</span> <span class="n">v_ferg</span><span class="p">(</span><span class="n">rop</span><span class="p">,</span><span class="n">rof</span><span class="p">,</span><span class="n">d</span><span class="p">,</span><span class="n">visc</span><span class="p">,</span><span class="n">C1</span><span class="p">,</span><span class="n">C2</span><span class="p">)</span>
+
+<span class="c1"># Drag force = Gravitational force</span>
+<span class="n">Fd</span> <span class="o">=</span> <span class="p">(</span><span class="n">rop</span><span class="o">-</span><span class="n">rof</span><span class="p">)</span><span class="o">*</span><span class="mi">4</span><span class="o">/</span><span class="mi">3</span><span class="o">*</span><span class="n">pi</span><span class="o">*</span><span class="p">((</span><span class="n">d</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="o">**</span><span class="mi">3</span><span class="p">)</span><span class="o">*</span><span class="mf">9.81</span> 
+
+<span class="c1"># Drag coefficient for Stokes</span>
+<span class="n">Cds</span> <span class="o">=</span> <span class="n">Fd</span><span class="o">/</span><span class="p">(</span><span class="n">rof</span><span class="o">*</span><span class="n">ws</span><span class="o">**</span><span class="mi">2</span><span class="o">*</span><span class="n">pi</span><span class="o">*</span><span class="p">(</span><span class="n">d</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="mi">8</span><span class="p">)</span> 
+<span class="c1"># Drag coefficient for Turbuent</span>
+<span class="n">Cdt</span> <span class="o">=</span> <span class="n">Fd</span><span class="o">/</span><span class="p">(</span><span class="n">rof</span><span class="o">*</span><span class="n">wt</span><span class="o">**</span><span class="mi">2</span><span class="o">*</span><span class="n">pi</span><span class="o">*</span><span class="p">(</span><span class="n">d</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="mi">8</span><span class="p">)</span>
+<span class="c1"># Drag coefficient for Fergusson Church</span>
+<span class="n">Cdf</span> <span class="o">=</span> <span class="n">Fd</span><span class="o">/</span><span class="p">(</span><span class="n">rof</span><span class="o">*</span><span class="n">wf</span><span class="o">**</span><span class="mi">2</span><span class="o">*</span><span class="n">pi</span><span class="o">*</span><span class="p">(</span><span class="n">d</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="mi">8</span><span class="p">)</span>
+
+<span class="c1"># Particle Reynolds number for Stokes</span>
+<span class="n">Res</span> <span class="o">=</span> <span class="n">rof</span><span class="o">*</span><span class="n">ws</span><span class="o">*</span><span class="n">d</span><span class="o">/</span><span class="n">visc</span> 
+
+<span class="c1"># Particle Reynolds number for Turbuent</span>
+<span class="n">Ret</span> <span class="o">=</span> <span class="n">rof</span><span class="o">*</span><span class="n">wt</span><span class="o">*</span><span class="n">d</span><span class="o">/</span><span class="n">visc</span>
+
+<span class="c1"># Particle Reynolds number for Fergusson Church</span>
+<span class="n">Ref</span> <span class="o">=</span> <span class="n">rof</span><span class="o">*</span><span class="n">wf</span><span class="o">*</span><span class="n">d</span><span class="o">/</span><span class="n">visc</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="plotting-the-adimensional-graph">
+<h3>Plotting the adimensional graph<a class="headerlink" href="#plotting-the-adimensional-graph" title="Permalink to this headline">¶</a></h3>
+<p>We first use experimental data points digitized from <a href='http://ocw.mit.edu/courses/earth-atmospheric-and-planetary-sciences/12-110-sedimentary-geology-spring-2007/index.htm'>John Southard textbook</a>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Data digitized from Southard textbook, figure 2-2:</span>
+<span class="c1"># Experimental particle Reynolds number</span>
+<span class="n">Re_exp</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.04857</span><span class="p">,</span><span class="mf">0.10055</span><span class="p">,</span><span class="mf">0.12383</span><span class="p">,</span><span class="mf">0.15332</span><span class="p">,</span><span class="mf">0.25681</span><span class="p">,</span><span class="mf">0.3343</span><span class="p">,</span><span class="mf">0.62599</span><span class="p">,</span><span class="mf">0.77049</span><span class="p">,</span><span class="mf">0.94788</span><span class="p">,</span><span class="mf">1.05956</span><span class="p">,</span>
+       <span class="mf">1.62605</span><span class="p">,</span><span class="mf">2.13654</span><span class="p">,</span><span class="mf">2.55138</span><span class="p">,</span><span class="mf">3.18268</span><span class="p">,</span><span class="mf">4.46959</span><span class="p">,</span><span class="mf">4.92143</span><span class="p">,</span><span class="mf">8.02479</span><span class="p">,</span><span class="mf">12.28672</span><span class="p">,</span><span class="mf">14.97393</span><span class="p">,</span><span class="mf">21.33792</span><span class="p">,</span>
+       <span class="mf">28.3517</span><span class="p">,</span><span class="mf">34.55246</span><span class="p">,</span><span class="mf">57.57204</span><span class="p">,</span><span class="mf">78.3929</span><span class="p">,</span><span class="mf">96.88149</span><span class="p">,</span><span class="mf">159.92596</span><span class="p">,</span><span class="mf">227.64082</span><span class="p">,</span><span class="mf">287.31738</span><span class="p">,</span><span class="mf">375.98547</span><span class="p">,</span>
+       <span class="mf">516.14355</span><span class="p">,</span><span class="mf">607.03827</span><span class="p">,</span><span class="mf">695.8316</span><span class="p">,</span><span class="mf">861.51953</span><span class="p">,</span><span class="mf">1147.26099</span><span class="p">,</span><span class="mf">1194.43213</span><span class="p">,</span><span class="mf">1513.70166</span><span class="p">,</span><span class="mf">1939.70557</span><span class="p">,</span>
+       <span class="mf">2511.91235</span><span class="p">,</span><span class="mf">2461.13232</span><span class="p">,</span><span class="mf">3106.32397</span><span class="p">,</span><span class="mf">3845.99561</span><span class="p">,</span><span class="mf">4974.59424</span><span class="p">,</span><span class="mf">6471.96875</span><span class="p">,</span><span class="mf">8135.45166</span><span class="p">,</span><span class="mf">8910.81543</span><span class="p">,</span>
+       <span class="mf">11949.91309</span><span class="p">,</span><span class="mf">17118.62109</span><span class="p">,</span><span class="mf">21620.08203</span><span class="p">,</span><span class="mf">28407.60352</span><span class="p">,</span><span class="mf">36064.10156</span><span class="p">,</span><span class="mf">46949.58594</span><span class="p">,</span><span class="mf">62746.32422</span><span class="p">,</span>
+       <span class="mf">80926.54688</span><span class="p">,</span><span class="mf">97655.00781</span><span class="p">,</span><span class="mf">122041.875</span><span class="p">,</span><span class="mf">157301.8125</span><span class="p">,</span><span class="mf">206817.7188</span><span class="p">,</span><span class="mi">266273</span><span class="p">,</span><span class="mf">346423.5938</span><span class="p">,</span><span class="mf">302216.5938</span><span class="p">,</span>
+       <span class="mf">335862.5313</span><span class="p">,</span><span class="mi">346202</span><span class="p">,</span><span class="mf">391121.5938</span><span class="p">,</span><span class="mf">460256.375</span><span class="p">,</span><span class="mf">575194.4375</span><span class="p">,</span><span class="mf">729407.625</span><span class="p">]</span>
+
+<span class="c1"># Experimental drag coefficient</span>
+<span class="n">Cd_exp</span> <span class="o">=</span> <span class="p">[</span><span class="mf">479.30811</span><span class="p">,</span><span class="mf">247.18175</span><span class="p">,</span><span class="mf">199.24072</span><span class="p">,</span><span class="mf">170.60068</span><span class="p">,</span><span class="mf">112.62481</span><span class="p">,</span><span class="mf">80.21341</span><span class="p">,</span><span class="mf">45.37168</span><span class="p">,</span><span class="mf">39.89885</span><span class="p">,</span><span class="mf">34.56996</span><span class="p">,</span>
+       <span class="mf">28.01445</span><span class="p">,</span><span class="mf">18.88166</span><span class="p">,</span><span class="mf">13.80322</span><span class="p">,</span><span class="mf">12.9089</span><span class="p">,</span><span class="mf">11.41266</span><span class="p">,</span><span class="mf">8.35254</span><span class="p">,</span><span class="mf">7.08445</span><span class="p">,</span><span class="mf">5.59686</span><span class="p">,</span><span class="mf">3.92277</span><span class="p">,</span><span class="mf">3.53845</span><span class="p">,</span>
+       <span class="mf">2.75253</span><span class="p">,</span><span class="mf">2.48307</span><span class="p">,</span><span class="mf">1.99905</span><span class="p">,</span><span class="mf">1.49187</span><span class="p">,</span><span class="mf">1.27743</span><span class="p">,</span><span class="mf">1.1592</span><span class="p">,</span><span class="mf">0.89056</span><span class="p">,</span><span class="mf">0.7368</span><span class="p">,</span><span class="mf">0.75983</span><span class="p">,</span><span class="mf">0.64756</span><span class="p">,</span><span class="mf">0.56107</span><span class="p">,</span>
+       <span class="mf">0.61246</span><span class="p">,</span><span class="mf">0.5939</span><span class="p">,</span><span class="mf">0.49308</span><span class="p">,</span><span class="mf">0.39722</span><span class="p">,</span><span class="mf">0.48327</span><span class="p">,</span><span class="mf">0.46639</span><span class="p">,</span><span class="mf">0.42725</span><span class="p">,</span><span class="mf">0.37951</span><span class="p">,</span><span class="mf">0.43157</span><span class="p">,</span><span class="mf">0.43157</span><span class="p">,</span><span class="mf">0.40364</span><span class="p">,</span>
+       <span class="mf">0.3854</span><span class="p">,</span><span class="mf">0.40577</span><span class="p">,</span><span class="mf">0.41649</span><span class="p">,</span><span class="mf">0.46173</span><span class="p">,</span><span class="mf">0.41013</span><span class="p">,</span><span class="mf">0.42295</span><span class="p">,</span><span class="mf">0.43854</span><span class="p">,</span><span class="mf">0.44086</span><span class="p">,</span><span class="mf">0.4714</span><span class="p">,</span><span class="mf">0.45225</span><span class="p">,</span><span class="mf">0.47362</span><span class="p">,</span>
+       <span class="mf">0.45682</span><span class="p">,</span><span class="mf">0.49104</span><span class="p">,</span><span class="mf">0.46639</span><span class="p">,</span><span class="mf">0.42725</span><span class="p">,</span><span class="mf">0.42725</span><span class="p">,</span><span class="mf">0.40171</span><span class="p">,</span><span class="mf">0.31214</span><span class="p">,</span><span class="mf">0.32189</span><span class="p">,</span><span class="mf">0.20053</span><span class="p">,</span><span class="mf">0.16249</span><span class="p">,</span><span class="mf">0.10658</span><span class="p">,</span>
+       <span class="mf">0.09175</span><span class="p">,</span><span class="mf">0.09417</span><span class="p">,</span><span class="mf">0.10601</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Making the plot</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set figure parameter</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+
+<span class="c1"># Plot drag coefficient vs particle Reynolds number using log scale: plt.loglog</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">loglog</span><span class="p">(</span><span class="n">Res</span><span class="p">,</span><span class="n">Cds</span><span class="p">,</span><span class="n">linewidth</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Stokes&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">loglog</span><span class="p">(</span><span class="n">Ret</span><span class="p">,</span><span class="n">Cdt</span><span class="p">,</span><span class="n">linewidth</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Turbulent&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">loglog</span><span class="p">(</span><span class="n">Ref</span><span class="p">,</span><span class="n">Cdf</span><span class="p">,</span><span class="n">linewidth</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Ferguson-Church&#39;</span><span class="p">)</span>
+
+<span class="c1"># Plot digitized date from Southard</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">loglog</span><span class="p">(</span><span class="n">Re_exp</span><span class="p">,</span> <span class="n">Cd_exp</span><span class="p">,</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">markerfacecolor</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span>
+
+<span class="c1"># Show the legend and axis</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">([</span><span class="mf">1e-2</span><span class="p">,</span><span class="mf">1e6</span><span class="p">,</span><span class="mf">1e-2</span><span class="p">,</span><span class="mf">1e4</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;particle Reynolds number ($Re$)&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;drag coefficient ($C_d$)&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 576x432 with 0 Axes&gt;
+</pre></div>
+</div>
+<img alt="../_images/grainsettling_24_1.svg" src="../_images/grainsettling_24_1.svg" /></div>
+</div>
+<p>As turbulence becomes dominant at larger Reynolds numbers, the drag coefficient converges to a constant value (which is equal to <span class="math notranslate nohighlight">\(C_2\)</span>).</p>
+<p><em>Note however the departure of the experimental data from this ideal horizontal line: at high Reynolds numbers there is a sudden drop in drag coefficient as the laminar boundary layer becomes turbulent and the flow separation around the particle is delayed.</em></p>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./coastevol"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="selectprofiles.html" title="previous page">Narrabeen beach profile adjustment</a>
+    <a class='right-next' id="next-link" href="../reefmodel.html" title="next page">Coral reef evolution</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Tristan Salles<br/>
+        
+            &copy; Copyright 2020-2022.<br/>
+          <div class="extra_footer">
+            <p>
+<a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">
+  <img align="right" class="margin" src="https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by.svg" width="88px">
+</a>
+These lecture notes and exercises are licensed under a <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">Creative Commons Attribution 4.0 International (CC BY 4.0) license</a>.
+<br>
+&copy; Copyright 2020-2022.
+</p>
+
+          </div>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+  </body>
+</html>
