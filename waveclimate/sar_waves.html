@@ -688,7 +688,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Error in callback &lt;function flush_figures at 0x7f70c72bd730&gt; (for post_execute):
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Error in callback &lt;function flush_figures at 0x7fb620ad9620&gt; (for post_execute):
 </pre></div>
 </div>
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
@@ -759,11 +759,18 @@
 <span class="g g-Whitespace">   </span><span class="mi">2198</span>                         <span class="n">pad_inches</span> <span class="o">=</span> <span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;savefig.pad_inches&#39;</span><span class="p">]</span>
 
 <span class="nn">/usr/share/miniconda/envs/coast/lib/python3.6/site-packages/matplotlib/figure.py</span> in <span class="ni">get_tightbbox</span><span class="nt">(self, renderer, bbox_extra_artists)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2504</span> 
-<span class="g g-Whitespace">   </span><span class="mi">2505</span>         <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">artists</span><span class="p">:</span>
-<span class="ne">-&gt; </span><span class="mi">2506</span>             <span class="n">bbox</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="n">get_tightbbox</span><span class="p">(</span><span class="n">renderer</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2507</span>             <span class="k">if</span> <span class="n">bbox</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="p">(</span><span class="n">bbox</span><span class="o">.</span><span class="n">width</span> <span class="o">!=</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">bbox</span><span class="o">.</span><span class="n">height</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">):</span>
-<span class="g g-Whitespace">   </span><span class="mi">2508</span>                 <span class="n">bb</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">bbox</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2514</span>                 <span class="k">try</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">2515</span>                     <span class="n">bbox</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">get_tightbbox</span><span class="p">(</span>
+<span class="ne">-&gt; </span><span class="mi">2516</span>                         <span class="n">renderer</span><span class="p">,</span> <span class="n">bbox_extra_artists</span><span class="o">=</span><span class="n">bbox_extra_artists</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2517</span>                 <span class="k">except</span> <span class="ne">TypeError</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">2518</span>                     <span class="n">bbox</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">get_tightbbox</span><span class="p">(</span><span class="n">renderer</span><span class="p">)</span>
+
+<span class="nn">/usr/share/miniconda/envs/coast/lib/python3.6/site-packages/matplotlib/axes/_base.py</span> in <span class="ni">get_tightbbox</span><span class="nt">(self, renderer, call_axes_locator, bbox_extra_artists, for_layout_only)</span>
+<span class="g g-Whitespace">   </span><span class="mi">4198</span>                     <span class="c1"># this artist</span>
+<span class="g g-Whitespace">   </span><span class="mi">4199</span>                     <span class="k">continue</span>
+<span class="ne">-&gt; </span><span class="mi">4200</span>             <span class="n">bbox</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="n">get_tightbbox</span><span class="p">(</span><span class="n">renderer</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">4201</span>             <span class="k">if</span> <span class="p">(</span><span class="n">bbox</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
+<span class="g g-Whitespace">   </span><span class="mi">4202</span>                     <span class="ow">and</span> <span class="mi">0</span> <span class="o">&lt;</span> <span class="n">bbox</span><span class="o">.</span><span class="n">width</span> <span class="o">&lt;</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span>
 
 <span class="nn">/usr/share/miniconda/envs/coast/lib/python3.6/site-packages/matplotlib/artist.py</span> in <span class="ni">get_tightbbox</span><span class="nt">(self, renderer)</span>
 <span class="g g-Whitespace">    </span><span class="mi">284</span>             <span class="k">if</span> <span class="n">clip_path</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">bbox</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
@@ -789,20 +796,11 @@
 <span class="nn">&lt;__array_function__ internals&gt;</span> in <span class="ni">roots</span><span class="nt">(*args, **kwargs)</span>
 
 <span class="nn">/usr/share/miniconda/envs/coast/lib/python3.6/site-packages/numpy/lib/polynomial.py</span> in <span class="ni">roots</span><span class="nt">(p)</span>
+<span class="g g-Whitespace">    </span><span class="mi">240</span>         <span class="c1"># build companion matrix and find its eigenvalues (the roots)</span>
 <span class="g g-Whitespace">    </span><span class="mi">241</span>         <span class="n">A</span> <span class="o">=</span> <span class="n">diag</span><span class="p">(</span><span class="n">NX</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="n">N</span><span class="o">-</span><span class="mi">2</span><span class="p">,),</span> <span class="n">p</span><span class="o">.</span><span class="n">dtype</span><span class="p">),</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">242</span>         <span class="n">A</span><span class="p">[</span><span class="mi">0</span><span class="p">,:]</span> <span class="o">=</span> <span class="o">-</span><span class="n">p</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">/</span> <span class="n">p</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-<span class="ne">--&gt; </span><span class="mi">243</span>         <span class="n">roots</span> <span class="o">=</span> <span class="n">eigvals</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">242</span>         <span class="n">A</span><span class="p">[</span><span class="mi">0</span><span class="p">,:]</span> <span class="o">=</span> <span class="o">-</span><span class="n">p</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">/</span> <span class="n">p</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="g g-Whitespace">    </span><span class="mi">243</span>         <span class="n">roots</span> <span class="o">=</span> <span class="n">eigvals</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
 <span class="g g-Whitespace">    </span><span class="mi">244</span>     <span class="k">else</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">245</span>         <span class="n">roots</span> <span class="o">=</span> <span class="n">NX</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>
-
-<span class="nn">&lt;__array_function__ internals&gt;</span> in <span class="ni">eigvals</span><span class="nt">(*args, **kwargs)</span>
-
-<span class="nn">/usr/share/miniconda/envs/coast/lib/python3.6/site-packages/numpy/linalg/linalg.py</span> in <span class="ni">eigvals</span><span class="nt">(a)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1067</span>         <span class="n">_raise_linalgerror_eigenvalues_nonconvergence</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1068</span>     <span class="n">signature</span> <span class="o">=</span> <span class="s1">&#39;D-&gt;D&#39;</span> <span class="k">if</span> <span class="n">isComplexType</span><span class="p">(</span><span class="n">t</span><span class="p">)</span> <span class="k">else</span> <span class="s1">&#39;d-&gt;D&#39;</span>
-<span class="ne">-&gt; </span><span class="mi">1069</span>     <span class="n">w</span> <span class="o">=</span> <span class="n">_umath_linalg</span><span class="o">.</span><span class="n">eigvals</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">signature</span><span class="o">=</span><span class="n">signature</span><span class="p">,</span> <span class="n">extobj</span><span class="o">=</span><span class="n">extobj</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1070</span> 
-<span class="g g-Whitespace">   </span><span class="mi">1071</span>     <span class="k">if</span> <span class="ow">not</span> <span class="n">isComplexType</span><span class="p">(</span><span class="n">t</span><span class="p">):</span>
 
 <span class="ne">KeyboardInterrupt</span>: 
 </pre></div>
