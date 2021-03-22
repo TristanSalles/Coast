@@ -57,6 +57,8 @@
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Simple wave sediment modelling" href="sedtransport.html" />
+    <link rel="prev" title="pybeach" href="pybeach.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -173,12 +175,12 @@
   Part 3
  </span>
 </p>
-<ul class="nav sidenav_l1">
- <li class="toctree-l1 collapsible-parent">
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1 current active collapsible-parent">
   <a class="reference internal" href="notes.html">
    Quantifying coastal changes notes
   </a>
-  <ul class="collapse-ul">
+  <ul class="current collapse-ul">
    <li class="toctree-l2">
     <a class="reference internal" href="waverunup.html">
      Runup models
@@ -192,6 +194,11 @@
    <li class="toctree-l2">
     <a class="reference internal" href="pybeach.html">
      pybeach
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Sensitivities of crenulate bay shorelines to wave climates
     </a>
    </li>
    <li class="toctree-l2">
@@ -429,377 +436,6 @@
 </div>
 </div>
 </div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>ls COV
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ls: cannot access &#39;COV&#39;: No such file or directory
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>git clone --depth<span class="o">=</span><span class="m">1</span> https://github.com/COVE-Model/COVE-v1.1.0.git<span class="p">;</span> <span class="nb">cd</span> COVE-v1.1.0/driver_files<span class="p">;</span> make -f spiral_bay_make.make<span class="p">;</span> mv spiral_bay.out cove_run<span class="p">;</span> mv cove_run ../../
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cloning into &#39;COVE-v1.1.0&#39;...
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>remote: Enumerating objects: 97, done.
-remote: Counting objects:   1% (1/97)
-remote: Counting objects:   2% (2/97)
-remote: Counting objects:   3% (3/97)
-remote: Counting objects:   4% (4/97)
-remote: Counting objects:   5% (5/97)
-remote: Counting objects:   6% (6/97)
-remote: Counting objects:   7% (7/97)
-remote: Counting objects:   8% (8/97)
-remote: Counting objects:   9% (9/97)
-remote: Counting objects:  10% (10/97)
-remote: Counting objects:  11% (11/97)
-remote: Counting objects:  12% (12/97)
-remote: Counting objects:  13% (13/97)
-remote: Counting objects:  14% (14/97)
-remote: Counting objects:  15% (15/97)
-remote: Counting objects:  16% (16/97)
-remote: Counting objects:  17% (17/97)
-remote: Counting objects:  18% (18/97)
-remote: Counting objects:  19% (19/97)
-remote: Counting objects:  20% (20/97)
-remote: Counting objects:  21% (21/97)
-remote: Counting objects:  22% (22/97)
-remote: Counting objects:  23% (23/97)
-remote: Counting objects:  24% (24/97)
-remote: Counting objects:  25% (25/97)
-remote: Counting objects:  26% (26/97)
-remote: Counting objects:  27% (27/97)
-remote: Counting objects:  28% (28/97)
-remote: Counting objects:  29% (29/97)
-remote: Counting objects:  30% (30/97)
-remote: Counting objects:  31% (31/97)
-remote: Counting objects:  32% (32/97)
-remote: Counting objects:  34% (33/97)
-remote: Counting objects:  35% (34/97)
-remote: Counting objects:  36% (35/97)
-remote: Counting objects:  37% (36/97)
-remote: Counting objects:  38% (37/97)
-remote: Counting objects:  39% (38/97)
-remote: Counting objects:  40% (39/97)
-remote: Counting objects:  41% (40/97)
-remote: Counting objects:  42% (41/97)
-remote: Counting objects:  43% (42/97)
-remote: Counting objects:  44% (43/97)
-remote: Counting objects:  45% (44/97)
-remote: Counting objects:  46% (45/97)
-remote: Counting objects:  47% (46/97)
-remote: Counting objects:  48% (47/97)
-remote: Counting objects:  49% (48/97)
-remote: Counting objects:  50% (49/97)
-remote: Counting objects:  51% (50/97)
-remote: Counting objects:  52% (51/97)
-remote: Counting objects:  53% (52/97)
-remote: Counting objects:  54% (53/97)
-remote: Counting objects:  55% (54/97)
-remote: Counting objects:  56% (55/97)
-remote: Counting objects:  57% (56/97)
-remote: Counting objects:  58% (57/97)
-remote: Counting objects:  59% (58/97)
-remote: Counting objects:  60% (59/97)
-remote: Counting objects:  61% (60/97)
-remote: Counting objects:  62% (61/97)
-remote: Counting objects:  63% (62/97)
-remote: Counting objects:  64% (63/97)
-remote: Counting objects:  65% (64/97)
-remote: Counting objects:  67% (65/97)
-remote: Counting objects:  68% (66/97)
-remote: Counting objects:  69% (67/97)
-remote: Counting objects:  70% (68/97)
-remote: Counting objects:  71% (69/97)
-remote: Counting objects:  72% (70/97)
-remote: Counting objects:  73% (71/97)
-remote: Counting objects:  74% (72/97)
-remote: Counting objects:  75% (73/97)
-remote: Counting objects:  76% (74/97)
-remote: Counting objects:  77% (75/97)
-remote: Counting objects:  78% (76/97)
-remote: Counting objects:  79% (77/97)
-remote: Counting objects:  80% (78/97)
-remote: Counting objects:  81% (79/97)
-remote: Counting objects:  82% (80/97)
-remote: Counting objects:  83% (81/97)
-remote: Counting objects:  84% (82/97)
-remote: Counting objects:  85% (83/97)
-remote: Counting objects:  86% (84/97)
-remote: Counting objects:  87% (85/97)
-remote: Counting objects:  88% (86/97)
-remote: Counting objects:  89% (87/97)
-remote: Counting objects:  90% (88/97)
-remote: Counting objects:  91% (89/97)
-remote: Counting objects:  92% (90/97)
-remote: Counting objects:  93% (91/97)
-remote: Counting objects:  94% (92/97)
-remote: Counting objects:  95% (93/97)
-remote: Counting objects:  96% (94/97)
-remote: Counting objects:  97% (95/97)
-remote: Counting objects:  98% (96/97)
-remote: Counting objects: 100% (97/97)
-remote: Counting objects: 100% (97/97), done.
-remote: Compressing objects:   1% (1/56)
-remote: Compressing objects:   3% (2/56)
-remote: Compressing objects:   5% (3/56)
-remote: Compressing objects:   7% (4/56)
-remote: Compressing objects:   8% (5/56)
-remote: Compressing objects:  10% (6/56)
-remote: Compressing objects:  12% (7/56)
-remote: Compressing objects:  14% (8/56)
-remote: Compressing objects:  16% (9/56)
-remote: Compressing objects:  17% (10/56)
-remote: Compressing objects:  19% (11/56)
-remote: Compressing objects:  21% (12/56)
-remote: Compressing objects:  23% (13/56)
-remote: Compressing objects:  25% (14/56)
-remote: Compressing objects:  26% (15/56)
-remote: Compressing objects:  28% (16/56)
-remote: Compressing objects:  30% (17/56)
-remote: Compressing objects:  32% (18/56)
-remote: Compressing objects:  33% (19/56)
-remote: Compressing objects:  35% (20/56)
-remote: Compressing objects:  37% (21/56)
-remote: Compressing objects:  39% (22/56)
-remote: Compressing objects:  41% (23/56)
-remote: Compressing objects:  42% (24/56)
-remote: Compressing objects:  44% (25/56)
-remote: Compressing objects:  46% (26/56)
-remote: Compressing objects:  48% (27/56)
-remote: Compressing objects:  50% (28/56)
-remote: Compressing objects:  51% (29/56)
-remote: Compressing objects:  53% (30/56)
-remote: Compressing objects:  55% (31/56)
-remote: Compressing objects:  57% (32/56)
-remote: Compressing objects:  58% (33/56)
-remote: Compressing objects:  60% (34/56)
-remote: Compressing objects:  62% (35/56)
-remote: Compressing objects:  64% (36/56)
-remote: Compressing objects:  66% (37/56)
-remote: Compressing objects:  67% (38/56)
-remote: Compressing objects:  69% (39/56)
-remote: Compressing objects:  71% (40/56)
-remote: Compressing objects:  73% (41/56)
-remote: Compressing objects:  75% (42/56)
-remote: Compressing objects:  76% (43/56)
-remote: Compressing objects:  78% (44/56)
-remote: Compressing objects:  80% (45/56)
-remote: Compressing objects:  82% (46/56)
-remote: Compressing objects:  83% (47/56)
-remote: Compressing objects:  85% (48/56)
-remote: Compressing objects:  87% (49/56)
-remote: Compressing objects:  89% (50/56)
-remote: Compressing objects:  91% (51/56)
-remote: Compressing objects:  92% (52/56)
-remote: Compressing objects:  94% (53/56)
-remote: Compressing objects:  96% (54/56)
-remote: Compressing objects:  98% (55/56)
-remote: Compressing objects: 100% (56/56)
-remote: Compressing objects: 100% (56/56), done.
-Receiving objects:   1% (1/97)
-Receiving objects:   2% (2/97)
-Receiving objects:   3% (3/97)
-Receiving objects:   4% (4/97)
-Receiving objects:   5% (5/97)
-Receiving objects:   6% (6/97)
-Receiving objects:   7% (7/97)
-Receiving objects:   8% (8/97)
-Receiving objects:   9% (9/97)
-Receiving objects:  10% (10/97)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Receiving objects:  11% (11/97)
-Receiving objects:  12% (12/97)
-Receiving objects:  13% (13/97)
-Receiving objects:  14% (14/97)
-Receiving objects:  15% (15/97)
-Receiving objects:  16% (16/97)
-Receiving objects:  17% (17/97)
-Receiving objects:  18% (18/97)
-Receiving objects:  19% (19/97)
-Receiving objects:  20% (20/97)
-Receiving objects:  21% (21/97)
-Receiving objects:  22% (22/97)
-Receiving objects:  23% (23/97)
-Receiving objects:  24% (24/97)
-Receiving objects:  25% (25/97)
-Receiving objects:  26% (26/97)
-Receiving objects:  27% (27/97)
-Receiving objects:  28% (28/97)
-Receiving objects:  29% (29/97)
-Receiving objects:  30% (30/97)
-remote: Total 97 (delta 41), reused 95 (delta 41), pack-reused 0
-Receiving objects:  31% (31/97)
-Receiving objects:  32% (32/97)
-Receiving objects:  34% (33/97)
-Receiving objects:  35% (34/97)
-Receiving objects:  36% (35/97)
-Receiving objects:  37% (36/97)
-Receiving objects:  38% (37/97)
-Receiving objects:  39% (38/97)
-Receiving objects:  40% (39/97)
-Receiving objects:  41% (40/97)
-Receiving objects:  42% (41/97)
-Receiving objects:  43% (42/97)
-Receiving objects:  44% (43/97)
-Receiving objects:  45% (44/97)
-Receiving objects:  46% (45/97)
-Receiving objects:  47% (46/97)
-Receiving objects:  48% (47/97)
-Receiving objects:  49% (48/97)
-Receiving objects:  50% (49/97)
-Receiving objects:  51% (50/97)
-Receiving objects:  52% (51/97)
-Receiving objects:  53% (52/97)
-Receiving objects:  54% (53/97)
-Receiving objects:  55% (54/97)
-Receiving objects:  56% (55/97)
-Receiving objects:  57% (56/97)
-Receiving objects:  58% (57/97)
-Receiving objects:  59% (58/97)
-Receiving objects:  60% (59/97)
-Receiving objects:  61% (60/97)
-Receiving objects:  62% (61/97)
-Receiving objects:  63% (62/97)
-Receiving objects:  64% (63/97)
-Receiving objects:  65% (64/97)
-Receiving objects:  67% (65/97)
-Receiving objects:  68% (66/97)
-Receiving objects:  69% (67/97)
-Receiving objects:  70% (68/97)
-Receiving objects:  71% (69/97)
-Receiving objects:  72% (70/97)
-Receiving objects:  73% (71/97)
-Receiving objects:  74% (72/97)
-Receiving objects:  75% (73/97)
-Receiving objects:  76% (74/97)
-Receiving objects:  77% (75/97)
-Receiving objects:  78% (76/97)
-Receiving objects:  79% (77/97)
-Receiving objects:  80% (78/97)
-Receiving objects:  81% (79/97)
-Receiving objects:  82% (80/97)
-Receiving objects:  83% (81/97)
-Receiving objects:  84% (82/97)
-Receiving objects:  85% (83/97)
-Receiving objects:  86% (84/97)
-Receiving objects:  87% (85/97)
-Receiving objects:  88% (86/97)
-Receiving objects:  89% (87/97)
-Receiving objects:  90% (88/97)
-Receiving objects:  91% (89/97)
-Receiving objects:  92% (90/97)
-Receiving objects:  93% (91/97)
-Receiving objects:  94% (92/97)
-Receiving objects:  95% (93/97)
-Receiving objects:  96% (94/97)
-Receiving objects:  97% (95/97)
-Receiving objects:  98% (96/97)
-Receiving objects: 100% (97/97)
-Receiving objects: 100% (97/97), 1.59 MiB | 27.65 MiB/s, done.
-Resolving deltas:   0% (0/41)
-Resolving deltas:   2% (1/41)
-Resolving deltas:   4% (2/41)
-Resolving deltas:   7% (3/41)
-Resolving deltas:   9% (4/41)
-Resolving deltas:  12% (5/41)
-Resolving deltas:  14% (6/41)
-Resolving deltas:  17% (7/41)
-Resolving deltas:  19% (8/41)
-Resolving deltas:  21% (9/41)
-Resolving deltas:  24% (10/41)
-Resolving deltas:  26% (11/41)
-Resolving deltas:  29% (12/41)
-Resolving deltas:  31% (13/41)
-Resolving deltas:  34% (14/41)
-Resolving deltas:  36% (15/41)
-Resolving deltas:  39% (16/41)
-Resolving deltas:  41% (17/41)
-Resolving deltas:  43% (18/41)
-Resolving deltas:  46% (19/41)
-Resolving deltas:  48% (20/41)
-Resolving deltas:  51% (21/41)
-Resolving deltas:  53% (22/41)
-Resolving deltas:  56% (23/41)
-Resolving deltas:  58% (24/41)
-Resolving deltas:  60% (25/41)
-Resolving deltas:  63% (26/41)
-Resolving deltas:  65% (27/41)
-Resolving deltas:  68% (28/41)
-Resolving deltas:  70% (29/41)
-Resolving deltas:  73% (30/41)
-Resolving deltas:  75% (31/41)
-Resolving deltas:  78% (32/41)
-Resolving deltas:  80% (33/41)
-Resolving deltas:  82% (34/41)
-Resolving deltas:  85% (35/41)
-Resolving deltas:  87% (36/41)
-Resolving deltas:  90% (37/41)
-Resolving deltas:  92% (38/41)
-Resolving deltas:  95% (39/41)
-Resolving deltas:  97% (40/41)
-Resolving deltas: 100% (41/41)
-Resolving deltas: 100% (41/41), done.
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>g++ -g -c -Wall -pg   ../coastline.cpp -o ../coastline.o
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>g++ -g -c -Wall -pg   ../cliffline.cpp -o ../cliffline.o
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>g++ -g -c -Wall -pg   ../waveclimate.cpp -o ../waveclimate.o
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>g++ -g -c -Wall -pg   spiral_bay_driver.cpp -o spiral_bay_driver.o
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold">spiral_bay_driver.cpp:</span> In function &#39;<span class=" -Color -Color-Bold">int main(int, char**)</span>&#39;:
-<span class=" -Color -Color-Bold">spiral_bay_driver.cpp:101:6:</span> <span class=" -Color -Color-Bold -Color-Bold-Magenta">warning: </span>unused variable &#39;<span class=" -Color -Color-Bold">MeanNodeSpacing</span>&#39; [<span class=" -Color -Color-Bold -Color-Bold-Magenta">-Wunused-variable</span>]
-  101 |  int <span class=" -Color -Color-Bold -Color-Bold-Magenta">MeanNodeSpacing</span> = 50;  // in metres
-      |      <span class=" -Color -Color-Bold -Color-Bold-Magenta">^~~~~~~~~~~~~~~</span>
-<span class=" -Color -Color-Bold">spiral_bay_driver.cpp:102:9:</span> <span class=" -Color -Color-Bold -Color-Bold-Magenta">warning: </span>unused variable &#39;<span class=" -Color -Color-Bold">CoastLength</span>&#39; [<span class=" -Color -Color-Bold -Color-Bold-Magenta">-Wunused-variable</span>]
-  102 |  double <span class=" -Color -Color-Bold -Color-Bold-Magenta">CoastLength</span> = 2000; // in metres
-      |         <span class=" -Color -Color-Bold -Color-Bold-Magenta">^~~~~~~~~~~</span>
-<span class=" -Color -Color-Bold">spiral_bay_driver.cpp:103:9:</span> <span class=" -Color -Color-Bold -Color-Bold-Magenta">warning: </span>unused variable &#39;<span class=" -Color -Color-Bold">Trend</span>&#39; [<span class=" -Color -Color-Bold -Color-Bold-Magenta">-Wunused-variable</span>]
-  103 |  double <span class=" -Color -Color-Bold -Color-Bold-Magenta">Trend</span> = 315.;  // azimuth in degrees
-      |         <span class=" -Color -Color-Bold -Color-Bold-Magenta">^~~~~</span>
-<span class=" -Color -Color-Bold">spiral_bay_driver.cpp:110:6:</span> <span class=" -Color -Color-Bold -Color-Bold-Magenta">warning: </span>unused variable &#39;<span class=" -Color -Color-Bold">StartBoundary</span>&#39; [<span class=" -Color -Color-Bold -Color-Bold-Magenta">-Wunused-variable</span>]
-  110 |  int <span class=" -Color -Color-Bold -Color-Bold-Magenta">StartBoundary</span> = 2;
-      |      <span class=" -Color -Color-Bold -Color-Bold-Magenta">^~~~~~~~~~~~~</span>
-<span class=" -Color -Color-Bold">spiral_bay_driver.cpp:111:6:</span> <span class=" -Color -Color-Bold -Color-Bold-Magenta">warning: </span>unused variable &#39;<span class=" -Color -Color-Bold">EndBoundary</span>&#39; [<span class=" -Color -Color-Bold -Color-Bold-Magenta">-Wunused-variable</span>]
-  111 |  int <span class=" -Color -Color-Bold -Color-Bold-Magenta">EndBoundary</span> = 2;
-      |      <span class=" -Color -Color-Bold -Color-Bold-Magenta">^~~~~~~~~~~</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>g++  ../coastline.o ../cliffline.o ../waveclimate.o ./spiral_bay_driver.o -lm -lstdc++  -o spiral_bay.out
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span><span class="nb">cd</span> COVE/driver_files<span class="p">;</span> make -f spiral_bay_make.make<span class="p">;</span> mv spiral_bay.out cove<span class="p">;</span> mv cove ../../
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>g++  ../coastline.o ../waveclimate.o ./spiral_bay_driver.o -lm -lstdc++  -o spiral_bay.out
-</pre></div>
-</div>
-</div>
-</div>
 <div class="section" id="sensitivities-of-crenulate-bay-shorelines-to-wave-climates">
 <h1>Sensitivities of crenulate bay shorelines to wave climates<a class="headerlink" href="#sensitivities-of-crenulate-bay-shorelines-to-wave-climates" title="Permalink to this headline">¶</a></h1>
 <p>We will use a vector-based one-line model called COVE to study to explore how the wave direction <span class="math notranslate nohighlight">\(\theta_o\)</span> and spreading <span class="math notranslate nohighlight">\(\theta_{std}\)</span> is influencing shorelines evolution.</p>
@@ -821,6 +457,8 @@ Resolving deltas: 100% (41/41), done.
 	- StDWaveHeight
 	- MeanWaveDirection
 	- StDWaveDirection
+	- TimeStep
+	- EndTime
 </pre></div>
 </div>
 </div>
@@ -858,396 +496,7 @@ Resolving deltas: 100% (41/41), done.
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>./cove <span class="nv">$Tmean</span> <span class="nv">$Tstd</span> <span class="nv">$Hmean</span> <span class="nv">$Hstd</span>  <span class="nv">$Theta</span> <span class="nv">$ThetaStd</span> 
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Initialising Coastline as straight segment
-	 MeanNodeSpacing = 50
-	 CoastLength = 2000
-	 Boundary Conditions = 2, 2
-
-Coastline: Time is 0.00 years
-Simulated time is 0.00 years
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Time is 0.10 years
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Time is 0.20 years
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Time is 0.30 years
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Time is 0.40 years
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Time is 0.50 years
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Time is 0.60 years
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Time is 0.70 years
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Time is 0.80 years
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Time is 0.90 years
-Coastline: Time is 1.00 years
-Simulated time is 1.00 years
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Time is 1.10 years
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Time is 1.20 years
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Time is 1.30 years
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Time is 1.40 years
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Time is 1.50 years
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Time is 1.60 years
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Time is 1.70 years
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Time is 1.80 years
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Time is 1.90 years
-Coastline: Time is 2.00 years
-Simulated time is 2.00 years
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Time is 2.10 years
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Time is 2.20 years
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Time is 2.30 years
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Time is 2.40 years
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Time is 2.50 years
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Time is 2.60 years
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Time is 2.70 years
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Time is 2.80 years
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Time is 2.90 years
-Coastline: Time is 3.00 years
-Simulated time is 3.00 years
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Time is 3.10 years
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Time is 3.20 years
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Time is 3.30 years
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Time is 3.40 years
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Time is 3.50 years
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Time is 3.60 years
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Time is 3.70 years
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Time is 3.80 years
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Time is 3.90 years
-Coastline: Time is 4.00 years
-Simulated time is 4.00 years
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Time is 4.10 years
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Time is 4.20 years
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Time is 4.30 years
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Time is 4.40 years
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Time is 4.50 years
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Time is 4.60 years
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Time is 4.70 years
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Time is 4.80 years
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Time is 4.90 years
-Coastline: Time is 5.00 years
-Simulated time is 5.00 years
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Time is 5.10 years
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Time is 5.20 years
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Time is 5.30 years
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Time is 5.40 years
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Time is 5.50 years
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Time is 5.60 years
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Time is 5.70 years
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Time is 5.80 years
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Time is 5.90 years
-Coastline: Time is 6.00 years
-Simulated time is 6.00 years
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Time is 6.10 years
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Time is 6.20 years
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Time is 6.30 years
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Time is 6.40 years
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Time is 6.50 years
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Time is 6.60 years
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Time is 6.70 years
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Time is 6.80 years
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Time is 6.90 years
-Coastline: Time is 7.00 years
-Simulated time is 7.00 years
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Time is 7.10 years
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Time is 7.20 years
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Time is 7.30 years
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Time is 7.40 years
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Time is 7.50 years
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Time is 7.60 years
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Time is 7.70 years
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Time is 7.80 years
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Time is 7.90 years
-Coastline: Time is 8.00 years
-Simulated time is 8.00 years
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Time is 8.10 years
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Time is 8.20 years
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Time is 8.30 years
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Time is 8.40 years
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Time is 8.50 years
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Time is 8.60 years
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Time is 8.70 years
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Time is 8.80 years
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Time is 8.90 years
-Coastline: Time is 9.00 years
-Simulated time is 9.00 years
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Time is 9.10 years
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Time is 9.20 years
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Time is 9.30 years
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Time is 9.40 years
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Time is 9.50 years
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Time is 9.60 years
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Time is 9.70 years
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Time is 9.80 years
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Time is 9.90 years
-Coastline: Time is 10.00 years
-Simulated time is 10.00 years
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Time is 10.10 years
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Time is 10.20 years
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Time is 10.30 years
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Time is 10.40 years
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Time is 10.50 years
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Time is 10.60 years
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Time is 10.70 years
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Time is 10.80 years
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Time is 10.90 years
-Coastline: Time is 11.00 years
-Simulated time is 11.00 years
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Time is 11.10 years
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Time is 11.20 years
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Time is 11.30 years
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Time is 11.40 years
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Time is 11.50 years
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Time is 11.60 years
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Time is 11.70 years
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Time is 11.80 years
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Time is 11.90 years
-Coastline: Time is 12.00 years
-Simulated time is 12.00 years
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Time is 12.10 years
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Time is 12.20 years
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Time is 12.30 years
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>^C
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>./cove <span class="m">6</span> <span class="m">1</span> <span class="m">1</span>. <span class="m">0</span>.1 <span class="m">25</span> <span class="m">10</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Initialising Coastline as straight segment
-	 MeanNodeSpacing = 50
-	 CoastLength = 2000
-	 Boundary Conditions = 2, 2
-
-Simulated time is 0.00 yearss
-^C
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="ch">#!./cove $Tmean $Tstd $Hmean $Hstd  $Theta $ThetaStd </span>
 </pre></div>
 </div>
 </div>
@@ -1273,6 +522,20 @@ Simulated time is 0.00 yearss
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">FileNotFoundError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">5</span><span class="o">-</span><span class="n">dc3f0f5d04b4</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> 
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="c1"># Read the header info and get the lines</span>
+<span class="ne">----&gt; </span><span class="mi">5</span> <span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span><span class="s2">&quot;r&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="n">Lines</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="n">NoLines</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">Lines</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span>
+
+<span class="ne">FileNotFoundError</span>: [Errno 2] No such file or directory: &#39;Spiral_6_1_1.0_0.1_25_10.xy&#39;
+</pre></div>
+</div>
+</div>
 </div>
 </div>
 <div class="section" id="define-output-time-to-visualise">
@@ -1284,6 +547,20 @@ Simulated time is 0.00 yearss
 <span class="n">Time</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">NoLines</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">NoLines</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">):</span>
     <span class="n">Time</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">Lines</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">6</span><span class="o">-</span><span class="mi">931</span><span class="n">abfa741ae</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">TimeIntervals</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.2</span><span class="p">,</span><span class="mf">0.5</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">16</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">30</span><span class="p">,</span><span class="mi">40</span><span class="p">,</span><span class="mi">50</span><span class="p">]</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> 
+<span class="ne">----&gt; </span><span class="mi">3</span> <span class="n">Time</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">NoLines</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">NoLines</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">):</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span>     <span class="n">Time</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">Lines</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">])</span>
+
+<span class="ne">NameError</span>: name &#39;NoLines&#39; is not defined
 </pre></div>
 </div>
 </div>
@@ -1374,6 +651,23 @@ Simulated time is 0.00 yearss
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">8</span><span class="o">-</span><span class="mi">83155</span><span class="n">a337c19</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> 
+<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="c1"># Get the shoreline positions</span>
+<span class="ne">----&gt; </span><span class="mi">7</span> <span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">Lines</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">)[</span><span class="mi">1</span><span class="p">:],</span><span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;float64&#39;</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="n">Y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">Lines</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">)[</span><span class="mi">1</span><span class="p">:],</span><span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;float64&#39;</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">9</span> <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">Y</span><span class="p">,</span><span class="s1">&#39;b.&#39;</span><span class="p">,</span><span class="n">ms</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s2">&quot;Initial Coastline&quot;</span><span class="p">)</span>
+
+<span class="ne">NameError</span>: name &#39;Lines&#39; is not defined
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 864x864 with 0 Axes&gt;
+</pre></div>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -1383,6 +677,11 @@ Simulated time is 0.00 yearss
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>rm Spiral_*.xy
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>rm: cannot remove &#39;Spiral_*.xy&#39;: No such file or directory
 </pre></div>
 </div>
 </div>
@@ -1415,6 +714,8 @@ Simulated time is 0.00 yearss
         
         <div class='prev-next-bottom'>
             
+    <a class='left-prev' id="prev-link" href="pybeach.html" title="previous page">pybeach</a>
+    <a class='right-next' id="next-link" href="sedtransport.html" title="next page">Simple wave sediment modelling</a>
 
         </div>
         
