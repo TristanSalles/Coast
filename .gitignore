@@ -12,3 +12,6 @@ book/waveclimate/whall_wh_distribution.png
 book/waveclimate/whall_wh_heatmap.png
 book/waveclimate/whall_wh_sd.png
 book/waveclimate/__pycache__
+book/coastevol/waverunup/__pycache__
+book/coastevol/beach/__pycache__
+book/coastevol/beach/support/__pycache__

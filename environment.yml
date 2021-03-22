@@ -4,8 +4,10 @@ channels:
   - defaults
   - anaconda
 dependencies:
-  - python=3.8    # Python version 3.8
-  - fortran-compiler
+  - python=3.6    # Python version 3.8
+  - compilers
+  - llvm-openmp
+  - scikit-learn==0.21.2  # Machine learning library
   - sphinx
   - pip           # Python package
   - pandas        # Labeled array library
@@ -14,7 +16,6 @@ dependencies:
   - matplotlib    # 2D plotting library
   - numpy         # N-d array and numerics
   - scipy         # Common math/stats/science functions
-  - scikit-learn==0.21.2  # Machine learning library
   - scikit-image  # Image processing routines
   - geopandas     # Labeled array library for geosciences
   - shapely       # Geometric library
@@ -36,4 +37,3 @@ dependencies:
     - pyproj      # Geographic projections
     - radwave
     - wavespectra
-    - py-wave-runup
