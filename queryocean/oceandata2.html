@@ -58,7 +58,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Analysing historical records of wave data from IMOS" href="waverider.html" />
-    <link rel="prev" title="Using the IMOS User Code Library with Python" href="oceandata1.html" />
+    <link rel="prev" title="IMOS Data access with Python" href="oceandata1.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -96,17 +96,17 @@
 <ul class="current nav sidenav_l1">
  <li class="toctree-l1 current active collapsible-parent">
   <a class="reference internal" href="notes.html">
-   Notes on ocean data query
+   Notes on Ocean Data query
   </a>
   <ul class="current collapse-ul">
    <li class="toctree-l2">
     <a class="reference internal" href="buoygoldcoast.html">
-     AODN - Wave buoys Gold Coast
+     Gold Coast wave manitoring
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="oceandata1.html">
-     Using the IMOS User Code Library with Python
+     IMOS Data access with Python
     </a>
    </li>
    <li class="toctree-l2 current active">
@@ -401,6 +401,10 @@
                 
   <div class="section" id="imos-ocean-radar-data-query">
 <h1>IMOS Ocean Radar Data Query<a class="headerlink" href="#imos-ocean-radar-data-query" title="Permalink to this headline">¶</a></h1>
+<div class="note admonition">
+<p class="admonition-title">Exercise 2</p>
+<p>In this second example (<code class="docutils literal notranslate"><span class="pre">OceanData2.ipynb</span></code>), the Australian Coastal Ocean Radar Network (<a class="reference external" href="https://portal.aodn.org.au/search">ACORN</a>) facility comprises a coordinated network of HF <strong>radars</strong> delivering real-time ocean surface velocity data.</p>
+<p>We will export the dataset file (<code class="docutils literal notranslate"><span class="pre">NetCDF</span></code>) for a given region and then we will plot the velocity field at a given time in a latitude/longitude grid.</p>
 <p>The <strong>Australian Coastal Ocean Radar Network</strong> (<a class="reference external" href="http://imos.org.au/facilities/oceanradar/">ACORN</a>) facility comprises a coordinated network of <em>HF radars</em> delivering:</p>
 <ul class="simple">
 <li><p>real-time, non-quality controlled and</p></li>
@@ -409,6 +413,7 @@
 <p><strong>NetCDF files</strong> can be found at : <a class="reference external" href="http://thredds.aodn.org.au/thredds/catalog/IMOS/ACORN/catalog.html">http://thredds.aodn.org.au/thredds/catalog/IMOS/ACORN/catalog.html</a></p>
 <p>Monthly aggregated files are also available in the following folders:
 <a class="reference external" href="http://thredds.aodn.org.au/thredds/catalog/IMOS/ACORN/gridded_1h-avg-current-map_non-QC/catalog.html">http://thredds.aodn.org.au/thredds/catalog/IMOS/ACORN/gridded_1h-avg-current-map_non-QC/catalog.html</a></p>
+</div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>In the example below, we first export the dataset file (NetCDF) for a given region and then we plot the velocity field at a given time in a latitude/longitude grid.</p>
@@ -804,7 +809,7 @@ It's a good idea to regularly view your data throughout the code development pro
         
         <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="oceandata1.html" title="previous page">Using the IMOS User Code Library with Python</a>
+    <a class='left-prev' id="prev-link" href="oceandata1.html" title="previous page">IMOS Data access with Python</a>
     <a class='right-next' id="next-link" href="waverider.html" title="next page">Analysing historical records of wave data from IMOS</a>
 
         </div>

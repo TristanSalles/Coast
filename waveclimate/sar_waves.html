@@ -94,17 +94,17 @@
 <ul class="nav sidenav_l1">
  <li class="toctree-l1 collapsible-parent">
   <a class="reference internal" href="../queryocean/notes.html">
-   Notes on ocean data query
+   Notes on Ocean Data query
   </a>
   <ul class="collapse-ul">
    <li class="toctree-l2">
     <a class="reference internal" href="../queryocean/buoygoldcoast.html">
-     AODN - Wave buoys Gold Coast
+     Gold Coast wave manitoring
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../queryocean/oceandata1.html">
-     Using the IMOS User Code Library with Python
+     IMOS Data access with Python
     </a>
    </li>
    <li class="toctree-l2">
@@ -683,7 +683,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Error in callback &lt;function flush_figures at 0x7f87b5120730&gt; (for post_execute):
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Error in callback &lt;function flush_figures at 0x7f1647bc98c8&gt; (for post_execute):
 </pre></div>
 </div>
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
@@ -754,18 +754,11 @@
 <span class="g g-Whitespace">   </span><span class="mi">2198</span>                         <span class="n">pad_inches</span> <span class="o">=</span> <span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;savefig.pad_inches&#39;</span><span class="p">]</span>
 
 <span class="nn">/usr/share/miniconda/envs/coast/lib/python3.6/site-packages/matplotlib/figure.py</span> in <span class="ni">get_tightbbox</span><span class="nt">(self, renderer, bbox_extra_artists)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2514</span>                 <span class="k">try</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">2515</span>                     <span class="n">bbox</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">get_tightbbox</span><span class="p">(</span>
-<span class="ne">-&gt; </span><span class="mi">2516</span>                         <span class="n">renderer</span><span class="p">,</span> <span class="n">bbox_extra_artists</span><span class="o">=</span><span class="n">bbox_extra_artists</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2517</span>                 <span class="k">except</span> <span class="ne">TypeError</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">2518</span>                     <span class="n">bbox</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">get_tightbbox</span><span class="p">(</span><span class="n">renderer</span><span class="p">)</span>
-
-<span class="nn">/usr/share/miniconda/envs/coast/lib/python3.6/site-packages/matplotlib/axes/_base.py</span> in <span class="ni">get_tightbbox</span><span class="nt">(self, renderer, call_axes_locator, bbox_extra_artists, for_layout_only)</span>
-<span class="g g-Whitespace">   </span><span class="mi">4198</span>                     <span class="c1"># this artist</span>
-<span class="g g-Whitespace">   </span><span class="mi">4199</span>                     <span class="k">continue</span>
-<span class="ne">-&gt; </span><span class="mi">4200</span>             <span class="n">bbox</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="n">get_tightbbox</span><span class="p">(</span><span class="n">renderer</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">4201</span>             <span class="k">if</span> <span class="p">(</span><span class="n">bbox</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
-<span class="g g-Whitespace">   </span><span class="mi">4202</span>                     <span class="ow">and</span> <span class="mi">0</span> <span class="o">&lt;</span> <span class="n">bbox</span><span class="o">.</span><span class="n">width</span> <span class="o">&lt;</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span>
+<span class="g g-Whitespace">   </span><span class="mi">2504</span> 
+<span class="g g-Whitespace">   </span><span class="mi">2505</span>         <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">artists</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">2506</span>             <span class="n">bbox</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="n">get_tightbbox</span><span class="p">(</span><span class="n">renderer</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2507</span>             <span class="k">if</span> <span class="n">bbox</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="p">(</span><span class="n">bbox</span><span class="o">.</span><span class="n">width</span> <span class="o">!=</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">bbox</span><span class="o">.</span><span class="n">height</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">):</span>
+<span class="g g-Whitespace">   </span><span class="mi">2508</span>                 <span class="n">bb</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">bbox</span><span class="p">)</span>
 
 <span class="nn">/usr/share/miniconda/envs/coast/lib/python3.6/site-packages/matplotlib/artist.py</span> in <span class="ni">get_tightbbox</span><span class="nt">(self, renderer)</span>
 <span class="g g-Whitespace">    </span><span class="mi">284</span>             <span class="k">if</span> <span class="n">clip_path</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">bbox</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
@@ -789,39 +782,11 @@
 <span class="g g-Whitespace">    </span><span class="mi">295</span>         <span class="n">dims</span> <span class="o">=</span> <span class="p">[]</span>
 
 <span class="nn">/usr/share/miniconda/envs/coast/lib/python3.6/site-packages/matplotlib/bezier.py</span> in <span class="ni">polynomial_coefficients</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">    </span><span class="mi">269</span>         <span class="n">j</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)[:,</span> <span class="kc">None</span><span class="p">]</span>
 <span class="g g-Whitespace">    </span><span class="mi">270</span>         <span class="n">i</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)[</span><span class="kc">None</span><span class="p">,</span> <span class="p">:]</span>  <span class="c1"># _comb is non-zero for i &lt;= j</span>
-<span class="ne">--&gt; </span><span class="mi">271</span>         <span class="n">prefactor</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">**</span><span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="n">j</span><span class="p">)</span> <span class="o">*</span> <span class="n">_comb</span><span class="p">(</span><span class="n">j</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>  <span class="c1"># j on axis 0, i on axis 1</span>
-<span class="g g-Whitespace">    </span><span class="mi">272</span>         <span class="k">return</span> <span class="n">_comb</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">j</span><span class="p">)</span> <span class="o">*</span> <span class="n">prefactor</span> <span class="o">@</span> <span class="n">P</span>  <span class="c1"># j on axis 0, self.dimension on 1</span>
+<span class="g g-Whitespace">    </span><span class="mi">271</span>         <span class="n">prefactor</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">**</span><span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="n">j</span><span class="p">)</span> <span class="o">*</span> <span class="n">_comb</span><span class="p">(</span><span class="n">j</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>  <span class="c1"># j on axis 0, i on axis 1</span>
+<span class="ne">--&gt; </span><span class="mi">272</span>         <span class="k">return</span> <span class="n">_comb</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">j</span><span class="p">)</span> <span class="o">*</span> <span class="n">prefactor</span> <span class="o">@</span> <span class="n">P</span>  <span class="c1"># j on axis 0, self.dimension on 1</span>
 <span class="g g-Whitespace">    </span><span class="mi">273</span> 
-
-<span class="nn">/usr/share/miniconda/envs/coast/lib/python3.6/site-packages/numpy/lib/function_base.py</span> in <span class="ni">__call__</span><span class="nt">(self, *args, **kwargs)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2106</span>             <span class="n">vargs</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span><span class="n">kwargs</span><span class="p">[</span><span class="n">_n</span><span class="p">]</span> <span class="k">for</span> <span class="n">_n</span> <span class="ow">in</span> <span class="n">names</span><span class="p">])</span>
-<span class="g g-Whitespace">   </span><span class="mi">2107</span> 
-<span class="ne">-&gt; </span><span class="mi">2108</span>         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_vectorize_call</span><span class="p">(</span><span class="n">func</span><span class="o">=</span><span class="n">func</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="n">vargs</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2109</span> 
-<span class="g g-Whitespace">   </span><span class="mi">2110</span>     <span class="k">def</span> <span class="nf">_get_ufunc_and_otypes</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">func</span><span class="p">,</span> <span class="n">args</span><span class="p">):</span>
-
-<span class="nn">/usr/share/miniconda/envs/coast/lib/python3.6/site-packages/numpy/lib/function_base.py</span> in <span class="ni">_vectorize_call</span><span class="nt">(self, func, args)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2184</span>             <span class="n">res</span> <span class="o">=</span> <span class="n">func</span><span class="p">()</span>
-<span class="g g-Whitespace">   </span><span class="mi">2185</span>         <span class="k">else</span><span class="p">:</span>
-<span class="ne">-&gt; </span><span class="mi">2186</span>             <span class="n">ufunc</span><span class="p">,</span> <span class="n">otypes</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_ufunc_and_otypes</span><span class="p">(</span><span class="n">func</span><span class="o">=</span><span class="n">func</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="n">args</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2187</span> 
-<span class="g g-Whitespace">   </span><span class="mi">2188</span>             <span class="c1"># Convert args to object arrays first</span>
-
-<span class="nn">/usr/share/miniconda/envs/coast/lib/python3.6/site-packages/numpy/lib/function_base.py</span> in <span class="ni">_get_ufunc_and_otypes</span><span class="nt">(self, func, args)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2143</span>                                  <span class="s1">&#39;unless `otypes` is set&#39;</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2144</span> 
-<span class="ne">-&gt; </span><span class="mi">2145</span>             <span class="n">inputs</span> <span class="o">=</span> <span class="p">[</span><span class="n">arg</span><span class="o">.</span><span class="n">flat</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">arg</span> <span class="ow">in</span> <span class="n">args</span><span class="p">]</span>
-<span class="g g-Whitespace">   </span><span class="mi">2146</span>             <span class="n">outputs</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">inputs</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2147</span> 
-
-<span class="nn">/usr/share/miniconda/envs/coast/lib/python3.6/site-packages/numpy/lib/function_base.py</span> in <span class="ni">&lt;listcomp&gt;</span><span class="nt">(.0)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2143</span>                                  <span class="s1">&#39;unless `otypes` is set&#39;</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2144</span> 
-<span class="ne">-&gt; </span><span class="mi">2145</span>             <span class="n">inputs</span> <span class="o">=</span> <span class="p">[</span><span class="n">arg</span><span class="o">.</span><span class="n">flat</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">arg</span> <span class="ow">in</span> <span class="n">args</span><span class="p">]</span>
-<span class="g g-Whitespace">   </span><span class="mi">2146</span>             <span class="n">outputs</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">inputs</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2147</span> 
+<span class="g g-Whitespace">    </span><span class="mi">274</span>     <span class="k">def</span> <span class="nf">axis_aligned_extrema</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 
 <span class="ne">KeyboardInterrupt</span>: 
 </pre></div>

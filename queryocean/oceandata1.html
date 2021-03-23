@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Using the IMOS User Code Library with Python &#8212; Coastal Processes, Environments &amp; Systems</title>
+    <title>IMOS Data access with Python &#8212; Coastal Processes, Environments &amp; Systems</title>
     
   <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
 
@@ -56,7 +56,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="IMOS Ocean Radar Data Query" href="oceandata2.html" />
-    <link rel="prev" title="AODN - Wave buoys Gold Coast" href="buoygoldcoast.html" />
+    <link rel="prev" title="Gold Coast wave manitoring" href="buoygoldcoast.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -94,17 +94,17 @@
 <ul class="current nav sidenav_l1">
  <li class="toctree-l1 current active collapsible-parent">
   <a class="reference internal" href="notes.html">
-   Notes on ocean data query
+   Notes on Ocean Data query
   </a>
   <ul class="current collapse-ul">
    <li class="toctree-l2">
     <a class="reference internal" href="buoygoldcoast.html">
-     AODN - Wave buoys Gold Coast
+     Gold Coast wave manitoring
     </a>
    </li>
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
-     Using the IMOS User Code Library with Python
+     IMOS Data access with Python
     </a>
    </li>
    <li class="toctree-l2">
@@ -425,8 +425,14 @@
         
               <div>
                 
-  <div class="section" id="using-the-imos-user-code-library-with-python">
-<h1>Using the IMOS User Code Library with Python<a class="headerlink" href="#using-the-imos-user-code-library-with-python" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="imos-data-access-with-python">
+<h1>IMOS Data access with Python<a class="headerlink" href="#imos-data-access-with-python" title="Permalink to this headline">¶</a></h1>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>In this first example (<code class="docutils literal notranslate"><span class="pre">OceanData1.ipynb</span></code>), we will work with the <a class="reference external" href="https://portal.aodn.org.au/search">IMOS portal</a> using <a class="reference external" href="https://www.python.org">Python</a> via <a class="reference external" href="https://jupyter.org">Jupyter Notebooks</a>.</p>
+<p>There are several advantages of using <code class="docutils literal notranslate"><span class="pre">Python</span></code> as a general data analysis language and the notebook environment is a versatile tool that is designed to be <em>interactive</em>, <em>user-friendly</em>, <em>open-source</em> and <em>sharable</em>.</p>
+</div>
+<p>We will see how to load <code class="docutils literal notranslate"><span class="pre">NetCDF</span></code> data into a <code class="docutils literal notranslate"><span class="pre">Python</span></code> environment, and show how to use the data once loaded.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">YouTubeVideo</span>
@@ -482,10 +488,10 @@
 </div>
 <div class="section" id="a-name-netcdf4-a-general-features-of-the-netcdf4-module">
 <h2><a name="netcdf4"></a>  General Features of the netCDF4 module<a class="headerlink" href="#a-name-netcdf4-a-general-features-of-the-netcdf4-module" title="Permalink to this headline">¶</a></h2>
-<p>The first step consists of opening a NetCDF file, whether this file is available locally or remotely on an OPeNDAP server.</p>
-<p>Type in your Python command window (or script):</p>
-<p>This creates a netCDF Dataset object, through which you can access all the contents of the file.</p>
-<p>Let’s do it below - as this is a Python commands we will be using a <code class="docutils literal notranslate"><span class="pre">code</span></code> cell this time and not a <code class="docutils literal notranslate"><span class="pre">markdown</span></code> (text) one.</p>
+<p>The first step consists of opening a NetCDF file, whether this file is available locally or remotely on an <strong>OPeNDAP</strong> server.</p>
+<p>Type in your <code class="docutils literal notranslate"><span class="pre">Python</span></code> command window (or script):</p>
+<p>This creates a <code class="docutils literal notranslate"><span class="pre">netCDF</span></code> Dataset object, through which you can access all the contents of the file.</p>
+<p>Let’s do it below - as this is a <code class="docutils literal notranslate"><span class="pre">Python</span></code> commands we will be using a <code class="docutils literal notranslate"><span class="pre">code</span></code> cell this time and not a <code class="docutils literal notranslate"><span class="pre">markdown</span></code> (text) one.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">netCDF4</span>  <span class="kn">import</span> <span class="n">Dataset</span>
@@ -1552,7 +1558,7 @@ filling off
         
         <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="buoygoldcoast.html" title="previous page">AODN - Wave buoys Gold Coast</a>
+    <a class='left-prev' id="prev-link" href="buoygoldcoast.html" title="previous page">Gold Coast wave manitoring</a>
     <a class='right-next' id="next-link" href="oceandata2.html" title="next page">IMOS Ocean Radar Data Query</a>
 
         </div>
