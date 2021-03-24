@@ -15,10 +15,10 @@
   chapters:
     - file: waveclimate/notes
       sections:
+        - file: waveclimate/sar_waves
         - file: waveclimate/tileanalysis
         - file: waveclimate/climatevariability
         - file: waveclimate/cycloneyasi
-        - file: waveclimate/sar_waves
 
 - part: Part 3
   chapters:
