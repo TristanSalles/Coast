@@ -27,15 +27,21 @@
         - file: coastevol/waverunup
         - file: coastevol/runupdataset
         - file: coastevol/pybeach
+
+
+- part: Part 4
+  chapters:
+    - file: coastevol/notes2
+      sections:
         - file: coastevol/baysensitivity
         - file: coastevol/sedtransport
         - file: coastevol/inshorewaves
         - file: coastevol/selectprofiles
         - file: coastevol/grainsettling
 
-- part: Part 4
+- part: Part 5
   chapters:
-    - file: reefmodel
+    - file: reefs/reefmodel
 
 - part: Jupyter
   chapters:

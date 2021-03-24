@@ -1,7 +1,7 @@
-Coral reef evolution
-======================
+Coral reef evolution notes
+===========================
 
-..  admonition:: Chapter content
+..  admonition:: Section intro
     :class: toggle, important, toggle-shown
 
     In this chapter, we will discuss the dynamics of coral reefs with a focus on their long term evolution. We will see different types of modelling approaches that focus on long-term (century to millennial scale) and large-scale (regional to continental) evolution.
@@ -20,7 +20,7 @@ The Great Barrier Reef is the largest living organism on the planet, stretching 
 
 The growth and evolution of the reef did not happen overnight. In fact, it is over 20 million years in the making. The reef as we know it today is built on the backs and bones of many millions of years of coral as the ocean levels have changed, islands have formed and land has settled.
 
-.. figure:: _static/GBR.jpg
+.. figure:: ../_static/GBR.jpg
   :width: 80 %
   :alt: Rise and fall of the Great Barrier Reef over 30,000 years
   :align: center
@@ -41,7 +41,7 @@ Main physical forces acting on carbonate platform
 Corals are calcium-carbonate-secreting, and their ability to grow and build reef structures is dependent upon favourable environmental conditions. Environmental factors affecting growth have been classified by `Veron (1995) <https://books.google.com.au/books/about/Corals_in_Space_and_Time.html?id=piQvtbFUicAC&redir_esc=y>`_ as **latitude-correlated** factors, and those that are **regional or local** in character.
 
 
-.. figure:: _static/pyreef.jpg
+.. figure:: ../_static/pyreef.jpg
   :width: 90 %
   :alt: Schematic figure of a hypothetical reef with transitions from shallow to deep assemblages occurring down-core, illustrating growth-form responses of corals to environmental forcing including light, sea level changes (sl), hydrodynamic energy (w wave conditions and c currents), tectonic (u uplift and s subsidence), oceanic conditions (T temperature, nu nutrients, pH acidity), karstification (k) and sediment flux.
   :align: center
@@ -108,7 +108,7 @@ High water flow increases rates of photosynthesis by symbiotic algae, nutrient u
 At the extremes, too little flow can be lethal in corals by inducing anaerobiosis, whereas extreme wave events cause mechanical destruction and can lead to long-term changes in community diversity and structure.
 
 
-.. figure:: _static/harris.jpg
+.. figure:: ../_static/harris.jpg
   :width: 80 %
   :alt: Coral reef structural complexity provides important coastal protection from waves under rising sea levels.
   :align: center
@@ -172,7 +172,7 @@ Cellular Automata (**CA**) are a type of discrete numerical model that have been
 
     Application of simple rules, for example, based on the number of cells in the neighbourhood with the same state, is used to determine the future state of a cell at the next iteration, or generation, of a cell.
 
-    .. image:: _static/CA1.jpg
+    .. image:: ../_static/CA1.jpg
       :width: 90 %
       :alt: Burgess CA model
       :align: center
@@ -180,7 +180,7 @@ Cellular Automata (**CA**) are a type of discrete numerical model that have been
     Results from **CARBOCAT** model illustrate the potential of cellular automata models for generating simulated heterogeneous platform top strata and hence better understanding the origins of carbonate heterogeneities found in natural systems (from `Burgess 2013 <http://instaar.colorado.edu/~jenkinsc/carboClinic/carboCAT/carboCAT.pdf>`_).
 
 
-    .. image:: _static/CA2.jpg
+    .. image:: ../_static/CA2.jpg
       :width: 90 %
       :alt: Burgess CA model
       :align: center
@@ -194,7 +194,7 @@ Fuzzy logic
 Based on a fuzzy logic approach, carbonate system evolution can be driven entirely by a set of rules whose variables are fully adjustable. The utility and effectiveness of the approach is mostly based on the user’s understanding of the modelled carbonate system. The technique is specifically useful to estimate how particular variable, in isolation or in combination with other factors, influences carbonate depositional geometries and reef adaptation.
 
 
-.. figure:: _static/fuzzy.jpg
+.. figure:: ../_static/fuzzy.jpg
   :width: 100 %
   :alt: Fuzzy logic model of carbonate reef
   :align: center
@@ -262,7 +262,7 @@ Using `badlands <https://www.nature.com/articles/s41598-018-23519-8>`_, we can t
 
 When carbonate platforms are present in model simulations, several notable geomorphological features appear, especially during lowstand. Upon exposure of the shelf, platforms reduce stream power, promoting mounding of fluvial sediments around platforms. On the outer shelf, rivers and streams are re-routed and coalesce between platforms, depositing shelf-edge deltas and incising paleochannels through knickpoint retreat.
 
-.. figure:: _static/carbsmandi.jpg
+.. figure:: ../_static/carbsmandi.jpg
   :width: 90 %
   :alt: GBR geomorphology induced by carbonate platform
   :align: center
@@ -286,7 +286,7 @@ Hands-on examples
 
 Using **pyReef** `model <https://www.geosci-model-dev.net/11/2093/2018/>`_, we will simulate  typical sequences of coral assemblages found in the GBR based on different initial conditions.
 
-.. figure:: _static/pyreef1.jpg
+.. figure:: ../_static/pyreef1.jpg
   :width: 100 %
   :alt: pyreef model example
   :align: center
