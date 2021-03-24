@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Access data from Forecast Model &#8212; Coastal Processes, Environments &amp; Systems</title>
+    <title>Access data from forecast model &#8212; Coastal Processes, Environments &amp; Systems</title>
     
   <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
 
@@ -56,7 +56,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Analysing wave climate notes" href="../waveclimate/notes.html" />
-    <link rel="prev" title="Analysing historical records of wave data from IMOS" href="waverider.html" />
+    <link rel="prev" title="IMOS historical wave data" href="waverider.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -99,7 +99,7 @@
   <ul class="current collapse-ul">
    <li class="toctree-l2">
     <a class="reference internal" href="buoygoldcoast.html">
-     Gold Coast wave manitoring
+     Gold Coast wave monitoring
     </a>
    </li>
    <li class="toctree-l2">
@@ -114,12 +114,12 @@
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="waverider.html">
-     Analysing historical records of wave data from IMOS
+     IMOS historical wave data
     </a>
    </li>
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
-     Access data from Forecast Model
+     Access data from forecast model
     </a>
    </li>
   </ul>
@@ -420,20 +420,24 @@
               <div>
                 
   <div class="section" id="access-data-from-forecast-model">
-<h1>Access data from Forecast Model<a class="headerlink" href="#access-data-from-forecast-model" title="Permalink to this headline">¶</a></h1>
-<p>Using the NetCDF4-Python library you will access velocity data from a triangular grid ocean model (FVCOM) via OPeNDAP, specifying the desired URL, time, layer and lat/lon region of interest. The resulting plot of forecast velocity vectors over color-shaded bathymetry is useful for a variety of recreational and scientific purposes.</p>
+<h1>Access data from forecast model<a class="headerlink" href="#access-data-from-forecast-model" title="Permalink to this headline">¶</a></h1>
+<p><em>This notebook is based on the notebook from the Rich Signell USGS available <a class="reference external" href="https://nbviewer.jupyter.org/github/rsignell-usgs/ipython-notebooks/blob/master/files/FVCOM_depth_and_velocity.ipynb">here</a>.</em></p>
+<p>Using the NetCDF4-Python library you will access velocity data from a triangular grid ocean model (<a class="reference external" href="http://fvcom.smast.umassd.edu/research_projects/NECOFS/model_system.html">FVCOM</a>) via OPeNDAP, specifying the desired <code class="docutils literal notranslate"><span class="pre">URL</span></code>, time, layer and lat/lon region of interest. The resulting plot of forecast velocity vectors over color-shaded bathymetry is useful for a variety of recreational and scientific purposes.</p>
 <div class="section" id="inline-output">
 <h2>Inline output<a class="headerlink" href="#inline-output" title="Permalink to this headline">¶</a></h2>
-<p>The following code helps make all of the code samples in this notebook display their output properly.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
 <p>Note that you need to run this cell before running any other cell in the notebook. Otherwise your output will display in a separate window, or it won’t display at all. If you try to run a cell and the output does not display in the notebook:</p>
 <ul class="simple">
 <li><p>Restart the IPython Notebook kernel.</p></li>
 <li><p>Run the following cell.</p></li>
 <li><p>Run the cell you were interested in again.</p></li>
 </ul>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="kn">from</span> <span class="nn">pylab</span> <span class="kn">import</span> <span class="o">*</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">matplotlib.tri</span> <span class="k">as</span> <span class="nn">Tri</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
@@ -441,6 +445,10 @@
 <span class="kn">import</span> <span class="nn">datetime</span> <span class="k">as</span> <span class="nn">dt</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">from</span> <span class="nn">io</span> <span class="kn">import</span> <span class="n">StringIO</span>
+
+
+<span class="o">%</span><span class="k">config</span> InlineBackend.figure_format = &#39;svg&#39;
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;mathtext.fontset&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;cm&#39;</span>
 </pre></div>
 </div>
 </div>
@@ -531,7 +539,7 @@ filling off
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>118 2021-03-23 21:43:51.374068
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>98 2021-03-24 01:30:13.195128
 </pre></div>
 </div>
 </div>
@@ -546,7 +554,7 @@ filling off
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2021-Mar-23 22:01
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2021-Mar-24 01:58
 </pre></div>
 </div>
 </div>
@@ -572,7 +580,10 @@ filling off
 </div>
 </div>
 <p>FVCOM spatial discretisation is based on an unstructured Delaunay triangulation.</p>
-<p><img alt="alt text" src="http://fvcom.smast.umassd.edu/research_projects/GB/model_grids/fvcom_gom_g1.jpg" /></p>
+<div class="figure align-center" id="id1">
+<a class="reference internal image-reference" href="http://fvcom.smast.umassd.edu/research_projects/GB/model_grids/fvcom_gom_g1.jpg"><img alt="A man fools around in the wind at Bondi Beach, Sydney, on April 21 2015." src="http://fvcom.smast.umassd.edu/research_projects/GB/model_grids/fvcom_gom_g1.jpg" style="width: 80%;" /></a>
+<p class="caption"><span class="caption-number">Fig. 5 </span><span class="caption-text">FVCOM grid</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</div>
 <p>We need to upload the triangular grid:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -637,32 +648,37 @@ filling off
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># tricontourf plot of water depth with vectors on top</span>
-<span class="n">fig1</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">18</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
+<span class="n">fig1</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">7</span><span class="p">))</span>
+
 <span class="n">ax1</span> <span class="o">=</span> <span class="n">fig1</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">,</span><span class="n">aspect</span><span class="o">=</span><span class="p">(</span><span class="mf">1.0</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">lat</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mf">180.0</span><span class="p">)))</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">tricontourf</span><span class="p">(</span><span class="n">tri</span><span class="p">,</span> <span class="o">-</span><span class="n">h</span><span class="p">,</span><span class="n">levels</span><span class="o">=</span><span class="n">levels</span><span class="p">,</span><span class="n">shading</span><span class="o">=</span><span class="s1">&#39;faceted&#39;</span><span class="p">,</span><span class="n">cmap</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">gist_earth</span><span class="p">)</span>
+
+<span class="c1"># Water depth</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tricontourf</span><span class="p">(</span><span class="n">tri</span><span class="p">,</span> <span class="o">-</span><span class="n">h</span><span class="p">,</span><span class="n">levels</span><span class="o">=</span><span class="n">levels</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">gist_earth</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="n">ax</span><span class="p">)</span>
+
 <span class="n">ax1</span><span class="o">.</span><span class="n">patch</span><span class="o">.</span><span class="n">set_facecolor</span><span class="p">(</span><span class="s1">&#39;0.5&#39;</span><span class="p">)</span>
 <span class="n">cbar</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">()</span>
 <span class="n">cbar</span><span class="o">.</span><span class="n">set_label</span><span class="p">(</span><span class="s1">&#39;Water Depth (m)&#39;</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=-</span><span class="mi">90</span><span class="p">)</span>
+
+<span class="c1"># Quiver plot</span>
 <span class="n">Q</span> <span class="o">=</span> <span class="n">ax1</span><span class="o">.</span><span class="n">quiver</span><span class="p">(</span><span class="n">lonc</span><span class="p">[</span><span class="n">idv</span><span class="p">],</span><span class="n">latc</span><span class="p">[</span><span class="n">idv</span><span class="p">],</span><span class="n">u</span><span class="p">[</span><span class="n">idv</span><span class="p">],</span><span class="n">v</span><span class="p">[</span><span class="n">idv</span><span class="p">],</span><span class="n">scale</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
 <span class="n">qk</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">quiverkey</span><span class="p">(</span><span class="n">Q</span><span class="p">,</span><span class="mf">0.92</span><span class="p">,</span><span class="mf">0.08</span><span class="p">,</span><span class="mf">0.50</span><span class="p">,</span><span class="s1">&#39;0.5 m/s&#39;</span><span class="p">,</span><span class="n">labelpos</span><span class="o">=</span><span class="s1">&#39;W&#39;</span><span class="p">)</span>
+
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;NECOFS Velocity, Layer </span><span class="si">%d</span><span class="s1">, </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">ilayer</span><span class="p">,</span> <span class="n">daystr</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/share/miniconda/envs/coast/lib/python3.6/site-packages/ipykernel_launcher.py:4: UserWarning: The following kwargs were not used by contour: &#39;shading&#39;
-  after removing the cwd from sys.path.
-</pre></div>
+<img alt="../_images/oceanforecast_24_0.svg" src="../_images/oceanforecast_24_0.svg" /></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;NECOFS Velocity, Layer 0, 2021-Mar-23 22:01&#39;)
-</pre></div>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference external" href="http://gis.stackexchange.com/questions/71630/subsetting-a-curvilinear-netcdf-file-roms-model-output-using-a-lon-lat-boundin">Here</a> is another example of subsetting a curvilinear netCDF file from ROMS model output using a lon/lat bounding box.</p>
 </div>
-<img alt="../_images/oceanforecast_24_2.png" src="../_images/oceanforecast_24_2.png" />
 </div>
-</div>
-<p><em><p>Note:</p>
-<a href='http://gis.stackexchange.com/questions/71630/subsetting-a-curvilinear-netcdf-file-roms-model-output-using-a-lon-lat-boundin'>Here</a> is another example of subsetting a curvilinear netCDF file from ROMS model output using a lon/lat bounding box</em></p>
 </div>
 <div class="section" id="extract-water-levels-analyse-visualise">
 <h2>Extract water levels, analyse &amp; visualise<a class="headerlink" href="#extract-water-levels-analyse-visualise" title="Permalink to this headline">¶</a></h2>
@@ -746,18 +762,15 @@ filling off
 </table>
 </div></div></div>
 </div>
-<p>Then, we define the list of URLs containing forecast model data for the area and we open them:</p>
+<p>Then, we define the list of <code class="docutils literal notranslate"><span class="pre">URLs</span></code> containing forecast model data for the area and we open them:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#NECOFS GOM3 grid forecast</span>
-<span class="c1">#model=&#39;GOM3&#39;</span>
-<span class="c1">#url=&#39;http://www.smast.umassd.edu:8080/thredds/dodsC/FVCOM/NECOFS/Forecasts/NECOFS_GOM3_FORECAST.nc&#39;</span>
-<span class="c1">#NECOFS MassBay grid forecast</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#NECOFS MassBay grid forecast</span>
 <span class="n">model</span><span class="o">=</span><span class="s1">&#39;Massbay&#39;</span>
 <span class="n">url</span><span class="o">=</span><span class="s1">&#39;http://www.smast.umassd.edu:8080/thredds/dodsC/FVCOM/NECOFS/Forecasts/NECOFS_FVCOM_OCEAN_MASSBAY_FORECAST.nc&#39;</span>
 
 <span class="c1"># Open NECOFS remote OPeNDAP dataset </span>
-<span class="n">nc</span><span class="o">=</span><span class="n">netCDF4</span><span class="o">.</span><span class="n">Dataset</span><span class="p">(</span><span class="n">url</span><span class="p">)</span><span class="o">.</span><span class="n">variables</span>
+<span class="n">nc2</span><span class="o">=</span><span class="n">netCDF4</span><span class="o">.</span><span class="n">Dataset</span><span class="p">(</span><span class="n">url</span><span class="p">)</span><span class="o">.</span><span class="n">variables</span>
 </pre></div>
 </div>
 </div>
@@ -767,10 +780,12 @@ filling off
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Find the indices of the points in (x,y) closest to the points in (xi,yi)</span>
 <span class="k">def</span> <span class="nf">nearxy</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">xi</span><span class="p">,</span><span class="n">yi</span><span class="p">):</span>
+    
     <span class="n">ind</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">xi</span><span class="p">),</span><span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">xi</span><span class="p">)):</span>
         <span class="n">dist</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">((</span><span class="n">x</span><span class="o">-</span><span class="n">xi</span><span class="p">[</span><span class="n">i</span><span class="p">])</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="p">(</span><span class="n">y</span><span class="o">-</span><span class="n">yi</span><span class="p">[</span><span class="n">i</span><span class="p">])</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
         <span class="n">ind</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="n">dist</span><span class="o">.</span><span class="n">argmin</span><span class="p">()</span>
+        
     <span class="k">return</span> <span class="n">ind</span>
 </pre></div>
 </div>
@@ -779,7 +794,7 @@ filling off
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Query to find closest NECOFS nodes to station locations</span>
-<span class="n">obs</span><span class="p">[</span><span class="s1">&#39;NODE-ID&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">nearxy</span><span class="p">(</span><span class="n">nc</span><span class="p">[</span><span class="s1">&#39;lon&#39;</span><span class="p">][:],</span><span class="n">nc</span><span class="p">[</span><span class="s1">&#39;lat&#39;</span><span class="p">][:],</span><span class="n">obs</span><span class="p">[</span><span class="s1">&#39;Lon&#39;</span><span class="p">],</span><span class="n">obs</span><span class="p">[</span><span class="s1">&#39;Lat&#39;</span><span class="p">])</span>
+<span class="n">obs</span><span class="p">[</span><span class="s1">&#39;NODE-ID&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">nearxy</span><span class="p">(</span><span class="n">nc2</span><span class="p">[</span><span class="s1">&#39;lon&#39;</span><span class="p">][:],</span><span class="n">nc2</span><span class="p">[</span><span class="s1">&#39;lat&#39;</span><span class="p">][:],</span><span class="n">obs</span><span class="p">[</span><span class="s1">&#39;Lon&#39;</span><span class="p">],</span><span class="n">obs</span><span class="p">[</span><span class="s1">&#39;Lat&#39;</span><span class="p">])</span>
 <span class="n">obs</span>
 </pre></div>
 </div>
@@ -841,14 +856,14 @@ filling off
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get time values and convert to datetime objects</span>
-<span class="n">times</span> <span class="o">=</span> <span class="n">nc</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">]</span>
+<span class="n">times</span> <span class="o">=</span> <span class="n">nc2</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">]</span>
 <span class="n">jd</span> <span class="o">=</span> <span class="n">netCDF4</span><span class="o">.</span><span class="n">num2date</span><span class="p">(</span><span class="n">times</span><span class="p">[:],</span><span class="n">times</span><span class="o">.</span><span class="n">units</span><span class="p">)</span>
 
 <span class="c1"># Get all time steps of water level from each station</span>
 <span class="n">nsta</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">obs</span><span class="p">)</span>
 <span class="n">z</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">jd</span><span class="p">),</span><span class="n">nsta</span><span class="p">))</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">nsta</span><span class="p">):</span>
-    <span class="n">z</span><span class="p">[:,</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">nc</span><span class="p">[</span><span class="s1">&#39;zeta&#39;</span><span class="p">][:,</span><span class="n">obs</span><span class="p">[</span><span class="s1">&#39;NODE-ID&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">]]</span>
+    <span class="n">z</span><span class="p">[:,</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">nc2</span><span class="p">[</span><span class="s1">&#39;zeta&#39;</span><span class="p">][:,</span><span class="n">obs</span><span class="p">[</span><span class="s1">&#39;NODE-ID&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">]]</span>
     
 <span class="c1"># Make a DataFrame out of the interpolated time series at each location</span>
 <span class="n">zvals</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">z</span><span class="p">,</span><span class="n">index</span><span class="o">=</span><span class="n">jd</span><span class="p">,</span><span class="n">columns</span><span class="o">=</span><span class="n">obs</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
@@ -884,28 +899,28 @@ filling off
   </thead>
   <tbody>
     <tr>
-      <th>2021-03-19 00:00:00</th>
-      <td>-0.459290</td>
-      <td>0.486</td>
-      <td>-0.439235</td>
+      <th>2021-03-20 00:00:00</th>
+      <td>0.071186</td>
+      <td>0.486006</td>
+      <td>0.077908</td>
     </tr>
     <tr>
-      <th>2021-03-19 01:01:52.500000</th>
-      <td>-0.712721</td>
-      <td>0.486</td>
-      <td>-0.640000</td>
+      <th>2021-03-20 01:01:52.500000</th>
+      <td>-0.270643</td>
+      <td>0.486006</td>
+      <td>-0.490268</td>
     </tr>
     <tr>
-      <th>2021-03-19 01:58:07.500000</th>
-      <td>-1.143347</td>
-      <td>0.486</td>
-      <td>-0.640000</td>
+      <th>2021-03-20 01:58:07.500000</th>
+      <td>-0.782911</td>
+      <td>0.486006</td>
+      <td>-0.632904</td>
     </tr>
     <tr>
-      <th>2021-03-19 03:00:00</th>
-      <td>-0.596098</td>
-      <td>0.486</td>
-      <td>-0.626740</td>
+      <th>2021-03-20 03:00:00</th>
+      <td>-0.470868</td>
+      <td>0.486006</td>
+      <td>-0.605019</td>
     </tr>
   </tbody>
 </table>
@@ -915,23 +930,24 @@ filling off
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plotting the DataFrame</span>
-<span class="n">ax</span><span class="o">=</span><span class="n">zvals</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">22</span><span class="p">,</span><span class="mi">12</span><span class="p">),</span><span class="n">grid</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<span class="n">ax</span><span class="o">=</span><span class="n">zvals</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">18</span><span class="p">,</span><span class="mi">4</span><span class="p">),</span><span class="n">grid</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
               <span class="n">title</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;NECOFS Forecast Water Level from </span><span class="si">%s</span><span class="s1"> Forecast&#39;</span> <span class="o">%</span> <span class="n">model</span><span class="p">),</span>
               <span class="n">legend</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span><span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 
 <span class="c1"># Read units from dataset for ylabel</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="n">nc</span><span class="p">[</span><span class="s1">&#39;zeta&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">units</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="n">nc2</span><span class="p">[</span><span class="s1">&#39;zeta&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">units</span><span class="p">)</span>
 
 <span class="c1"># Plotting the legend outside the axis is a bit tricky</span>
 <span class="n">box</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">get_position</span><span class="p">()</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_position</span><span class="p">([</span><span class="n">box</span><span class="o">.</span><span class="n">x0</span><span class="p">,</span> <span class="n">box</span><span class="o">.</span><span class="n">y0</span><span class="p">,</span> <span class="n">box</span><span class="o">.</span><span class="n">width</span> <span class="o">*</span> <span class="mf">0.55</span><span class="p">,</span> <span class="n">box</span><span class="o">.</span><span class="n">height</span><span class="p">])</span>
+<span class="n">setp</span><span class="p">(</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">get_xticklabels</span><span class="p">(),</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">45</span><span class="p">,</span> <span class="n">horizontalalignment</span><span class="o">=</span><span class="s1">&#39;right&#39;</span><span class="p">)</span>
+
 <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;center left&#39;</span><span class="p">,</span> <span class="n">bbox_to_anchor</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">));</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/oceanforecast_36_0.png" src="../_images/oceanforecast_36_0.png" />
-</div>
+<img alt="../_images/oceanforecast_36_0.svg" src="../_images/oceanforecast_36_0.svg" /></div>
 </div>
 </div>
 </div>
@@ -961,7 +977,7 @@ filling off
         
         <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="waverider.html" title="previous page">Analysing historical records of wave data from IMOS</a>
+    <a class='left-prev' id="prev-link" href="waverider.html" title="previous page">IMOS historical wave data</a>
     <a class='right-next' id="next-link" href="../waveclimate/notes.html" title="next page">Analysing wave climate notes</a>
 
         </div>

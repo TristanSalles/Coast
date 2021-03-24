@@ -57,7 +57,7 @@
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Analysing historical records of wave data from IMOS" href="waverider.html" />
+    <link rel="next" title="IMOS historical wave data" href="waverider.html" />
     <link rel="prev" title="IMOS Data access with Python" href="oceandata1.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -101,7 +101,7 @@
   <ul class="current collapse-ul">
    <li class="toctree-l2">
     <a class="reference internal" href="buoygoldcoast.html">
-     Gold Coast wave manitoring
+     Gold Coast wave monitoring
     </a>
    </li>
    <li class="toctree-l2">
@@ -116,12 +116,12 @@
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="waverider.html">
-     Analysing historical records of wave data from IMOS
+     IMOS historical wave data
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="oceanforecast.html">
-     Access data from Forecast Model
+     Access data from forecast model
     </a>
    </li>
   </ul>
@@ -360,13 +360,6 @@
         <nav id="bd-toc-nav">
             <ul class="nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#a-name-protocol-a-data-access-server-protocol">
-   <a name="protocol">
-   </a>
-   Data access server protocol
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#a-name-imos-data-a-acorn-data-from-imos">
    <a name="imos-data">
    </a>
@@ -401,10 +394,11 @@
                 
   <div class="section" id="imos-ocean-radar-data-query">
 <h1>IMOS Ocean Radar Data Query<a class="headerlink" href="#imos-ocean-radar-data-query" title="Permalink to this headline">¶</a></h1>
+<p><em>This notebook is based on the examples from the IMOS based Python library <a class="reference external" href="https://github.com/aodn/imos-user-code-library/wiki/Using-the-IMOS-User-Code-Library-with-Python#12-finding-an-imos-netcdf-file">tutorial</a>.</em></p>
 <div class="note admonition">
-<p class="admonition-title">Exercise 2</p>
-<p>In this second example (<code class="docutils literal notranslate"><span class="pre">OceanData2.ipynb</span></code>), the Australian Coastal Ocean Radar Network (<a class="reference external" href="https://portal.aodn.org.au/search">ACORN</a>) facility comprises a coordinated network of HF <strong>radars</strong> delivering real-time ocean surface velocity data.</p>
-<p>We will export the dataset file (<code class="docutils literal notranslate"><span class="pre">NetCDF</span></code>) for a given region and then we will plot the velocity field at a given time in a latitude/longitude grid.</p>
+<p class="admonition-title">Introduction</p>
+<p>The Australian Coastal Ocean Radar Network (<a class="reference external" href="https://portal.aodn.org.au/search">ACORN</a>) facility comprises a coordinated network of HF <strong>radars</strong> delivering real-time ocean surface velocity data.</p>
+<p>In this third example (<code class="docutils literal notranslate"><span class="pre">OceanData2.ipynb</span></code>), we will export the dataset file (<code class="docutils literal notranslate"><span class="pre">NetCDF</span></code>) for a given region and then we will plot the velocity field at a given time in a latitude/longitude grid.</p>
 <p>The <strong>Australian Coastal Ocean Radar Network</strong> (<a class="reference external" href="http://imos.org.au/facilities/oceanradar/">ACORN</a>) facility comprises a coordinated network of <em>HF radars</em> delivering:</p>
 <ul class="simple">
 <li><p>real-time, non-quality controlled and</p></li>
@@ -414,9 +408,8 @@
 <p>Monthly aggregated files are also available in the following folders:
 <a class="reference external" href="http://thredds.aodn.org.au/thredds/catalog/IMOS/ACORN/gridded_1h-avg-current-map_non-QC/catalog.html">http://thredds.aodn.org.au/thredds/catalog/IMOS/ACORN/gridded_1h-avg-current-map_non-QC/catalog.html</a></p>
 </div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>In the example below, we first export the dataset file (NetCDF) for a given region and then we plot the velocity field at a given time in a latitude/longitude grid.</p>
+<div class="margin figure align-default" id="margin-figure23">
+<img alt="../_images/imos.png" src="../_images/imos.png" />
 </div>
 <hr class="docutils" />
 <p><strong>Content:</strong></p>
@@ -444,13 +437,8 @@
 </div>
 </div>
 </div>
-<div class="section" id="a-name-protocol-a-data-access-server-protocol">
-<h2><a name="protocol"></a>  Data access server protocol<a class="headerlink" href="#a-name-protocol-a-data-access-server-protocol" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li><p>Data access is provided via <strong>HTTP</strong> and <strong>OPeNDAP</strong> by <strong>THREDDS</strong> Data Server and <strong>FTP</strong>.</p></li>
-<li><p>Most data providers are using interactive visualization of data sets with zoomable maps.</p></li>
-</ul>
-<p>Key transfer protocols acronyms:</p>
+<p>Data access is provided via <strong>HTTP</strong> and <strong>OPeNDAP</strong> by <strong>THREDDS</strong> Data Server and <strong>FTP</strong>.
+Key transfer protocols acronyms:</p>
 <ul class="simple">
 <li><p><em>HTTP</em>: Hypertext Transfer Protocol</p></li>
 <li><p><em>OPenDAP</em>: Open-source Project for a Network Data Access Protocol</p></li>
@@ -458,18 +446,20 @@
 <li><p><em>FTP</em>: File Transfer Protocol</p></li>
 <li><p><em>LAS</em>: Live Access Server</p></li>
 </ul>
-</div>
 <div class="section" id="a-name-imos-data-a-acorn-data-from-imos">
 <h2><a name="imos-data"></a>  ACORN data from IMOS<a class="headerlink" href="#a-name-imos-data-a-acorn-data-from-imos" title="Permalink to this headline">¶</a></h2>
 <p>Following previous example, we first export the NetCDF dataset from the IMOS AODN <strong>THREDDS data server</strong>.</p>
-<a class="reference internal image-reference" href="../_images/ex2-fig1.png"><img alt="../_images/ex2-fig1.png" src="../_images/ex2-fig1.png" style="width: 70%;" /></a>
+<div class="figure align-center" id="id1">
+<a class="reference internal image-reference" href="../_images/ex2-fig1.png"><img alt="Turquoise Bay" src="../_images/ex2-fig1.png" style="width: 70%;" /></a>
+<p class="caption"><span class="caption-number">Fig. 3 </span><span class="caption-text">Turquoise Bay</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</div>
 <p>The catalog containing all the ACORN dataset is found on the link below:</p>
 <ul class="simple">
 <li><p><a class="reference external" href="http://thredds.aodn.org.au/thredds/catalog/IMOS/ACORN/gridded_1h-avg-current-map_non-QC/catalog.html">http://thredds.aodn.org.au/thredds/catalog/IMOS/ACORN/gridded_1h-avg-current-map_non-QC/catalog.html</a></p></li>
 </ul>
 <p>You will note that there are several folders corresponding to different radar sites. We will use the dataset from <a class="reference external" href="https://www.google.com/maps/search/turquoise+coast+wa/&#64;-30.3216453,115.0155699,8225m/data=%213m1%211e3?hl=en">Turquoise Coast</a> in WA.</p>
-<p>As shown in the video below, navigate through the folder and pick a year, month and day. <strong>You should be able to take yesterday or today dataset as this is real-time data!</strong></p>
-<div class="cell docutils container">
+<p>As shown in the video below, navigate through the folder and pick a year, month and day.</p>
+<div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">YouTubeVideo</span>
 <span class="n">YouTubeVideo</span><span class="p">(</span><span class="s1">&#39;qiw0yGzfZak&#39;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">760</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">450</span><span class="p">)</span>
@@ -490,7 +480,7 @@
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Paste the Turquoise Coast dataset URL</span>
-<span class="n">acorn_URL</span> <span class="o">=</span> <span class="s1">&#39;http://thredds.aodn.org.au/thredds/dodsC/IMOS/ACORN/gridded_1h-avg-current-map_non-QC/TURQ/2018/01/23/IMOS_ACORN_V_20180123T140000Z_TURQ_FV00_1-hour-avg.nc&#39;</span>
+<span class="n">acorn_URL</span> <span class="o">=</span> <span class="s1">&#39;http://thredds.aodn.org.au/thredds/dodsC/IMOS/ACORN/gridded_1h-avg-current-map_non-QC/TURQ/2021/02/11/IMOS_ACORN_V_20210211T140000Z_TURQ_FV00_1-hour-avg.nc&#39;</span>
 
 <span class="c1"># Export the NetCDF file in Python </span>
 <span class="n">acorn_DATA</span> <span class="o">=</span> <span class="n">Dataset</span><span class="p">(</span><span class="n">acorn_URL</span><span class="o">+</span><span class="s1">&#39;#fillmismatch&#39;</span><span class="p">)</span>
@@ -498,13 +488,14 @@
 </div>
 </div>
 </div>
-<p>The first thing to notice is the distinctive <strong>Data Reference Syntax</strong> (DRS) associated with the file. Staff at IMOS have archived the data according to the following directory structure:</p>
+<p>The first thing to notice is the distinctive <strong>Data Reference Syntax</strong> (DRS) associated with the file. Staff at <strong>IMOS</strong> have archived the data according to the following directory structure:</p>
 <p><strong><a class="reference external" href="http://thredds.aodn.org.au/thredds/dodsC/organisation/project/collection/site-code/year/month/day/">http://thredds.aodn.org.au/thredds/dodsC/organisation/project/collection/site-code/year/month/day/</a></strong></p>
-<p>From this we can deduce, without even inspecting the content of the file, who is the data provider, when and where it was collected, which is a network of high frequency radars that measure the ocean surface current.</p>
-<hr class="docutils" />
-<blockquote>
-While it's unlikely that your research will ever involve cataloging data from such a large observational network, it's still a very good idea to develop your own personal **DRS** for the data you do have. This often involves investing some time at the beginning of a project to think carefully about the design of your directory and file name structures, as these can be very hard to change later on. Well planned **DRS** is one of the easiest ways to make your research more efficient and reliable.
-</blockquote>
+<p>From this we can deduce, without even inspecting the content of the file, who is the data provider, when and where it was collected.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>While it’s unlikely that your research will ever involve cataloging data from such a large observational network, it’s still a very good idea to develop your own personal <strong>DRS</strong> for the data you do have.</p>
+<p>This often involves investing some time at the beginning of a project to think carefully about the design of your directory and file name structures, as these can be very hard to change later on. Well planned <strong>DRS</strong> is one of the easiest ways to make your work more efficient and reliable.</p>
+</div>
 <p>In order to see all the global attributes and some other information about the file, type in your command window</p>
 <div class="cell tag_scroll-output docutils container">
 <div class="cell_input docutils container">
@@ -519,19 +510,19 @@ root group (NETCDF3_CLASSIC data model, file format DAP2):
     project: Integrated Marine Observing System (IMOS)
     Conventions: CF-1.6,IMOS-1.4
     institution: Australian Coastal Ocean Radar Network (ACORN)
-    title: IMOS ACORN Turqoise Coast (TURQ), one hour averaged current RT-QC data, 2018-01-23T14:00:00Z
+    title: IMOS ACORN Turqoise Coast (TURQ), one hour averaged current RT-QC data, 2021-02-11T14:00:00Z
     instrument: CODAR Ocean Sensors/SeaSonde
     site_code: TURQ, Turqoise Coast
     ssr_Stations: Lancelin (LANC), Green Head (GHED)
-    date_created: 2018-01-23T15:02:38Z
-    abstract: The ACORN facility is producing NetCDF files containing vector current maps at 1 hour time interval for time instant 2018-01-23 14:00:00Z in the region extending between Longitude: (112.124,115.827) and Latitude:(-32.515,-29.307). The final product is produced on a regular geographic grid. They are produced from radial currents in the Turquoise Coast (WA), which represent the surface sea water current component along the radial direction from a receiver antenna. Radials are calculated from the shift of the Bragg peaks in a power spectrum. They are mapped onto specific angles through a Direction-Finding algorithm and are converted into current vector components using an unweighted least-squares fit. Radials and vector maps are computed using the standard software provided by the ocean radar manifacturer, CODAR Ocean Sensors (COS). Radials are extracted from the Doppler spectra using the calibrated antenna pattern. Thresholds for radial SNR and velocities are set to 6dB, and 150 cm s-1. Vectors are produced at each grid point using an unweighted least-squares fit. Radial velocities from the two sites falling within a search radius R=20 km around each grid point are used in the computation. At least two radials per site are required in computation of the velocity components. QC procedures apply first to intersection angle (GDOP&gt;=30 &amp; GDOP&lt;=150); a threshold of 150 cm s-1 is applied on current velocity. the U, V current components are then flagged based on the number of radial velocities from each site that contribute to the velocity vector. Quality flag is set to 4 if NOBS1==1 or NOBS2==1; it is set to 3 if NOBS1/NOBS2&gt;=10 or NOBS2/NOBS1&lt;=10; it is set to 2 if (NOBS1/NOBS2&gt;=1 &amp; NOBS2/NOBS1&lt;10), or if (NOBS2/NOBS1&gt;=1 &amp; NOBS1/NOBS2&lt;10). The final product is produced on a regular geographic grid. More information on the data processing is available through the document: Real-time QC procedures for ACORN radars.
+    date_created: 2021-02-11T15:30:19Z
+    abstract: The ACORN facility is producing NetCDF files containing vector current maps at 1 hour time interval for time instant 2021-02-11 14:00:00Z in the region extending between Longitude: (112.124,115.827) and Latitude:(-32.515,-29.307). The final product is produced on a regular geographic grid. They are produced from radial currents in the Turquoise Coast (WA), which represent the surface sea water current component along the radial direction from a receiver antenna. Radials are calculated from the shift of the Bragg peaks in a power spectrum. They are mapped onto specific angles through a Direction-Finding algorithm and are converted into current vector components using an unweighted least-squares fit. Radials and vector maps are computed using the standard software provided by the ocean radar manifacturer, CODAR Ocean Sensors (COS). Radials are extracted from the Doppler spectra using the calibrated antenna pattern. Thresholds for radial SNR and velocities are set to 6dB, and 150 cm s-1. Vectors are produced at each grid point using an unweighted least-squares fit. Radial velocities from the two sites falling within a search radius R=20 km around each grid point are used in the computation. At least two radials per site are required in computation of the velocity components. QC procedures apply first to intersection angle (GDOP&gt;=30 &amp; GDOP&lt;=150); a threshold of 150 cm s-1 is applied on current velocity. the U, V current components are then flagged based on the number of radial velocities from each site that contribute to the velocity vector. Quality flag is set to 4 if NOBS1==1 or NOBS2==1; it is set to 3 if NOBS1/NOBS2&gt;=10 or NOBS2/NOBS1&lt;=10; it is set to 2 if (NOBS1/NOBS2&gt;=1 &amp; NOBS2/NOBS1&lt;10), or if (NOBS2/NOBS1&gt;=1 &amp; NOBS1/NOBS2&lt;10). The final product is produced on a regular geographic grid. More information on the data processing is available through the document: Quality Control procedures for ACORN radars Manual Version 1.3.3. Integrated Marine Observing System. DOI: 10.26198/5c89b59a931cb (http://dx.doi.org/10.26198/5c89b59a931cb).
     source: Terrestrial HF radar
     keywords: Oceans
     standard_name_vocabulary: NetCDF Climate and Forecast (CF) Metadata Convention Standard Name Table 27
     netcdf_version: 4.3.3.1
     naming_authority: IMOS
     file_version: Level 0 - RT Quality Controlled data
-    file_version_quality_control: Data in this file has been through the quality control procedure as described in the document: Real-Time QC procedures for ACORN radars.  Every data point in this file has an associated quality flag.
+    file_version_quality_control: Data in this file has been through the quality control procedure as described in the document: Quality Control procedures for ACORN radars Manual Version 1.3.3. Integrated Marine Observing System. DOI: 10.26198/5c89b59a931cb (http://dx.doi.org/10.26198/5c89b59a931cb).  Every data point in this file has an associated quality flag.
     geospatial_lat_min: -32.5151159
     geospatial_lat_max: -29.3070009
     geospatial_lat_units: degrees_north
@@ -541,13 +532,13 @@ root group (NETCDF3_CLASSIC data model, file format DAP2):
     geospatial_vertical_min: 0.0
     geospatial_vertical_max: 0.0
     geospatial_vertical_units: m
-    time_coverage_start: 2018-01-23T14:00:00Z
-    time_coverage_end: 2018-01-23T14:00:00Z
+    time_coverage_start: 2021-02-11T14:00:00Z
+    time_coverage_end: 2021-02-11T14:00:00Z
     local_time_zone: 8.0
     data_centre_email: info@aodn.org.au
     data_centre: Australian Ocean Data Network (AODN)
-    author: Cosoli, Simone; Middleditch, Andrew
-    author_email: simone.cosoli@uwa.edu.au; andrew.middleditch@uwa.edu.au
+    author: Cosoli, Simone
+    author_email: simone.cosoli@uwa.edu.au
     institution_references: http://www.imos.org.au/acorn.html
     principal_investigator: Cosoli, Simone
     citation: The citation in a list of references is: IMOS, [year-of-data-download], [Title], [data-access-URL], accessed [date-of-access]
@@ -579,7 +570,7 @@ root group (NETCDF3_CLASSIC data model, file format DAP2):
 </div>
 </div>
 <p>As we have seen already on of the great thing about netCDF files is that they contain <a href=http://en.wikipedia.org/wiki/Metadata>metadata</a> - that is, data about the data. They are <strong>global attributes</strong> that give information about the file as a whole, while each variable also has its own attributes.</p>
-<p>The <code class="docutils literal notranslate"><span class="pre">'u'</span></code> means each variable name is represented by a Unicode string. As an example, we plot the attributes associated to the <code class="docutils literal notranslate"><span class="pre">TIME</span></code> variable:</p>
+<p>As an example, we plot the attributes associated to the <code class="docutils literal notranslate"><span class="pre">TIME</span></code> variable:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;These are the attributes of the time axis:&#39;</span><span class="p">)</span>
@@ -587,7 +578,7 @@ root group (NETCDF3_CLASSIC data model, file format DAP2):
 
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;--------&#39;</span><span class="p">)</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Here is the time value:&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Here is the first time value:&#39;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">acorn_DATA</span><span class="o">.</span><span class="n">variables</span><span class="p">[</span><span class="s1">&#39;TIME&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
 </pre></div>
 </div>
@@ -610,10 +601,10 @@ unlimited dimensions: TIME
 current shape = (1,)
 filling off
 --------
-Here is the time value:
+Here is the first time value:
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>24859.583333333372
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>25974.583333333372
 </pre></div>
 </div>
 </div>
@@ -633,7 +624,7 @@ Here is the time value:
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Meaningfull dataset time:
-2018-01-23 14:00:00.000003
+2021-02-11 14:00:00.000003
 </pre></div>
 </div>
 </div>
@@ -645,7 +636,6 @@ Here is the time value:
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">acorn_DATA</span><span class="o">.</span><span class="n">variables</span><span class="p">[</span><span class="s1">&#39;UCUR&#39;</span><span class="p">])</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">acorn_DATA</span><span class="o">.</span><span class="n">variables</span><span class="p">[</span><span class="s1">&#39;VCUR&#39;</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
@@ -665,7 +655,18 @@ float32 UCUR(TIME, I, J)
 unlimited dimensions: TIME
 current shape = (1, 60, 59)
 filling off
-&lt;class &#39;netCDF4._netCDF4.Variable&#39;&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">acorn_DATA</span><span class="o">.</span><span class="n">variables</span><span class="p">[</span><span class="s1">&#39;VCUR&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;netCDF4._netCDF4.Variable&#39;&gt;
 float32 VCUR(TIME, I, J)
     _FillValue: 999999.0
     standard_name: northward_sea_water_velocity
@@ -684,7 +685,7 @@ filling off
 </div>
 </div>
 </div>
-<p>Let us define python variable for each of these NetCDF variables.</p>
+<p>Let us define <code class="docutils literal notranslate"><span class="pre">Numpy</span></code> variables for each of these <code class="docutils literal notranslate"><span class="pre">NetCDF</span></code> variables.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">uData</span> <span class="o">=</span> <span class="n">acorn_DATA</span><span class="o">.</span><span class="n">variables</span><span class="p">[</span><span class="s1">&#39;UCUR&#39;</span><span class="p">][:,:,:]</span>
@@ -705,7 +706,8 @@ filling off
 </div>
 </div>
 </div>
-<p>Both <i>uData</i> and <i>vData</i> are a special type of <strong>numpy array</strong> known as a masked array, whereby some of the points in the latitude/longitude grid have missing (or masked) values. Just as with a normal numpy array, we can check the shape of our data (in fact, masked arrays can do everything normal numpy arrays can do and more).</p>
+<p>Both <i>uData</i> and <i>vData</i> are a special type of <strong>Numpy array</strong> known as a <code class="docutils literal notranslate"><span class="pre">masked</span></code> array, whereby some of the points in the latitude/longitude grid have missing (or masked) values.</p>
+<p>Just as with a normal <code class="docutils literal notranslate"><span class="pre">Numpy</span> <span class="pre">array</span></code>, we can check the shape of our data (in fact, masked arrays can do everything normal <code class="docutils literal notranslate"><span class="pre">Numpy</span> <span class="pre">arrays</span></code> can do and more).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">uData</span><span class="p">))</span>
@@ -733,9 +735,11 @@ $<span class="math notranslate nohighlight">\( s = \sqrt{u^2+v^2} \)</span>$</p>
 </div>
 <div class="section" id="a-name-plotting-a-plotting-turquoise-coast-dataset">
 <h2><a name="plotting"></a> Plotting Turquoise Coast dataset<a class="headerlink" href="#a-name-plotting-a-plotting-turquoise-coast-dataset" title="Permalink to this headline">¶</a></h2>
-<blockquote>
-It's a good idea to regularly view your data throughout the code development process, just to ensure nothing crazy has happened along the way.
-</blockquote><div class="cell docutils container">
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>It’s a good idea to regularly view your data throughout the code development process, just to ensure nothing crazy has happened along the way.</p>
+</div>
+<div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get the grid values (long/lat)</span>
 <span class="n">LAT</span> <span class="o">=</span> <span class="n">acorn_DATA</span><span class="o">.</span><span class="n">variables</span><span class="p">[</span><span class="s1">&#39;LATITUDE&#39;</span><span class="p">]</span>
@@ -747,10 +751,10 @@ It's a good idea to regularly view your data throughout the code development pro
 <span class="c1"># Grab the units for current velocity</span>
 <span class="n">units</span> <span class="o">=</span> <span class="n">acorn_DATA</span><span class="o">.</span><span class="n">variables</span><span class="p">[</span><span class="s1">&#39;UCUR&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">units</span>
 
-<span class="n">figure</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span> <span class="n">facecolor</span><span class="o">=</span><span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
+<span class="n">figure</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">),</span> <span class="n">facecolor</span><span class="o">=</span><span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
 
 <span class="c1"># Plot the calculated current speed</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">pcolor</span><span class="p">(</span><span class="n">lonData</span> <span class="p">,</span> <span class="n">latData</span><span class="p">,</span> <span class="n">sData</span><span class="p">[</span><span class="mi">0</span><span class="p">,:,:],</span><span class="n">cmap</span><span class="o">=</span><span class="n">cmo</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">matter</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">pcolor</span><span class="p">(</span><span class="n">lonData</span> <span class="p">,</span> <span class="n">latData</span><span class="p">,</span> <span class="n">sData</span><span class="p">[</span><span class="mi">0</span><span class="p">,:,:],</span> <span class="n">cmap</span><span class="o">=</span><span class="n">cmo</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">matter</span><span class="p">,</span> <span class="n">shading</span><span class="o">=</span><span class="s1">&#39;nearest&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;both&#39;</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="s1">&#39;major&#39;</span><span class="p">,</span> <span class="n">labelsize</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
 <span class="n">cbar</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">()</span>
 <span class="n">cbar</span><span class="o">.</span><span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Current speed in &#39;</span> <span class="o">+</span> <span class="n">units</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
@@ -770,15 +774,14 @@ It's a good idea to regularly view your data throughout the code development pro
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/share/miniconda/envs/coast/lib/python3.6/site-packages/ipykernel_launcher.py:14: MatplotlibDeprecationWarning: shading=&#39;flat&#39; when X and Y have the same dimensions as C is deprecated since 3.3.  Either specify the corners of the quadrilaterals with X and Y, or pass shading=&#39;auto&#39;, &#39;nearest&#39; or &#39;gouraud&#39;, or set rcParams[&#39;pcolor.shading&#39;].  This will become an error two minor releases later.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/share/miniconda/envs/coast/lib/python3.6/site-packages/ipykernel_launcher.py:14: UserWarning: The input coordinates to pcolor are interpreted as cell centers, but are not monotonically increasing or decreasing. This may lead to incorrectly calculated cell edges, in which case, please supply explicit cell edges to pcolor.
   
 </pre></div>
 </div>
-<img alt="../_images/oceandata2_31_1.svg" src="../_images/oceandata2_31_1.svg" /></div>
+<img alt="../_images/oceandata2_32_1.svg" src="../_images/oceandata2_32_1.svg" /></div>
 </div>
-<hr class="docutils" />
-<div class="admonition seealso">
-<p class="admonition-title">See also</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
 <p>You can now try to plot 1h averaged sea water speed gridded data from ACORN data at another time interval or on another location and do some data crunching with it!</p>
 </div>
 </div>
@@ -810,7 +813,7 @@ It's a good idea to regularly view your data throughout the code development pro
         <div class='prev-next-bottom'>
             
     <a class='left-prev' id="prev-link" href="oceandata1.html" title="previous page">IMOS Data access with Python</a>
-    <a class='right-next' id="next-link" href="waverider.html" title="next page">Analysing historical records of wave data from IMOS</a>
+    <a class='right-next' id="next-link" href="waverider.html" title="next page">IMOS historical wave data</a>
 
         </div>
         

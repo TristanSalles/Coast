@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Analysing historical records of wave data from IMOS &#8212; Coastal Processes, Environments &amp; Systems</title>
+    <title>IMOS historical wave data &#8212; Coastal Processes, Environments &amp; Systems</title>
     
   <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
 
@@ -57,7 +57,7 @@
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Access data from Forecast Model" href="oceanforecast.html" />
+    <link rel="next" title="Access data from forecast model" href="oceanforecast.html" />
     <link rel="prev" title="IMOS Ocean Radar Data Query" href="oceandata2.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -101,7 +101,7 @@
   <ul class="current collapse-ul">
    <li class="toctree-l2">
     <a class="reference internal" href="buoygoldcoast.html">
-     Gold Coast wave manitoring
+     Gold Coast wave monitoring
     </a>
    </li>
    <li class="toctree-l2">
@@ -116,12 +116,12 @@
    </li>
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
-     Analysing historical records of wave data from IMOS
+     IMOS historical wave data
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="oceanforecast.html">
-     Access data from Forecast Model
+     Access data from forecast model
     </a>
    </li>
   </ul>
@@ -423,20 +423,27 @@
         
               <div>
                 
-  <div class="section" id="analysing-historical-records-of-wave-data-from-imos">
-<h1>Analysing historical records of wave data from IMOS<a class="headerlink" href="#analysing-historical-records-of-wave-data-from-imos" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="imos-historical-wave-data">
+<h1>IMOS historical wave data<a class="headerlink" href="#imos-historical-wave-data" title="Permalink to this headline">¶</a></h1>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
 <p>Access to historical records is important to</p>
 <ul class="simple">
 <li><p>evaluate global and local impacts of climate change &amp; anthropogenic influences and</p></li>
 <li><p>test and validate models. In the modelling area, this kind of approach is done  routinely to evaluate models performances (hindcast models).</p></li>
 </ul>
+</div>
 <p>Here we will see how we can query historical data from a buoy located offshore Sydney.</p>
+<div class="margin figure align-default" id="margin-figure24">
+<img alt="../_images/mhl.png" src="../_images/mhl.png" />
+</div>
 <p>Our dataset is available from:</p>
-<p><a href='http://imos.org.au'>IMOS Data Portal</a> and has been recorded by the <a href='http://new.mhl.nsw.gov.au/TodaysConditions-Sydney'><strong>Manly Hydraulics Laboratory</strong></a>:</p>
 <ul class="simple">
-<li><p><a href='http://imos-data.s3-website-ap-southeast-2.amazonaws.com/?prefix=NSW-OEH/Manly_Hydraulics_Laboratory/Wave/Sydney/'>dataset link</a></p></li>
+<li><p><a class="reference external" href="http://imos.org.au">IMOS Data Portal</a> and has been recorded by the <a class="reference external" href="https://mhl.nsw.gov.au"><strong>Manly Hydraulics Laboratory</strong></a>:</p></li>
+<li><p><a class="reference external" href="http://imos-data.s3-website-ap-southeast-2.amazonaws.com/?prefix=NSW-OEH/Manly_Hydraulics_Laboratory/Wave/Sydney/">dataset link</a></p></li>
 </ul>
-<p>We will use the <strong>netCDF</strong> libary (<a ref='http://www.unidata.ucar.edu/netcdf/'>Network Common Data Form</a>) is a set of software libraries and self-describing, machine-independent data formats that support the creation, access, and sharing of array-oriented scientific data. The project homepage is hosted by the <strong>Unidata</strong> program at the University Corporation for Atmospheric Research (<strong>UCAR</strong>).</p>
+<p>We will use the <strong>netCDF</strong> libary (<a class="reference external" href="http://www.unidata.ucar.edu/netcdf/">Network Common Data Form</a>).</p>
+<p>As we saw in previous examples, this library is a set of self-describing, machine-independent data formats that support the creation, access, and sharing of array-oriented scientific data. The project homepage is hosted by the <strong>Unidata</strong> program at the University Corporation for Atmospheric Research (<strong>UCAR</strong>).</p>
 <p>Loading a module is straight forward:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -451,6 +458,9 @@
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">import</span> <span class="nn">warnings</span>
 <span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
+
+<span class="o">%</span><span class="k">config</span> InlineBackend.figure_format = &#39;svg&#39;
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;mathtext.fontset&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;cm&#39;</span>
 </pre></div>
 </div>
 </div>
@@ -459,14 +469,25 @@
 <h2>2015 Waverider Buoy dataset<a class="headerlink" href="#waverider-buoy-dataset" title="Permalink to this headline">¶</a></h2>
 <p>We will use a dataset containing ocean wave data from wave monitoring buoy moored off Sydney at latitude 33<span class="math notranslate nohighlight">\(^o\)</span>46’26” S, longitude 151<span class="math notranslate nohighlight">\(^o\)</span>24’42” E and water depth 90 metres.</p>
 <p><a href='https://s3-ap-southeast-2.amazonaws.com/imos-data/NSW-OEH/Manly_Hydraulics_Laboratory/Wave/Sydney/Sydney_Waverider_Buoy_location_history.pdf'> Sydney Waverider Buoy location history</a></p>
-<p>The data is gathered using the Directional Waverider system developed by the Dutch company, Datawell. The Directional Waverider buoy utilises a heave-pitch-roll sensor, two fixed X and Y accelerometers and a three axis fluxgate compass to measure both vertical and horizontal motion.  An on-board processor converts the buoy motion to three orthogonal (vertical, north-south, east-west) translation signals that are transmitted to the shore station.  The directional spectrum is also routinely transmitted to the receiving station for further processing.  The wave data is stored on the receiving station PC before routine transfer to Manly Hydraulics Laboratory.</p>
+<div class="toggle note admonition">
+<p class="admonition-title">Where is the data coming from?</p>
+<p>The data is gathered using the Directional Waverider system developed by the Dutch company, Datawell.</p>
+<p>The Directional Waverider buoy utilises a heave-pitch-roll sensor, two fixed X and Y accelerometers and a three axis fluxgate compass to measure both vertical and horizontal motion.</p>
+<p>An on-board processor converts the buoy motion to three orthogonal (vertical, north-south, east-west) translation signals that are transmitted to the shore station.  The directional spectrum is also routinely transmitted to the receiving station for further processing.</p>
+<p>The wave data is stored on the receiving station PC before routine transfer to <em>Manly Hydraulics Laboratory</em>.</p>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Offshore Sydney buoy data</span>
-<span class="n">filename</span> <span class="o">=</span> <span class="s1">&#39;../pracenv/dataset/IMOS_ANMN-NSW_W_20150210T230000Z_WAVESYD_WAVERIDER_FV01_END-20171231T130000Z.nc&#39;</span>
+<span class="n">url_sydney</span> <span class="o">=</span> <span class="s1">&#39;http://thredds.aodn.org.au/thredds/dodsC/NSW-OEH/Manly_Hydraulics_Laboratory/Wave/Sydney/IMOS_ANMN-NSW_W_20150210T230000Z_WAVESYD_WAVERIDER_FV01_END-20171231T130000Z.nc&#39;</span>
+    
 <span class="c1"># Offshore Batemans Bay buoy data</span>
-<span class="c1">#filename = &#39;../../dataset/IMOS_ANMN-NSW_W_20080124T210000Z_WAVEBAB_WAVERIDER_FV01_END-20151231T130000Z.nc&#39;</span>
-<span class="n">nc_data</span><span class="o">=</span><span class="n">netCDF4</span><span class="o">.</span><span class="n">Dataset</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+<span class="c1">#url_batemans = &#39;http://thredds.aodn.org.au/thredds/dodsC/NSW-OEH/Manly_Hydraulics_Laboratory/Wave/Batemans_Bay/IMOS_ANMN-NSW_W_20080124T210000Z_WAVEBAB_WAVERIDER_FV01_END-20151231T130000Z.nc&#39;</span>
+
+<span class="c1"># Offshore Byron Bay buoy data</span>
+<span class="c1">#url_byron = &#39;http://thredds.aodn.org.au/thredds/dodsC/NSW-OEH/Manly_Hydraulics_Laboratory/Wave/Byron_Bay/IMOS_ANMN-NSW_W_20140529T010000Z_WAVEBYB_WAVERIDER_FV01_END-20171231T130000Z.nc&#39;</span>
+
+<span class="n">nc_data</span><span class="o">=</span><span class="n">netCDF4</span><span class="o">.</span><span class="n">Dataset</span><span class="p">(</span><span class="n">url_sydney</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -505,7 +526,7 @@ float64 TIME(TIME)
     valid_min: 0.0
 unlimited dimensions: 
 current shape = (23382,)
-filling on, default _FillValue of 9.969209968386869e+36 used
+filling off
 </pre></div>
 </div>
 </div>
@@ -639,32 +660,41 @@ filling on, default _FillValue of 9.969209968386869e+36 used
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">MyDateFormatter</span> <span class="o">=</span> <span class="n">DateFormatter</span><span class="p">(</span><span class="s1">&#39;%Y-%b-</span><span class="si">%d</span><span class="s1">&#39;</span><span class="p">)</span>
-<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">6</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">80</span><span class="p">)</span> 
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span> 
 <span class="n">ax1</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">)</span>
 
-<span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">jd_data</span><span class="p">[</span><span class="n">itime</span><span class="p">:</span><span class="n">itime2</span><span class="p">],</span><span class="n">hm_data</span><span class="p">[</span><span class="n">itime</span><span class="p">:</span><span class="n">itime2</span><span class="p">],</span><span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> 
+<span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">jd_data</span><span class="p">[</span><span class="n">itime</span><span class="p">:</span><span class="n">itime2</span><span class="p">],</span> <span class="n">hm_data</span><span class="p">[</span><span class="n">itime</span><span class="p">:</span><span class="n">itime2</span><span class="p">],</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span> 
+
 <span class="n">ax1</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_major_locator</span><span class="p">(</span><span class="n">WeekdayLocator</span><span class="p">(</span><span class="n">byweekday</span><span class="o">=</span><span class="n">MO</span><span class="p">,</span><span class="n">interval</span><span class="o">=</span><span class="mi">12</span><span class="p">))</span>
 <span class="n">ax1</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_major_formatter</span><span class="p">(</span><span class="n">MyDateFormatter</span><span class="p">)</span>
 <span class="n">ax1</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+
 <span class="n">setp</span><span class="p">(</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">get_xticklabels</span><span class="p">(),</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">45</span><span class="p">,</span> <span class="n">horizontalalignment</span><span class="o">=</span><span class="s1">&#39;right&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;IMOS Offshore Sydney Buoy Data since 2015&#39;</span><span class="p">)</span>
 <span class="n">ax1</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;meters&#39;</span><span class="p">)</span>
 <span class="n">ax1</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">names</span><span class="p">,</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper right&#39;</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f654e42eb00&gt;
-</pre></div>
-</div>
-<img alt="../_images/waverider_18_1.png" src="../_images/waverider_18_1.png" />
-</div>
+<img alt="../_images/waverider_18_0.svg" src="../_images/waverider_18_0.svg" /></div>
 </div>
 </div>
 <div class="section" id="april-2015-storm">
 <h2>April 2015 storm<a class="headerlink" href="#april-2015-storm" title="Permalink to this headline">¶</a></h2>
-<p><img alt="alt text" src="https://i.guim.co.uk/img/media/643dfa81d4bbca129906d8a26c683e3e6901c053/0_110_3000_1801/3000.jpg?w=1010&amp;q=55&amp;auto=format&amp;usm=12&amp;fit=max&amp;s=6dac931858af8c21404a5604900ae71d" /></p>
-<p><em>A man fools around in the wind at Bondi Beach, Sydney, on April 21 2015.</em></p>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p>SMH: <a class="reference external" href="https://www.smh.com.au/environment/weather/storm-of-the-century-batters-sydney-and-the-hunter-leaving-three-dead-and-homes-destroyed-20150421-1mq76b.html">Storm of the century batters Sydney and the Hunter, leaving three dead and homes destroyed</a></p>
+</div>
+</div>
+<div class="figure align-center" id="id1">
+<a class="reference internal image-reference" href="https://i.guim.co.uk/img/media/643dfa81d4bbca129906d8a26c683e3e6901c053/0_110_3000_1801/3000.jpg?w=1010&amp;q=55&amp;auto=format&amp;usm=12&amp;fit=max&amp;s=6dac931858af8c21404a5604900ae71d"><img alt="A man fools around in the wind at Bondi Beach, Sydney, on April 21 2015." src="https://i.guim.co.uk/img/media/643dfa81d4bbca129906d8a26c683e3e6901c053/0_110_3000_1801/3000.jpg?w=1010&amp;q=55&amp;auto=format&amp;usm=12&amp;fit=max&amp;s=6dac931858af8c21404a5604900ae71d" style="width: 80%;" /></a>
+<p class="caption"><span class="caption-number">Fig. 4 </span><span class="caption-text">Turquoise Bay</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</div>
 <p>To find the temporal <code class="docutils literal notranslate"><span class="pre">id</span></code> of the storm we use the python function <code class="docutils literal notranslate"><span class="pre">argmax</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -733,8 +763,7 @@ SyntaxError: invalid syntax
 <span class="ne">NameError</span>: name &#39;storm_time&#39; is not defined
 </pre></div>
 </div>
-<img alt="../_images/waverider_23_1.png" src="../_images/waverider_23_1.png" />
-</div>
+<img alt="../_images/waverider_23_1.svg" src="../_images/waverider_23_1.svg" /></div>
 </div>
 </div>
 <div class="section" id="wave-power-and-energy">
@@ -856,7 +885,7 @@ SyntaxError: invalid syntax
         <div class='prev-next-bottom'>
             
     <a class='left-prev' id="prev-link" href="oceandata2.html" title="previous page">IMOS Ocean Radar Data Query</a>
-    <a class='right-next' id="next-link" href="oceanforecast.html" title="next page">Access data from Forecast Model</a>
+    <a class='right-next' id="next-link" href="oceanforecast.html" title="next page">Access data from forecast model</a>
 
         </div>
         
