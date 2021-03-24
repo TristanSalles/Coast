@@ -55,7 +55,7 @@
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Wave measurements from SAR" href="sar_waves.html" />
+    <link rel="next" title="Quantifying coastal changes notes" href="../coastevol/notes.html" />
     <link rel="prev" title="Climate variability" href="climatevariability.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -139,6 +139,11 @@
   </a>
   <ul class="current collapse-ul">
    <li class="toctree-l2">
+    <a class="reference internal" href="sar_waves.html">
+     Wave measurements from SAR
+    </a>
+   </li>
+   <li class="toctree-l2">
     <a class="reference internal" href="tileanalysis.html">
      Satellite tile analysis
     </a>
@@ -151,11 +156,6 @@
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
      Cyclone track
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="sar_waves.html">
-     Wave measurements from SAR
     </a>
    </li>
   </ul>
@@ -435,11 +435,13 @@
   warnings.warn(&#39;The .xlabels_top attribute is deprecated. Please &#39;
 /usr/share/miniconda/envs/coast/lib/python3.6/site-packages/cartopy/mpl/gridliner.py:331: UserWarning: The .ylabels_left attribute is deprecated. Please use .left_labels to toggle visibility instead.
   warnings.warn(&#39;The .ylabels_left attribute is deprecated. Please &#39;
-/usr/share/miniconda/envs/coast/lib/python3.6/site-packages/cartopy/io/__init__.py:260: DownloadWarning: Downloading: https://naciscdn.org/naturalearth/10m/physical/ne_10m_coastline.zip
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/share/miniconda/envs/coast/lib/python3.6/site-packages/cartopy/io/__init__.py:260: DownloadWarning: Downloading: https://naciscdn.org/naturalearth/10m/physical/ne_10m_coastline.zip
   warnings.warn(&#39;Downloading: {}&#39;.format(url), DownloadWarning)
 </pre></div>
 </div>
-<img alt="../_images/cycloneyasi_5_1.svg" src="../_images/cycloneyasi_5_1.svg" /></div>
+<img alt="../_images/cycloneyasi_5_2.svg" src="../_images/cycloneyasi_5_2.svg" /></div>
 </div>
 <p>The geographical extent of the cyclone path and the associated time frame can be infered from the figure above.</p>
 <p>This was used to specify the altimeter data record <strong>location</strong> and <strong>temporal extent</strong> when using the Australian Ocean Data Network portal <a class="reference external" href="https://portal.aodn.org.au/">AODN</a>.</p>
@@ -474,22 +476,24 @@
 <span class="ne">----&gt; </span><span class="mi">4</span> <span class="n">wa_east</span><span class="o">.</span><span class="n">processAltimeterData</span><span class="p">(</span><span class="n">max_qc</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">altimeter_pick</span><span class="o">=</span><span class="s1">&#39;all&#39;</span><span class="p">,</span> <span class="n">saveCSV</span> <span class="o">=</span> <span class="s1">&#39;altimeterDataE.csv&#39;</span><span class="p">)</span>
 
 <span class="nn">/usr/share/miniconda/envs/coast/lib/python3.6/site-packages/RADWave/altiwave.py</span> in <span class="ni">processAltimeterData</span><span class="nt">(self, max_qc, altimeter_pick, saveCSV)</span>
-<span class="g g-Whitespace">    </span><span class="mi">306</span> 
-<span class="g g-Whitespace">    </span><span class="mi">307</span>                     <span class="c1"># Get desired bounding box</span>
-<span class="ne">--&gt; </span><span class="mi">308</span>                     <span class="n">lats</span> <span class="o">=</span> <span class="n">ncs</span><span class="o">.</span><span class="n">variables</span><span class="p">[</span><span class="s2">&quot;LATITUDE&quot;</span><span class="p">][:]</span>
-<span class="g g-Whitespace">    </span><span class="mi">309</span>                     <span class="n">lons</span> <span class="o">=</span> <span class="n">ncs</span><span class="o">.</span><span class="n">variables</span><span class="p">[</span><span class="s2">&quot;LONGITUDE&quot;</span><span class="p">][:]</span>
-<span class="g g-Whitespace">    </span><span class="mi">310</span>                     <span class="n">latbound</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">296</span>                 <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">picked_url</span><span class="p">)):</span>
+<span class="g g-Whitespace">    </span><span class="mi">297</span> 
+<span class="ne">--&gt; </span><span class="mi">298</span>                     <span class="n">ncs</span> <span class="o">=</span> <span class="n">NetCDFFile</span><span class="p">(</span><span class="n">picked_url</span><span class="p">[</span><span class="n">k</span><span class="p">])</span>
+<span class="g g-Whitespace">    </span><span class="mi">299</span>                     <span class="k">if</span> <span class="n">k</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">300</span>                         <span class="nb">print</span><span class="p">(</span>
 
-<span class="nn">src/netCDF4/_netCDF4.pyx</span> in <span class="ni">netCDF4._netCDF4.Variable.__getitem__</span><span class="nt">()</span>
+<span class="nn">src/netCDF4/_netCDF4.pyx</span> in <span class="ni">netCDF4._netCDF4.Dataset.__init__</span><span class="nt">()</span>
 
-<span class="nn">src/netCDF4/_netCDF4.pyx</span> in <span class="ni">netCDF4._netCDF4.Variable._toma</span><span class="nt">()</span>
+<span class="nn">src/netCDF4/_netCDF4.pyx</span> in <span class="ni">netCDF4._netCDF4._get_vars</span><span class="nt">()</span>
 
-<span class="nn">/usr/share/miniconda/envs/coast/lib/python3.6/site-packages/numpy/core/_methods.py</span> in <span class="ni">_any</span><span class="nt">(a, axis, dtype, out, keepdims)</span>
-<span class="g g-Whitespace">     </span><span class="mi">51</span>     <span class="k">return</span> <span class="n">umr_prod</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">axis</span><span class="p">,</span> <span class="n">dtype</span><span class="p">,</span> <span class="n">out</span><span class="p">,</span> <span class="n">keepdims</span><span class="p">,</span> <span class="n">initial</span><span class="p">,</span> <span class="n">where</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">52</span> 
-<span class="ne">---&gt; </span><span class="mi">53</span> <span class="k">def</span> <span class="nf">_any</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">out</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">keepdims</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
-<span class="g g-Whitespace">     </span><span class="mi">54</span>     <span class="k">return</span> <span class="n">umr_any</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">axis</span><span class="p">,</span> <span class="n">dtype</span><span class="p">,</span> <span class="n">out</span><span class="p">,</span> <span class="n">keepdims</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">55</span> 
+<span class="nn">src/netCDF4/_netCDF4.pyx</span> in <span class="ni">netCDF4._netCDF4.Variable.__init__</span><span class="nt">()</span>
+
+<span class="nn">/usr/share/miniconda/envs/coast/lib/python3.6/site-packages/netCDF4/utils.py</span> in <span class="ni">_find_dim</span><span class="nt">(grp, dimname)</span>
+<span class="g g-Whitespace">     </span><span class="mi">39</span>     <span class="k">return</span> <span class="p">[</span><span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">A</span><span class="p">)),</span> <span class="n">key</span><span class="o">=</span><span class="n">B</span><span class="o">.</span><span class="fm">__getitem__</span><span class="p">)]</span>
+<span class="g g-Whitespace">     </span><span class="mi">40</span> 
+<span class="ne">---&gt; </span><span class="mi">41</span> <span class="k">def</span> <span class="nf">_find_dim</span><span class="p">(</span><span class="n">grp</span><span class="p">,</span> <span class="n">dimname</span><span class="p">):</span>
+<span class="g g-Whitespace">     </span><span class="mi">42</span>     <span class="c1"># find Dimension instance given group and name.</span>
+<span class="g g-Whitespace">     </span><span class="mi">43</span>     <span class="c1"># look in current group, and parents.</span>
 
 <span class="ne">KeyboardInterrupt</span>: 
 </pre></div>
@@ -1247,7 +1251,7 @@ Altimeter point (157.0,-12.4) records dt: 4.77h
         <div class='prev-next-bottom'>
             
     <a class='left-prev' id="prev-link" href="climatevariability.html" title="previous page">Climate variability</a>
-    <a class='right-next' id="next-link" href="sar_waves.html" title="next page">Wave measurements from SAR</a>
+    <a class='right-next' id="next-link" href="../coastevol/notes.html" title="next page">Quantifying coastal changes notes</a>
 
         </div>
         
