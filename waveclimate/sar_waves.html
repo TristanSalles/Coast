@@ -358,35 +358,30 @@
         <nav id="bd-toc-nav">
             <ul class="nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#table-of-contents">
-   Table of contents:
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#about-sentinel-1-ocean-surface-wave-measurements">
    About Sentinel-1 Ocean Surface Wave Measurements
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#required-python-packages">
-     Required Python packages
+    <a class="reference internal nav-link" href="#imported-python-packages">
+     Imported Python packages
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#read-a-daily-along-track-netcdf-file-and-visualise-selected-measurements-off-albany-wa-on-a-map">
-     Read a daily along-track netCDF file and visualise selected measurements off Albany, WA on a map
+    <a class="reference internal nav-link" href="#daily-along-track-measurements">
+     Daily along-track measurements
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#plot-some-auxialliary-variables-as-the-satellite-measures-along-track">
-     Plot some auxialliary variables as the satellite measures along-track
+    <a class="reference internal nav-link" href="#auxialliary-variables">
+     Auxialliary variables
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#convert-directional-wavenumber-spectra-to-frequency-spectra-using-deep-water-assumptions">
-   Convert directional wavenumber spectra to frequency spectra using deep water assumptions:
+  <a class="reference internal nav-link" href="#frequency-spectra-conversion">
+   Frequency spectra conversion
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -423,32 +418,27 @@
                 
   <div class="section" id="wave-measurements-from-sar">
 <h1>Wave measurements from SAR<a class="headerlink" href="#wave-measurements-from-sar" title="Permalink to this headline">¶</a></h1>
-<p><em>Authors: Salman Khan and Emilio Echevarria</em></p>
-<div class="section" id="table-of-contents">
-<h2>Table of contents:<a class="headerlink" href="#table-of-contents" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li><p>About Sentinel-1  Ocean Surface Wave Measurements</p></li>
-<li><p>Required Python packages and utility functions</p></li>
-<li><p>Read a daily along-track netCDF file and visualise selected measurements off Albany, WA on a map</p></li>
-<li><p>Plot some auxialliary variables as the satellite measures along-track</p></li>
-<li><p>Convert directional wavenumber spectra to frequency spectra using deep water assumptions</p></li>
-<li><p>Plot some wave statistics derived from directional frequency spectra</p></li>
-<li><p>Visualise directional frequency spectra: (i) one, (ii) all 2D, and (iii) all 1D</p></li>
-<li><p>Visualise directional frequency spectra swell partitions: (i) one, (ii) all</p></li>
-<li><p>Plot some primary swell partitions wave statistics</p></li>
-</ul>
-</div>
+<p><em>This notebook is from Salman Khan and Emilio Echevarria, there is a great presentation about how they use synthetic aperture radar <a class="reference external" href="http://waveworkshop.org/16thWaves/Presentations/D4%20KHAN_WAVESCONFERENCE_2019.pdf">here</a>.</em></p>
 <div class="section" id="about-sentinel-1-ocean-surface-wave-measurements">
 <h2>About Sentinel-1 Ocean Surface Wave Measurements<a class="headerlink" href="#about-sentinel-1-ocean-surface-wave-measurements" title="Permalink to this headline">¶</a></h2>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Sentinel-1 A and B satellites, part of Europe’s Copernicus programme, were launched in April 2014 and 2016, respectively. The satellites fly in the same polar orbital plane, but 180° out of orbital phase, and offer a 6-day repeat cycle at the equator and more frequently at higher latitudes. Both satellites are equipped with identical C-band SAR instruments, which can measure the directional wind-wave spectra for wavelengths longer than ~150m in azimuth direction. In the open ocean, they operate in wave mode (WV), measuring alternately in near-range with an incidence angle of ~23.5° (WV1) and far-range with an incidence angle of ~36.5° (WV2), and acquire 20 km x 20 km vignettes every 100 km along-track. Since they alternate between WV1 and WV2, consecutive vignettes for each incidence angle are 200 km apart. The transmit-receive electromagnetic polarisation pair of choice in wave mode is VV, but some experimental HH data have also been acquired.</p>
+<p>Sentinel-1 A and B satellites are part of Europe’s Copernicus programme and were launched in April 2014 and 2016, respectively.</p>
+<p>The satellites fly in the same polar orbital plane, but 180° out of orbital phase, and offer a 6-day repeat cycle at the equator and more frequently at higher latitudes.</p>
+<p>Both satellites are equipped with identical C-band SAR instruments, which can measure the <strong>directional wind-wave spectra for wavelengths longer than ~150m</strong> in azimuth direction. In the open ocean, they operate in wave mode (WV), measuring alternately in near-range with an incidence angle of ~23.5° (WV1) and far-range with an incidence angle of ~36.5° (WV2), and acquire <strong>20 km x 20 km</strong> vignettes every  <strong>100 km</strong> along-track. Since they alternate between WV1 and WV2, consecutive vignettes for each incidence angle are 200 km apart.</p>
 </div>
-<p>This dataset contains Sentinel-1 A and B SAR measurements over the Asutralasian region. The data is accesible through the AODN portal (<a class="reference external" href="https://portal.aodn.org.au/">https://portal.aodn.org.au/</a>), or <a class="reference external" href="http://thredds.aodn.org.au/thredds/catalog/IMOS/SRS/Surface-Waves/SAR/catalog.html">http://thredds.aodn.org.au/thredds/catalog/IMOS/SRS/Surface-Waves/SAR/catalog.html</a></p>
-<p>The amount of data for each sattelite (A and B) for different wave modes (WV1 and WV2) and orbit’s direction (ascending or descending passes), allocated in 2.5°x2.5° bins:</p>
-<p><img alt="" src="../_images/SAR.png" /></p>
-<div class="section" id="required-python-packages">
-<h3>Required Python packages<a class="headerlink" href="#required-python-packages" title="Permalink to this headline">¶</a></h3>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p>Some infos about the <a class="reference external" href="https://sentinel.esa.int/web/sentinel/missions/sentinel-1">Sentinel-1 mission</a>.</p>
+</div>
+</div>
+<p>In this notebook, we will use Sentinel-1 A and B SAR measurements over the Australasian region. The data is accesible through the <a class="reference external" href="https://portal.aodn.org.au/">AODN portal</a>, or <a class="reference external" href="http://thredds.aodn.org.au/thredds/catalog/IMOS/SRS/Surface-Waves/SAR/catalog.html">Thredds server</a>.</p>
+<p>The amount of data for each sattelite (A and B) for different wave modes (WV1 and WV2) and orbit’s direction (ascending or descending passes), allocated in 2.5°x2.5° bins looks like this:</p>
+<a class="reference internal image-reference" href="../_images/SAR.png"><img alt="Data acquisition instruments" class="align-center" src="../_images/SAR.png" style="width: 80%;" /></a>
+<div class="section" id="imported-python-packages">
+<h3>Imported Python packages<a class="headerlink" href="#imported-python-packages" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>cartopy = 0.16.0</p></li>
 <li><p>matplotlib = 2.2.2</p></li>
@@ -472,22 +462,29 @@
 <span class="kn">from</span> <span class="nn">utilfuncs</span> <span class="kn">import</span> <span class="n">k2f</span><span class="p">,</span> <span class="n">ek2f</span><span class="p">,</span> <span class="n">s1_compute_efth</span><span class="p">,</span> <span class="n">cmap_wavespectra</span><span class="p">,</span> <span class="n">plot_part</span>
 
 <span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
+
+<span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="o">%</span><span class="k">config</span> InlineBackend.figure_format = &#39;svg&#39;
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;mathtext.fontset&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;cm&#39;</span>
 </pre></div>
 </div>
 </div>
 </div>
 </div>
-<div class="section" id="read-a-daily-along-track-netcdf-file-and-visualise-selected-measurements-off-albany-wa-on-a-map">
-<h3>Read a daily along-track netCDF file and visualise selected measurements off Albany, WA on a map<a class="headerlink" href="#read-a-daily-along-track-netcdf-file-and-visualise-selected-measurements-off-albany-wa-on-a-map" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="daily-along-track-measurements">
+<h3>Daily along-track measurements<a class="headerlink" href="#daily-along-track-measurements" title="Permalink to this headline">¶</a></h3>
+<p>We will first read a daily along-track netCDF file and visualise selected measurements off Albany, WA on a map:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># read and select measurements near South Australia</span>
-<span class="n">dset_s1</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="s1">&#39;http://thredds.aodn.org.au/thredds/dodsC/IMOS/SRS/Surface-Waves/SAR/DELAYED/SENTINEL-1A/2019/08/IMOS_SRS-Surface-Waves_W_20190801T040752Z_Sentinel-1A_FV01_DM00_K2_END-20190801T220024Z.nc&#39;</span><span class="o">+</span><span class="s1">&#39;#fillmismatch&#39;</span><span class="p">,</span>
-                        <span class="n">decode_times</span> <span class="o">=</span>  <span class="kc">True</span><span class="p">,</span> <span class="n">decode_cf</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">mask_and_scale</span> <span class="o">=</span>  <span class="kc">True</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Read and select measurements near South Australia</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;http://thredds.aodn.org.au/thredds/dodsC/IMOS/SRS/Surface-Waves/SAR/DELAYED/SENTINEL-1A/2019/08/IMOS_SRS-Surface-Waves_W_20190801T040752Z_Sentinel-1A_FV01_DM00_K2_END-20190801T220024Z.nc&#39;</span><span class="o">+</span><span class="s1">&#39;#fillmismatch&#39;</span>
 
+<span class="n">dset_s1</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">decode_times</span> <span class="o">=</span>  <span class="kc">True</span><span class="p">,</span> <span class="n">decode_cf</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">mask_and_scale</span> <span class="o">=</span>  <span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># Selecting the measurement close to Albany</span>
 <span class="n">dset_WA</span> <span class="o">=</span> <span class="n">dset_s1</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">TIME</span> <span class="o">=</span> <span class="nb">slice</span><span class="p">(</span><span class="mi">384</span><span class="p">,</span> <span class="mi">404</span><span class="p">))</span>
 
-<span class="c1"># plot measurement locations</span>
+<span class="c1"># Plot measurement locations</span>
 <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="n">dpi</span> <span class="o">=</span> <span class="mi">100</span><span class="p">)</span>
 <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">axes</span><span class="p">(</span><span class="n">projection</span> <span class="o">=</span> <span class="n">ccrs</span><span class="o">.</span><span class="n">PlateCarree</span><span class="p">(</span><span class="n">central_longitude</span> <span class="o">=</span> <span class="mi">195</span><span class="p">))</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">coastlines</span><span class="p">()</span>
@@ -495,67 +492,651 @@
         <span class="n">transform</span> <span class="o">=</span> <span class="n">ccrs</span><span class="o">.</span><span class="n">PlateCarree</span><span class="p">(),</span> <span class="n">markersize</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
 
 <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">dset_WA</span><span class="o">.</span><span class="n">LONGITUDE</span><span class="p">,</span> <span class="n">dset_WA</span><span class="o">.</span><span class="n">LATITUDE</span><span class="p">,</span>
-        <span class="s1">&#39;r.&#39;</span><span class="p">,</span> <span class="n">transform</span> <span class="o">=</span> <span class="n">ccrs</span><span class="o">.</span><span class="n">PlateCarree</span><span class="p">(),</span> <span class="n">markersize</span> <span class="o">=</span> <span class="mi">2</span><span class="p">)</span>
+        <span class="s1">&#39;r.&#39;</span><span class="p">,</span> <span class="n">transform</span> <span class="o">=</span> <span class="n">ccrs</span><span class="o">.</span><span class="n">PlateCarree</span><span class="p">(),</span> <span class="n">markersize</span> <span class="o">=</span> <span class="mi">3</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/sar_waves_7_0.png" src="../_images/sar_waves_7_0.png" />
+<img alt="../_images/sar_waves_7_0.svg" src="../_images/sar_waves_7_0.svg" /></div>
 </div>
 </div>
-</div>
-<div class="section" id="plot-some-auxialliary-variables-as-the-satellite-measures-along-track">
-<h3>Plot some auxialliary variables as the satellite measures along-track<a class="headerlink" href="#plot-some-auxialliary-variables-as-the-satellite-measures-along-track" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="auxialliary-variables">
+<h3>Auxialliary variables<a class="headerlink" href="#auxialliary-variables" title="Permalink to this headline">¶</a></h3>
+<p>We can plot some auxialliary variables such as the satellite measures along-track:</p>
 <ul class="simple">
-<li><p>satellite heading</p></li>
-<li><p>incidence angle</p></li>
-<li><p>distance to coast, and</p></li>
-<li><p>depth</p></li>
+<li><p>satellite heading <code class="docutils literal notranslate"><span class="pre">HEADING</span></code></p></li>
+<li><p>incidence angle <code class="docutils literal notranslate"><span class="pre">INC_ANGLE</span></code></p></li>
+<li><p>distance to coast <code class="docutils literal notranslate"><span class="pre">DIST2COAST</span></code>, and</p></li>
+<li><p>depth <code class="docutils literal notranslate"><span class="pre">BOT_DEPTH</span></code></p></li>
 </ul>
+<p>To check the variables available we can do:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dset_WA</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div><svg style="position: absolute; width: 0; height: 0; overflow: hidden">
+<defs>
+<symbol id="icon-database" viewBox="0 0 32 32">
+<path d="M16 0c-8.837 0-16 2.239-16 5v4c0 2.761 7.163 5 16 5s16-2.239 16-5v-4c0-2.761-7.163-5-16-5z"></path>
+<path d="M16 17c-8.837 0-16-2.239-16-5v6c0 2.761 7.163 5 16 5s16-2.239 16-5v-6c0 2.761-7.163 5-16 5z"></path>
+<path d="M16 26c-8.837 0-16-2.239-16-5v6c0 2.761 7.163 5 16 5s16-2.239 16-5v-6c0 2.761-7.163 5-16 5z"></path>
+</symbol>
+<symbol id="icon-file-text2" viewBox="0 0 32 32">
+<path d="M28.681 7.159c-0.694-0.947-1.662-2.053-2.724-3.116s-2.169-2.030-3.116-2.724c-1.612-1.182-2.393-1.319-2.841-1.319h-15.5c-1.378 0-2.5 1.121-2.5 2.5v27c0 1.378 1.122 2.5 2.5 2.5h23c1.378 0 2.5-1.122 2.5-2.5v-19.5c0-0.448-0.137-1.23-1.319-2.841zM24.543 5.457c0.959 0.959 1.712 1.825 2.268 2.543h-4.811v-4.811c0.718 0.556 1.584 1.309 2.543 2.268zM28 29.5c0 0.271-0.229 0.5-0.5 0.5h-23c-0.271 0-0.5-0.229-0.5-0.5v-27c0-0.271 0.229-0.5 0.5-0.5 0 0 15.499-0 15.5 0v7c0 0.552 0.448 1 1 1h7v19.5z"></path>
+<path d="M23 26h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path>
+<path d="M23 22h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path>
+<path d="M23 18h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path>
+</symbol>
+</defs>
+</svg>
+<style>/* CSS stylesheet for displaying xarray objects in jupyterlab.
+ *
+ */
+
+:root {
+  --xr-font-color0: var(--jp-content-font-color0, rgba(0, 0, 0, 1));
+  --xr-font-color2: var(--jp-content-font-color2, rgba(0, 0, 0, 0.54));
+  --xr-font-color3: var(--jp-content-font-color3, rgba(0, 0, 0, 0.38));
+  --xr-border-color: var(--jp-border-color2, #e0e0e0);
+  --xr-disabled-color: var(--jp-layout-color3, #bdbdbd);
+  --xr-background-color: var(--jp-layout-color0, white);
+  --xr-background-color-row-even: var(--jp-layout-color1, white);
+  --xr-background-color-row-odd: var(--jp-layout-color2, #eeeeee);
+}
+
+html[theme=dark],
+body.vscode-dark {
+  --xr-font-color0: rgba(255, 255, 255, 1);
+  --xr-font-color2: rgba(255, 255, 255, 0.54);
+  --xr-font-color3: rgba(255, 255, 255, 0.38);
+  --xr-border-color: #1F1F1F;
+  --xr-disabled-color: #515151;
+  --xr-background-color: #111111;
+  --xr-background-color-row-even: #111111;
+  --xr-background-color-row-odd: #313131;
+}
+
+.xr-wrap {
+  display: block;
+  min-width: 300px;
+  max-width: 700px;
+}
+
+.xr-text-repr-fallback {
+  /* fallback to plain text repr when CSS is not injected (untrusted notebook) */
+  display: none;
+}
+
+.xr-header {
+  padding-top: 6px;
+  padding-bottom: 6px;
+  margin-bottom: 4px;
+  border-bottom: solid 1px var(--xr-border-color);
+}
+
+.xr-header > div,
+.xr-header > ul {
+  display: inline;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.xr-obj-type,
+.xr-array-name {
+  margin-left: 2px;
+  margin-right: 10px;
+}
+
+.xr-obj-type {
+  color: var(--xr-font-color2);
+}
+
+.xr-sections {
+  padding-left: 0 !important;
+  display: grid;
+  grid-template-columns: 150px auto auto 1fr 20px 20px;
+}
+
+.xr-section-item {
+  display: contents;
+}
+
+.xr-section-item input {
+  display: none;
+}
+
+.xr-section-item input + label {
+  color: var(--xr-disabled-color);
+}
+
+.xr-section-item input:enabled + label {
+  cursor: pointer;
+  color: var(--xr-font-color2);
+}
+
+.xr-section-item input:enabled + label:hover {
+  color: var(--xr-font-color0);
+}
+
+.xr-section-summary {
+  grid-column: 1;
+  color: var(--xr-font-color2);
+  font-weight: 500;
+}
+
+.xr-section-summary > span {
+  display: inline-block;
+  padding-left: 0.5em;
+}
+
+.xr-section-summary-in:disabled + label {
+  color: var(--xr-font-color2);
+}
+
+.xr-section-summary-in + label:before {
+  display: inline-block;
+  content: '►';
+  font-size: 11px;
+  width: 15px;
+  text-align: center;
+}
+
+.xr-section-summary-in:disabled + label:before {
+  color: var(--xr-disabled-color);
+}
+
+.xr-section-summary-in:checked + label:before {
+  content: '▼';
+}
+
+.xr-section-summary-in:checked + label > span {
+  display: none;
+}
+
+.xr-section-summary,
+.xr-section-inline-details {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+.xr-section-inline-details {
+  grid-column: 2 / -1;
+}
+
+.xr-section-details {
+  display: none;
+  grid-column: 1 / -1;
+  margin-bottom: 5px;
+}
+
+.xr-section-summary-in:checked ~ .xr-section-details {
+  display: contents;
+}
+
+.xr-array-wrap {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: 20px auto;
+}
+
+.xr-array-wrap > label {
+  grid-column: 1;
+  vertical-align: top;
+}
+
+.xr-preview {
+  color: var(--xr-font-color3);
+}
+
+.xr-array-preview,
+.xr-array-data {
+  padding: 0 5px !important;
+  grid-column: 2;
+}
+
+.xr-array-data,
+.xr-array-in:checked ~ .xr-array-preview {
+  display: none;
+}
+
+.xr-array-in:checked ~ .xr-array-data,
+.xr-array-preview {
+  display: inline-block;
+}
+
+.xr-dim-list {
+  display: inline-block !important;
+  list-style: none;
+  padding: 0 !important;
+  margin: 0;
+}
+
+.xr-dim-list li {
+  display: inline-block;
+  padding: 0;
+  margin: 0;
+}
+
+.xr-dim-list:before {
+  content: '(';
+}
+
+.xr-dim-list:after {
+  content: ')';
+}
+
+.xr-dim-list li:not(:last-child):after {
+  content: ',';
+  padding-right: 5px;
+}
+
+.xr-has-index {
+  font-weight: bold;
+}
+
+.xr-var-list,
+.xr-var-item {
+  display: contents;
+}
+
+.xr-var-item > div,
+.xr-var-item label,
+.xr-var-item > .xr-var-name span {
+  background-color: var(--xr-background-color-row-even);
+  margin-bottom: 0;
+}
+
+.xr-var-item > .xr-var-name:hover span {
+  padding-right: 5px;
+}
+
+.xr-var-list > li:nth-child(odd) > div,
+.xr-var-list > li:nth-child(odd) > label,
+.xr-var-list > li:nth-child(odd) > .xr-var-name span {
+  background-color: var(--xr-background-color-row-odd);
+}
+
+.xr-var-name {
+  grid-column: 1;
+}
+
+.xr-var-dims {
+  grid-column: 2;
+}
+
+.xr-var-dtype {
+  grid-column: 3;
+  text-align: right;
+  color: var(--xr-font-color2);
+}
+
+.xr-var-preview {
+  grid-column: 4;
+}
+
+.xr-var-name,
+.xr-var-dims,
+.xr-var-dtype,
+.xr-preview,
+.xr-attrs dt {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding-right: 10px;
+}
+
+.xr-var-name:hover,
+.xr-var-dims:hover,
+.xr-var-dtype:hover,
+.xr-attrs dt:hover {
+  overflow: visible;
+  width: auto;
+  z-index: 1;
+}
+
+.xr-var-attrs,
+.xr-var-data {
+  display: none;
+  background-color: var(--xr-background-color) !important;
+  padding-bottom: 5px !important;
+}
+
+.xr-var-attrs-in:checked ~ .xr-var-attrs,
+.xr-var-data-in:checked ~ .xr-var-data {
+  display: block;
+}
+
+.xr-var-data > table {
+  float: right;
+}
+
+.xr-var-name span,
+.xr-var-data,
+.xr-attrs {
+  padding-left: 25px !important;
+}
+
+.xr-attrs,
+.xr-var-attrs,
+.xr-var-data {
+  grid-column: 1 / -1;
+}
+
+dl.xr-attrs {
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: 125px auto;
+}
+
+.xr-attrs dt,
+.xr-attrs dd {
+  padding: 0;
+  margin: 0;
+  float: left;
+  padding-right: 10px;
+  width: auto;
+}
+
+.xr-attrs dt {
+  font-weight: normal;
+  grid-column: 1;
+}
+
+.xr-attrs dt:hover span {
+  display: inline-block;
+  background: var(--xr-background-color);
+  padding-right: 10px;
+}
+
+.xr-attrs dd {
+  grid-column: 2;
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+
+.xr-icon-database,
+.xr-icon-file-text2 {
+  display: inline-block;
+  vertical-align: middle;
+  width: 1em;
+  height: 1.5em !important;
+  stroke-width: 0;
+  stroke: currentColor;
+  fill: currentColor;
+}
+</style><pre class='xr-text-repr-fallback'>&lt;xarray.Dataset&gt;
+Dimensions:               (DIRECTION: 72, PARTITION: 5, TIME: 20, WAVNUM: 60)
+Coordinates:
+  * DIRECTION             (DIRECTION) float32 0.0 5.0 10.0 ... 345.0 350.0 355.0
+  * PARTITION             (PARTITION) int8 0 1 2 3 4
+  * WAVNUM                (WAVNUM) float32 0.005236 0.005574 ... 0.1967 0.2094
+    LATITUDE              (TIME) float32 -53.57 -52.14 -51.87 ... -38.07 -36.74
+    LONGITUDE             (TIME) float32 124.2 126.3 123.3 ... 119.7 117.3 119.1
+  * TIME                  (TIME) datetime64[ns] 2019-08-01T10:45:42.000000256...
+Data variables: (12/17)
+    AZ_CUTOFF             (TIME) float32 344.0 378.0 304.0 ... 220.0 210.0 236.0
+    HEADING               (TIME) float32 341.0 339.1 341.7 ... 343.5 345.1 343.9
+    INC_ANGLE             (TIME) float32 22.89 36.0 22.94 ... 36.36 23.29 36.41
+    NRCS                  (TIME) float32 -1.507 -10.63 -2.39 ... -7.262 -16.84
+    SNR                   (TIME) float32 30.75 27.38 29.15 ... 25.23 31.75 25.9
+    WDIR_ECMWF            (TIME) float32 288.8 307.4 307.0 ... 358.5 1.01 40.07
+    ...                    ...
+    DP_PART               (TIME, PARTITION) float32 93.5 315.6 nan ... nan nan
+    EKTH                  (TIME, DIRECTION, WAVNUM) float32 362.2 419.6 ... 0.0
+    EKTH_PART             (TIME, DIRECTION, WAVNUM) float32 1.0 1.0 ... nan nan
+    EKTH_quality_control  (TIME, DIRECTION, WAVNUM) float32 2.0 2.0 ... nan nan
+    HS_PART               (TIME, PARTITION) float32 3.398 2.14 nan ... nan nan
+    WP_PART               (TIME, PARTITION) float32 269.2 561.9 nan ... nan nan
+Attributes: (12/30)
+    Conventions:                     CF-1.6,IMOS-1.4
+    abstract:                        Sentinel-1 A and B satellites are part o...
+    acknowledgement:                 Any users of IMOS data are required to c...
+    author:                          Khan, Salman Saeed
+    author_email:                    salmansaeed.khan@csiro.au
+    citation:                        The citation in a list of references is:...
+    ...                              ...
+    source:                          Copernicus Australasia
+    standard_name_vocabulary:        NetCDF Climate and Forecast (CF) Metadat...
+    time_coverage_end:               2019-08-01T22:00:24Z
+    time_coverage_start:             2019-08-01T04:07:52Z
+    title:                           Sentinel-1 A C-SAR surface wave spectra
+    DODS_EXTRA.Unlimited_Dimension:  TIME</pre><div class='xr-wrap' hidden><div class='xr-header'><div class='xr-obj-type'>xarray.Dataset</div></div><ul class='xr-sections'><li class='xr-section-item'><input id='section-7c9138f1-507f-4208-b386-746cb21af34d' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-7c9138f1-507f-4208-b386-746cb21af34d' class='xr-section-summary'  title='Expand/collapse section'>Dimensions:</label><div class='xr-section-inline-details'><ul class='xr-dim-list'><li><span class='xr-has-index'>DIRECTION</span>: 72</li><li><span class='xr-has-index'>PARTITION</span>: 5</li><li><span class='xr-has-index'>TIME</span>: 20</li><li><span class='xr-has-index'>WAVNUM</span>: 60</li></ul></div><div class='xr-section-details'></div></li><li class='xr-section-item'><input id='section-b3f7ef42-74b5-4cb4-80cb-a91e73ae8ef1' class='xr-section-summary-in' type='checkbox'  checked><label for='section-b3f7ef42-74b5-4cb4-80cb-a91e73ae8ef1' class='xr-section-summary' >Coordinates: <span>(6)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>DIRECTION</span></div><div class='xr-var-dims'>(DIRECTION)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>0.0 5.0 10.0 ... 345.0 350.0 355.0</div><input id='attrs-41a7d262-0cb7-4023-8b19-abe760e9c401' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-41a7d262-0cb7-4023-8b19-abe760e9c401' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-3375a6f6-43d3-4eb1-a891-11285a312023' class='xr-var-data-in' type='checkbox'><label for='data-3375a6f6-43d3-4eb1-a891-11285a312023' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>sea surface wave to direction, measured positive clockwise from due north</dd><dt><span>standard_name :</span></dt><dd>sea_surface_wave_to_direction</dd><dt><span>units :</span></dt><dd>degree</dd><dt><span>valid_max :</span></dt><dd>355.0</dd><dt><span>valid_min :</span></dt><dd>0.0</dd></dl></div><div class='xr-var-data'><pre>array([  0.,   5.,  10.,  15.,  20.,  25.,  30.,  35.,  40.,  45.,  50.,  55.,
+        60.,  65.,  70.,  75.,  80.,  85.,  90.,  95., 100., 105., 110., 115.,
+       120., 125., 130., 135., 140., 145., 150., 155., 160., 165., 170., 175.,
+       180., 185., 190., 195., 200., 205., 210., 215., 220., 225., 230., 235.,
+       240., 245., 250., 255., 260., 265., 270., 275., 280., 285., 290., 295.,
+       300., 305., 310., 315., 320., 325., 330., 335., 340., 345., 350., 355.],
+      dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>PARTITION</span></div><div class='xr-var-dims'>(PARTITION)</div><div class='xr-var-dtype'>int8</div><div class='xr-var-preview xr-preview'>0 1 2 3 4</div><input id='attrs-6c4a30ca-259a-4b63-9995-487332f7622d' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-6c4a30ca-259a-4b63-9995-487332f7622d' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-e90b099d-96d8-4eee-b6b6-4065957d817a' class='xr-var-data-in' type='checkbox'><label for='data-e90b099d-96d8-4eee-b6b6-4065957d817a' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>directional swell spectra partition</dd><dt><span>valid_max :</span></dt><dd>4</dd><dt><span>valid_min :</span></dt><dd>0</dd><dt><span>units :</span></dt><dd>1</dd></dl></div><div class='xr-var-data'><pre>array([0, 1, 2, 3, 4], dtype=int8)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>WAVNUM</span></div><div class='xr-var-dims'>(WAVNUM)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>0.005236 0.005574 ... 0.1967 0.2094</div><input id='attrs-17e81b4c-a0ca-42d5-b073-7d307b354f52' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-17e81b4c-a0ca-42d5-b073-7d307b354f52' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-fcd4edec-bb10-4f5c-8baa-9e18992309d9' class='xr-var-data-in' type='checkbox'><label for='data-fcd4edec-bb10-4f5c-8baa-9e18992309d9' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>rad m-1</dd><dt><span>valid_max :</span></dt><dd>0.2094395</dd><dt><span>valid_min :</span></dt><dd>0.005235988</dd><dt><span>long_name :</span></dt><dd>wavenumber for polar spectra</dd></dl></div><div class='xr-var-data'><pre>array([0.005236, 0.005574, 0.005933, 0.006316, 0.006724, 0.007158, 0.007619,
+       0.008111, 0.008634, 0.009191, 0.009784, 0.010416, 0.011088, 0.011803,
+       0.012565, 0.013375, 0.014238, 0.015157, 0.016135, 0.017176, 0.018284,
+       0.019464, 0.020719, 0.022056, 0.023479, 0.024994, 0.026607, 0.028323,
+       0.030151, 0.032096, 0.034167, 0.036371, 0.038718, 0.041216, 0.043875,
+       0.046706, 0.04972 , 0.052927, 0.056342, 0.059977, 0.063847, 0.067966,
+       0.072352, 0.07702 , 0.081989, 0.087279, 0.09291 , 0.098904, 0.105286,
+       0.112079, 0.11931 , 0.127008, 0.135202, 0.143925, 0.153211, 0.163096,
+       0.173619, 0.184821, 0.196746, 0.20944 ], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>LATITUDE</span></div><div class='xr-var-dims'>(TIME)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>-53.57 -52.14 ... -38.07 -36.74</div><input id='attrs-90c815a3-b786-407e-a3fa-0b2153208edb' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-90c815a3-b786-407e-a3fa-0b2153208edb' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-959368f0-3fcd-49b2-af31-7689d706dc8b' class='xr-var-data-in' type='checkbox'><label for='data-959368f0-3fcd-49b2-af31-7689d706dc8b' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>axis :</span></dt><dd>Y</dd><dt><span>long_name :</span></dt><dd>latitude</dd><dt><span>reference_datum :</span></dt><dd>geographical coordinates, WGS84 projection</dd><dt><span>standard_name :</span></dt><dd>latitude</dd><dt><span>units :</span></dt><dd>degrees_north</dd><dt><span>valid_max :</span></dt><dd>90.0</dd><dt><span>valid_min :</span></dt><dd>-90.0</dd><dt><span>_ChunkSizes :</span></dt><dd>1116</dd></dl></div><div class='xr-var-data'><pre>array([-53.567394, -52.13989 , -51.866367, -50.454132, -50.158215, -48.762123,
+       -48.444473, -47.060658, -46.728134, -45.35304 , -45.00377 , -43.63949 ,
+       -43.27489 , -41.922283, -41.541862, -40.19819 , -39.804512, -38.469566,
+       -38.066673, -36.73708 ], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>LONGITUDE</span></div><div class='xr-var-dims'>(TIME)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>124.2 126.3 123.3 ... 117.3 119.1</div><input id='attrs-05b0df06-d49e-4931-b8df-17a650e85e49' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-05b0df06-d49e-4931-b8df-17a650e85e49' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-8d524fb0-4c21-4264-9cde-3adafb7510fc' class='xr-var-data-in' type='checkbox'><label for='data-8d524fb0-4c21-4264-9cde-3adafb7510fc' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>axis :</span></dt><dd>X</dd><dt><span>long_name :</span></dt><dd>longitude</dd><dt><span>reference_datum :</span></dt><dd>geographical coordinates, WGS84 projection</dd><dt><span>standard_name :</span></dt><dd>longitude</dd><dt><span>units :</span></dt><dd>degrees_east</dd><dt><span>valid_max :</span></dt><dd>180.0</dd><dt><span>valid_min :</span></dt><dd>-180.0</dd><dt><span>_ChunkSizes :</span></dt><dd>1116</dd></dl></div><div class='xr-var-data'><pre>array([124.22975 , 126.31904 , 123.266754, 125.30414 , 122.36848 , 124.34904 ,
+       121.52737 , 123.460655, 120.72206 , 122.62525 , 119.97582 , 121.83676 ,
+       119.26918 , 121.08331 , 118.59779 , 120.374466, 117.95761 , 119.69944 ,
+       117.33325 , 119.05508 ], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>TIME</span></div><div class='xr-var-dims'>(TIME)</div><div class='xr-var-dtype'>datetime64[ns]</div><div class='xr-var-preview xr-preview'>2019-08-01T10:45:42.000000256 .....</div><input id='attrs-6e2911ac-b3be-426d-a9c2-c36d5d2f70f8' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-6e2911ac-b3be-426d-a9c2-c36d5d2f70f8' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-aa32fa6a-1a29-4ef5-9fa9-0e2221516795' class='xr-var-data-in' type='checkbox'><label for='data-aa32fa6a-1a29-4ef5-9fa9-0e2221516795' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>axis :</span></dt><dd>T</dd><dt><span>long_name :</span></dt><dd>time</dd><dt><span>standard_name :</span></dt><dd>time</dd><dt><span>valid_max :</span></dt><dd>90000.0</dd><dt><span>valid_min :</span></dt><dd>0.0</dd><dt><span>_ChunkSizes :</span></dt><dd>1116</dd></dl></div><div class='xr-var-data'><pre>array([&#x27;2019-08-01T10:45:42.000000256&#x27;, &#x27;2019-08-01T10:45:57.000000256&#x27;,
+       &#x27;2019-08-01T10:46:12.000000000&#x27;, &#x27;2019-08-01T10:46:26.000000000&#x27;,
+       &#x27;2019-08-01T10:46:40.999999744&#x27;, &#x27;2019-08-01T10:46:56.000000000&#x27;,
+       &#x27;2019-08-01T10:47:09.999999744&#x27;, &#x27;2019-08-01T10:47:25.000000000&#x27;,
+       &#x27;2019-08-01T10:47:40.000000000&#x27;, &#x27;2019-08-01T10:47:54.000000000&#x27;,
+       &#x27;2019-08-01T10:48:09.000000000&#x27;, &#x27;2019-08-01T10:48:24.000000000&#x27;,
+       &#x27;2019-08-01T10:48:37.999999744&#x27;, &#x27;2019-08-01T10:48:53.000000256&#x27;,
+       &#x27;2019-08-01T10:49:08.000000256&#x27;, &#x27;2019-08-01T10:49:22.000000000&#x27;,
+       &#x27;2019-08-01T10:49:37.000000000&#x27;, &#x27;2019-08-01T10:49:51.999999744&#x27;,
+       &#x27;2019-08-01T10:50:06.000000000&#x27;, &#x27;2019-08-01T10:50:20.999999744&#x27;],
+      dtype=&#x27;datetime64[ns]&#x27;)</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-2dfed765-f7ca-4bf0-a868-e2214333d342' class='xr-section-summary-in' type='checkbox'  ><label for='section-2dfed765-f7ca-4bf0-a868-e2214333d342' class='xr-section-summary' >Data variables: <span>(17)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span>AZ_CUTOFF</span></div><div class='xr-var-dims'>(TIME)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-ae6f7a04-ce21-4308-99aa-ea8c05c0faf8' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-ae6f7a04-ce21-4308-99aa-ea8c05c0faf8' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-5c5190c0-b715-4af5-8bde-848f37308c6c' class='xr-var-data-in' type='checkbox'><label for='data-5c5190c0-b715-4af5-8bde-848f37308c6c' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>comment :</span></dt><dd>the shortest wavelength in the azimuth direction that is resolved in the ocean swell spectra</dd><dt><span>long_name :</span></dt><dd>azimuth cut-off wavelength</dd><dt><span>units :</span></dt><dd>m</dd><dt><span>_ChunkSizes :</span></dt><dd>1048576</dd></dl></div><div class='xr-var-data'><pre>array([344., 378., 304., 380., 294., 347., 300., 390., 303., 359., 295., 336.,
+       281., 307., 252., 261., 208., 220., 210., 236.], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>HEADING</span></div><div class='xr-var-dims'>(TIME)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-8d93a6cd-3ec7-4373-b8d9-1dfef5a167ce' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-8d93a6cd-3ec7-4373-b8d9-1dfef5a167ce' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-0291a51e-1aac-4f64-9071-7fd5e6ca11f6' class='xr-var-data-in' type='checkbox'><label for='data-0291a51e-1aac-4f64-9071-7fd5e6ca11f6' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>satellite track heading clockwise relative to north</dd><dt><span>standard_name :</span></dt><dd>platform_course</dd><dt><span>units :</span></dt><dd>degree</dd><dt><span>valid_max :</span></dt><dd>18000</dd><dt><span>valid_min :</span></dt><dd>-18000</dd><dt><span>_ChunkSizes :</span></dt><dd>1116</dd></dl></div><div class='xr-var-data'><pre>array([341.01   , 339.12   , 341.66998, 339.84998, 342.26   , 340.52   ,
+       342.78998, 341.13   , 343.28998, 341.69   , 343.72998, 342.2    ,
+       344.13   , 342.66998, 344.49   , 343.09998, 344.83002, 343.5    ,
+       345.14   , 343.87   ], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>INC_ANGLE</span></div><div class='xr-var-dims'>(TIME)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-31558fec-1c04-4ed0-adbd-2402ab4dfb99' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-31558fec-1c04-4ed0-adbd-2402ab4dfb99' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-a14de6d7-971d-42be-87fd-dc66301381da' class='xr-var-data-in' type='checkbox'><label for='data-a14de6d7-971d-42be-87fd-dc66301381da' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>incidence angle</dd><dt><span>standard_name :</span></dt><dd>angle_of_incidence</dd><dt><span>units :</span></dt><dd>degree</dd><dt><span>valid_max :</span></dt><dd>9000</dd><dt><span>valid_min :</span></dt><dd>0</dd><dt><span>_ChunkSizes :</span></dt><dd>1116</dd></dl></div><div class='xr-var-data'><pre>array([22.89    , 36.      , 22.939999, 36.05    , 23.01    , 36.07    ,
+       23.07    , 36.12    , 23.039999, 36.17    , 23.109999, 36.23    ,
+       23.17    , 36.25    , 23.24    , 36.3     , 23.31    , 36.36    ,
+       23.289999, 36.41    ], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>NRCS</span></div><div class='xr-var-dims'>(TIME)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-f82f6b54-aeb9-4a69-9e16-5bc745fa040f' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-f82f6b54-aeb9-4a69-9e16-5bc745fa040f' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-73a2b857-953c-48e1-9b6f-890512bbb482' class='xr-var-data-in' type='checkbox'><label for='data-73a2b857-953c-48e1-9b6f-890512bbb482' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>comment :</span></dt><dd>used in SAR wind retrieval algorithm and is also directly related to the dc-component of the image spectra</dd><dt><span>long_name :</span></dt><dd>normalised radar cross section of the imagette (dB)</dd><dt><span>units :</span></dt><dd>1</dd><dt><span>valid_max :</span></dt><dd>32000</dd><dt><span>valid_min :</span></dt><dd>-32000</dd><dt><span>_ChunkSizes :</span></dt><dd>1116</dd></dl></div><div class='xr-var-data'><pre>array([ -1.507   , -10.634001,  -2.39    , -11.200001,  -2.657   , -11.517   ,
+        -2.866   , -11.576   ,  -2.929   , -12.027   ,  -3.132   , -13.189001,
+        -3.846   , -15.603001,  -5.62    , -16.929   ,  -7.093   , -16.869001,
+        -7.262001, -16.839   ], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>SNR</span></div><div class='xr-var-dims'>(TIME)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-4a90a5d2-87b1-4670-91bf-283e7dc30b82' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-4a90a5d2-87b1-4670-91bf-283e7dc30b82' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-ef5c9462-c68f-4413-8952-3fa816ac82fb' class='xr-var-data-in' type='checkbox'><label for='data-ef5c9462-c68f-4413-8952-3fa816ac82fb' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>comment :</span></dt><dd>spectral peak to noise ratio, used for setting the confidence of the wave retrieval</dd><dt><span>long_name :</span></dt><dd>signal to noise ratio of cross spectra (dB)</dd><dt><span>units :</span></dt><dd>1</dd><dt><span>valid_max :</span></dt><dd>30000</dd><dt><span>valid_min :</span></dt><dd>-30000</dd><dt><span>_ChunkSizes :</span></dt><dd>1116</dd></dl></div><div class='xr-var-data'><pre>array([30.746   , 27.376   , 29.151   , 26.457   , 28.166   , 23.922   ,
+       27.867   , 25.987   , 27.942   , 27.561   , 29.392   , 28.196   ,
+       29.544   , 27.765999, 29.449   , 26.109   , 30.392   , 25.233   ,
+       31.752   , 25.902   ], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>WDIR_ECMWF</span></div><div class='xr-var-dims'>(TIME)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-ac6386ac-95f2-47f7-abd7-05967928360f' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-ac6386ac-95f2-47f7-abd7-05967928360f' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-8c8a39d2-a289-4ad7-9c21-4b50402dcf83' class='xr-var-data-in' type='checkbox'><label for='data-8c8a39d2-a289-4ad7-9c21-4b50402dcf83' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>ecmwf wind from direction, measured positive clockwise from due north</dd><dt><span>standard_name :</span></dt><dd>wind_from_direction</dd><dt><span>units :</span></dt><dd>degree</dd><dt><span>valid_max :</span></dt><dd>18000</dd><dt><span>valid_min :</span></dt><dd>-18000</dd><dt><span>_ChunkSizes :</span></dt><dd>1116</dd></dl></div><div class='xr-var-data'><pre>array([288.84    , 307.38    , 307.02    , 306.45    , 307.09    , 304.41    ,
+       305.45    , 302.15    , 305.74    , 301.94    , 304.22998 , 309.31    ,
+       308.16    , 309.24    , 312.83002 , 336.41    , 349.13    , 358.53998 ,
+         1.01001 ,  40.070007], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>WSPD_ECMWF</span></div><div class='xr-var-dims'>(TIME)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-24144bca-eccc-49ac-9857-79bd08ed1bba' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-24144bca-eccc-49ac-9857-79bd08ed1bba' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-cb25c680-629b-459b-b54e-73dd92dc4374' class='xr-var-data-in' type='checkbox'><label for='data-cb25c680-629b-459b-b54e-73dd92dc4374' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>ecmwf wind speed</dd><dt><span>standard_name :</span></dt><dd>wind_speed</dd><dt><span>units :</span></dt><dd>m s-1</dd><dt><span>valid_max :</span></dt><dd>6000</dd><dt><span>valid_min :</span></dt><dd>0</dd><dt><span>_ChunkSizes :</span></dt><dd>1116</dd></dl></div><div class='xr-var-data'><pre>array([17.52    , 19.609999, 19.96    , 18.369999, 18.97    , 17.029999,
+       18.109999, 15.889999, 15.509999, 13.78    , 14.58    , 11.67    ,
+       11.49    ,  9.17    ,  8.62    ,  5.91    ,  5.72    ,  5.39    ,
+        5.85    ,  6.15    ], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>DIST2COAST</span></div><div class='xr-var-dims'>(TIME)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-a3c22c28-8af7-4e7f-9f93-a4a9df975715' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-a3c22c28-8af7-4e7f-9f93-a4a9df975715' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-724a0695-06c8-4b07-b8b8-b4b3f53373c9' class='xr-var-data-in' type='checkbox'><label for='data-724a0695-06c8-4b07-b8b8-b4b3f53373c9' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>comment :</span></dt><dd>source dist2coast_1deg_ocean.nc, 0.01-degree ocean grid, distributor PacIOOS, creator NASA/GSFC Ocean Color Group </dd><dt><span>long_name :</span></dt><dd>distance to nearest coastline</dd><dt><span>units :</span></dt><dd>km</dd><dt><span>valid_max :</span></dt><dd>2700</dd><dt><span>valid_min :</span></dt><dd>0</dd><dt><span>_ChunkSizes :</span></dt><dd>1116</dd></dl></div><div class='xr-var-data'><pre>array([1353., 1530., 1537., 1705., 1702., 1599., 1503., 1399., 1303., 1198.,
+       1105.,  998.,  906.,  798.,  709.,  598.,  513.,  398.,  323.,  201.],
+      dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>BOT_DEPTH</span></div><div class='xr-var-dims'>(TIME)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-af319b41-2b01-48ac-8b7f-7655d6aa60d9' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-af319b41-2b01-48ac-8b7f-7655d6aa60d9' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-a79abbae-34fb-4bd3-b5e4-424ffc1dd890' class='xr-var-data-in' type='checkbox'><label for='data-a79abbae-34fb-4bd3-b5e4-424ffc1dd890' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>comment :</span></dt><dd>source GEBCO 2019 grid with 15 arcsec resolution, DOI: 10.5285/836f016a-33be-6ddc-e053-6c86abc0788e</dd><dt><span>long_name :</span></dt><dd>sea_floor_depth_below_mean_sea_level</dd><dt><span>positive :</span></dt><dd>up</dd><dt><span>reference_datum :</span></dt><dd>Mean Sea Level (MSL)</dd><dt><span>standard_name :</span></dt><dd>sea_floor_depth_below_mean_sea_level</dd><dt><span>units :</span></dt><dd>m</dd><dt><span>valid_max :</span></dt><dd>8845.0</dd><dt><span>valid_min :</span></dt><dd>-10924.0</dd><dt><span>_ChunkSizes :</span></dt><dd>1116</dd></dl></div><div class='xr-var-data'><pre>array([-4632.872 , -4206.212 , -3964.402 , -3924.88  , -3534.594 , -3411.363 ,
+       -3993.561 , -4402.014 , -4353.312 , -4980.1865, -4189.9062, -4550.985 ,
+       -4535.3296, -4726.8237, -4916.2583, -4944.8374, -4877.609 , -4340.114 ,
+       -4767.0806, -5116.1313], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>LSMASK</span></div><div class='xr-var-dims'>(TIME)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-950e4f40-0bf0-4e68-a719-85ede6b78bfb' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-950e4f40-0bf0-4e68-a719-85ede6b78bfb' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-d0e98760-dc03-4c42-bb14-2a693934bf25' class='xr-var-data-in' type='checkbox'><label for='data-d0e98760-dc03-4c42-bb14-2a693934bf25' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>comment :</span></dt><dd>sourced from the NAVOCEANO/GHRSST global 30 arcsec (~1km) land sea mask</dd><dt><span>long_name :</span></dt><dd>land sea mask in pixel distance. 1 to 49 coastal, 0 land, and -1 ocean with land-sea pixel distance &gt; 49</dd><dt><span>units :</span></dt><dd>1</dd><dt><span>valid_max :</span></dt><dd>49</dd><dt><span>valid_min :</span></dt><dd>-1</dd><dt><span>_ChunkSizes :</span></dt><dd>1116</dd></dl></div><div class='xr-var-data'><pre>array([-1., -1., -1., -1., -1., -1., -1., -1., -1., -1., -1., -1., -1., -1.,
+       -1., -1., -1., -1., -1., -1.], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>AZ_CUTOFF_DIR</span></div><div class='xr-var-dims'>(TIME, DIRECTION)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-68963aee-1648-4fd8-a7f3-2dc676f34de6' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-68963aee-1648-4fd8-a7f3-2dc676f34de6' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-98d371d3-871a-4c66-834e-8ef09dca9da2' class='xr-var-data-in' type='checkbox'><label for='data-98d371d3-871a-4c66-834e-8ef09dca9da2' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>comment :</span></dt><dd>the spectral resolution of an ocean swell spectra cell is the shortest ocean wavelength that can be detected as a func of dir</dd><dt><span>long_name :</span></dt><dd>azimuth cut-off wavelength as a function of wave direction</dd><dt><span>units :</span></dt><dd>m</dd><dt><span>_ChunkSizes :</span></dt><dd>[ 1 72]</dd></dl></div><div class='xr-var-data'><pre>array([[325.27783, 314.28394, 300.89813, ..., 343.1662 , 339.77414, 333.79617],
+       [353.16486, 340.0764 , 324.39972, ..., 376.0079 , 371.19922, 363.56552],
+       [288.57   , 279.138  , 267.58157, ..., 303.48572, 300.79037, 295.80582],
+       ...,
+       [210.94073, 204.69237, 196.88618, ..., 219.92465, 218.58597, 215.58371],
+       [202.97763, 197.51169, 190.54257, ..., 209.99936, 209.24532, 206.89879],
+       [226.70943, 220.13232, 211.87988, ..., 235.95409, 234.65053, 231.56114]],
+      dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>DP_PART</span></div><div class='xr-var-dims'>(TIME, PARTITION)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-a9ff2c32-17cb-4e1b-9b5f-286fc3544666' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-a9ff2c32-17cb-4e1b-9b5f-286fc3544666' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-9428274b-a6ae-4b90-b28e-603d363bb9d6' class='xr-var-data-in' type='checkbox'><label for='data-9428274b-a6ae-4b90-b28e-603d363bb9d6' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>sea surface swell wave to direction at spectral peak</dd><dt><span>standard_name :</span></dt><dd>sea_surface_swell_wave_to_direction</dd><dt><span>units :</span></dt><dd>degree</dd><dt><span>valid_max :</span></dt><dd>18000</dd><dt><span>valid_min :</span></dt><dd>-18000</dd><dt><span>_ChunkSizes :</span></dt><dd>[1 5]</dd></dl></div><div class='xr-var-data'><pre>array([[ 93.5     , 315.58002 ,        nan,        nan,        nan],
+       [ 59.010002,  86.43    , 339.83002 ,  29.680008,        nan],
+       [ 84.810005, 344.75    ,        nan,        nan,        nan],
+       [ 56.700005,  86.58    , 314.9     ,        nan,        nan],
+       [ 91.67    ,  51.440002, 330.47998 ,        nan,        nan],
+       [ 40.08    ,  86.55    ,  62.600006, 105.04    ,        nan],
+       [ 64.69    ,  90.97    , 335.      ,        nan,        nan],
+       [ 59.450005,  49.79001 , 284.85    ,  87.520004,        nan],
+       [ 40.29001 ,  88.200005, 325.69    ,        nan,        nan],
+       [ 46.820007, 103.94    ,  86.090004, 332.59    ,        nan],
+       [ 57.200005, 325.34998 ,  88.87    ,        nan,        nan],
+       [ 50.42    , 274.41998 ,        nan,        nan,        nan],
+       [ 41.589996,  95.91    ,        nan,        nan,        nan],
+       [ 45.880005, 269.51    , 332.52    ,        nan,        nan],
+       [ 50.440002,        nan,        nan,        nan,        nan],
+       [ 54.780006, 146.44    ,        nan,        nan,        nan],
+       [ 65.32    , 337.51    ,        nan,        nan,        nan],
+       [ 70.700005,        nan,        nan,        nan,        nan],
+       [ 46.910004,  82.840004, 340.3     ,        nan,        nan],
+       [ 56.870003, 104.71    , 322.97998 ,        nan,        nan]],
+      dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>EKTH</span></div><div class='xr-var-dims'>(TIME, DIRECTION, WAVNUM)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-f3f0b8b7-8b7d-431f-8257-a1c77bdb0c67' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-f3f0b8b7-8b7d-431f-8257-a1c77bdb0c67' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-b3821254-bd5a-4fa1-8ca8-251bae2e41c1' class='xr-var-data-in' type='checkbox'><label for='data-b3821254-bd5a-4fa1-8ca8-251bae2e41c1' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>ancillary_variables :</span></dt><dd>EKTH_quality_control</dd><dt><span>long_name :</span></dt><dd>estimated sea surface wave directional variance spectral density (wavenumber)</dd><dt><span>units :</span></dt><dd>m4</dd><dt><span>valid_max :</span></dt><dd>3.4028235e+38</dd><dt><span>valid_min :</span></dt><dd>0.0</dd><dt><span>_ChunkSizes :</span></dt><dd>[ 1 72 60]</dd></dl></div><div class='xr-var-data'><pre>array([[[362.19333 , 419.62308 , ...,   0.      ,   0.      ],
+        [342.0718  , 394.04578 , ...,   0.      ,   0.      ],
+        ...,
+        [353.2868  , 419.2871  , ...,   0.      ,   0.      ],
+        [363.6985  , 428.9964  , ...,   0.      ,   0.      ]],
+
+       [[211.96814 , 256.95737 , ...,   0.      ,   0.      ],
+        [211.93633 , 251.7005  , ...,   0.      ,   0.      ],
+        ...,
+        [210.56778 , 265.17276 , ...,   0.      ,   0.      ],
+        [212.91844 , 264.0774  , ...,   0.      ,   0.      ]],
+
+       ...,
+
+       [[100.73115 , 104.91372 , ...,   0.      ,   0.      ],
+        [ 95.31837 ,  97.2977  , ...,   0.      ,   0.      ],
+        ...,
+        [105.33191 , 110.72164 , ...,   0.      ,   0.      ],
+        [103.21332 , 107.996925, ...,   0.      ,   0.      ]],
+
+       [[ 43.022877,  50.246128, ...,   0.      ,   0.      ],
+        [ 40.169117,  46.872   , ...,   0.      ,   0.      ],
+        ...,
+        [ 48.393074,  56.649906, ...,   0.      ,   0.      ],
+        [ 45.92437 ,  53.56814 , ...,   0.      ,   0.      ]]], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>EKTH_PART</span></div><div class='xr-var-dims'>(TIME, DIRECTION, WAVNUM)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-8e5ea52a-3e83-4011-bcfe-ff1e3024e7d2' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-8e5ea52a-3e83-4011-bcfe-ff1e3024e7d2' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-95a0501f-53da-4179-a4de-5ca4da234295' class='xr-var-data-in' type='checkbox'><label for='data-95a0501f-53da-4179-a4de-5ca4da234295' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>directional wavenumber spectra partitions</dd><dt><span>units :</span></dt><dd>1</dd><dt><span>valid_max :</span></dt><dd>4</dd><dt><span>valid_min :</span></dt><dd>0</dd><dt><span>_ChunkSizes :</span></dt><dd>[ 1 72 60]</dd></dl></div><div class='xr-var-data'><pre>array([[[ 1.,  1., ..., nan, nan],
+        [ 1.,  1., ..., nan, nan],
+        ...,
+        [ 1.,  1., ..., nan, nan],
+        [ 1.,  1., ..., nan, nan]],
+
+       [[ 2.,  2., ..., nan, nan],
+        [ 2.,  2., ..., nan, nan],
+        ...,
+        [ 2.,  2., ..., nan, nan],
+        [ 2.,  2., ..., nan, nan]],
+
+       ...,
+
+       [[ 2.,  2., ..., nan, nan],
+        [ 2.,  2., ..., nan, nan],
+        ...,
+        [ 2.,  2., ..., nan, nan],
+        [ 2.,  2., ..., nan, nan]],
+
+       [[ 0.,  0., ..., nan, nan],
+        [ 0.,  0., ..., nan, nan],
+        ...,
+        [ 2.,  2., ..., nan, nan],
+        [ 0.,  0., ..., nan, nan]]], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>EKTH_quality_control</span></div><div class='xr-var-dims'>(TIME, DIRECTION, WAVNUM)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-48e1f960-58de-44a2-a368-71de1327e1c0' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-48e1f960-58de-44a2-a368-71de1327e1c0' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-253ad27c-4670-4fcb-adac-84ae13f67212' class='xr-var-data-in' type='checkbox'><label for='data-253ad27c-4670-4fcb-adac-84ae13f67212' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>flag_meanings :</span></dt><dd>No_QC_performed Good_data Probably_good_data Bad_data_that_are_potentially_correctable Bad_data Value_changed Not_used Not_used Not_used Missing_value</dd><dt><span>flag_values :</span></dt><dd>[0 1 2 3 4 5 6 7 8 9]</dd><dt><span>long_name :</span></dt><dd>estimated sea surface wave directional variance spectral density (wavenumber) flags</dd><dt><span>quality_control_conventions :</span></dt><dd>IMOS standard flags</dd><dt><span>_ChunkSizes :</span></dt><dd>[ 1 72 60]</dd></dl></div><div class='xr-var-data'><pre>array([[[ 2.,  2., ..., nan, nan],
+        [ 2.,  2., ..., nan, nan],
+        ...,
+        [ 2.,  2., ..., nan, nan],
+        [ 2.,  2., ..., nan, nan]],
+
+       [[ 2.,  2., ..., nan, nan],
+        [ 2.,  2., ..., nan, nan],
+        ...,
+        [ 2.,  2., ..., nan, nan],
+        [ 2.,  2., ..., nan, nan]],
+
+       ...,
+
+       [[ 2.,  2., ..., nan, nan],
+        [ 2.,  2., ..., nan, nan],
+        ...,
+        [ 2.,  2., ..., nan, nan],
+        [ 2.,  2., ..., nan, nan]],
+
+       [[ 2.,  2., ..., nan, nan],
+        [ 2.,  2., ..., nan, nan],
+        ...,
+        [ 2.,  2., ..., nan, nan],
+        [ 2.,  2., ..., nan, nan]]], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>HS_PART</span></div><div class='xr-var-dims'>(TIME, PARTITION)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-8eb0783d-d426-4533-91e2-e6cab72a2c54' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-8eb0783d-d426-4533-91e2-e6cab72a2c54' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-44cb753e-d3b8-46a2-bded-eaf6dae0b518' class='xr-var-data-in' type='checkbox'><label for='data-44cb753e-d3b8-46a2-bded-eaf6dae0b518' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>sea surface swell wave significant height</dd><dt><span>standard_name :</span></dt><dd>sea_surface_swell_wave_significant_height</dd><dt><span>units :</span></dt><dd>m</dd><dt><span>valid_max :</span></dt><dd>30000</dd><dt><span>valid_min :</span></dt><dd>0</dd><dt><span>_ChunkSizes :</span></dt><dd>[1 5]</dd></dl></div><div class='xr-var-data'><pre>array([[3.398, 2.14 ,   nan,   nan,   nan],
+       [3.147, 2.838, 0.983, 0.945,   nan],
+       [3.291, 2.026,   nan,   nan,   nan],
+       [3.171, 2.397, 1.411,   nan,   nan],
+       [1.975, 2.173, 1.816,   nan,   nan],
+       [1.981, 1.858, 1.832, 1.466,   nan],
+       [2.082, 1.988, 1.903,   nan,   nan],
+       [2.827, 1.684, 1.395, 1.59 ,   nan],
+       [1.351, 2.581, 1.85 ,   nan,   nan],
+       [3.138, 1.167, 1.216, 0.62 ,   nan],
+       [2.71 , 1.741, 1.299,   nan,   nan],
+       [3.142, 2.186,   nan,   nan,   nan],
+       [2.978, 1.919,   nan,   nan,   nan],
+       [3.048, 2.151, 0.732,   nan,   nan],
+       [3.608,   nan,   nan,   nan,   nan],
+       [4.198, 0.723,   nan,   nan,   nan],
+       [3.611, 1.062,   nan,   nan,   nan],
+       [4.612,   nan,   nan,   nan,   nan],
+       [2.728, 2.555, 1.474,   nan,   nan],
+       [3.947, 2.026, 1.003,   nan,   nan]], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>WP_PART</span></div><div class='xr-var-dims'>(TIME, PARTITION)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-c574ed86-6d5e-48e0-8cc2-d5351e82dc6a' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-c574ed86-6d5e-48e0-8cc2-d5351e82dc6a' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-e676b4e1-dddb-42fd-ac93-cacedd1b8eb3' class='xr-var-data-in' type='checkbox'><label for='data-e676b4e1-dddb-42fd-ac93-cacedd1b8eb3' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>valid_min :</span></dt><dd>0.0</dd><dt><span>long_name :</span></dt><dd>sea surface swell wave wavelength at spectral peak</dd><dt><span>valid_max :</span></dt><dd>20000.0</dd><dt><span>units :</span></dt><dd>m</dd><dt><span>_ChunkSizes :</span></dt><dd>[1 5]</dd></dl></div><div class='xr-var-data'><pre>array([[269.20004, 561.91077,       nan,       nan,       nan],
+       [236.13293, 236.71556, 595.04987, 638.49225,       nan],
+       [267.6647 , 526.45593,       nan,       nan,       nan],
+       [253.66452, 236.83485, 529.3775 ,       nan,       nan],
+       [222.63452, 283.87692, 468.02646,       nan,       nan],
+       [342.34073, 198.22289, 213.3921 , 359.98657,       nan],
+       [236.47745, 206.76225, 468.1078 ,       nan,       nan],
+       [209.0458 , 372.90616, 341.63895, 182.49457,       nan],
+       [382.6946 , 194.38641, 559.8924 ,       nan,       nan],
+       [381.97314, 254.28645, 145.81831, 415.1764 ,       nan],
+       [342.85168, 366.59036, 153.25696,       nan,       nan],
+       [382.23434, 284.7964 ,       nan,       nan,       nan],
+       [368.9713 , 354.23996,       nan,       nan,       nan],
+       [382.38904, 253.51135, 411.6424 ,       nan,       nan],
+       [384.47086,       nan,       nan,       nan,       nan],
+       [323.36725, 306.07272,       nan,       nan,       nan],
+       [345.92288, 366.13443,       nan,       nan,       nan],
+       [364.60626,       nan,       nan,       nan,       nan],
+       [345.28226, 346.73346, 342.4554 ,       nan,       nan],
+       [386.3217 , 360.1685 , 344.24002,       nan,       nan]], dtype=float32)</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-c33f81a0-b331-448d-92ea-436a73f42413' class='xr-section-summary-in' type='checkbox'  ><label for='section-c33f81a0-b331-448d-92ea-436a73f42413' class='xr-section-summary' >Attributes: <span>(30)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'><dt><span>Conventions :</span></dt><dd>CF-1.6,IMOS-1.4</dd><dt><span>abstract :</span></dt><dd>Sentinel-1 A and B satellites are part of Europe&#x27;s Copernicus Earth Observation program and carry identical C-band Synthetic Aperture Radar (SAR) instruments. Over open-ocean, they operate in wave mode and collect directional wave measurements globally. This dataset contains Sentinel-1 SAR directional ocean swell wave number spectra, spectral partitions and partition bulks in the Australasian region including the Pacific islands. The data have been homogenised to a single, easily usable format from inconsistent source product by removing various discrepancies such as inconsistencies in wave number bins and values, variables and erroneous measurements over land. The data have also been quality flagged by tagging spectral inversions where one or more of the partitions suffer from 180 degrees of swell directional ambiguity. According to the author&#x27;s understanding, the source data have been produced by evolving versions of SAR ocean swell spectra inversion algorithm. This is a trial dataset and its cal/val is an area of current active research.</dd><dt><span>acknowledgement :</span></dt><dd>Any users of IMOS data are required to clearly acknowledge the source of the material derived from IMOS in the format: &quot;Data was sourced from the Integrated Marine Observing System (IMOS) - IMOS is a national collaborative research infrastructure, supported by the Australian Government.&quot; If relevant, also credit other organisations involved in collection of this particular datastream (as listed in &#x27;credit&#x27; in the metadata record).</dd><dt><span>author :</span></dt><dd>Khan, Salman Saeed</dd><dt><span>author_email :</span></dt><dd>salmansaeed.khan@csiro.au</dd><dt><span>citation :</span></dt><dd>The citation in a list of references is: &quot;IMOS [year-of-data-download], [Title], [data-access-URL], accessed [date-of-access].&quot;.</dd><dt><span>data_centre :</span></dt><dd>Australian Ocean Data Network (AODN)</dd><dt><span>data_centre_email :</span></dt><dd>info@aodn.org.au</dd><dt><span>date_created :</span></dt><dd>2019-12-11T16:06:50Z</dd><dt><span>date_modified :</span></dt><dd>2019-12-11T16:06:50Z</dd><dt><span>disclaimer :</span></dt><dd>Data, products and services from IMOS are provided &quot;as is&quot; without any warranty as to fitness for a particular purpose.</dd><dt><span>geospatial_lat_max :</span></dt><dd>54.878338</dd><dt><span>geospatial_lat_min :</span></dt><dd>-73.9985</dd><dt><span>geospatial_lon_max :</span></dt><dd>179.81264</dd><dt><span>geospatial_lon_min :</span></dt><dd>-179.82607</dd><dt><span>geospatial_vertical_max :</span></dt><dd>0.0</dd><dt><span>geospatial_vertical_min :</span></dt><dd>0.0</dd><dt><span>geospatial_vertical_negative :</span></dt><dd>down</dd><dt><span>institution :</span></dt><dd>CSIRO</dd><dt><span>license :</span></dt><dd>http://creativecommons.org/licenses/by/4.0/</dd><dt><span>naming_authority :</span></dt><dd>IMOS</dd><dt><span>principal_investigator :</span></dt><dd>Hemer, Mark</dd><dt><span>principal_investigator_email :</span></dt><dd>mark.hemer@csiro.au</dd><dt><span>project :</span></dt><dd>Integrated Marine Observing System (IMOS)</dd><dt><span>source :</span></dt><dd>Copernicus Australasia</dd><dt><span>standard_name_vocabulary :</span></dt><dd>NetCDF Climate and Forecast (CF) Metadata Convention Standard Name Table 65</dd><dt><span>time_coverage_end :</span></dt><dd>2019-08-01T22:00:24Z</dd><dt><span>time_coverage_start :</span></dt><dd>2019-08-01T04:07:52Z</dd><dt><span>title :</span></dt><dd>Sentinel-1 A C-SAR surface wave spectra</dd><dt><span>DODS_EXTRA.Unlimited_Dimension :</span></dt><dd>TIME</dd></dl></div></li></ul></div></div></div></div>
+</div>
+<p>Let’s plot the aforementionned variables</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mf">7.5</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
 <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">)</span>
-<span class="n">dset_WA</span><span class="o">.</span><span class="n">HEADING</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span> <span class="o">=</span> <span class="n">ax</span><span class="p">)</span>
+<span class="n">dset_WA</span><span class="o">.</span><span class="n">HEADING</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span> <span class="o">=</span> <span class="n">ax</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Heading&#39;</span><span class="p">)</span> 
 <span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">linestyle</span> <span class="o">=</span> <span class="s1">&#39;dashed&#39;</span><span class="p">)</span>
 
 <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mf">7.5</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
 <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">)</span>
-<span class="n">dset_WA</span><span class="o">.</span><span class="n">INC_ANGLE</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span> <span class="o">=</span> <span class="n">ax</span><span class="p">)</span>
+<span class="n">dset_WA</span><span class="o">.</span><span class="n">INC_ANGLE</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span> <span class="o">=</span> <span class="n">ax</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Incidence Angle&#39;</span><span class="p">)</span> 
 <span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">linestyle</span> <span class="o">=</span> <span class="s1">&#39;dashed&#39;</span><span class="p">)</span>
 
 <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mf">7.5</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
 <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">)</span>
-<span class="n">dset_WA</span><span class="o">.</span><span class="n">DIST2COAST</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span> <span class="o">=</span> <span class="n">ax</span><span class="p">)</span>
+<span class="n">dset_WA</span><span class="o">.</span><span class="n">DIST2COAST</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span> <span class="o">=</span> <span class="n">ax</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Distance to coast&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">linestyle</span> <span class="o">=</span> <span class="s1">&#39;dashed&#39;</span><span class="p">)</span>
 
 <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mf">7.5</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
 <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">)</span>
-<span class="n">dset_WA</span><span class="o">.</span><span class="n">BOT_DEPTH</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span> <span class="o">=</span> <span class="n">ax</span><span class="p">)</span>
+<span class="n">dset_WA</span><span class="o">.</span><span class="n">BOT_DEPTH</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span> <span class="o">=</span> <span class="n">ax</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;g&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Depth&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">linestyle</span> <span class="o">=</span> <span class="s1">&#39;dashed&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/sar_waves_9_0.png" src="../_images/sar_waves_9_0.png" />
-<img alt="../_images/sar_waves_9_1.png" src="../_images/sar_waves_9_1.png" />
-<img alt="../_images/sar_waves_9_2.png" src="../_images/sar_waves_9_2.png" />
-<img alt="../_images/sar_waves_9_3.png" src="../_images/sar_waves_9_3.png" />
+<img alt="../_images/sar_waves_11_0.svg" src="../_images/sar_waves_11_0.svg" /><img alt="../_images/sar_waves_11_1.svg" src="../_images/sar_waves_11_1.svg" /><img alt="../_images/sar_waves_11_2.svg" src="../_images/sar_waves_11_2.svg" /><img alt="../_images/sar_waves_11_3.svg" src="../_images/sar_waves_11_3.svg" /></div>
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="convert-directional-wavenumber-spectra-to-frequency-spectra-using-deep-water-assumptions">
-<h2>Convert directional wavenumber spectra to frequency spectra using deep water assumptions:<a class="headerlink" href="#convert-directional-wavenumber-spectra-to-frequency-spectra-using-deep-water-assumptions" title="Permalink to this headline">¶</a></h2>
-<p>efth - spectral variance density</p>
-<ul class="simple">
-<li><p>units m2.s.deg-1</p></li>
-</ul>
+<div class="section" id="frequency-spectra-conversion">
+<h2>Frequency spectra conversion<a class="headerlink" href="#frequency-spectra-conversion" title="Permalink to this headline">¶</a></h2>
+<p>We will now convert <code class="docutils literal notranslate"><span class="pre">directional</span> <span class="pre">wavenumber</span></code> spectra to <code class="docutils literal notranslate"><span class="pre">frequency</span></code> spectra using deep water assumptions:
+efth - spectral variance density - units m2.s.deg-1</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># compute efth</span>
@@ -606,10 +1187,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/sar_waves_13_0.png" src="../_images/sar_waves_13_0.png" />
-<img alt="../_images/sar_waves_13_1.png" src="../_images/sar_waves_13_1.png" />
-<img alt="../_images/sar_waves_13_2.png" src="../_images/sar_waves_13_2.png" />
-</div>
+<img alt="../_images/sar_waves_15_0.svg" src="../_images/sar_waves_15_0.svg" /><img alt="../_images/sar_waves_15_1.svg" src="../_images/sar_waves_15_1.svg" /><img alt="../_images/sar_waves_15_2.svg" src="../_images/sar_waves_15_2.svg" /></div>
 </div>
 </div>
 <div class="section" id="visualise-directional-frequency-spectra">
@@ -654,8 +1232,7 @@
   Text(5.497787143782138, 0, &#39;NW&#39;)])
 </pre></div>
 </div>
-<img alt="../_images/sar_waves_15_1.png" src="../_images/sar_waves_15_1.png" />
-</div>
+<img alt="../_images/sar_waves_17_1.svg" src="../_images/sar_waves_17_1.svg" /></div>
 </div>
 <div class="cell tag_hide-output docutils container">
 <div class="cell_input docutils container">
@@ -683,7 +1260,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Error in callback &lt;function flush_figures at 0x7fb6905668c8&gt; (for post_execute):
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Error in callback &lt;function flush_figures at 0x7f1e858968c8&gt; (for post_execute):
 </pre></div>
 </div>
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
@@ -733,11 +1310,11 @@
 <span class="g g-Whitespace">    </span><span class="mi">343</span>             <span class="n">method</span> <span class="o">=</span> <span class="n">get_real_method</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">print_method</span><span class="p">)</span>
 
 <span class="nn">/usr/share/miniconda/envs/coast/lib/python3.6/site-packages/IPython/core/pylabtools.py</span> in <span class="ni">&lt;lambda&gt;</span><span class="nt">(fig)</span>
-<span class="g g-Whitespace">    </span><span class="mi">246</span> 
-<span class="g g-Whitespace">    </span><span class="mi">247</span>     <span class="k">if</span> <span class="s1">&#39;png&#39;</span> <span class="ow">in</span> <span class="n">formats</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">248</span>         <span class="n">png_formatter</span><span class="o">.</span><span class="n">for_type</span><span class="p">(</span><span class="n">Figure</span><span class="p">,</span> <span class="k">lambda</span> <span class="n">fig</span><span class="p">:</span> <span class="n">print_figure</span><span class="p">(</span><span class="n">fig</span><span class="p">,</span> <span class="s1">&#39;png&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">))</span>
-<span class="g g-Whitespace">    </span><span class="mi">249</span>     <span class="k">if</span> <span class="s1">&#39;retina&#39;</span> <span class="ow">in</span> <span class="n">formats</span> <span class="ow">or</span> <span class="s1">&#39;png2x&#39;</span> <span class="ow">in</span> <span class="n">formats</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">250</span>         <span class="n">png_formatter</span><span class="o">.</span><span class="n">for_type</span><span class="p">(</span><span class="n">Figure</span><span class="p">,</span> <span class="k">lambda</span> <span class="n">fig</span><span class="p">:</span> <span class="n">retina_figure</span><span class="p">(</span><span class="n">fig</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">))</span>
+<span class="g g-Whitespace">    </span><span class="mi">252</span>         <span class="n">jpg_formatter</span><span class="o">.</span><span class="n">for_type</span><span class="p">(</span><span class="n">Figure</span><span class="p">,</span> <span class="k">lambda</span> <span class="n">fig</span><span class="p">:</span> <span class="n">print_figure</span><span class="p">(</span><span class="n">fig</span><span class="p">,</span> <span class="s1">&#39;jpg&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">))</span>
+<span class="g g-Whitespace">    </span><span class="mi">253</span>     <span class="k">if</span> <span class="s1">&#39;svg&#39;</span> <span class="ow">in</span> <span class="n">formats</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">254</span>         <span class="n">svg_formatter</span><span class="o">.</span><span class="n">for_type</span><span class="p">(</span><span class="n">Figure</span><span class="p">,</span> <span class="k">lambda</span> <span class="n">fig</span><span class="p">:</span> <span class="n">print_figure</span><span class="p">(</span><span class="n">fig</span><span class="p">,</span> <span class="s1">&#39;svg&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">))</span>
+<span class="g g-Whitespace">    </span><span class="mi">255</span>     <span class="k">if</span> <span class="s1">&#39;pdf&#39;</span> <span class="ow">in</span> <span class="n">formats</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">256</span>         <span class="n">pdf_formatter</span><span class="o">.</span><span class="n">for_type</span><span class="p">(</span><span class="n">Figure</span><span class="p">,</span> <span class="k">lambda</span> <span class="n">fig</span><span class="p">:</span> <span class="n">print_figure</span><span class="p">(</span><span class="n">fig</span><span class="p">,</span> <span class="s1">&#39;pdf&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">))</span>
 
 <span class="nn">/usr/share/miniconda/envs/coast/lib/python3.6/site-packages/IPython/core/pylabtools.py</span> in <span class="ni">print_figure</span><span class="nt">(fig, fmt, bbox_inches, **kwargs)</span>
 <span class="g g-Whitespace">    </span><span class="mi">130</span>         <span class="n">FigureCanvasBase</span><span class="p">(</span><span class="n">fig</span><span class="p">)</span>
@@ -782,11 +1359,39 @@
 <span class="g g-Whitespace">    </span><span class="mi">295</span>         <span class="n">dims</span> <span class="o">=</span> <span class="p">[]</span>
 
 <span class="nn">/usr/share/miniconda/envs/coast/lib/python3.6/site-packages/matplotlib/bezier.py</span> in <span class="ni">polynomial_coefficients</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">269</span>         <span class="n">j</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)[:,</span> <span class="kc">None</span><span class="p">]</span>
 <span class="g g-Whitespace">    </span><span class="mi">270</span>         <span class="n">i</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)[</span><span class="kc">None</span><span class="p">,</span> <span class="p">:]</span>  <span class="c1"># _comb is non-zero for i &lt;= j</span>
-<span class="g g-Whitespace">    </span><span class="mi">271</span>         <span class="n">prefactor</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">**</span><span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="n">j</span><span class="p">)</span> <span class="o">*</span> <span class="n">_comb</span><span class="p">(</span><span class="n">j</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>  <span class="c1"># j on axis 0, i on axis 1</span>
-<span class="ne">--&gt; </span><span class="mi">272</span>         <span class="k">return</span> <span class="n">_comb</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">j</span><span class="p">)</span> <span class="o">*</span> <span class="n">prefactor</span> <span class="o">@</span> <span class="n">P</span>  <span class="c1"># j on axis 0, self.dimension on 1</span>
+<span class="ne">--&gt; </span><span class="mi">271</span>         <span class="n">prefactor</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">**</span><span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="n">j</span><span class="p">)</span> <span class="o">*</span> <span class="n">_comb</span><span class="p">(</span><span class="n">j</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>  <span class="c1"># j on axis 0, i on axis 1</span>
+<span class="g g-Whitespace">    </span><span class="mi">272</span>         <span class="k">return</span> <span class="n">_comb</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">j</span><span class="p">)</span> <span class="o">*</span> <span class="n">prefactor</span> <span class="o">@</span> <span class="n">P</span>  <span class="c1"># j on axis 0, self.dimension on 1</span>
 <span class="g g-Whitespace">    </span><span class="mi">273</span> 
-<span class="g g-Whitespace">    </span><span class="mi">274</span>     <span class="k">def</span> <span class="nf">axis_aligned_extrema</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+<span class="nn">/usr/share/miniconda/envs/coast/lib/python3.6/site-packages/numpy/lib/function_base.py</span> in <span class="ni">__call__</span><span class="nt">(self, *args, **kwargs)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2106</span>             <span class="n">vargs</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span><span class="n">kwargs</span><span class="p">[</span><span class="n">_n</span><span class="p">]</span> <span class="k">for</span> <span class="n">_n</span> <span class="ow">in</span> <span class="n">names</span><span class="p">])</span>
+<span class="g g-Whitespace">   </span><span class="mi">2107</span> 
+<span class="ne">-&gt; </span><span class="mi">2108</span>         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_vectorize_call</span><span class="p">(</span><span class="n">func</span><span class="o">=</span><span class="n">func</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="n">vargs</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2109</span> 
+<span class="g g-Whitespace">   </span><span class="mi">2110</span>     <span class="k">def</span> <span class="nf">_get_ufunc_and_otypes</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">func</span><span class="p">,</span> <span class="n">args</span><span class="p">):</span>
+
+<span class="nn">/usr/share/miniconda/envs/coast/lib/python3.6/site-packages/numpy/lib/function_base.py</span> in <span class="ni">_vectorize_call</span><span class="nt">(self, func, args)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2184</span>             <span class="n">res</span> <span class="o">=</span> <span class="n">func</span><span class="p">()</span>
+<span class="g g-Whitespace">   </span><span class="mi">2185</span>         <span class="k">else</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">2186</span>             <span class="n">ufunc</span><span class="p">,</span> <span class="n">otypes</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_ufunc_and_otypes</span><span class="p">(</span><span class="n">func</span><span class="o">=</span><span class="n">func</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="n">args</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2187</span> 
+<span class="g g-Whitespace">   </span><span class="mi">2188</span>             <span class="c1"># Convert args to object arrays first</span>
+
+<span class="nn">/usr/share/miniconda/envs/coast/lib/python3.6/site-packages/numpy/lib/function_base.py</span> in <span class="ni">_get_ufunc_and_otypes</span><span class="nt">(self, func, args)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2168</span> 
+<span class="g g-Whitespace">   </span><span class="mi">2169</span>             <span class="n">otypes</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">asarray</span><span class="p">(</span><span class="n">outputs</span><span class="p">[</span><span class="n">_k</span><span class="p">])</span><span class="o">.</span><span class="n">dtype</span><span class="o">.</span><span class="n">char</span>
+<span class="nn">-&gt; 2170                               for _k</span> in <span class="ni">range</span><span class="nt">(nout)])</span>
+<span class="g g-Whitespace">   </span><span class="mi">2171</span> 
+<span class="g g-Whitespace">   </span><span class="mi">2172</span>             <span class="c1"># Performance note: profiling indicates that creating the ufunc is</span>
+
+<span class="nn">/usr/share/miniconda/envs/coast/lib/python3.6/site-packages/numpy/lib/function_base.py</span> in <span class="ni">&lt;listcomp&gt;</span><span class="nt">(.0)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2168</span> 
+<span class="g g-Whitespace">   </span><span class="mi">2169</span>             <span class="n">otypes</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">asarray</span><span class="p">(</span><span class="n">outputs</span><span class="p">[</span><span class="n">_k</span><span class="p">])</span><span class="o">.</span><span class="n">dtype</span><span class="o">.</span><span class="n">char</span>
+<span class="nn">-&gt; 2170                               for _k</span> in <span class="ni">range</span><span class="nt">(nout)])</span>
+<span class="g g-Whitespace">   </span><span class="mi">2171</span> 
+<span class="g g-Whitespace">   </span><span class="mi">2172</span>             <span class="c1"># Performance note: profiling indicates that creating the ufunc is</span>
 
 <span class="ne">KeyboardInterrupt</span>: 
 </pre></div>
@@ -805,8 +1410,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/sar_waves_17_0.png" src="../_images/sar_waves_17_0.png" />
-</div>
+<img alt="../_images/sar_waves_19_0.svg" src="../_images/sar_waves_19_0.svg" /></div>
 </div>
 </div>
 <div class="section" id="visualise-directional-frequency-spectra-swell-partitions">
@@ -823,8 +1427,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/sar_waves_19_0.png" src="../_images/sar_waves_19_0.png" />
-</div>
+<img alt="../_images/sar_waves_21_0.svg" src="../_images/sar_waves_21_0.svg" /></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -834,8 +1437,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/sar_waves_20_0.png" src="../_images/sar_waves_20_0.png" />
-</div>
+<img alt="../_images/sar_waves_22_0.svg" src="../_images/sar_waves_22_0.svg" /></div>
 </div>
 </div>
 <div class="section" id="plot-some-primary-swell-wave-statistics">
@@ -867,10 +1469,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/sar_waves_22_0.png" src="../_images/sar_waves_22_0.png" />
-<img alt="../_images/sar_waves_22_1.png" src="../_images/sar_waves_22_1.png" />
-<img alt="../_images/sar_waves_22_2.png" src="../_images/sar_waves_22_2.png" />
-</div>
+<img alt="../_images/sar_waves_24_0.svg" src="../_images/sar_waves_24_0.svg" /><img alt="../_images/sar_waves_24_1.svg" src="../_images/sar_waves_24_1.svg" /><img alt="../_images/sar_waves_24_2.svg" src="../_images/sar_waves_24_2.svg" /></div>
 </div>
 </div>
 </div>
