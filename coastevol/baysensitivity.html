@@ -428,12 +428,19 @@
                 
   <div class="section" id="sensitivities-of-crenulate-bay-shorelines-to-wave-climates">
 <h1>Sensitivities of crenulate bay shorelines to wave climates<a class="headerlink" href="#sensitivities-of-crenulate-bay-shorelines-to-wave-climates" title="Permalink to this headline">¶</a></h1>
-<p><em>This notebook is a companion to your practical.</em></p>
-<p>We will use a vector-based one-line model called COVE to study to explore how the wave direction <span class="math notranslate nohighlight">\(\theta_o\)</span> and spreading <span class="math notranslate nohighlight">\(\theta_{std}\)</span> is influencing shorelines evolution.</p>
+<p><em>This notebook is a companion to your practical and is based on the <a class="reference external" href="http://cove-model.github.io/Documentation/">COVE</a> one-line model.</em></p>
+<p><a class="reference external" href="http://cove-model.github.io/Documentation/">COVE</a> is a vector-based one-line model that we will use in the practical to explore how the wave direction <span class="math notranslate nohighlight">\(\theta_o\)</span> and spreading <span class="math notranslate nohighlight">\(\theta_{std}\)</span> is influencing shorelines evolution in embayment beaches like the ones around Sydney.</p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p>Part of the practical will require you to read through the paper from Hurst et al. (2015) available <a class="reference external" href="https://agupubs.onlinelibrary.wiley.com/doi/full/10.1002/2015JF003704">here</a>.</p>
+</div>
 <div class="section" id="running-cove">
 <h2>Running COVE<a class="headerlink" href="#running-cove" title="Permalink to this headline">¶</a></h2>
-<p>The COVE model has been already compiled on the system. To run the model, you will use the following command (don’t forget to put <code class="docutils literal notranslate"><span class="pre">!</span></code> before calling the executable).</p>
-<p>The <code class="docutils literal notranslate"><span class="pre">!</span></code> in IPython Notebook is a command <code class="docutils literal notranslate"><span class="pre">magic</span></code> which enable you to run terminal command directly from the IPython cell interface.</p>
+<p>The <a class="reference external" href="http://cove-model.github.io/Documentation/">COVE</a> model needs first to be installed on your system (own computer/remote sever). To do so you will have to run the following cell.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">!</span></code> in <code class="docutils literal notranslate"><span class="pre">IPython</span> <span class="pre">Notebook</span></code> is a command <code class="docutils literal notranslate"><span class="pre">magic</span></code> which enable you to run terminal command directly from the code cell interface.</p>
+</div>
 <div class="cell tag_hide-output docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span><span class="nb">cd</span> COVE/driver_files<span class="p">;</span> make -f spiral_bay_make.make<span class="p">;</span> mv cove ../../
@@ -446,6 +453,8 @@
 </div>
 </div>
 </div>
+<p>It will create an executable named <code class="docutils literal notranslate"><span class="pre">cove</span></code> that will be used to run our different experiments.</p>
+<p>To run the model, you will use the following command (don’t forget to put <code class="docutils literal notranslate"><span class="pre">!</span></code> before calling the executable).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>./cove
@@ -466,7 +475,10 @@
 </div>
 </div>
 </div>
-<p>As shown in previous output the model requires 6 arguments. We will give the following values for each of them:</p>
+<p>As shown in previous cell output the model requires 6 arguments.</p>
+<div class="section" id="set-the-wave-direction-and-spreading">
+<h3>Set the wave direction and spreading<a class="headerlink" href="#set-the-wave-direction-and-spreading" title="Permalink to this headline">¶</a></h3>
+<p>We will give the following values for each of them:</p>
 <ul class="simple">
 <li><p>MeanWavePeriod <span class="math notranslate nohighlight">\(T_{mean}=6s\)</span></p></li>
 <li><p>StDWavePeriod <span class="math notranslate nohighlight">\(T_{std}=1s\)</span></p></li>
@@ -480,8 +492,6 @@
 <li><p>MeanWaveDirection <span class="math notranslate nohighlight">\(\theta_{mean}\)</span>=<span class="math notranslate nohighlight">\(25^o\)</span></p></li>
 <li><p>StDWaveDirection <span class="math notranslate nohighlight">\(\theta_{std}\)</span>=<span class="math notranslate nohighlight">\(10^o\)</span></p></li>
 </ul>
-<div class="section" id="set-the-wave-direction-and-spreading">
-<h3>Set the wave direction and spreading<a class="headerlink" href="#set-the-wave-direction-and-spreading" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define wave climate params</span>
@@ -799,7 +809,9 @@ Simulated time is 9.00 years
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Time is 9.90 years
-Coastline: Time is 10.00 years
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coastline: Time is 10.00 years
 Simulated time is 10.00 years
 </pre></div>
 </div>
@@ -1387,12 +1399,12 @@ Coastline: Model run complete.
 </div>
 </div>
 </div>
-<p>The model results have been written in a file called <code class="docutils literal notranslate"><span class="pre">Spiral_6_1_1._0.1_25_10.xy</span></code>. As you can see the output file is named based on the input parameters given for the model run.</p>
 </div>
 </div>
 <div class="section" id="plotting-shoreline-evolution">
 <h2>Plotting shoreline evolution<a class="headerlink" href="#plotting-shoreline-evolution" title="Permalink to this headline">¶</a></h2>
-<p>First we need to load the usually IPython libraries (<strong>numpy</strong> and <strong>matplotlib</strong>).</p>
+<p>The model results are been written on disk in a file called <code class="docutils literal notranslate"><span class="pre">Spiral_6_1_1._0.1_25_10.xy</span></code>. As you can see the output file is named based on the input parameters given for the model run.</p>
+<p>First we need to load the usually libraries (<strong>numpy</strong> and <strong>matplotlib</strong>).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
@@ -1413,6 +1425,7 @@ Coastline: Model run complete.
 </div>
 <div class="section" id="read-the-output-file">
 <h3>Read the output file<a class="headerlink" href="#read-the-output-file" title="Permalink to this headline">¶</a></h3>
+<p>We will now open the file and read the content:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Open coastline evolution file</span>
@@ -1430,9 +1443,11 @@ Coastline: Model run complete.
 </div>
 <div class="section" id="define-output-time-to-visualise">
 <h3>Define output time to visualise<a class="headerlink" href="#define-output-time-to-visualise" title="Permalink to this headline">¶</a></h3>
+<p>The outputs are created at specific time intervals (defined in years) and we will first specified the times we want to visualise:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">TimeIntervals</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.2</span><span class="p">,</span><span class="mf">0.5</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">16</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">30</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Times we want to extract from the output files</span>
+<span class="n">TimeIntervals</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.2</span><span class="p">,</span><span class="mf">0.5</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">16</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">30</span><span class="p">]</span>
 
 <span class="n">Time</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">NoLines</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">NoLines</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">):</span>
@@ -1444,14 +1459,22 @@ Coastline: Model run complete.
 </div>
 <div class="section" id="plot-the-results">
 <h3>Plot the results<a class="headerlink" href="#plot-the-results" title="Permalink to this headline">¶</a></h3>
+<p>We will now plot the result the wvolution of the given bay morphology toward an equilibrium morphology between the two fixed headlands (defined as the thick black lines).</p>
+<p>The plot will show the wave conditions defined by θmean and θstd as a wave rose.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>In the plot, model evolution starts from a straight coastline and the boundary conditions allow sediment to exit the model domain at either boundary by alongshore transport but sediment is not permitted to enter the bay from outside the domain.</p>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define outputfile name</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define outputfile name based on theta nd thetastd values </span>
+<span class="c1"># (this file will be save on disk and could be used in your report)</span>
 <span class="n">outputfile</span> <span class="o">=</span> <span class="s2">&quot;mean&quot;</span><span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">Theta</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;std&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">ThetaStd</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;.png&quot;</span>
 </pre></div>
 </div>
 </div>
 </div>
+<p>Let’s make the plotting now. Each red dashed lines corresponds to a specific time interval defined by the <code class="docutils literal notranslate"><span class="pre">TimeIntervals</span></code> parameter above:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Setup the figure space, axis and line to animate</span>
@@ -1470,6 +1493,7 @@ Coastline: Model run complete.
 <span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="o">-</span><span class="mi">500</span><span class="p">,</span><span class="mi">2000</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="o">-</span><span class="mi">2100</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
 
+<span class="c1"># Loop over the chosen time intervals</span>
 <span class="k">for</span> <span class="n">TimeInt</span> <span class="ow">in</span> <span class="n">TimeIntervals</span><span class="p">:</span>
     <span class="n">Diff</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">Time</span><span class="o">-</span><span class="n">TimeInt</span><span class="p">)</span>
     <span class="n">Line</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmin</span><span class="p">(</span><span class="n">Diff</span><span class="p">)</span>
@@ -1528,13 +1552,13 @@ Coastline: Model run complete.
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/baysensitivity_15_0.svg" src="../_images/baysensitivity_15_0.svg" /></div>
+<img alt="../_images/baysensitivity_16_0.svg" src="../_images/baysensitivity_16_0.svg" /></div>
 </div>
 </div>
 </div>
 <div class="section" id="clean-run">
 <h2>Clean run<a class="headerlink" href="#clean-run" title="Permalink to this headline">¶</a></h2>
-<p>To avoid storage of extensive data on the server delete the output file using the cmmand <code class="docutils literal notranslate"><span class="pre">rm</span></code>:</p>
+<p>To avoid storage of extensive data on the server delete the output file using the command <code class="docutils literal notranslate"><span class="pre">rm</span></code>. This is all right as you already have saved the model outputs as a <code class="docutils literal notranslate"><span class="pre">png</span></code> file!</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>rm Spiral_*.xy
