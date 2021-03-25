@@ -57,7 +57,7 @@
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="pybeach" href="pybeach.html" />
+    <link rel="next" title="Locating dune toe on cross-shore beach transects." href="pybeach.html" />
     <link rel="prev" title="Runup models" href="waverunup.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -188,7 +188,7 @@
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="pybeach.html">
-     pybeach
+     Locating dune toe on cross-shore beach transects.
     </a>
    </li>
   </ul>
@@ -397,25 +397,9 @@
         
               <div>
                 
-  <div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
-<span class="o">%</span><span class="k">config</span> InlineBackend.figure_format = &#39;svg&#39; 
-</pre></div>
-</div>
-</div>
-</div>
-<div class="section" id="runup-dataset">
+  <div class="section" id="runup-dataset">
 <h1>Runup dataset<a class="headerlink" href="#runup-dataset" title="Permalink to this headline">¶</a></h1>
-<p>Runup is the final stage of a wave’s landward propagation, and thus the determinant of the most landward position a wave can reach before receding seaward. Runup above the local ocean level outside the surf zone results from a combination of two processes:</p>
-<ul class="simple">
-<li><p>wave induced setup and</p></li>
-<li><p>swash.</p></li>
-</ul>
-<p><img alt="alt text" src="https://github.com/TristanSalles/CoastProc/blob/master/src/docs/images/runup.jpg?raw=true" /></p>
-<p>Past research has focussed on modelling maximum wave runup values, most commonly <strong>Rmax</strong> and <strong>R2%</strong>.</p>
-<p><strong>Rmax</strong> is the greatest elevation obtained by a single runup event within a given time period and is therefore a function of record length.</p>
-<p><strong>R2%</strong> is a statistical measure of the elevation exceeded by only 2% of all runup or swash events within a time period.</p>
+<p><em>This notebook is adapted from the <a class="reference external" href="https://github.com/chrisleaman/py-wave-runup">py-wave-runup</a> examples from <a class="reference external" href="https://www.nature.com/articles/s41598-017-01362-7">Vitousek et al. (2017)</a>.</em></p>
 <p>In this example, we will evaluate the compiled wave runup observations provided by <strong>Power
 et al (2018)</strong>.</p>
 <blockquote>
@@ -426,6 +410,9 @@ et al (2018)</strong>.</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">mean_squared_error</span><span class="p">,</span> <span class="n">r2_score</span>
+
+<span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="o">%</span><span class="k">config</span> InlineBackend.figure_format = &#39;svg&#39; 
 </pre></div>
 </div>
 </div>
@@ -475,14 +462,17 @@ package.</p>
 </div>
 <div class="section" id="iribarren-number">
 <h2>Iribarren number<a class="headerlink" href="#iribarren-number" title="Permalink to this headline">¶</a></h2>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
 <p>The <strong>Iribarren number</strong> or the <em>surf similarity parameter</em> <span class="math notranslate nohighlight">\(\epsilon\)</span> (Battjes, 1974) is a <strong>dimensionless parameter</strong> that has been used widely to describe beach and surf zone morphodynamics and frequently features in runup predictors (e.g., Battjes, 1971, Roos and Battjes, 1976; Holman and Sallenger, 1985, Holman, 1986; Van der Meer and Stam, 1992; Stockdon et al., 2006).</p>
+</div>
 <div class="math notranslate nohighlight">
 \[\epsilon = \frac{tan \beta}{\sqrt(H_0/\lambda_0)}\]</div>
 <p>where</p>
 <div class="math notranslate nohighlight">
 \[\lambda_0 = gT^2/\pi\]</div>
 <p>and <span class="math notranslate nohighlight">\(tan \beta\)</span> = beach slope, <span class="math notranslate nohighlight">\(H_0\)</span> = deep water wave height, <span class="math notranslate nohighlight">\(\lambda_0\)</span> = deep water wavelength, <span class="math notranslate nohighlight">\(T\)</span> = wave period, <span class="math notranslate nohighlight">\(g\)</span> = acceleration due to gravity, and the subscript ‘0’ denotes deep water conditions.</p>
-<p>First we write a Python function to compute this number:</p>
+<p>First we write a <code class="docutils literal notranslate"><span class="pre">Python</span></code> function to compute this number:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">iribarrenNb</span><span class="p">(</span><span class="n">Tp</span><span class="p">,</span><span class="n">Hs</span><span class="p">,</span><span class="n">beta</span><span class="p">):</span>
@@ -545,7 +535,7 @@ package.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/runupdataset_10_0.svg" src="../_images/runupdataset_10_0.svg" /></div>
+<img alt="../_images/runupdataset_9_0.svg" src="../_images/runupdataset_9_0.svg" /></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -572,7 +562,7 @@ package.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/runupdataset_11_0.svg" src="../_images/runupdataset_11_0.svg" /></div>
+<img alt="../_images/runupdataset_10_0.svg" src="../_images/runupdataset_10_0.svg" /></div>
 </div>
 </div>
 </div>
@@ -603,7 +593,7 @@ package.</p>
         <div class='prev-next-bottom'>
             
     <a class='left-prev' id="prev-link" href="waverunup.html" title="previous page">Runup models</a>
-    <a class='right-next' id="next-link" href="pybeach.html" title="next page">pybeach</a>
+    <a class='right-next' id="next-link" href="pybeach.html" title="next page">Locating dune toe on cross-shore beach transects.</a>
 
         </div>
         
