@@ -1,0 +1,772 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CoastSat.slope: Narrabeen-Collaroy example &#8212; Coastal Processes, Environments &amp; Systems</title>
+    
+  <link rel="stylesheet" href="../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.e7340bb3dbd8dde6db86f25597f54a1b.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../../index.html">
+  
+  <img src="../../_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Coastal Processes, Environments & Systems</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <p class="caption collapsible-parent">
+ <span class="caption-text">
+  Part 1
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../../queryocean/notes.html">
+   Notes on Ocean Data query
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../queryocean/buoygoldcoast.html">
+     Gold Coast wave monitoring
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../queryocean/oceandata1.html">
+     IMOS Data access with Python
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../queryocean/oceandata2.html">
+     IMOS Ocean Radar Data Query
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../queryocean/waverider.html">
+     IMOS historical wave data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../queryocean/oceanforecast.html">
+     Access data from forecast model
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Part 2
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../../waveclimate/notes.html">
+   Analysing wave climate notes
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../waveclimate/sar_waves.html">
+     Wave measurements from SAR
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../waveclimate/tileanalysis.html">
+     Satellite tile analysis
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../waveclimate/climatevariability.html">
+     Climate variability
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../waveclimate/cycloneyasi.html">
+     Cyclone track
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Part 3
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../notes.html">
+   Quantifying coastal changes notes
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../waverunup.html">
+     Runup models
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../runupdataset.html">
+     Runup dataset
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../pybeach.html">
+     pybeach
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Part 4
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../notes2.html">
+   Coastline evolution notes
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../baysensitivity.html">
+     Sensitivities of crenulate bay shorelines to wave climates
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../sedtransport.html">
+     Simple wave sediment modelling
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../inshorewaves.html">
+     Inshore wave data Narrabeen
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../selectprofiles.html">
+     Narrabeen beach profile adjustment
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../grainsettling.html">
+     Exploring grain settling
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Part 5
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../reefs/reefmodel.html">
+   Coral reef evolution notes
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Jupyter
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../../pracenv/notebooks.html">
+   Interactive notebooks
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../pracenv/intronotebook.html">
+     Introduction to Jupyter notebook
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/coastevol/coastsatslope/slopenarrabeen.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/TristanSalles/Coast"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/TristanSalles/Coast/issues/new?title=Issue%20on%20page%20%2Fcoastevol/coastsatslope/slopenarrabeen.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/TristanSalles/Coast/edit/main/book/coastevol/coastsatslope/slopenarrabeen.ipynb"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+            <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                    data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                    title="Fullscreen mode"><i
+                        class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/TristanSalles/Coast/main?urlpath=lab/tree/book/coastevol/coastsatslope/slopenarrabeen.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i>
+            Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#initial-settings">
+   Initial settings
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#load-satellite-derived-shorelines-and-transect-locations">
+   1. Load satellite-derived shorelines and transect locations
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#extract-time-series-of-shoreline-change-along-the-transects">
+   2. Extract time-series of shoreline change along the transects
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#get-tide-levels-at-the-time-of-image-acquisition">
+   3. Get tide levels at the time of image acquisition
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#peak-tidal-frequency">
+   4. Peak tidal frequency
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#estimate-the-beach-slope">
+   5. Estimate the beach slope
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="coastsat-slope-narrabeen-collaroy-example">
+<h1>CoastSat.slope: Narrabeen-Collaroy example<a class="headerlink" href="#coastsat-slope-narrabeen-collaroy-example" title="Permalink to this headline">¶</a></h1>
+<p><em>This notebook is from the <a class="reference external" href="https://github.com/kvos/CoastSat">CoastSat toolbox</a>.</em></p>
+<p>This is an extention of the main <a class="reference external" href="https://github.com/kvos/CoastSat">CoastSat toolbox</a> and it is assumed that the user is familiar with CoastSat as the outputs of CoastSat are used here to estimate beach slopes.
+The <code class="docutils literal notranslate"><span class="pre">coastsat</span></code> environment also needs to be installed before attempting this example.</p>
+<p>This example shows how to estimate the beach slope along 5 transects at Narrabeen-Collaroy, Sydney, Australia.</p>
+<div class="section" id="initial-settings">
+<h2>Initial settings<a class="headerlink" href="#initial-settings" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">warnings</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s2">&quot;ignore&quot;</span><span class="p">)</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span><span class="p">,</span> <span class="n">timedelta</span>
+<span class="kn">import</span> <span class="nn">pytz</span>
+<span class="kn">import</span> <span class="nn">pickle</span>
+<span class="c1"># beach slope estmation module</span>
+<span class="kn">import</span> <span class="nn">SDS_slope</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">1</span><span class="o">-</span><span class="mi">15</span><span class="n">af35bbfd54</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="kn">import</span> <span class="nn">pickle</span>
+<span class="g g-Whitespace">      </span><span class="mi">9</span> <span class="c1"># beach slope estmation module</span>
+<span class="ne">---&gt; </span><span class="mi">10</span> <span class="kn">import</span> <span class="nn">SDS_slope</span>
+
+<span class="o">~/</span><span class="n">work</span><span class="o">/</span><span class="n">Coast</span><span class="o">/</span><span class="n">Coast</span><span class="o">/</span><span class="n">book</span><span class="o">/</span><span class="n">coastevol</span><span class="o">/</span><span class="n">coastsatslope</span><span class="o">/</span><span class="n">SDS_slope</span><span class="o">.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">     </span><span class="mi">11</span> <span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">integrate</span> <span class="k">as</span> <span class="n">sintegrate</span>
+<span class="g g-Whitespace">     </span><span class="mi">12</span> <span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">signal</span> <span class="k">as</span> <span class="n">ssignal</span>
+<span class="ne">---&gt; </span><span class="mi">13</span> <span class="kn">from</span> <span class="nn">astropy.stats</span> <span class="kn">import</span> <span class="n">LombScargle</span>
+<span class="g g-Whitespace">     </span><span class="mi">14</span> <span class="kn">import</span> <span class="nn">geopandas</span> <span class="k">as</span> <span class="nn">gpd</span>
+<span class="g g-Whitespace">     </span><span class="mi">15</span> <span class="kn">import</span> <span class="nn">pdb</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;astropy&#39;
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="load-satellite-derived-shorelines-and-transect-locations">
+<h2>1. Load satellite-derived shorelines and transect locations<a class="headerlink" href="#load-satellite-derived-shorelines-and-transect-locations" title="Permalink to this headline">¶</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><strong>Satellite-derived shorelines from Landsat 5, 7 and 8 between 1999 and 2020 are needed to estimate the beach slope</strong>, these have to be mapped with CoastSat beforehand. When mapping shorelines with CoastSat, the coordinates of the 2D shorelines are saved in a file named <code class="docutils literal notranslate"><span class="pre">sitename_output.pkl</span></code>.</p>
+</div>
+<p>In this example we use 2 files that are under <em>example_data/</em> (you will need the same files for another site):</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">NARRA_output.pkl</span></code>: satellite-derived shorelines mapped from 1999-2020 using Landsat 5,7 and 8 (no Sentinel-2)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">NARRA_transects.geojson</span></code>: cross-shore transect coordinates (2 points, the first one being landwards)</p></li>
+</ul>
+<p>The section below loads the two files, removes duplicates and shorelines with poor georeferencing and plots the 2D shorelines and cross-shore transects.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># load the sitename_output.pkl generated by CoastSat</span>
+<span class="n">sitename</span> <span class="o">=</span> <span class="s1">&#39;NARRA&#39;</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">&#39;example_data&#39;</span><span class="p">,</span> <span class="n">sitename</span> <span class="o">+</span> <span class="s1">&#39;_output&#39;</span> <span class="o">+</span> <span class="s1">&#39;.pkl&#39;</span><span class="p">),</span> <span class="s1">&#39;rb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">output</span> <span class="o">=</span> <span class="n">pickle</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span> 
+    
+<span class="c1"># load the 2D transects from geojson file</span>
+<span class="n">geojson_file</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">(),</span> <span class="s1">&#39;example_data&#39;</span><span class="p">,</span> <span class="n">sitename</span> <span class="o">+</span> <span class="s1">&#39;_transects.geojson&#39;</span><span class="p">)</span>
+<span class="n">transects</span> <span class="o">=</span> <span class="n">SDS_slope</span><span class="o">.</span><span class="n">transects_from_geojson</span><span class="p">(</span><span class="n">geojson_file</span><span class="p">)</span>
+
+<span class="c1"># remove S2 shorelines (the slope estimation algorithm needs only Landsat shorelines)</span>
+<span class="k">if</span> <span class="s1">&#39;S2&#39;</span> <span class="ow">in</span> <span class="n">output</span><span class="p">[</span><span class="s1">&#39;satname&#39;</span><span class="p">]:</span>
+    <span class="n">idx_S2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">_</span> <span class="o">==</span> <span class="s1">&#39;S2&#39;</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">output</span><span class="p">[</span><span class="s1">&#39;satname&#39;</span><span class="p">]])</span>
+    <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">output</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+        <span class="n">output</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">output</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="n">_</span><span class="p">]</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="o">~</span><span class="n">idx_S2</span><span class="p">)[</span><span class="mi">0</span><span class="p">]]</span>
+
+<span class="c1"># remove duplicates (can happen that images overlap and there are 2 shorelines for the same date)</span>
+<span class="n">output</span> <span class="o">=</span> <span class="n">SDS_slope</span><span class="o">.</span><span class="n">remove_duplicates</span><span class="p">(</span><span class="n">output</span><span class="p">)</span>
+<span class="c1"># remove shorelines from images with poor georeferencing (RMSE &gt; 10 m)</span>
+<span class="n">output</span> <span class="o">=</span> <span class="n">SDS_slope</span><span class="o">.</span><span class="n">remove_inaccurate_georef</span><span class="p">(</span><span class="n">output</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+
+<span class="c1"># plot shorelines and transects</span>
+<span class="n">fig</span><span class="p">,</span><span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">[</span><span class="mi">12</span><span class="p">,</span>  <span class="mi">8</span><span class="p">])</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">set_tight_layout</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;equal&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;Eastings&#39;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;Northings&#39;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="n">sitename</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;:&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;0.5&#39;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">output</span><span class="p">[</span><span class="s1">&#39;shorelines&#39;</span><span class="p">])):</span>
+    <span class="n">coords</span> <span class="o">=</span> <span class="n">output</span><span class="p">[</span><span class="s1">&#39;shorelines&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">]</span>
+    <span class="n">date</span> <span class="o">=</span> <span class="n">output</span><span class="p">[</span><span class="s1">&#39;dates&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">]</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">coords</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">coords</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">date</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%d</span><span class="s1">-%m-%Y&#39;</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">transects</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">transects</span><span class="p">[</span><span class="n">key</span><span class="p">][:,</span><span class="mi">0</span><span class="p">],</span><span class="n">transects</span><span class="p">[</span><span class="n">key</span><span class="p">][:,</span><span class="mi">1</span><span class="p">],</span><span class="s1">&#39;k--&#39;</span><span class="p">,</span><span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">transects</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span> <span class="n">transects</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span> <span class="n">key</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">2</span><span class="o">-</span><span class="mi">940821</span><span class="n">f2f7d8</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="c1"># load the 2D transects from geojson file</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="n">geojson_file</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">(),</span> <span class="s1">&#39;example_data&#39;</span><span class="p">,</span> <span class="n">sitename</span> <span class="o">+</span> <span class="s1">&#39;_transects.geojson&#39;</span><span class="p">)</span>
+<span class="ne">----&gt; </span><span class="mi">8</span> <span class="n">transects</span> <span class="o">=</span> <span class="n">SDS_slope</span><span class="o">.</span><span class="n">transects_from_geojson</span><span class="p">(</span><span class="n">geojson_file</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">9</span> 
+<span class="g g-Whitespace">     </span><span class="mi">10</span> <span class="c1"># remove S2 shorelines (the slope estimation algorithm needs only Landsat shorelines)</span>
+
+<span class="ne">NameError</span>: name &#39;SDS_slope&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="extract-time-series-of-shoreline-change-along-the-transects">
+<h2>2. Extract time-series of shoreline change along the transects<a class="headerlink" href="#extract-time-series-of-shoreline-change-along-the-transects" title="Permalink to this headline">¶</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>To obtain time-series of shoreline change we need to calculate the intersections between the 2D shorelines and the cross-shore transects, this can be done in the CoastSat toolbox but I provided here a more advanced method that deals with outliers and erroneous detections. As the accuracy of the beach slope estimate will depend on the quality of the satellite-derived shorelines, it is important to get rid of large outliers as these will affect the slope estimates.</p>
+</div>
+<p>To remove outliers use the <code class="docutils literal notranslate"><span class="pre">max_cross_change</span></code> parameter to define the maximum cross-shore distance for despiking the time-series. Narrabeen-Collaroy is microtidal and storm-dominated, therefore the threshold was set at 40 m.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># a more robust method to compute intersections is provided here to avoid the presence of outliers in the time-series</span>
+<span class="n">settings_transects</span> <span class="o">=</span> <span class="p">{</span> <span class="c1"># parameters for shoreline intersections</span>
+                      <span class="s1">&#39;along_dist&#39;</span><span class="p">:</span>         <span class="mi">25</span><span class="p">,</span>         <span class="c1"># along-shore distance to use for intersection</span>
+                      <span class="s1">&#39;max_std&#39;</span><span class="p">:</span>            <span class="mi">15</span><span class="p">,</span>         <span class="c1"># max std for points around transect</span>
+                      <span class="s1">&#39;max_range&#39;</span><span class="p">:</span>          <span class="mi">30</span><span class="p">,</span>         <span class="c1"># max range for points around transect</span>
+                      <span class="s1">&#39;min_val&#39;</span><span class="p">:</span>            <span class="o">-</span><span class="mi">100</span><span class="p">,</span>       <span class="c1"># largest negative value along transect (landwards of transect origin)</span>
+                      <span class="c1"># parameters for outlier removal</span>
+                      <span class="s1">&#39;nan/max&#39;</span><span class="p">:</span>            <span class="s1">&#39;auto&#39;</span><span class="p">,</span>     <span class="c1"># mode for removing outliers (&#39;auto&#39;, &#39;nan&#39;, &#39;max&#39;)</span>
+                      <span class="s1">&#39;prc_std&#39;</span><span class="p">:</span>            <span class="mf">0.1</span><span class="p">,</span>        <span class="c1"># percentage to use in &#39;auto&#39; mode to switch from &#39;nan&#39; to &#39;max&#39;</span>
+                      <span class="s1">&#39;max_cross_change&#39;</span><span class="p">:</span>   <span class="mi">40</span><span class="p">,</span>         <span class="c1"># maximum cross-shore distance for despiking</span>
+                      <span class="p">}</span>
+<span class="c1"># compute intersections [advanced version]</span>
+<span class="n">cross_distance</span> <span class="o">=</span> <span class="n">SDS_slope</span><span class="o">.</span><span class="n">compute_intersection</span><span class="p">(</span><span class="n">output</span><span class="p">,</span> <span class="n">transects</span><span class="p">,</span> <span class="n">settings_transects</span><span class="p">)</span> 
+<span class="c1"># remove outliers [advanced version]</span>
+<span class="n">cross_distance</span> <span class="o">=</span> <span class="n">SDS_slope</span><span class="o">.</span><span class="n">reject_outliers</span><span class="p">(</span><span class="n">cross_distance</span><span class="p">,</span><span class="n">output</span><span class="p">,</span><span class="n">settings_transects</span><span class="p">)</span>        
+<span class="c1"># plot time-series</span>
+<span class="n">SDS_slope</span><span class="o">.</span><span class="n">plot_cross_distance</span><span class="p">(</span><span class="n">output</span><span class="p">[</span><span class="s1">&#39;dates&#39;</span><span class="p">],</span><span class="n">cross_distance</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">3</span><span class="o">-</span><span class="mi">44</span><span class="n">cdea1dacbe</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">     </span><span class="mi">11</span>                       <span class="p">}</span>
+<span class="g g-Whitespace">     </span><span class="mi">12</span> <span class="c1"># compute intersections [advanced version]</span>
+<span class="ne">---&gt; </span><span class="mi">13</span> <span class="n">cross_distance</span> <span class="o">=</span> <span class="n">SDS_slope</span><span class="o">.</span><span class="n">compute_intersection</span><span class="p">(</span><span class="n">output</span><span class="p">,</span> <span class="n">transects</span><span class="p">,</span> <span class="n">settings_transects</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">14</span> <span class="c1"># remove outliers [advanced version]</span>
+<span class="g g-Whitespace">     </span><span class="mi">15</span> <span class="n">cross_distance</span> <span class="o">=</span> <span class="n">SDS_slope</span><span class="o">.</span><span class="n">reject_outliers</span><span class="p">(</span><span class="n">cross_distance</span><span class="p">,</span><span class="n">output</span><span class="p">,</span><span class="n">settings_transects</span><span class="p">)</span>
+
+<span class="ne">NameError</span>: name &#39;SDS_slope&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="get-tide-levels-at-the-time-of-image-acquisition">
+<h2>3. Get tide levels at the time of image acquisition<a class="headerlink" href="#get-tide-levels-at-the-time-of-image-acquisition" title="Permalink to this headline">¶</a></h2>
+<p>Now that we have the time-series of shoreline change, we need to obtain the tide level at the time of image acquisition for each data point.</p>
+<p>In the section below, the time-series of shoreline change are cropped between 1999 and 2000 as this is the period when 2 Landsat satellites are concurrently in orbit (providing a minimum sampling period of 8 days).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># slope estimation settings</span>
+<span class="n">days_in_year</span> <span class="o">=</span> <span class="mf">365.2425</span>
+<span class="n">seconds_in_day</span> <span class="o">=</span> <span class="mi">24</span><span class="o">*</span><span class="mi">3600</span>
+<span class="n">settings_slope</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;slope_min&#39;</span><span class="p">:</span>        <span class="mf">0.035</span><span class="p">,</span>                  <span class="c1"># minimum slope to trial</span>
+                  <span class="s1">&#39;slope_max&#39;</span><span class="p">:</span>        <span class="mf">0.2</span><span class="p">,</span>                    <span class="c1"># maximum slope to trial</span>
+                  <span class="s1">&#39;delta_slope&#39;</span><span class="p">:</span>      <span class="mf">0.005</span><span class="p">,</span>                  <span class="c1"># slope increment</span>
+                  <span class="s1">&#39;date_range&#39;</span><span class="p">:</span>       <span class="p">[</span><span class="mi">1999</span><span class="p">,</span><span class="mi">2020</span><span class="p">],</span>            <span class="c1"># range of dates over which to perform the analysis</span>
+                  <span class="s1">&#39;n_days&#39;</span><span class="p">:</span>           <span class="mi">8</span><span class="p">,</span>                      <span class="c1"># sampling period [days]</span>
+                  <span class="s1">&#39;n0&#39;</span><span class="p">:</span>               <span class="mi">50</span><span class="p">,</span>                     <span class="c1"># parameter for Nyquist criterium in Lomb-Scargle transforms</span>
+                  <span class="s1">&#39;freqs_cutoff&#39;</span><span class="p">:</span>     <span class="mf">1.</span><span class="o">/</span><span class="p">(</span><span class="n">seconds_in_day</span><span class="o">*</span><span class="mi">30</span><span class="p">),</span> <span class="c1"># 1 month frequency</span>
+                  <span class="s1">&#39;delta_f&#39;</span><span class="p">:</span>          <span class="mi">100</span><span class="o">*</span><span class="mf">1e-10</span><span class="p">,</span>              <span class="c1"># deltaf for identifying peak tidal frequency band</span>
+                  <span class="p">}</span>
+<span class="n">settings_slope</span><span class="p">[</span><span class="s1">&#39;date_range&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">pytz</span><span class="o">.</span><span class="n">utc</span><span class="o">.</span><span class="n">localize</span><span class="p">(</span><span class="n">datetime</span><span class="p">(</span><span class="n">settings_slope</span><span class="p">[</span><span class="s1">&#39;date_range&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span><span class="mi">5</span><span class="p">,</span><span class="mi">1</span><span class="p">)),</span>
+                                <span class="n">pytz</span><span class="o">.</span><span class="n">utc</span><span class="o">.</span><span class="n">localize</span><span class="p">(</span><span class="n">datetime</span><span class="p">(</span><span class="n">settings_slope</span><span class="p">[</span><span class="s1">&#39;date_range&#39;</span><span class="p">][</span><span class="mi">1</span><span class="p">],</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">))]</span>
+<span class="n">beach_slopes</span> <span class="o">=</span> <span class="n">SDS_slope</span><span class="o">.</span><span class="n">range_slopes</span><span class="p">(</span><span class="n">settings_slope</span><span class="p">[</span><span class="s1">&#39;slope_min&#39;</span><span class="p">],</span> <span class="n">settings_slope</span><span class="p">[</span><span class="s1">&#39;slope_max&#39;</span><span class="p">],</span> <span class="n">settings_slope</span><span class="p">[</span><span class="s1">&#39;delta_slope&#39;</span><span class="p">])</span>
+
+<span class="c1"># clip the dates between 1999 and 2020 as we need at least 2 Landsat satellites </span>
+<span class="n">idx_dates</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">logical_and</span><span class="p">(</span><span class="n">_</span><span class="o">&gt;</span><span class="n">settings_slope</span><span class="p">[</span><span class="s1">&#39;date_range&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span><span class="n">_</span><span class="o">&lt;</span><span class="n">settings_slope</span><span class="p">[</span><span class="s1">&#39;date_range&#39;</span><span class="p">][</span><span class="mi">1</span><span class="p">])</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">output</span><span class="p">[</span><span class="s1">&#39;dates&#39;</span><span class="p">]]</span>
+<span class="n">dates_sat</span> <span class="o">=</span> <span class="p">[</span><span class="n">output</span><span class="p">[</span><span class="s1">&#39;dates&#39;</span><span class="p">][</span><span class="n">_</span><span class="p">]</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">idx_dates</span><span class="p">)[</span><span class="mi">0</span><span class="p">]]</span>
+<span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">cross_distance</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+    <span class="n">cross_distance</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">cross_distance</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="n">idx_dates</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">4</span><span class="o">-</span><span class="mi">988627</span><span class="n">de511c</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">     </span><span class="mi">13</span> <span class="n">settings_slope</span><span class="p">[</span><span class="s1">&#39;date_range&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">pytz</span><span class="o">.</span><span class="n">utc</span><span class="o">.</span><span class="n">localize</span><span class="p">(</span><span class="n">datetime</span><span class="p">(</span><span class="n">settings_slope</span><span class="p">[</span><span class="s1">&#39;date_range&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span><span class="mi">5</span><span class="p">,</span><span class="mi">1</span><span class="p">)),</span>
+<span class="g g-Whitespace">     </span><span class="mi">14</span>                                 <span class="n">pytz</span><span class="o">.</span><span class="n">utc</span><span class="o">.</span><span class="n">localize</span><span class="p">(</span><span class="n">datetime</span><span class="p">(</span><span class="n">settings_slope</span><span class="p">[</span><span class="s1">&#39;date_range&#39;</span><span class="p">][</span><span class="mi">1</span><span class="p">],</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">))]</span>
+<span class="ne">---&gt; </span><span class="mi">15</span> <span class="n">beach_slopes</span> <span class="o">=</span> <span class="n">SDS_slope</span><span class="o">.</span><span class="n">range_slopes</span><span class="p">(</span><span class="n">settings_slope</span><span class="p">[</span><span class="s1">&#39;slope_min&#39;</span><span class="p">],</span> <span class="n">settings_slope</span><span class="p">[</span><span class="s1">&#39;slope_max&#39;</span><span class="p">],</span> <span class="n">settings_slope</span><span class="p">[</span><span class="s1">&#39;delta_slope&#39;</span><span class="p">])</span>
+<span class="g g-Whitespace">     </span><span class="mi">16</span> 
+<span class="g g-Whitespace">     </span><span class="mi">17</span> <span class="c1"># clip the dates between 1999 and 2020 as we need at least 2 Landsat satellites</span>
+
+<span class="ne">NameError</span>: name &#39;SDS_slope&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load tide levels corresponding to &quot;dates_sat&quot; from a file</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">&#39;example_data&#39;</span><span class="p">,</span> <span class="n">sitename</span> <span class="o">+</span> <span class="s1">&#39;_tide&#39;</span> <span class="o">+</span> <span class="s1">&#39;.pkl&#39;</span><span class="p">),</span> <span class="s1">&#39;rb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">tide_data</span> <span class="o">=</span> <span class="n">pickle</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span> 
+<span class="n">tide_sat</span> <span class="o">=</span> <span class="n">tide_data</span><span class="p">[</span><span class="s1">&#39;tide&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="peak-tidal-frequency">
+<h2>4. Peak tidal frequency<a class="headerlink" href="#peak-tidal-frequency" title="Permalink to this headline">¶</a></h2>
+<p>Find the peak tidal frequency, frequency band at which the energy is the largest in the subsampled tide level time-series.</p>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p>Most sites will have a minimum sampling period of 8 days, but it can happen that because of overlapping images at some sites, a minimum sampling period of 7 days is achieved, then you can use 7 days instead of 8 by setting <code class="docutils literal notranslate"><span class="pre">settings_slope['n_days]</span> <span class="pre">=</span> <span class="pre">7</span></code>. Don’t use a sampling period of less than 7 days. If the plot of timestep distribution doesn’t show a peak at 7 or 8 days, you will not be able to apply this technique as you don’t have enough images.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># plot time-step distribution</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">_</span><span class="o">.</span><span class="n">timestamp</span><span class="p">()</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">dates_sat</span><span class="p">])</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;float64&#39;</span><span class="p">)</span>
+<span class="n">delta_t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">3</span><span class="p">),</span> <span class="n">tight_layout</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">which</span><span class="o">=</span><span class="s1">&#39;major&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;:&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;0.5&#39;</span><span class="p">)</span>
+<span class="n">bins</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">delta_t</span><span class="p">)</span><span class="o">/</span><span class="n">seconds_in_day</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">delta_t</span><span class="p">)</span><span class="o">/</span><span class="n">seconds_in_day</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="o">-</span><span class="mf">0.5</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">delta_t</span><span class="o">/</span><span class="n">seconds_in_day</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="n">bins</span><span class="p">,</span> <span class="n">ec</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">1</span><span class="p">);</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;timestep [days]&#39;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;counts&#39;</span><span class="p">,</span>
+       <span class="n">xticks</span><span class="o">=</span><span class="n">settings_slope</span><span class="p">[</span><span class="s1">&#39;n_days&#39;</span><span class="p">]</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">20</span><span class="p">),</span>
+       <span class="n">xlim</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">50</span><span class="p">],</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Timestep distribution&#39;</span><span class="p">);</span>
+
+<span class="c1"># find tidal peak frequency</span>
+<span class="n">settings_slope</span><span class="p">[</span><span class="s1">&#39;n_days&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">8</span>
+<span class="n">settings_slope</span><span class="p">[</span><span class="s1">&#39;freqs_max&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">SDS_slope</span><span class="o">.</span><span class="n">find_tide_peak</span><span class="p">(</span><span class="n">dates_sat</span><span class="p">,</span><span class="n">tide_sat</span><span class="p">,</span><span class="n">settings_slope</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">6</span><span class="o">-</span><span class="n">f46954b02c4d</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># plot time-step distribution</span>
+<span class="nn">----&gt; 2 t = np.array([_.timestamp() for _</span> in <span class="ni">dates_sat]).astype</span><span class="nt">(&#39;float64&#39;)</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">delta_t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">3</span><span class="p">),</span> <span class="n">tight_layout</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">which</span><span class="o">=</span><span class="s1">&#39;major&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;:&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;0.5&#39;</span><span class="p">)</span>
+
+<span class="ne">NameError</span>: name &#39;dates_sat&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="estimate-the-beach-slope">
+<h2>5. Estimate the beach slope<a class="headerlink" href="#estimate-the-beach-slope" title="Permalink to this headline">¶</a></h2>
+<p>The beach slope along each transect is estimated by finding the slope that, when used for tidal correction, minimises the energy in the peak tidal frequency band. Based on our validation study, this slopes corresponds to the beach-face slope between mean sea level (MSL) and mean high water springs (MHWS).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># estimate beach-face slopes along the transects</span>
+<span class="n">slope_est</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">([])</span>
+<span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">cross_distance</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+    <span class="c1"># remove NaNs</span>
+    <span class="n">idx_nan</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">cross_distance</span><span class="p">[</span><span class="n">key</span><span class="p">])</span>
+    <span class="n">dates</span> <span class="o">=</span> <span class="p">[</span><span class="n">dates_sat</span><span class="p">[</span><span class="n">_</span><span class="p">]</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="o">~</span><span class="n">idx_nan</span><span class="p">)[</span><span class="mi">0</span><span class="p">]]</span>
+    <span class="n">tide</span> <span class="o">=</span> <span class="n">tide_sat</span><span class="p">[</span><span class="o">~</span><span class="n">idx_nan</span><span class="p">]</span>
+    <span class="n">composite</span> <span class="o">=</span> <span class="n">cross_distance</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="o">~</span><span class="n">idx_nan</span><span class="p">]</span>
+    <span class="c1"># apply tidal correction</span>
+    <span class="n">tsall</span> <span class="o">=</span> <span class="n">SDS_slope</span><span class="o">.</span><span class="n">tide_correct</span><span class="p">(</span><span class="n">composite</span><span class="p">,</span><span class="n">tide</span><span class="p">,</span><span class="n">beach_slopes</span><span class="p">)</span>
+    <span class="n">title</span> <span class="o">=</span> <span class="s1">&#39;Transect </span><span class="si">%s</span><span class="s1">&#39;</span><span class="o">%</span><span class="k">key</span>
+    <span class="n">SDS_slope</span><span class="o">.</span><span class="n">plot_spectrum_all</span><span class="p">(</span><span class="n">dates</span><span class="p">,</span><span class="n">composite</span><span class="p">,</span><span class="n">tsall</span><span class="p">,</span><span class="n">settings_slope</span><span class="p">,</span> <span class="n">title</span><span class="p">)</span>
+    <span class="n">slope_est</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">SDS_slope</span><span class="o">.</span><span class="n">integrate_power_spectrum</span><span class="p">(</span><span class="n">dates</span><span class="p">,</span><span class="n">tsall</span><span class="p">,</span><span class="n">settings_slope</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Beach slope at transect </span><span class="si">%s</span><span class="s1">: </span><span class="si">%.3f</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">slope_est</span><span class="p">[</span><span class="n">key</span><span class="p">]))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">7</span><span class="o">-</span><span class="n">a9412d6e9a71</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># estimate beach-face slopes along the transects</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">slope_est</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">([])</span>
+<span class="ne">----&gt; </span><span class="mi">3</span> <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">cross_distance</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span>     <span class="c1"># remove NaNs</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span>     <span class="n">idx_nan</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">cross_distance</span><span class="p">[</span><span class="n">key</span><span class="p">])</span>
+
+<span class="ne">NameError</span>: name &#39;cross_distance&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./coastevol/coastsatslope"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Tristan Salles<br/>
+        
+            &copy; Copyright 2020-2022.<br/>
+          <div class="extra_footer">
+            <p>
+<a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">
+  <img align="right" class="margin" src="https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by.svg" width="88px">
+</a>
+These lecture notes and exercises are licensed under a <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">Creative Commons Attribution 4.0 International (CC BY 4.0) license</a>.
+<br>
+&copy; Copyright 2020-2022.
+</p>
+
+          </div>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../../_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+  </body>
+</html>
