@@ -56,7 +56,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Exploring grain settling" href="grainsettling.html" />
-    <link rel="prev" title="Inshore wave data Narrabeen" href="inshorewaves.html" />
+    <link rel="prev" title="Inshore wave data for Narrabeen" href="inshorewaves.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -217,7 +217,7 @@
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="inshorewaves.html">
-     Inshore wave data Narrabeen
+     Inshore wave data for Narrabeen
     </a>
    </li>
    <li class="toctree-l2 current active">
@@ -374,6 +374,16 @@
         <nav id="bd-toc-nav">
             <ul class="nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#loading-the-necessary-libraries">
+   Loading the necessary libraries
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#view-profiles">
+   View profiles
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#plotting-beach-profiles">
    Plotting beach profiles
   </a>
@@ -384,8 +394,8 @@
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#locating-dune-toe-on-cross-shore-beach-profile-transects">
-   Locating dune toe on cross-shore beach profile transects
+  <a class="reference internal nav-link" href="#locating-dune-toe-on-transect">
+   Locating dune toe on transect
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
@@ -394,8 +404,8 @@
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#predict-shoreline-and-dune-crest-location">
-     Predict shoreline and dune crest location
+    <a class="reference internal nav-link" href="#plots">
+     Plots
     </a>
    </li>
   </ul>
@@ -412,7 +422,17 @@
         
               <div>
                 
-  <div class="cell docutils container">
+  <div class="section" id="narrabeen-beach-profile-adjustment">
+<h1>Narrabeen beach profile adjustment<a class="headerlink" href="#narrabeen-beach-profile-adjustment" title="Permalink to this headline">¶</a></h1>
+<p><em>This notebook is a companion to your practical.</em></p>
+<p>After following the instructuions in the practical, you will have already downloaded your profiles as a <code class="docutils literal notranslate"><span class="pre">.csv</span></code> files (comma-separated values).</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><code class="docutils literal notranslate"><span class="pre">CSV</span></code> is a commonly used data format that opens easily in a range of software such as Notepad, Microsoft Excel, and obviously Python.</p>
+</div>
+<div class="section" id="loading-the-necessary-libraries">
+<h2>Loading the necessary libraries<a class="headerlink" href="#loading-the-necessary-libraries" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">import</span> <span class="nn">pickle</span>
@@ -453,10 +473,150 @@
 </div>
 </div>
 </div>
-<div class="section" id="narrabeen-beach-profile-adjustment">
-<h1>Narrabeen beach profile adjustment<a class="headerlink" href="#narrabeen-beach-profile-adjustment" title="Permalink to this headline">¶</a></h1>
-<p>The data has already been downloaded for you and consists of a .csv files (comma-separated values).
-This is a commonly used data format that opens easily in a range of software programs such as Notepad, Microsoft Excel, and obviously Python.</p>
+</div>
+<div class="section" id="view-profiles">
+<h2>View profiles<a class="headerlink" href="#view-profiles" title="Permalink to this headline">¶</a></h2>
+<p>The downloaded data can be visualised using <code class="docutils literal notranslate"><span class="pre">Pandas</span></code>. Here, I have extracted some of Narrabeen profiles in a file located in the <code class="docutils literal notranslate"><span class="pre">pracenv/dataset</span></code> folder:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dataframe</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;../pracenv/dataset/Narrabeen_Profiles.csv&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf8&quot;</span><span class="p">)</span> 
+<span class="n">dataframe</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Site</th>
+      <th>Profile ID</th>
+      <th>Date</th>
+      <th>Chainage</th>
+      <th>Elevation</th>
+      <th>Flag</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>NARRA</td>
+      <td>PF4</td>
+      <td>1976-04-27</td>
+      <td>0</td>
+      <td>9.52</td>
+      <td>EMERY</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>NARRA</td>
+      <td>PF4</td>
+      <td>1976-04-27</td>
+      <td>10</td>
+      <td>7.12</td>
+      <td>EMERY</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>NARRA</td>
+      <td>PF4</td>
+      <td>1976-04-27</td>
+      <td>20</td>
+      <td>5.88</td>
+      <td>EMERY</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>NARRA</td>
+      <td>PF4</td>
+      <td>1976-04-27</td>
+      <td>30</td>
+      <td>3.88</td>
+      <td>EMERY</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>NARRA</td>
+      <td>PF4</td>
+      <td>1976-04-27</td>
+      <td>40</td>
+      <td>1.56</td>
+      <td>EMERY</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>158583</th>
+      <td>NARRA</td>
+      <td>PF2</td>
+      <td>2019-11-27</td>
+      <td>124</td>
+      <td>-0.92</td>
+      <td>GPS</td>
+    </tr>
+    <tr>
+      <th>158584</th>
+      <td>NARRA</td>
+      <td>PF2</td>
+      <td>2019-11-27</td>
+      <td>125</td>
+      <td>-0.95</td>
+      <td>GPS</td>
+    </tr>
+    <tr>
+      <th>158585</th>
+      <td>NARRA</td>
+      <td>PF2</td>
+      <td>2019-11-27</td>
+      <td>126</td>
+      <td>-0.96</td>
+      <td>GPS</td>
+    </tr>
+    <tr>
+      <th>158586</th>
+      <td>NARRA</td>
+      <td>PF2</td>
+      <td>2019-11-27</td>
+      <td>127</td>
+      <td>-0.98</td>
+      <td>GPS</td>
+    </tr>
+    <tr>
+      <th>158587</th>
+      <td>NARRA</td>
+      <td>PF2</td>
+      <td>2019-11-27</td>
+      <td>128</td>
+      <td>-1.04</td>
+      <td>GPS</td>
+    </tr>
+  </tbody>
+</table>
+<p>158588 rows × 6 columns</p>
+</div></div></div>
+</div>
+<p>We will redefine the header to make it easier for the rest of the manipulation:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Manually define names for each column</span>
@@ -473,13 +633,7 @@ This is a commonly used data format that opens easily in a range of software pro
 
 <span class="c1"># Append a new column at the end of our iribarren values</span>
 <span class="n">df</span><span class="p">[</span><span class="s2">&quot;time&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">dates</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span>
+<span class="n">df</span>
 </pre></div>
 </div>
 </div>
@@ -627,13 +781,23 @@ This is a commonly used data format that opens easily in a range of software pro
 <p>158588 rows × 7 columns</p>
 </div></div></div>
 </div>
-<p>Mean sea level for 1966-1968 was assigned a value of 0.000m on the <strong>Australian Height Datum</strong> (AHD) at 30 tide gauges around the coast of the Australian continent.</p>
+</div>
 <div class="section" id="plotting-beach-profiles">
 <h2>Plotting beach profiles<a class="headerlink" href="#plotting-beach-profiles" title="Permalink to this headline">¶</a></h2>
+<p>We will now define a function that will take a specific profile ID <code class="docutils literal notranslate"><span class="pre">PID</span></code> and a start and end time and will plot the existing profiles for the considered period:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">plotProfiles</span><span class="p">(</span><span class="n">PID</span><span class="p">,</span> <span class="n">start_date</span><span class="p">,</span> <span class="n">end_date</span><span class="p">):</span>
-
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Function definition</span>
+<span class="k">def</span> <span class="nf">plotProfiles</span><span class="p">(</span><span class="n">PID</span><span class="p">,</span> <span class="n">start_date</span><span class="p">,</span> <span class="n">end_date</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    This function plot the profiles for a specific transect based on specified period of time.</span>
+<span class="sd">    </span>
+<span class="sd">    args:</span>
+<span class="sd">    - PID: transect ID</span>
+<span class="sd">    - start_date: initial date requested in year-month-day</span>
+<span class="sd">    - end_date: end date requested in year-month-day</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    
     <span class="n">mask</span> <span class="o">=</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="n">start_date</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">end_date</span><span class="p">)</span>
     <span class="n">df_time</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">mask</span><span class="p">]</span>
 
@@ -676,6 +840,7 @@ This is a commonly used data format that opens easily in a range of software pro
 </div>
 </div>
 </div>
+<p>We now apply the function. Here we chose the profile <code class="docutils literal notranslate"><span class="pre">PF1</span></code></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plotProfiles</span><span class="p">(</span><span class="n">PID</span><span class="o">=</span><span class="s1">&#39;PF1&#39;</span><span class="p">,</span> <span class="n">start_date</span> <span class="o">=</span> <span class="s1">&#39;2007-5-1&#39;</span><span class="p">,</span> <span class="n">end_date</span> <span class="o">=</span> <span class="s1">&#39;2007-8-1&#39;</span><span class="p">)</span>
@@ -683,24 +848,33 @@ This is a commonly used data format that opens easily in a range of software pro
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/selectprofiles_6_0.svg" src="../_images/selectprofiles_6_0.svg" /></div>
+<img alt="../_images/selectprofiles_9_0.svg" src="../_images/selectprofiles_9_0.svg" /></div>
 </div>
+<p>We can now call the function to plot another profile at another time interval:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plotProfiles</span><span class="p">(</span><span class="n">PID</span><span class="o">=</span><span class="s1">&#39;PF4&#39;</span><span class="p">,</span> <span class="n">start_date</span> <span class="o">=</span> <span class="s1">&#39;2007-5-1&#39;</span><span class="p">,</span> <span class="n">end_date</span> <span class="o">=</span> <span class="s1">&#39;2007-8-1&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plotProfiles</span><span class="p">(</span><span class="n">PID</span><span class="o">=</span><span class="s1">&#39;PF4&#39;</span><span class="p">,</span> <span class="n">start_date</span> <span class="o">=</span> <span class="s1">&#39;2007-2-1&#39;</span><span class="p">,</span> <span class="n">end_date</span> <span class="o">=</span> <span class="s1">&#39;2007-6-1&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/selectprofiles_7_0.svg" src="../_images/selectprofiles_7_0.svg" /></div>
+<img alt="../_images/selectprofiles_11_0.svg" src="../_images/selectprofiles_11_0.svg" /></div>
 </div>
 </div>
 <div class="section" id="extract-one-single-profile">
 <h2>Extract one single profile<a class="headerlink" href="#extract-one-single-profile" title="Permalink to this headline">¶</a></h2>
+<p>We can slightly change our intial function to only plot the profile closer to a requested time:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">getOneProfile</span><span class="p">(</span><span class="n">PID</span><span class="p">,</span> <span class="n">date</span><span class="p">):</span>
-
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Plot one single profile based on a specific data.</span>
+<span class="sd">     </span>
+<span class="sd">    args:</span>
+<span class="sd">    - PID: transect ID</span>
+<span class="sd">    - date: initial date requested in year-month-day</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    
     <span class="n">mask</span> <span class="o">=</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="n">date</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">date</span><span class="p">)</span>
     <span class="n">df_time</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">mask</span><span class="p">]</span>
 
@@ -745,17 +919,18 @@ This is a commonly used data format that opens easily in a range of software pro
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">prof</span> <span class="o">=</span> <span class="n">getOneProfile</span><span class="p">(</span><span class="n">PID</span><span class="o">=</span><span class="s1">&#39;PF4&#39;</span><span class="p">,</span> <span class="n">date</span><span class="o">=</span><span class="s1">&#39;2007-05-14&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">prof</span> <span class="o">=</span> <span class="n">getOneProfile</span><span class="p">(</span><span class="n">PID</span><span class="o">=</span><span class="s1">&#39;PF2&#39;</span><span class="p">,</span> <span class="n">date</span><span class="o">=</span><span class="s1">&#39;2007-05-14&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/selectprofiles_10_0.svg" src="../_images/selectprofiles_10_0.svg" /></div>
+<img alt="../_images/selectprofiles_14_0.svg" src="../_images/selectprofiles_14_0.svg" /></div>
 </div>
 </div>
-<div class="section" id="locating-dune-toe-on-cross-shore-beach-profile-transects">
-<h2>Locating dune toe on cross-shore beach profile transects<a class="headerlink" href="#locating-dune-toe-on-cross-shore-beach-profile-transects" title="Permalink to this headline">¶</a></h2>
-<p>Based on an array of cross-shore coordinates of shape (m,) and an array of corresponding elevations of shape (m,) for a single profile. The user can then identify the location of the dune toe using the following methods:</p>
+<div class="section" id="locating-dune-toe-on-transect">
+<h2>Locating dune toe on transect<a class="headerlink" href="#locating-dune-toe-on-transect" title="Permalink to this headline">¶</a></h2>
+<p>Using <a class="reference external" href="https://pybeach.readthedocs.io/en/latest/background.html">pybeach</a> package as in this <a class="reference internal" href="pybeach.html"><span class="doc std std-doc">notebook</span></a>, we can locate the dune toe on our cross-shore beach profile transect.</p>
+<p>We can identify the location of the dune toe using the following methods:</p>
 <ol class="simple">
 <li><p><strong>Maximum curvature</strong> (Stockdon, Sallenger, Holman, &amp; Howd, 2007) - the dune toe is defined as the location of maximum slope change;</p></li>
 <li><p><strong>Relative relief</strong> (Wernette, Houser, &amp; Bishop, 2016) - the dune toe is defined based on relative relief (the ratio of local morphology to computational scale);</p></li>
@@ -768,6 +943,7 @@ This is a commonly used data format that opens easily in a range of software pro
 <blockquote>
 <div><p>Wernette, P., Houser, C., &amp; Bishop, M. P. (2016). An automated approach for extracting barrier island morphology from digital elevation models. Geomorphology, 262, 1–7. doi:10. 1016/j.geomorph.2016.02.024</p>
 </div></blockquote>
+<p>Let’s try it on the latest profile we plotted:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Profile data</span>
@@ -782,27 +958,34 @@ This is a commonly used data format that opens easily in a range of software pro
 </div>
 <div class="section" id="predict-dune-toe-location">
 <h3>Predict dune toe location<a class="headerlink" href="#predict-dune-toe-location" title="Permalink to this headline">¶</a></h3>
+<p>For the ML algorithm, three pre-trained ML models are provided with the <strong>pybeach</strong> package:</p>
+<ol class="simple">
+<li><p>a “barrier-island” model. This model was developed using 1046 pre- and post- “Hurricane Ivan” airborne LIDAR profiles from Santa-Rosa Island Florida (this data was collected in 2004 and is described in (Doran et al., 2018));</p></li>
+<li><p>a “wave-embayed” model. This model was developed using 1768 pre- and post- “June 2016 storm” airborne LIDAR profiles from the wave-dominated, embayed southeast Australian coastline (this data was collected in 2016 and is described in (Harley et al., 2017)).</p></li>
+<li><p>a “mixed” model. Developed using a combination of the two above datasets.</p></li>
+</ol>
+<p>Let’s use in our case the “mixed” model for the Narrabeen beach:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">toe_ml</span><span class="p">,</span> <span class="n">prob_ml</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">predict_dunetoe_ml</span><span class="p">(</span><span class="s1">&#39;wave_embayed_clf&#39;</span><span class="p">)</span> <span class="c1"># use the machine learning (ML) method</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Make predictions of dune toe</span>
+<span class="n">toe_ml</span><span class="p">,</span> <span class="n">prob_ml</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">predict_dunetoe_ml</span><span class="p">(</span><span class="s1">&#39;mixed_clf&#39;</span><span class="p">)</span> <span class="c1"># use the machine learning (ML) method</span>
 <span class="n">toe_mc</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">predict_dunetoe_mc</span><span class="p">()</span> <span class="c1"># use the maximum curvature (MC) method</span>
 <span class="n">toe_rr</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">predict_dunetoe_rr</span><span class="p">()</span> <span class="c1"># use the relative relief (RR) method</span>
 <span class="n">toe_pd</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">predict_dunetoe_pd</span><span class="p">()</span> <span class="c1"># use the perpendicular distance (PD) method</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="section" id="predict-shoreline-and-dune-crest-location">
-<h3>Predict shoreline and dune crest location<a class="headerlink" href="#predict-shoreline-and-dune-crest-location" title="Permalink to this headline">¶</a></h3>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">crest</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">predict_dunecrest</span><span class="p">()</span>
+
+<span class="c1"># Predict dune crest</span>
+<span class="n">crest</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">predict_dunecrest</span><span class="p">()</span>
+
+<span class="c1"># Predict shoreline</span>
 <span class="n">shoreline</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">predict_shoreline</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 </div>
+</div>
+<div class="section" id="plots">
+<h3>Plots<a class="headerlink" href="#plots" title="Permalink to this headline">¶</a></h3>
+<p>We will plot the profiles and the associated dune done predicted position:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span><span class="o">=</span><span class="mi">0</span>
@@ -843,7 +1026,7 @@ This is a commonly used data format that opens easily in a range of software pro
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/selectprofiles_17_0.svg" src="../_images/selectprofiles_17_0.svg" /></div>
+<img alt="../_images/selectprofiles_21_0.svg" src="../_images/selectprofiles_21_0.svg" /></div>
 </div>
 </div>
 </div>
@@ -874,7 +1057,7 @@ This is a commonly used data format that opens easily in a range of software pro
         
         <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="inshorewaves.html" title="previous page">Inshore wave data Narrabeen</a>
+    <a class='left-prev' id="prev-link" href="inshorewaves.html" title="previous page">Inshore wave data for Narrabeen</a>
     <a class='right-next' id="next-link" href="grainsettling.html" title="next page">Exploring grain settling</a>
 
         </div>

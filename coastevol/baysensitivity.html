@@ -219,7 +219,7 @@
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="inshorewaves.html">
-     Inshore wave data Narrabeen
+     Inshore wave data for Narrabeen
     </a>
    </li>
    <li class="toctree-l2">
@@ -426,24 +426,14 @@
         
               <div>
                 
-  <div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-
-<span class="c1"># Customise figure style </span>
-<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">rc</span>
-<span class="n">rc</span><span class="p">(</span><span class="s1">&#39;font&#39;</span><span class="p">,</span><span class="n">size</span><span class="o">=</span><span class="mi">13</span><span class="p">)</span>
-<span class="n">rc</span><span class="p">(</span><span class="s1">&#39;ytick.major&#39;</span><span class="p">,</span><span class="n">pad</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
-<span class="n">rc</span><span class="p">(</span><span class="s1">&#39;xtick.major&#39;</span><span class="p">,</span><span class="n">pad</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
-<span class="n">padding</span> <span class="o">=</span> <span class="mi">5</span>
-
-<span class="o">%</span><span class="k">config</span> InlineBackend.figure_format = &#39;svg&#39;
-</pre></div>
-</div>
-</div>
-</div>
+  <div class="section" id="sensitivities-of-crenulate-bay-shorelines-to-wave-climates">
+<h1>Sensitivities of crenulate bay shorelines to wave climates<a class="headerlink" href="#sensitivities-of-crenulate-bay-shorelines-to-wave-climates" title="Permalink to this headline">¶</a></h1>
+<p><em>This notebook is a companion to your practical.</em></p>
+<p>We will use a vector-based one-line model called COVE to study to explore how the wave direction <span class="math notranslate nohighlight">\(\theta_o\)</span> and spreading <span class="math notranslate nohighlight">\(\theta_{std}\)</span> is influencing shorelines evolution.</p>
+<div class="section" id="running-cove">
+<h2>Running COVE<a class="headerlink" href="#running-cove" title="Permalink to this headline">¶</a></h2>
+<p>The COVE model has been already compiled on the system. To run the model, you will use the following command (don’t forget to put <code class="docutils literal notranslate"><span class="pre">!</span></code> before calling the executable).</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">!</span></code> in IPython Notebook is a command <code class="docutils literal notranslate"><span class="pre">magic</span></code> which enable you to run terminal command directly from the IPython cell interface.</p>
 <div class="cell tag_hide-output docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span><span class="nb">cd</span> COVE/driver_files<span class="p">;</span> make -f spiral_bay_make.make<span class="p">;</span> mv cove ../../
@@ -456,13 +446,6 @@
 </div>
 </div>
 </div>
-<div class="section" id="sensitivities-of-crenulate-bay-shorelines-to-wave-climates">
-<h1>Sensitivities of crenulate bay shorelines to wave climates<a class="headerlink" href="#sensitivities-of-crenulate-bay-shorelines-to-wave-climates" title="Permalink to this headline">¶</a></h1>
-<p>We will use a vector-based one-line model called COVE to study to explore how the wave direction <span class="math notranslate nohighlight">\(\theta_o\)</span> and spreading <span class="math notranslate nohighlight">\(\theta_{std}\)</span> is influencing shorelines evolution.</p>
-<div class="section" id="running-cove">
-<h2>Running COVE<a class="headerlink" href="#running-cove" title="Permalink to this headline">¶</a></h2>
-<p>The COVE model has been already compiled on the system. To run the model, you will use the following command (don’t forget to put <code class="docutils literal notranslate"><span class="pre">!</span></code> before calling the executable).</p>
-<p>The <code class="docutils literal notranslate"><span class="pre">!</span></code> in IPython Notebook is a command <code class="docutils literal notranslate"><span class="pre">magic</span></code> which enable you to run terminal command directly from the IPython cell interface.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>./cove
@@ -1410,6 +1393,24 @@ Coastline: Model run complete.
 <div class="section" id="plotting-shoreline-evolution">
 <h2>Plotting shoreline evolution<a class="headerlink" href="#plotting-shoreline-evolution" title="Permalink to this headline">¶</a></h2>
 <p>First we need to load the usually IPython libraries (<strong>numpy</strong> and <strong>matplotlib</strong>).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="c1"># Customise figure style </span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">rc</span>
+<span class="n">rc</span><span class="p">(</span><span class="s1">&#39;font&#39;</span><span class="p">,</span><span class="n">size</span><span class="o">=</span><span class="mi">13</span><span class="p">)</span>
+<span class="n">rc</span><span class="p">(</span><span class="s1">&#39;ytick.major&#39;</span><span class="p">,</span><span class="n">pad</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">rc</span><span class="p">(</span><span class="s1">&#39;xtick.major&#39;</span><span class="p">,</span><span class="n">pad</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">padding</span> <span class="o">=</span> <span class="mi">5</span>
+
+<span class="o">%</span><span class="k">config</span> InlineBackend.figure_format = &#39;svg&#39;
+</pre></div>
+</div>
+</div>
+</div>
 <div class="section" id="read-the-output-file">
 <h3>Read the output file<a class="headerlink" href="#read-the-output-file" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">

@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Inshore wave data Narrabeen &#8212; Coastal Processes, Environments &amp; Systems</title>
+    <title>Inshore wave data for Narrabeen &#8212; Coastal Processes, Environments &amp; Systems</title>
     
   <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
 
@@ -217,7 +217,7 @@
    </li>
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
-     Inshore wave data Narrabeen
+     Inshore wave data for Narrabeen
     </a>
    </li>
    <li class="toctree-l2">
@@ -405,16 +405,9 @@
         
               <div>
                 
-  <div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">config</span> InlineBackend.figure_format = &#39;svg&#39; 
-<span class="o">%</span><span class="k">matplotlib</span> inline
-</pre></div>
-</div>
-</div>
-</div>
-<div class="section" id="inshore-wave-data-narrabeen">
-<h1>Inshore wave data Narrabeen<a class="headerlink" href="#inshore-wave-data-narrabeen" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="inshore-wave-data-for-narrabeen">
+<h1>Inshore wave data for Narrabeen<a class="headerlink" href="#inshore-wave-data-for-narrabeen" title="Permalink to this headline">¶</a></h1>
+<p><em>This notebook is a companion to your practical.</em></p>
 <p>Since March 2016, an archive of inshore wave information has been made available, currently spanning the fixed period of 1979-2014 from the <strong>Narrabeen-Collaroy Beach Survey Program</strong>.</p>
 <p>All data can be downloaded from the Narrabeen data repository: <a class="reference external" href="http://narrabeen.wrl.unsw.edu.au">http://narrabeen.wrl.unsw.edu.au</a>.</p>
 <div class="cell docutils container">
@@ -431,14 +424,161 @@
 
 <span class="kn">from</span> <span class="nn">pandas.plotting</span> <span class="kn">import</span> <span class="n">register_matplotlib_converters</span>
 <span class="n">register_matplotlib_converters</span><span class="p">()</span>
+
+<span class="o">%</span><span class="k">config</span> InlineBackend.figure_format = &#39;svg&#39; 
+<span class="o">%</span><span class="k">matplotlib</span> inline
 </pre></div>
 </div>
 </div>
 </div>
 <div class="section" id="loading-the-dataset">
 <h2>Loading the dataset<a class="headerlink" href="#loading-the-dataset" title="Permalink to this headline">¶</a></h2>
-<p>The data has already been downloaded for you and consists of a <code class="docutils literal notranslate"><span class="pre">.csv</span></code> files (comma-separated values).</p>
-<p>This is a commonly used data format that opens easily in a range of software programs such as Notepad, Microsoft Excel, and obviously Python.</p>
+<p>After following the instructuions in the practical, you will have already downloaded your profiles as a <code class="docutils literal notranslate"><span class="pre">.csv</span></code> files (comma-separated values).</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><code class="docutils literal notranslate"><span class="pre">CSV</span></code> is a commonly used data format that opens easily in a range of software such as Notepad, Microsoft Excel, and obviously Python.</p>
+</div>
+<p>The downloaded data can be visualised using <code class="docutils literal notranslate"><span class="pre">Pandas</span></code>. Here, I have extracted some of wave data in a file located in the <code class="docutils literal notranslate"><span class="pre">pracenv/dataset</span></code> folder:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dataframe</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;../pracenv/dataset/Inshore_Waves.csv&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf8&quot;</span><span class="p">)</span>
+<span class="n">dataframe</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Profile ID</th>
+      <th>Date and time (dd/mm/yyyy HH:MM AEST)</th>
+      <th>Significant wave height (m)</th>
+      <th>Peak wave period (s)</th>
+      <th>Direction (degrees TN)</th>
+      <th>Flag</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>PF1</td>
+      <td>15/01/1979 00:00</td>
+      <td>1.32</td>
+      <td>7.04</td>
+      <td>84</td>
+      <td>HIND</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>PF1</td>
+      <td>15/01/1979 01:00</td>
+      <td>1.31</td>
+      <td>7.14</td>
+      <td>85</td>
+      <td>HIND</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>PF1</td>
+      <td>15/01/1979 02:00</td>
+      <td>1.30</td>
+      <td>7.46</td>
+      <td>86</td>
+      <td>HIND</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>PF1</td>
+      <td>15/01/1979 03:00</td>
+      <td>1.28</td>
+      <td>7.69</td>
+      <td>87</td>
+      <td>HIND</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>PF1</td>
+      <td>15/01/1979 04:00</td>
+      <td>1.25</td>
+      <td>7.81</td>
+      <td>87</td>
+      <td>HIND</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>1566840</th>
+      <td>PF8</td>
+      <td>14/10/2014 20:00</td>
+      <td>1.13</td>
+      <td>10.27</td>
+      <td>94</td>
+      <td>MEAS</td>
+    </tr>
+    <tr>
+      <th>1566841</th>
+      <td>PF8</td>
+      <td>14/10/2014 21:00</td>
+      <td>1.30</td>
+      <td>10.83</td>
+      <td>95</td>
+      <td>MEAS</td>
+    </tr>
+    <tr>
+      <th>1566842</th>
+      <td>PF8</td>
+      <td>14/10/2014 22:00</td>
+      <td>1.62</td>
+      <td>12.14</td>
+      <td>93</td>
+      <td>MEAS</td>
+    </tr>
+    <tr>
+      <th>1566843</th>
+      <td>PF8</td>
+      <td>14/10/2014 23:00</td>
+      <td>1.57</td>
+      <td>11.45</td>
+      <td>94</td>
+      <td>MEAS</td>
+    </tr>
+    <tr>
+      <th>1566844</th>
+      <td>PF8</td>
+      <td>15/10/2014 00:00</td>
+      <td>1.87</td>
+      <td>12.93</td>
+      <td>92</td>
+      <td>MEAS</td>
+    </tr>
+  </tbody>
+</table>
+<p>1566845 rows × 6 columns</p>
+</div></div></div>
+</div>
+<p>We will redefine the header to make it easier for the rest of the manipulation:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Manually define names for each column</span>
@@ -456,17 +596,169 @@
 
 <span class="c1"># Append a new column at the end of our iribarren values</span>
 <span class="n">df</span><span class="p">[</span><span class="s2">&quot;time&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">dates</span>
+<span class="n">df</span>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Profile</th>
+      <th>date</th>
+      <th>Hs</th>
+      <th>Tp</th>
+      <th>Dir</th>
+      <th>Flag</th>
+      <th>time</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>PF1</td>
+      <td>15/01/1979 00:00</td>
+      <td>1.32</td>
+      <td>7.04</td>
+      <td>84</td>
+      <td>HIND</td>
+      <td>1979-01-15 00:00:00</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>PF1</td>
+      <td>15/01/1979 01:00</td>
+      <td>1.31</td>
+      <td>7.14</td>
+      <td>85</td>
+      <td>HIND</td>
+      <td>1979-01-15 01:00:00</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>PF1</td>
+      <td>15/01/1979 02:00</td>
+      <td>1.30</td>
+      <td>7.46</td>
+      <td>86</td>
+      <td>HIND</td>
+      <td>1979-01-15 02:00:00</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>PF1</td>
+      <td>15/01/1979 03:00</td>
+      <td>1.28</td>
+      <td>7.69</td>
+      <td>87</td>
+      <td>HIND</td>
+      <td>1979-01-15 03:00:00</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>PF1</td>
+      <td>15/01/1979 04:00</td>
+      <td>1.25</td>
+      <td>7.81</td>
+      <td>87</td>
+      <td>HIND</td>
+      <td>1979-01-15 04:00:00</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>1566840</th>
+      <td>PF8</td>
+      <td>14/10/2014 20:00</td>
+      <td>1.13</td>
+      <td>10.27</td>
+      <td>94</td>
+      <td>MEAS</td>
+      <td>2014-10-14 20:00:00</td>
+    </tr>
+    <tr>
+      <th>1566841</th>
+      <td>PF8</td>
+      <td>14/10/2014 21:00</td>
+      <td>1.30</td>
+      <td>10.83</td>
+      <td>95</td>
+      <td>MEAS</td>
+      <td>2014-10-14 21:00:00</td>
+    </tr>
+    <tr>
+      <th>1566842</th>
+      <td>PF8</td>
+      <td>14/10/2014 22:00</td>
+      <td>1.62</td>
+      <td>12.14</td>
+      <td>93</td>
+      <td>MEAS</td>
+      <td>2014-10-14 22:00:00</td>
+    </tr>
+    <tr>
+      <th>1566843</th>
+      <td>PF8</td>
+      <td>14/10/2014 23:00</td>
+      <td>1.57</td>
+      <td>11.45</td>
+      <td>94</td>
+      <td>MEAS</td>
+      <td>2014-10-14 23:00:00</td>
+    </tr>
+    <tr>
+      <th>1566844</th>
+      <td>PF8</td>
+      <td>15/10/2014 00:00</td>
+      <td>1.87</td>
+      <td>12.93</td>
+      <td>92</td>
+      <td>MEAS</td>
+      <td>2014-10-15 00:00:00</td>
+    </tr>
+  </tbody>
+</table>
+<p>1566845 rows × 7 columns</p>
+</div></div></div>
 </div>
 </div>
 <div class="section" id="plotting-significant-wave-height">
 <h2>Plotting significant wave height<a class="headerlink" href="#plotting-significant-wave-height" title="Permalink to this headline">¶</a></h2>
-<p>Plot the inshore wave data, showing significant wave height…</p>
+<p>We will now define a function that will take a specific profile ID <code class="docutils literal notranslate"><span class="pre">PID</span></code> and a start and end time and will plot the existing inshore wave data, showing significant wave height for the considered period…</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">plotHsSeries</span><span class="p">(</span><span class="n">PID</span><span class="p">,</span> <span class="n">start_date</span><span class="p">,</span> <span class="n">end_date</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    This function plot the significant wave height for a specific transect based on specified period of time.</span>
+<span class="sd">    </span>
+<span class="sd">    args:</span>
+<span class="sd">    - PID: transect ID</span>
+<span class="sd">    - start_date: initial date requested in year-month-day</span>
+<span class="sd">    - end_date: end date requested in year-month-day</span>
+<span class="sd">    &#39;&#39;&#39;</span>
     
     <span class="n">mask</span> <span class="o">=</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">start_date</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">end_date</span><span class="p">)</span>
     <span class="n">df_time</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">mask</span><span class="p">]</span>
@@ -494,6 +786,7 @@
 </div>
 </div>
 </div>
+<p>We now apply the function to 2 profiles. Here we chose the profile <code class="docutils literal notranslate"><span class="pre">PF1</span></code> and <code class="docutils literal notranslate"><span class="pre">PF8</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plotHsSeries</span><span class="p">(</span><span class="n">PID</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;PF1&#39;</span><span class="p">,</span><span class="s1">&#39;PF8&#39;</span><span class="p">],</span> <span class="n">start_date</span> <span class="o">=</span> <span class="s1">&#39;2007-6-1&#39;</span><span class="p">,</span> <span class="n">end_date</span> <span class="o">=</span> <span class="s1">&#39;2007-7-1&#39;</span><span class="p">)</span>
@@ -501,15 +794,23 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/inshorewaves_7_0.svg" src="../_images/inshorewaves_7_0.svg" /></div>
+<img alt="../_images/inshorewaves_9_0.svg" src="../_images/inshorewaves_9_0.svg" /></div>
 </div>
 </div>
 <div class="section" id="plotting-significant-wave-period">
 <h2>Plotting significant wave period<a class="headerlink" href="#plotting-significant-wave-period" title="Permalink to this headline">¶</a></h2>
-<p>Plot the inshore wave data, showing peak wave period (Tp)…</p>
+<p>Similarly we can plot the inshore wave data, showing peak wave period (Tp)…</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">plotTpSeries</span><span class="p">(</span><span class="n">PID</span><span class="p">,</span> <span class="n">start_date</span><span class="p">,</span> <span class="n">end_date</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    This function plot the significant wave period for a specific transect based on specified period of time.</span>
+<span class="sd">    </span>
+<span class="sd">    args:</span>
+<span class="sd">    - PID: transect ID</span>
+<span class="sd">    - start_date: initial date requested in year-month-day</span>
+<span class="sd">    - end_date: end date requested in year-month-day</span>
+<span class="sd">    &#39;&#39;&#39;</span>
     
     <span class="n">mask</span> <span class="o">=</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">start_date</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">end_date</span><span class="p">)</span>
     <span class="n">df_time</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">mask</span><span class="p">]</span>
@@ -528,7 +829,7 @@
     <span class="n">setp</span><span class="p">(</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">get_xticklabels</span><span class="p">(),</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">horizontalalignment</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">)</span>
     <span class="n">ax1</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;$T_p$ (s)&#39;</span><span class="p">)</span>
     <span class="n">ax1</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Narrabeen-Collaroy Wave Height from &#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">start_date</span><span class="p">)</span><span class="o">+</span><span class="s1">&#39; to &#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">end_date</span><span class="p">),</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Narrabeen-Collaroy Wave Period from &#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">start_date</span><span class="p">)</span><span class="o">+</span><span class="s1">&#39; to &#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">end_date</span><span class="p">),</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
     
     <span class="k">return</span>
 </pre></div>
@@ -542,15 +843,23 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/inshorewaves_10_0.svg" src="../_images/inshorewaves_10_0.svg" /></div>
+<img alt="../_images/inshorewaves_12_0.svg" src="../_images/inshorewaves_12_0.svg" /></div>
 </div>
 </div>
 <div class="section" id="plotting-wave-direction">
 <h2>Plotting wave direction<a class="headerlink" href="#plotting-wave-direction" title="Permalink to this headline">¶</a></h2>
-<p>Plot the inshore wave data, showing wave direction…</p>
+<p>or the inshore wave data, showing wave direction…</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">plotDirSeries</span><span class="p">(</span><span class="n">PID</span><span class="p">,</span> <span class="n">start_date</span><span class="p">,</span> <span class="n">end_date</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    This function plot the significant wave direction for a specific transect based on specified period of time.</span>
+<span class="sd">    </span>
+<span class="sd">    args:</span>
+<span class="sd">    - PID: transect ID</span>
+<span class="sd">    - start_date: initial date requested in year-month-day</span>
+<span class="sd">    - end_date: end date requested in year-month-day</span>
+<span class="sd">    &#39;&#39;&#39;</span>
     
     <span class="n">mask</span> <span class="o">=</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">start_date</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">end_date</span><span class="p">)</span>
     <span class="n">df_time</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">mask</span><span class="p">]</span>
@@ -584,7 +893,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/inshorewaves_13_0.svg" src="../_images/inshorewaves_13_0.svg" /></div>
+<img alt="../_images/inshorewaves_15_0.svg" src="../_images/inshorewaves_15_0.svg" /></div>
 </div>
 </div>
 </div>
