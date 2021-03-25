@@ -374,22 +374,30 @@
         <nav id="bd-toc-nav">
             <ul class="nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#load-test-data">
-   Load test data
+  <a class="reference internal nav-link" href="#load-the-200-profiles-dataset">
+   Load the 200 profiles dataset
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#predicting-dune-toes">
+     Predicting dune toes
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#plots">
+     Plots
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#performance-of-the-ml-algorithm">
+     Performance of the ML algorithm
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#predicting-dune-toes-a-name-1-a">
-   1. Predicting dune toes
-   <a name="1">
-   </a>
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#example-plots-and-results-a-name-2-a">
-   2. Example plots and results
-   <a name="2">
-   </a>
+  <a class="reference internal nav-link" href="#using-your-own-dataset">
+   Using your own dataset
   </a>
  </li>
 </ul>
@@ -411,7 +419,18 @@
 <p class="admonition-title">Important</p>
 <p>Dunes along sandy coastlines provide an important natural barrier to coastal hazards such as storm-induced waves and surge. The capacity of sandy dunes to provide coastal hazard protection depends in large part on their geometry. In particular, the location of the dune toe (the transition point between the beach and dune) is a key factor used in coastal erosion models and for assessing coastal vulnerability to hazards.</p>
 </div>
-<p><a class="reference external" href="https://pybeach.readthedocs.io/en/latest/background.html">pybeach</a> is a <code class="docutils literal notranslate"><span class="pre">Python</span></code> package for locating the dune toe on cross-shore beach profile transects. The aim of pybeach is to collate commonly used algorithms for dune toe identification and to provide a new method of locating the dune toe based on machine learning.</p>
+<p><a class="reference external" href="https://pybeach.readthedocs.io/en/latest/background.html">pybeach</a> is a <code class="docutils literal notranslate"><span class="pre">Python</span></code> package for locating the dune toe on cross-shore beach profile transects. The aim is to collate commonly used algorithms for dune toe identification and to provide a new method of locating the dune toe based on machine learning.</p>
+<p><a class="reference external" href="https://pybeach.readthedocs.io/en/latest/background.html">pybeach</a> identifies the location of the dune toe using the following methods:</p>
+<ol class="simple">
+<li><p>Maximum curvature (Stockdon, Sallenger, Holman, &amp; Howd, 2007) - the dune toe is defined as the location of maximum slope change;</p></li>
+<li><p>Relative relief (Wernette, Houser, &amp; Bishop, 2016) - the dune toe is defined based on relative relief (the ratio of local morphology to computational scale);</p></li>
+<li><p>Perpendicular distance - the dune toe is defined as the point of maximum perpendicular distance from the straight line drawn between the dune crest and shoreline; and,</p></li>
+<li><p>Machine learning using Random Forest classification</p></li>
+</ol>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p>A detailed overview of <a class="reference external" href="https://pybeach.readthedocs.io/en/latest/background.html">pybeach</a> is available in the following <a class="reference external" href="https://joss.theoj.org/papers/10.21105/joss.01890">paper</a>.</p>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
@@ -428,36 +447,8 @@
 
 <span class="kn">import</span> <span class="nn">warnings</span>
 <span class="n">warnings</span><span class="o">.</span><span class="n">simplefilter</span><span class="p">(</span><span class="s2">&quot;ignore&quot;</span><span class="p">,</span> <span class="ne">UserWarning</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># example data</span>
-<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span>
-<span class="n">z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">40</span><span class="p">),</span>
-                    <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span>
-                    <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">91</span><span class="p">)[</span><span class="mi">1</span><span class="p">:],</span>
-                    <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">20</span><span class="p">)))</span>
 
-<span class="c1"># instantiate</span>
-<span class="n">p</span> <span class="o">=</span> <span class="n">Profile</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">z</span><span class="p">)</span>
-
-<span class="c1"># predict dune toe, dune crest, shoreline location</span>
-<span class="n">toe_ml</span><span class="p">,</span> <span class="n">prob_ml</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">predict_dunetoe_ml</span><span class="p">(</span><span class="s1">&#39;wave_embayed_clf&#39;</span><span class="p">)</span>  <span class="c1"># predict toe using machine learning model</span>
-<span class="n">toe_mc</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">predict_dunetoe_mc</span><span class="p">()</span>    <span class="c1"># predict toe using maximum curvature method (Stockdon et al, 2007)</span>
-<span class="n">toe_rr</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">predict_dunetoe_rr</span><span class="p">()</span>    <span class="c1"># predict toe using relative relief method (Wernette et al, 2016)</span>
-<span class="n">toe_pd</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">predict_dunetoe_pd</span><span class="p">()</span>    <span class="c1"># predict toe using perpendicular distance method</span>
-<span class="n">crest</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">predict_dunecrest</span><span class="p">()</span>      <span class="c1"># predict dune crest</span>
-<span class="n">shoreline</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">predict_shoreline</span><span class="p">()</span>  <span class="c1"># predict shoreline</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plotting Paramaters</span>
+<span class="c1"># Plotting Paramaters</span>
 <span class="n">params</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;legend.fontsize&#39;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
            <span class="s1">&#39;axes.labelsize&#39;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
            <span class="s1">&#39;axes.labelweight&#39;</span><span class="p">:</span> <span class="s1">&#39;regular&#39;</span><span class="p">,</span>
@@ -467,96 +458,49 @@
            <span class="s1">&#39;ytick.labelsize&#39;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
            <span class="s1">&#39;mathtext.default&#39;</span><span class="p">:</span><span class="s1">&#39;regular&#39;</span><span class="p">}</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">params</span><span class="p">)</span>
-
-<span class="c1"># example data</span>
-<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span>
-<span class="n">z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">40</span><span class="p">),</span>
-                    <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span>
-                    <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">91</span><span class="p">)[</span><span class="mi">1</span><span class="p">:],</span>
-                    <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">20</span><span class="p">)))</span>
-
-<span class="c1"># instantiate</span>
-<span class="n">p</span> <span class="o">=</span> <span class="n">Profile</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">z</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
+<div class="section" id="load-the-200-profiles-dataset">
+<h2>Load the 200 profiles dataset<a class="headerlink" href="#load-the-200-profiles-dataset" title="Permalink to this headline">¶</a></h2>
+<p>To test the performance of the dune toe location algorithms, 200 profiles have been made available via the repository. We will load them and visualise some of them:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Predict dune toe location</span>
-<span class="n">toe_ml</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">predict_dunetoe_ml</span><span class="p">(</span><span class="s1">&#39;wave_embayed_clf&#39;</span><span class="p">)</span> <span class="c1"># use the machine learning (ML) method</span>
-<span class="n">toe_mc</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">predict_dunetoe_mc</span><span class="p">()</span> <span class="c1"># use the maximum curvature (MC) method</span>
-<span class="n">toe_rr</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">predict_dunetoe_rr</span><span class="p">()</span> <span class="c1"># use the relative relief (RR) method</span>
-<span class="n">toe_pd</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">predict_dunetoe_pd</span><span class="p">()</span> <span class="c1"># use the perpendicular distance (PD) method</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Predict shoreline and dune crest location</span>
-<span class="n">crest</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">predict_dunecrest</span><span class="p">()</span>
-<span class="n">shoreline</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">predict_shoreline</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span><span class="o">=</span><span class="mi">0</span>
-<span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
-<span class="n">toes</span> <span class="o">=</span> <span class="p">[</span><span class="n">toe_ml</span><span class="p">[</span><span class="n">n</span><span class="p">],</span> <span class="n">toe_mc</span><span class="p">[</span><span class="n">n</span><span class="p">],</span> <span class="n">toe_rr</span><span class="p">[</span><span class="n">n</span><span class="p">],</span> <span class="n">toe_pd</span><span class="p">[</span><span class="n">n</span><span class="p">]]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load dataset</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;../pracenv/dataset/test_profiles.pkl&#39;</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">pickle</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
 
-<span class="n">labels</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Machine learning&#39;</span><span class="p">,</span> <span class="s1">&#39;Maximum curvature&#39;</span><span class="p">,</span> <span class="s1">&#39;Relative relief&#39;</span><span class="p">,</span> <span class="s1">&#39;Perpendicular distance&#39;</span><span class="p">]</span>
-<span class="n">colors</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;tomato&#39;</span><span class="p">,</span> <span class="s1">&#39;cornflowerblue&#39;</span><span class="p">,</span> <span class="s1">&#39;gold&#39;</span><span class="p">,</span> <span class="s1">&#39;limegreen&#39;</span><span class="p">]</span>
-
-<span class="n">axes</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="s1">&#39;-k&#39;</span><span class="p">)</span>
-<span class="n">axes</span><span class="o">.</span><span class="n">fill_between</span><span class="p">([</span><span class="mi">70</span><span class="p">,</span> <span class="mi">100</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">y2</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;lightskyblue&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
-<span class="n">axes</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">y2</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;cornsilk&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">axes</span><span class="o">.</span><span class="n">axvspan</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="o">-</span><span class="mi">9</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;tomato&#39;</span><span class="p">,</span> <span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.6</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;ML Toe probability&#39;</span><span class="p">)</span> <span class="c1"># legend placeholder</span>
-<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">itoe</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">toes</span><span class="p">):</span> 
-    <span class="n">axes</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">itoe</span><span class="p">],</span> <span class="n">z</span><span class="p">[</span><span class="n">itoe</span><span class="p">],</span>
-              <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">colors</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">ms</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">mec</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">labels</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
-<span class="n">axes</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">crest</span><span class="p">[</span><span class="n">n</span><span class="p">]],</span> <span class="n">z</span><span class="p">[</span><span class="n">crest</span><span class="p">[</span><span class="n">n</span><span class="p">]],</span> <span class="s1">&#39;v&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">ms</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">mec</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Crest&#39;</span><span class="p">)</span>
-<span class="n">axes</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">shoreline</span><span class="p">[</span><span class="n">n</span><span class="p">]],</span> <span class="n">z</span><span class="p">[</span><span class="n">shoreline</span><span class="p">[</span><span class="n">n</span><span class="p">]],</span> <span class="s1">&#39;^&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">ms</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">mec</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Shoreline&#39;</span><span class="p">)</span>
-<span class="n">axes</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
-<span class="n">axes</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
-<span class="n">axes</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Example profile&#39;</span><span class="p">)</span>
-<span class="n">axes</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Cross-shore distance (m)&#39;</span><span class="p">)</span>
-<span class="n">axes</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Elevation (m)&#39;</span><span class="p">)</span>
-<span class="n">axes</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
-<span class="n">axes</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">framealpha</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="n">x</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">toe</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">],</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;z&#39;</span><span class="p">],</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;toe&#39;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Number of profiles: &#39;</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">z</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/pybeach_6_0.svg" src="../_images/pybeach_6_0.svg" /></div>
-</div>
-<div class="section" id="load-test-data">
-<h2>Load test data<a class="headerlink" href="#load-test-data" title="Permalink to this headline">¶</a></h2>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load some test data of 200 profiles</span>
-<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;../pracenv/dataset/test_profiles.pkl&#39;</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-    <span class="n">data</span> <span class="o">=</span> <span class="n">pickle</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
-<span class="n">x</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">toe</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">],</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;z&#39;</span><span class="p">],</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;toe&#39;</span><span class="p">]</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Number of profiles:  200
 </pre></div>
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="predicting-dune-toes-a-name-1-a">
-<h2>1. Predicting dune toes <a name="1"></a><a class="headerlink" href="#predicting-dune-toes-a-name-1-a" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="predicting-dune-toes">
+<h3>Predicting dune toes<a class="headerlink" href="#predicting-dune-toes" title="Permalink to this headline">¶</a></h3>
+<p>For the ML algorithm, three pre-trained ML models are provided with the <strong>pybeach</strong> package:</p>
+<ol class="simple">
+<li><p>a “barrier-island” model. This model was developed using 1046 pre- and post- “Hurricane Ivan” airborne LIDAR profiles from Santa-Rosa Island Florida (this data was collected in 2004 and is described in (Doran et al., 2018));</p></li>
+<li><p>a “wave-embayed” model. This model was developed using 1768 pre- and post- “June 2016 storm” airborne LIDAR profiles from the wave-dominated, embayed southeast Australian coastline (this data was collected in 2016 and is described in (Harley et al., 2017)).</p></li>
+<li><p>a “mixed” model. Developed using a combination of the two above datasets.</p></li>
+</ol>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Instantiate Profile class</span>
 <span class="n">p</span> <span class="o">=</span> <span class="n">Profile</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">z</span><span class="p">)</span>
+
 <span class="c1"># Make predictions of dune toe</span>
 <span class="n">toe_ml</span><span class="p">,</span> <span class="n">prob_ml</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">predict_dunetoe_ml</span><span class="p">(</span><span class="s1">&#39;barrier_island_clf&#39;</span><span class="p">,</span> <span class="n">dune_crest</span><span class="o">=</span><span class="s1">&#39;rr&#39;</span><span class="p">,</span> <span class="n">window_size</span><span class="o">=</span><span class="mi">101</span><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="mf">0.97</span><span class="p">)</span>
 <span class="n">toe_mc</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">predict_dunetoe_mc</span><span class="p">(</span><span class="n">dune_crest</span><span class="o">=</span><span class="s1">&#39;rr&#39;</span><span class="p">,</span> <span class="n">window_size</span><span class="o">=</span><span class="mi">101</span><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="mf">0.97</span><span class="p">)</span>
 <span class="n">toe_rr</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">predict_dunetoe_rr</span><span class="p">(</span><span class="n">dune_crest</span><span class="o">=</span><span class="s1">&#39;rr&#39;</span><span class="p">,</span> <span class="n">window_size</span><span class="o">=</span><span class="mi">101</span><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="mf">0.97</span><span class="p">,</span> <span class="n">toe_threshold</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 <span class="n">toe_pd</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">predict_dunetoe_pd</span><span class="p">(</span><span class="n">dune_crest</span><span class="o">=</span><span class="s1">&#39;rr&#39;</span><span class="p">,</span> <span class="n">window_size</span><span class="o">=</span><span class="mi">101</span><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="mf">0.97</span><span class="p">)</span>
+
 <span class="c1"># Predict dune crest</span>
 <span class="n">crest</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">predict_dunecrest</span><span class="p">()</span>
 <span class="c1"># Predict shoreline</span>
@@ -566,33 +510,24 @@
 </div>
 </div>
 </div>
-<div class="section" id="example-plots-and-results-a-name-2-a">
-<h2>2. Example plots and results <a name="2"></a><a class="headerlink" href="#example-plots-and-results-a-name-2-a" title="Permalink to this headline">¶</a></h2>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plotting Paramaters</span>
-<span class="n">params</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;legend.fontsize&#39;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
-           <span class="s1">&#39;axes.labelsize&#39;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
-           <span class="s1">&#39;axes.labelweight&#39;</span><span class="p">:</span> <span class="s1">&#39;regular&#39;</span><span class="p">,</span>
-           <span class="s1">&#39;axes.titlesize&#39;</span><span class="p">:</span> <span class="mi">11</span><span class="p">,</span>
-           <span class="s1">&#39;axes.titleweight&#39;</span><span class="p">:</span> <span class="s1">&#39;regular&#39;</span><span class="p">,</span>
-           <span class="s1">&#39;xtick.labelsize&#39;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
-           <span class="s1">&#39;ytick.labelsize&#39;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
-           <span class="s1">&#39;mathtext.default&#39;</span><span class="p">:</span><span class="s1">&#39;regular&#39;</span><span class="p">}</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">params</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
+<div class="section" id="plots">
+<h3>Plots<a class="headerlink" href="#plots" title="Permalink to this headline">¶</a></h3>
+<p>We will plot some of these profiles. This is done by changing the value of the <code class="docutils literal notranslate"><span class="pre">n</span></code> variable in the cell below.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>An additional benefit of the <em>ML approach</em> is that it outputs a probability distribution across the length of a profile describing the probability of each individual cross-shore location being a dune toe. This can be particularly useful for correcting errors and interpreting beach morphology.</p>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Specify profile to plot</span>
-<span class="n">n</span> <span class="o">=</span> <span class="mi">60</span>
+<span class="n">n</span> <span class="o">=</span> <span class="mi">1</span>
+
 <span class="c1"># Figure metadata</span>
 <span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
 <span class="n">toes</span> <span class="o">=</span> <span class="p">[</span><span class="n">toe</span><span class="p">[</span><span class="n">n</span><span class="p">],</span> <span class="n">toe_ml</span><span class="p">[</span><span class="n">n</span><span class="p">],</span> <span class="n">toe_mc</span><span class="p">[</span><span class="n">n</span><span class="p">],</span> <span class="n">toe_rr</span><span class="p">[</span><span class="n">n</span><span class="p">],</span> <span class="n">toe_pd</span><span class="p">[</span><span class="n">n</span><span class="p">]]</span>
 <span class="n">labels</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;True toe&#39;</span><span class="p">,</span> <span class="s1">&#39;Machine learning&#39;</span><span class="p">,</span> <span class="s1">&#39;Maximum curvature&#39;</span><span class="p">,</span> <span class="s1">&#39;Relative relief&#39;</span><span class="p">,</span> <span class="s1">&#39;Perpendicular distance&#39;</span><span class="p">]</span>
 <span class="n">colors</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="s1">&#39;tomato&#39;</span><span class="p">,</span> <span class="s1">&#39;cornflowerblue&#39;</span><span class="p">,</span> <span class="s1">&#39;gold&#39;</span><span class="p">,</span> <span class="s1">&#39;limegreen&#39;</span><span class="p">]</span>
+
 <span class="c1"># Generate figure</span>
 <span class="n">axes</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">z</span><span class="p">[</span><span class="n">n</span><span class="p">],</span> <span class="s1">&#39;-k&#39;</span><span class="p">)</span>
 <span class="n">axes</span><span class="o">.</span><span class="n">fill_between</span><span class="p">([</span><span class="mi">70</span><span class="p">,</span> <span class="mi">100</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">y2</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;lightskyblue&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
@@ -603,13 +538,14 @@
               <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">colors</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">ms</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">mec</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">labels</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
 <span class="n">axes</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">crest</span><span class="p">[</span><span class="n">n</span><span class="p">]],</span> <span class="n">z</span><span class="p">[</span><span class="n">n</span><span class="p">,</span> <span class="n">crest</span><span class="p">[</span><span class="n">n</span><span class="p">]],</span> <span class="s1">&#39;v&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">ms</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">mec</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Crest&#39;</span><span class="p">)</span>
 <span class="n">axes</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">shoreline</span><span class="p">[</span><span class="n">n</span><span class="p">]],</span> <span class="n">z</span><span class="p">[</span><span class="n">n</span><span class="p">,</span> <span class="n">shoreline</span><span class="p">[</span><span class="n">n</span><span class="p">]],</span> <span class="s1">&#39;^&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">ms</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">mec</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Shoreline&#39;</span><span class="p">)</span>
-<span class="n">axes</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="mi">500</span><span class="p">)</span>
-<span class="n">axes</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
+<span class="n">axes</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">900</span><span class="p">)</span>
+<span class="n">axes</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>
 <span class="n">axes</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Example profile&#39;</span><span class="p">)</span>
 <span class="n">axes</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Cross-shore distance (m)&#39;</span><span class="p">)</span>
 <span class="n">axes</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Elevation (m)&#39;</span><span class="p">)</span>
 <span class="n">axes</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
 <span class="n">axes</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">framealpha</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
 <span class="c1"># Plot dune toe ML probability</span>
 <span class="n">axes2</span> <span class="o">=</span> <span class="n">axes</span><span class="o">.</span><span class="n">twinx</span><span class="p">()</span> 
 <span class="n">axes2</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">prob_ml</span><span class="p">[</span><span class="n">n</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;tomato&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
@@ -622,21 +558,29 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/pybeach_13_0.svg" src="../_images/pybeach_13_0.svg" /></div>
+<img alt="../_images/pybeach_8_0.svg" src="../_images/pybeach_8_0.svg" /></div>
 </div>
+</div>
+<div class="section" id="performance-of-the-ml-algorithm">
+<h3>Performance of the ML algorithm<a class="headerlink" href="#performance-of-the-ml-algorithm" title="Permalink to this headline">¶</a></h3>
+<p>The profiles dataset comes with the true toe positions for each transect and can be used to evaluate the performance of the different dune toe detection algorithms (ML, MC, RR, PD).</p>
+<p>Here we will plot the errors for each methods and see which one is performing better than the other ones:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Figure metadata</span>
 <span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
 <span class="n">colors</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;tomato&#39;</span><span class="p">,</span> <span class="s1">&#39;cornflowerblue&#39;</span><span class="p">,</span> <span class="s1">&#39;gold&#39;</span><span class="p">,</span> <span class="s1">&#39;limegreen&#39;</span><span class="p">]</span>
 <span class="n">labels</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Machine</span><span class="se">\n</span><span class="s1">Learning</span><span class="se">\n</span><span class="s1">(MC)&#39;</span><span class="p">,</span> <span class="s1">&#39;Max.</span><span class="se">\n</span><span class="s1">Curvature</span><span class="se">\n</span><span class="s1">(MC)&#39;</span><span class="p">,</span> <span class="s1">&#39;Relative</span><span class="se">\n</span><span class="s1">Relief</span><span class="se">\n</span><span class="s1">(RR)&#39;</span><span class="p">,</span> <span class="s1">&#39;Perp.</span><span class="se">\n</span><span class="s1">Distance</span><span class="se">\n</span><span class="s1">(PD)&#39;</span><span class="p">]</span>
-<span class="c1"># Generate figure</span>
+
+<span class="c1"># Get the errors</span>
 <span class="n">data</span> <span class="o">=</span> <span class="p">(</span><span class="n">toe</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">((</span><span class="n">toe_ml</span><span class="p">,</span> <span class="n">toe_mc</span><span class="p">,</span> <span class="n">toe_rr</span><span class="p">,</span> <span class="n">toe_pd</span><span class="p">)))</span><span class="o">.</span><span class="n">T</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s2">&quot;float64&quot;</span><span class="p">)</span>
-<span class="c1"># data1[:,2] *= 0.7</span>
+
+<span class="c1"># Box plot</span>
 <span class="n">bplot</span> <span class="o">=</span> <span class="n">axes</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">data</span><span class="p">,</span>
                      <span class="n">labels</span><span class="o">=</span><span class="n">labels</span><span class="p">,</span>
                      <span class="n">patch_artist</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
                      <span class="n">medianprops</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">linewidth</span><span class="o">=</span><span class="mf">2.5</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">))</span>
+
 <span class="k">for</span> <span class="n">patch</span><span class="p">,</span> <span class="n">color</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">bplot</span><span class="p">[</span><span class="s1">&#39;boxes&#39;</span><span class="p">],</span> <span class="n">colors</span><span class="p">):</span>
     <span class="n">patch</span><span class="o">.</span><span class="n">set_facecolor</span><span class="p">(</span><span class="n">color</span><span class="p">)</span>
 <span class="n">axes</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Prediction error (m)&#39;</span><span class="p">)</span>
@@ -649,8 +593,13 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/pybeach_14_0.svg" src="../_images/pybeach_14_0.svg" /></div>
+<img alt="../_images/pybeach_10_0.svg" src="../_images/pybeach_10_0.svg" /></div>
 </div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>It can be seen that the ML model considerably outperforms the other dune toe location algorithms for this testing set of 200 beach profiles.</p>
+</div>
+<p>We can also use the <code class="docutils literal notranslate"><span class="pre">Pandas</span></code> library to calculate the mean absolute error (<strong>MAE</strong>), root-mean-squared-error (<strong>RMSE</strong>), and r-squared (<strong>R2</strong>) of the four dune toe detection algorithms applied to the 200 test profiles:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;MAE&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">absolute</span><span class="p">(</span><span class="n">toe</span><span class="o">-</span><span class="n">toe_ml</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span>
@@ -723,6 +672,86 @@
 </table>
 </div></div></div>
 </div>
+</div>
+</div>
+<div class="section" id="using-your-own-dataset">
+<h2>Using your own dataset<a class="headerlink" href="#using-your-own-dataset" title="Permalink to this headline">¶</a></h2>
+<p>Let say you want to investigate the dune toe prediction on your own set of data. You will have to load it first in the notebooks (maybe as a <code class="docutils literal notranslate"><span class="pre">CSV</span></code> file).</p>
+<p>Here we will create a generic one supposed to be in one of the <strong>embayed beaches</strong> around Sydney:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># X-Z data</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span>
+<span class="n">z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">40</span><span class="p">),</span>
+                    <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span>
+                    <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">91</span><span class="p">)[</span><span class="mi">1</span><span class="p">:],</span>
+                    <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">20</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We then run the different methods available in <strong>pybeach</strong> using the <code class="docutils literal notranslate"><span class="pre">wave-embayed</span></code> model for the ML algorithm:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># instantiate</span>
+<span class="n">p</span> <span class="o">=</span> <span class="n">Profile</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">z</span><span class="p">)</span>
+
+<span class="c1"># Predict dune toe location</span>
+<span class="n">toe_ml</span><span class="p">,</span> <span class="n">prob_ml</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">predict_dunetoe_ml</span><span class="p">(</span><span class="s1">&#39;wave_embayed_clf&#39;</span><span class="p">)</span> <span class="c1"># use the machine learning (ML) method</span>
+<span class="n">toe_mc</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">predict_dunetoe_mc</span><span class="p">()</span> <span class="c1"># use the maximum curvature (MC) method</span>
+<span class="n">toe_rr</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">predict_dunetoe_rr</span><span class="p">()</span> <span class="c1"># use the relative relief (RR) method</span>
+<span class="n">toe_pd</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">predict_dunetoe_pd</span><span class="p">()</span> <span class="c1"># use the perpendicular distance (PD) method</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can now simply plot the position of the dune town and the probability distribution across the length of our profile</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Predict shoreline and dune crest location</span>
+<span class="n">crest</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">predict_dunecrest</span><span class="p">()</span>
+<span class="n">shoreline</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">predict_shoreline</span><span class="p">()</span>
+
+<span class="n">n</span><span class="o">=</span><span class="mi">0</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+<span class="n">toes</span> <span class="o">=</span> <span class="p">[</span><span class="n">toe_ml</span><span class="p">[</span><span class="n">n</span><span class="p">],</span> <span class="n">toe_mc</span><span class="p">[</span><span class="n">n</span><span class="p">],</span> <span class="n">toe_rr</span><span class="p">[</span><span class="n">n</span><span class="p">],</span> <span class="n">toe_pd</span><span class="p">[</span><span class="n">n</span><span class="p">]]</span>
+
+<span class="n">labels</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Machine learning&#39;</span><span class="p">,</span> <span class="s1">&#39;Maximum curvature&#39;</span><span class="p">,</span> <span class="s1">&#39;Relative relief&#39;</span><span class="p">,</span> <span class="s1">&#39;Perpendicular distance&#39;</span><span class="p">]</span>
+<span class="n">colors</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;tomato&#39;</span><span class="p">,</span> <span class="s1">&#39;cornflowerblue&#39;</span><span class="p">,</span> <span class="s1">&#39;gold&#39;</span><span class="p">,</span> <span class="s1">&#39;limegreen&#39;</span><span class="p">]</span>
+
+<span class="n">axes</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="s1">&#39;-k&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="o">.</span><span class="n">fill_between</span><span class="p">([</span><span class="mi">70</span><span class="p">,</span> <span class="mi">100</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">y2</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;lightskyblue&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">axes</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">y2</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;cornsilk&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">axes</span><span class="o">.</span><span class="n">axvspan</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="o">-</span><span class="mi">9</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;tomato&#39;</span><span class="p">,</span> <span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.6</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;ML Toe probability&#39;</span><span class="p">)</span> <span class="c1"># legend placeholder</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">itoe</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">toes</span><span class="p">):</span> 
+    <span class="n">axes</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">itoe</span><span class="p">],</span> <span class="n">z</span><span class="p">[</span><span class="n">itoe</span><span class="p">],</span>
+              <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">colors</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">ms</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">mec</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">labels</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+<span class="n">axes</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">crest</span><span class="p">[</span><span class="n">n</span><span class="p">]],</span> <span class="n">z</span><span class="p">[</span><span class="n">crest</span><span class="p">[</span><span class="n">n</span><span class="p">]],</span> <span class="s1">&#39;v&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">ms</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">mec</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Crest&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">shoreline</span><span class="p">[</span><span class="n">n</span><span class="p">]],</span> <span class="n">z</span><span class="p">[</span><span class="n">shoreline</span><span class="p">[</span><span class="n">n</span><span class="p">]],</span> <span class="s1">&#39;^&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">ms</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">mec</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Shoreline&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">axes</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
+<span class="n">axes</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Example profile&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Cross-shore distance (m)&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Elevation (m)&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+<span class="n">axes</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">framealpha</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># Plot dune toe ML probability</span>
+<span class="n">axes2</span> <span class="o">=</span> <span class="n">axes</span><span class="o">.</span><span class="n">twinx</span><span class="p">()</span> 
+<span class="n">axes2</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">prob_ml</span><span class="p">[</span><span class="n">n</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;tomato&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">axes2</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
+<span class="n">axes2</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+<span class="n">axes2</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="n">labelcolor</span><span class="o">=</span><span class="s1">&#39;tomato&#39;</span><span class="p">)</span>
+<span class="n">axes2</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">set_label_coords</span><span class="p">(</span><span class="mf">1.1</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">)</span>
+<span class="n">axes2</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Toe probability&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;tomato&#39;</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">270</span><span class="p">);</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/pybeach_18_0.svg" src="../_images/pybeach_18_0.svg" /></div>
+</div>
+<p>As simple as that!</p>
 </div>
 </div>
 
