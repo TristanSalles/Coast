@@ -766,15 +766,17 @@ At terminal settling velocity, the particle **Re** is defined as:
 <div class="section" id="drag-coefficient">
 <h3>Drag coefficient<a class="headerlink" href="#drag-coefficient" title="Permalink to this headline">¶</a></h3>
 <blockquote>
-**$C_d$** is essentially a dimensionless version of the drag force:
+$C_d$ is essentially a dimensionless version of the drag force:
 <div class="math notranslate nohighlight">
 \[C_d=\frac{2F_d}{\rho_f w^2 A}=\frac{8 F_d}{\rho_f w^2 \pi d^2}\]</div>
 <p><span class="math notranslate nohighlight">\(d\)</span> is the particle diameter, <span class="math notranslate nohighlight">\(A\)</span> is the reference area,  for a sphere <span class="math notranslate nohighlight">\(A=\pi r^2\)</span>, (note this is not the surface area <span class="math notranslate nohighlight">\(=4\pi r^2\)</span>).</p>
-<p>At terminal velocity, the gravitational force <span class="math notranslate nohighlight">\(F_g\)</span> equals the drag force <span class="math notranslate nohighlight">\(F_d\)</span>. That is
-<span class="math notranslate nohighlight">\(F_d=F_g\)</span>
-and the gravitational force is given by the submerged weight of the grain:
-$<span class="math notranslate nohighlight">\(F_g=(\rho_p-\rho_f)\frac{4}{3}\pi r^3 g=(\rho_p-\rho_f)\frac{4}{3}\pi \left(\frac{d}{2}\right)^3 g\)</span><span class="math notranslate nohighlight">\(
-where \)</span>\rho_p<span class="math notranslate nohighlight">\( &amp; \)</span>\rho_f<span class="math notranslate nohighlight">\( are the density of particle and the fluid respectively in kg/m3, \)</span>r$ is the radius of the sphere representing the idealised particle.</p>
+<p>At terminal velocity, the gravitational force <span class="math notranslate nohighlight">\(F_g\)</span> equals the drag force <span class="math notranslate nohighlight">\(F_d\)</span>. That is</p>
+<div class="math notranslate nohighlight">
+\[F_d=F_g\]</div>
+<p>and the gravitational force is given by the submerged weight of the grain:</p>
+<div class="math notranslate nohighlight">
+\[F_g=(\rho_p-\rho_f)\frac{4}{3}\pi r^3 g=(\rho_p-\rho_f)\frac{4}{3}\pi \left(\frac{d}{2}\right)^3 g\]</div>
+<p>where <span class="math notranslate nohighlight">\(\rho_p\)</span> and <span class="math notranslate nohighlight">\(\rho_f\)</span> are the density of particle and the fluid respectively in kg/m3, <span class="math notranslate nohighlight">\(r\)</span> is the radius of the sphere representing the idealised particle.</p>
 </blockquote>
 <p>Using these relationships it is possible to generate the plot of <strong>drag coefficient vs. Reynolds number</strong>.</p>
 <div class="cell docutils container">
