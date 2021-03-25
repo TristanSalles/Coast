@@ -453,6 +453,13 @@
 <div style="text-align: center; margin-bottom: 2em;">
 <iframe width="100%" height="350" src="https://www.youtube.com/embed/9s9kkQu2JZg?rel=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </div></div>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p>Check-out this <a class="reference external" href="https://youtu.be/U9EhVa4MmEs">video</a> on the process of longshore drift and beach drift.</p>
+</div>
+</div>
 <p>As we have seen in the previous video, one-line models of shoreline evolution can reproduce embayed beach morphology in the lee of a headland or promontory. They are based on simple rules to describe the adjustment in wave height and direction due to diffraction in the shadow of a promontory and demonstrated that the resulting bay forms were similar in form to a logarithmic spiral.</p>
 <a class="reference internal image-reference" href="../_images/cove2.jpg"><img alt="longshore drift" class="align-center" src="../_images/cove2.jpg" style="width: 80%;" /></a>
 <p>In one-line models, the shoreline is represented by a single line (or contour) that advances or retreats depending on the net alongshore sediment flux. One-line models make a number of simplifying assumptions to conceptualise the coastline allowing the ‘one-line’ representation of the coastline:</p>
@@ -467,6 +474,13 @@
 \[
 Q_{ls} = K_{ls} H_b^{5/2} sin(2\alpha_b)
 \]</div>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p>Check-out this <a class="reference external" href="https://youtu.be/Fe9YBuK_qEo">video</a> on the formation of spits.</p>
+</div>
+</div>
 <p>where <span class="math notranslate nohighlight">\(K_{ls}\)</span> is a transport coefficient. The transport coefficient <span class="math notranslate nohighlight">\(K_{ls}\)</span> may be modified to account for the size of beach material (<span class="math notranslate nohighlight">\(D_{50}\)</span>). Calibration of this coefficient can be made from estimates of bulk alongshore transport or by calibration against a historical record of coastal change (<em>e.g.</em> <a class="reference external" href="http://www.earth-surf-dynam.net/2/295/2014/esurf-2-295-2014.html">Barkwith et al. (2014)</a>).</p>
 </div>
 <div class="section" id="analysing-shoreline-changes">
@@ -479,6 +493,13 @@ Q_{ls} = K_{ls} H_b^{5/2} sin(2\alpha_b)
 <p>Satellite remote sensing can provide low-cost long-term shoreline data capable of analysing multi-decadal temporal changes relevant to coastal scientists and engineers at sites where no in-situ field measurements are available.</p>
 </div>
 <p><a class="reference external" href="https://github.com/kvos/CoastSat">CoastSat</a> is an example of such open-source package developed at the Water Research Laboratory in Manly that can be used to obtain time-series of shoreline position at any coastline worldwide from 30+ years (and growing) of publicly available satellite imagery.</p>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference external" href="http://coastsat.wrl.unsw.edu.au">CoastSat</a> webGIS map can be used to query and analyse beach changes.</p>
+</div>
+</div>
 <p>It enables the non-expert user to extract shorelines from Landsat 5, Landsat 7, Landsat 8 and Sentinel-2 images. The shoreline detection algorithm implemented in <strong>CoastSat</strong> is optimised for sandy beach coastlines. It combines a sub-pixel border segmentation and an image classification component, which refines the segmentation into four distinct categories such that the shoreline detection is specific to the sand/water interface.</p>
 <div style="text-align: center; margin-bottom: 2em;">
     <iframe width="100%" height="450" src="https://www.youtube.com/embed/YK_d08BHids?rel=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -507,53 +528,59 @@ Q_{ls} = K_{ls} H_b^{5/2} sin(2\alpha_b)
 </div>
 <div class="section" id="regional-scale-models">
 <h2>Regional scale models<a class="headerlink" href="#regional-scale-models" title="Permalink to this headline">¶</a></h2>
-<p>Many complex models exist to evaluate the complex interactions between ocean hydrodynamics and sediment transport like <code class="docutils literal notranslate"><span class="pre">XBeach</span> <span class="pre">&lt;http://oss.deltares.nl/web/xbeach/&gt;</span></code><em>, <code class="docutils literal notranslate"><span class="pre">ROMS</span> <span class="pre">&lt;https://www.myroms.org&gt;</span></code></em>, <code class="docutils literal notranslate"><span class="pre">Delft3d</span> <span class="pre">&lt;https://oss.deltares.nl/web/delft3d&gt;</span></code><em>, <code class="docutils literal notranslate"><span class="pre">FVCOM</span> <span class="pre">&lt;http://fvcom.smast.umassd.edu&gt;</span></code></em> to cite a few.</p>
+<p>Many complex models exist to evaluate the complex interactions between ocean hydrodynamics and sediment transport like <a class="reference external" href="http://oss.deltares.nl/web/xbeach/">XBeach</a>, <a class="reference external" href="https://www.myroms.org">ROMS</a>, <a class="reference external" href="https://oss.deltares.nl/web/delft3d">Delft3d</a>, <a class="reference external" href="http://fvcom.smast.umassd.edu">FVCOM</a> to cite a few.</p>
 <div class="figure align-center" id="id2">
 <a class="reference internal image-reference" href="../_images/zone.jpg"><img alt="nearshore" src="../_images/zone.jpg" style="width: 90%;" /></a>
 <p class="caption"><span class="caption-number">Fig. 19 </span><span class="caption-text">Nearshore zonation.</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
 </div>
-<p>As an example, the nearshore wave propagation model <code class="docutils literal notranslate"><span class="pre">XBeach</span> <span class="pre">&lt;http://oss.deltares.nl/web/xbeach/&gt;</span></code>_ solves coupled 2D horizontal equations for wave propagation, flow, sediment transport and bottom changes, for varying (spectral) wave and flow boundary conditions. It is a public-domain model that can be used as stand-alone model for small-scale (project-scale) coastal applications, but could also be integrated within more complex coupling frameworks. For example, it could be driven by boundary conditions provided by wind, wave or surge models and its main outputs (time-varying bathymetry and possibly discharges over breached barrier island sections) could be then transferred back.</p>
-<p>…  admonition:: Wave transformation and sediment transport during storm
-:class: toggle, important</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>.. image:: https://mybinder.org/badge_logo.svg
-  :target: https://mybinder.org/v2/gh/TristanSalles/CoastProc/xbeach?urlpath=tree/CoastProc/Notebooks/notebooks/DelflandStorm/Delfland.ipynb
-
-Here you will run a `XBeach &lt;http://oss.deltares.nl/web/xbeach/&gt;`_ model using a profile along the Dutch coast and by imposing the waves boundary condition based on the 1953 storm surge that caused substantial flooding in the Netherlands.
-</pre></div>
+<p>As an example, the nearshore wave propagation model <a class="reference external" href="http://oss.deltares.nl/web/xbeach/">XBeach</a> solves coupled 2D horizontal equations for wave propagation, flow, sediment transport and bottom changes, for varying (spectral) wave and flow boundary conditions.</p>
+<p>It is a public-domain model that can be used as stand-alone model for small-scale (project-scale) coastal applications, but could also be integrated within more complex coupling frameworks. For example, it could be driven by boundary conditions provided by wind, wave or surge models and its main outputs (time-varying bathymetry and possibly discharges over breached barrier island sections) could be then transferred back.</p>
+<div class="toggle important admonition">
+<p class="admonition-title">Wave transformation and sediment transport during storm</p>
+<a class="reference external image-reference" href="https://mybinder.org/v2/gh/TristanSalles/CoastProc/xbeach?urlpath=tree/CoastProc/Notebooks/notebooks/DelflandStorm/Delfland.ipynb"><img alt="https://mybinder.org/badge_logo.svg" src="https://mybinder.org/badge_logo.svg" /></a>
+<p>This link opens a Jupyter Notebook that can be used to <a class="reference external" href="http://oss.deltares.nl/web/xbeach/">XBeach</a> model using a cross profile along the Dutch coast by imposing the waves boundary conditions based on the 1953 storm surge that caused substantial flooding in the Netherlands.</p>
 </div>
-<p>Now, we will look at a more simple approach based on a <strong>reduced complexity model</strong> that adopts the most basic known principles of wave motion, <em>i.e.</em>, the linear wave theory (Airy derived <code class="docutils literal notranslate"><span class="pre">wave</span> <span class="pre">parameters</span> <span class="pre">description</span> <span class="pre">&lt;https://en.wikipedia.org/wiki/Airy_wave_theory&gt;</span></code>_). Wave celerity :math:<code class="docutils literal notranslate"><span class="pre">c</span></code> is governed by:</p>
-<p>… math::
-c = \sqrt{\frac{g}{\kappa} tanh , \kappa d}</p>
-<p>where :math:<code class="docutils literal notranslate"><span class="pre">g</span></code> is the gravitational acceleration, :math:<code class="docutils literal notranslate"><span class="pre">\kappa</span></code> the radian wave number (equal to :math:<code class="docutils literal notranslate"><span class="pre">2\pi/L</span></code>, with :math:<code class="docutils literal notranslate"><span class="pre">L</span></code> the wave length), and :math:<code class="docutils literal notranslate"><span class="pre">d</span></code> is the water depth.</p>
-<p>In deep water, the celerity is dependent only on wave length :math:<code class="docutils literal notranslate"><span class="pre">\sqrt{gL/2\pi}</span></code>; in shallow water, it depends on depth (:math:<code class="docutils literal notranslate"><span class="pre">\sqrt{gd}</span></code>).</p>
+<p>Now, we will look at a more simple approach based on a <strong>reduced complexity model</strong> that adopts the most basic known principles of wave motion, <em>i.e.</em>, the linear wave theory (Airy derived <a class="reference external" href="https://en.wikipedia.org/wiki/Airy_wave_theory">wave parameters description</a>). Wave celerity <span class="math notranslate nohighlight">\(c\)</span> is governed by:</p>
+<div class="math notranslate nohighlight">
+\[
+c = \sqrt{\frac{g}{\kappa} tanh \, \kappa d}
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(g\)</span> is the gravitational acceleration, <span class="math notranslate nohighlight">\(\kappa\)</span> the radian wave number (equal to <span class="math notranslate nohighlight">\(2\pi/L\)</span>, with <span class="math notranslate nohighlight">\(L\)</span> the wave length), and <span class="math notranslate nohighlight">\(d\)</span> is the water depth.</p>
+<p>In deep water, the celerity is dependent only on wave length <span class="math notranslate nohighlight">\(\sqrt{gL/2\pi}\)</span>; in shallow water, it depends on depth (<span class="math notranslate nohighlight">\(\sqrt{gd}\)</span>).</p>
 <p>From wave celerity and wave length, we calculate wave front propagation (including refraction) based on a <strong>Huygens-principle</strong> method.</p>
-<p>…  admonition:: Wave diffraction &amp; refraction
-:class: toggle</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>.. raw:: html
-
-    &lt;div style=&quot;text-align: center; margin-bottom: 2em;&quot;&gt;
-    &lt;iframe width=&quot;100%&quot; height=&quot;350&quot; src=&quot;https://www.youtube.com/embed/KvOJ0o6Eqw4?rel=0&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen&gt;&lt;/iframe&gt;
-    &lt;/div&gt;
-</pre></div>
-</div>
+<div class="toggle note admonition">
+<p class="admonition-title">Wave diffraction &amp; refraction</p>
+<div style="text-align: center; margin-bottom: 2em;">
+<iframe width="100%" height="350" src="https://www.youtube.com/embed/KvOJ0o6Eqw4?rel=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div></div>
 <p>From this, we deduce the wave travel time and define main wave-induced current directions from lines perpendicular to the wave front. Wave height is then calculated along wave front propagation. The algorithm takes into account wave energy dissipation in shallow environment as well as wave-breaking conditions.</p>
 <p>As mentioned above, shoaling and refraction are accounted for from a series of deep-water wave conditions through time in the absence of wind forcing. Hence to compute wave field generation, the model requires <strong>bathymetric conditions</strong> and definitions of offshore significant <strong>wave height</strong>, characteristic <strong>period</strong>, and wave <strong>direction</strong>.</p>
-<p>… note::
-To evaluate marine sediment transport over several thousands of years, the approach taken here does not examine temporal evolving wave fields, such as those produced during storm events and relies on stationary representation of prevailing fair-weather wave conditions. The wave transformation model is generally performed for time intervals varying from 5 to 50 years.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>To evaluate marine sediment transport over several thousands of years, the approach taken here does not examine temporal evolving wave fields, such as those produced during storm events and relies on stationary representation of prevailing fair-weather wave conditions. The wave transformation model is generally performed for time intervals varying from 5 to 50 years.</p>
+</div>
 <p>The model simulates realistic wave fields by imposing a sequence of wave forcing conditions. At any given time interval, we define a percentage of activity for each deep-water wave conditions and the bathymetry is used to compute associated wave parameters.</p>
-<p>To simulate wave-induced sediment transport, it is necessary to model the <strong>water movement near the bottom</strong>. The wave height :math:<code class="docutils literal notranslate"><span class="pre">H</span></code> and the wave period :math:<code class="docutils literal notranslate"><span class="pre">T</span></code> govern the maximum wave-orbital speed :math:<code class="docutils literal notranslate"><span class="pre">u_{w,b}</span></code> at the bed at any given depth and is expressed using the <strong>linear wave theory</strong> as:</p>
-<p>… math::
-u_{w,b} = \frac{\pi H}{T sinh \kappa d}</p>
+<p>To simulate wave-induced sediment transport, it is necessary to model the <strong>water movement near the bottom</strong>. The wave height <span class="math notranslate nohighlight">\(H\)</span> and the wave period <span class="math notranslate nohighlight">\(T\)</span> govern the maximum wave-orbital speed <span class="math notranslate nohighlight">\(u_{w,b}\)</span> at the bed at any given depth and is expressed using the <strong>linear wave theory</strong> as:</p>
+<div class="math notranslate nohighlight">
+\[
+u_{w,b} = \frac{\pi H}{T sinh \kappa d}
+\]</div>
 <p>assuming the linear shallow water approximation (Soulsby), the expression is further simplified as:</p>
-<p>… math::
-u_{w,b} = (H/2) \sqrt{g/d}</p>
-<p>Under pure waves (<em>i.e.</em>, no superimposed current), the wave-induced bed shear stress :math:<code class="docutils literal notranslate"><span class="pre">\tau_{w}</span></code> is typically defined as a quadratic bottom friction:</p>
-<p>… math::
-\tau_{w} = \frac{1}{2} \rho f_w u_{w,b}^2</p>
-<p>with :math:<code class="docutils literal notranslate"><span class="pre">rho</span></code> the water density and :math:<code class="docutils literal notranslate"><span class="pre">f_w</span></code> is the wave friction factor. Considering that the wave friction factor is only dependent of the bed roughness :math:<code class="docutils literal notranslate"><span class="pre">k_b</span></code> relative to the wave-orbital semi-excursion at the bed :math:<code class="docutils literal notranslate"><span class="pre">A_b</span></code> (Soulsby), we define:</p>
-<p>… math::
-f_{w} = 1.39 (A_b/k_b)^{-0.52}</p>
-<p>where :math:<code class="docutils literal notranslate"><span class="pre">A_b</span> <span class="pre">=</span> <span class="pre">u_{w,b}T/2\pi</span></code> and :math:<code class="docutils literal notranslate"><span class="pre">k_b</span> <span class="pre">=</span> <span class="pre">2\pi</span> <span class="pre">d_{50}/12</span></code>, with :math:<code class="docutils literal notranslate"><span class="pre">d_{50}</span></code> median sediment grain-size at the bed.</p>
+<div class="math notranslate nohighlight">
+\[
+u_{w,b} = (H/2) \sqrt{g/d}
+\]</div>
+<p>Under pure waves (<em>i.e.</em>, no superimposed current), the wave-induced bed shear stress <span class="math notranslate nohighlight">\(\tau_{w}\)</span> is typically defined as a quadratic bottom friction:</p>
+<div class="math notranslate nohighlight">
+\[
+\tau_{w} = \frac{1}{2} \rho f_w u_{w,b}^2
+\]</div>
+<p>with <span class="math notranslate nohighlight">\(rho\)</span> the water density and <span class="math notranslate nohighlight">\(f_w\)</span> is the wave friction factor. Considering that the wave friction factor is only dependent of the bed roughness <span class="math notranslate nohighlight">\(k_b\)</span> relative to the wave-orbital semi-excursion at the bed <span class="math notranslate nohighlight">\(A_b\)</span> (Soulsby), we define:</p>
+<div class="math notranslate nohighlight">
+\[
+f_{w} = 1.39 (A_b/k_b)^{-0.52}
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(A_b = u_{w,b}T/2\pi\)</span> and <span class="math notranslate nohighlight">\(k_b = 2\pi d_{50}/12\)</span>, with <span class="math notranslate nohighlight">\(d_{50}\)</span> median sediment grain-size at the bed.</p>
 <p>For each forcing conditions, the wave transformation model computes and returns:</p>
 <ul class="simple">
 <li><p>the significant wave height,</p></li>
@@ -561,46 +588,47 @@ f_{w} = 1.39 (A_b/k_b)^{-0.52}</p>
 <li><p>the shear stress induced by the maxima of the orbital velocity near the bottom.</p></li>
 </ul>
 <p>These parameters are subsequently used to evaluate the <strong>long-term sediment transport</strong> active over the simulated region.</p>
-<p>… figure:: …/_static/wavesed1.jpg
-:width: 80 %
-:alt: nearshore
-:align: center</p>
-<p>Wave rays approaching shallow regions.</p>
-<p>In nearshore environments, longshore current runs parallel to the shore and is generated by the radiation stresses associated with the breaking process from obliquely incoming waves and by the surplus water which is carried across the breaker zone towards the shoreline <code class="docutils literal notranslate"><span class="pre">(Hurst</span> <span class="pre">et</span> <span class="pre">al.,</span> <span class="pre">2015)</span> <span class="pre">&lt;http://onlinelibrary.wiley.com/doi/10.1002/2015JF003704/abstract&gt;</span></code>_. This current significantly contributes to sediment transport in nearshore waters.</p>
-<p>Following Komar, the longshore current velocity (:math:<code class="docutils literal notranslate"><span class="pre">\vec{v_l}</span></code>) in the middle of the breaking zone is defined by:</p>
-<p>… math::
-\vec{v_l} = \kappa_l u_{w,b} cos(\theta) sin(\theta) \vec{k}</p>
-<p>with :math:<code class="docutils literal notranslate"><span class="pre">\theta</span></code> the angle of incidence of the incoming waves, :math:<code class="docutils literal notranslate"><span class="pre">\kappa_l</span></code> a scaling parameter and :math:<code class="docutils literal notranslate"><span class="pre">\vec{k}</span></code> the unit vector parallel to the breaking depth contour.</p>
+<div class="figure align-center" id="id3">
+<a class="reference internal image-reference" href="../_images/wavesed1.jpg"><img alt="nearshore" src="../_images/wavesed1.jpg" style="width: 80%;" /></a>
+<p class="caption"><span class="caption-number">Fig. 20 </span><span class="caption-text">Wave rays approaching shallow regions.</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
+</div>
+<p>In nearshore environments, longshore current runs parallel to the shore and is generated by the radiation stresses associated with the breaking process from obliquely incoming waves and by the surplus water which is carried across the breaker zone towards the shoreline <a class="reference external" href="http://onlinelibrary.wiley.com/doi/10.1002/2015JF003704/abstract">Hurst et al., 2015</a>. This current significantly contributes to sediment transport in nearshore waters.</p>
+<p>Following Komar, the longshore current velocity (<span class="math notranslate nohighlight">\(\vec{v_l}\)</span>) in the middle of the breaking zone is defined by:</p>
+<div class="math notranslate nohighlight">
+\[
+\vec{v_l} = \kappa_l u_{w,b} cos(\theta) sin(\theta) \vec{k}
+\]</div>
+<p>with <span class="math notranslate nohighlight">\(\theta\)</span> the angle of incidence of the incoming waves, <span class="math notranslate nohighlight">\(\kappa_l\)</span> a scaling parameter and <span class="math notranslate nohighlight">\(\vec{k}\)</span> the unit vector parallel to the breaking depth contour.</p>
 <p>For wave rays approaching shallow regions at on oblique angle, the component of wave energy flux parallel to the shore will drives this longshore velocity. The calculation of the angle of incidence is deduced from bathymetric contour and wave directions (obtained from the wave transformation model) and requires an estimate of wave breaking depth (user defined parameter <em>wavebase</em>).</p>
-<p>From the definition of bed sediment mean grain size, the adimensional particle parameter :math:<code class="docutils literal notranslate"><span class="pre">d_\star</span></code> is first derived:</p>
-<p>… math::
-d_\star = d_{50} \left[ \left( s-1 \right) \frac{g}{\nu^2} \right]^{1/3}</p>
-<p>where :math:<code class="docutils literal notranslate"><span class="pre">s=\rho_s/\rho</span></code> is the relative density and :math:<code class="docutils literal notranslate"><span class="pre">\nu</span></code> the kinematic viscosity. Then the threshold Shields parameter :math:<code class="docutils literal notranslate"><span class="pre">\theta_c</span></code> is calculated based on Van Rijn formulation.</p>
-<p>… math::
-\begin{cases}
-\theta_c = 0.24/d_\star &amp; \text{if } \theta_c \leq 4\
-\theta_c = 0.14 d_\star^{-0.64} &amp; \text{if } 10 \geq \theta_c &gt; 4\
-\theta_c = 0.04 d_\star^{-0.1} &amp; \text{if } 20 \geq \theta_c &gt; 10\
-\theta_c = 0.013 d_\star^{0.29} &amp; \text{if } 150 \geq \theta_c &gt; 20\
+<p>From the definition of bed sediment mean grain size, the adimensional particle parameter <span class="math notranslate nohighlight">\(d_\star\)</span> is first derived:</p>
+<div class="math notranslate nohighlight">
+\[
+d_\star = d_{50} \left[ \left( s-1 \right) \frac{g}{\nu^2} \right]^{1/3}
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(s=\rho_s/\rho\)</span> is the relative density and <span class="math notranslate nohighlight">\(\nu\)</span> the kinematic viscosity. Then the threshold Shields parameter <span class="math notranslate nohighlight">\(\theta_c\)</span> is calculated based on Van Rijn formulation.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{cases}
+\theta_c = 0.24/d_\star &amp; \text{if } \theta_c \leq 4\\
+\theta_c = 0.14 d_\star^{-0.64} &amp; \text{if } 10 \geq \theta_c &gt; 4\\
+\theta_c = 0.04 d_\star^{-0.1} &amp; \text{if } 20 \geq \theta_c &gt; 10\\
+\theta_c = 0.013 d_\star^{0.29} &amp; \text{if } 150 \geq \theta_c &gt; 20\\
 \theta_c = 0.055 &amp; \text{if } \theta_c &gt; 150
-\end{cases}</p>
-<p>In regions where wave-induced shear stress is greater than the critical shear stress derived from the Shields parameter (:math:<code class="docutils literal notranslate"><span class="pre">\tau_c</span> <span class="pre">=</span> <span class="pre">\theta_c</span> <span class="pre">gd_{50}(\rho_s-\rho_w)</span></code>), bed sediments are entrained. The erosion thickness :math:<code class="docutils literal notranslate"><span class="pre">h_e</span></code> is limited to the top sedimentary layer and for simplicity is assumed to follow a logarithmic form:</p>
-<p>… math::
-h_e = C_e \ln(\tau_w/\tau_c) \textrm{ where } \tau_w &gt; \tau_c</p>
-<p>where :math:<code class="docutils literal notranslate"><span class="pre">C_e</span></code> is an entrainment coefficient controlling the relationship between shear stress and erosion rate. Once entrained, sediments are transported following the direction of longshore currents and are deposited in regions where wave shear stress is lower than the critical shear stress for entrainment.</p>
-<p>… figure:: …/_static/wavesed2.jpg
-:width: 90 %
-:alt: nearshore
-:align: center</p>
-<p>Example of outputs from the reduced complexity model.</p>
+\end{cases}\end{split}\]</div>
+<p>In regions where wave-induced shear stress is greater than the critical shear stress derived from the Shields parameter (<span class="math notranslate nohighlight">\(\tau_c = \theta_c gd_{50}(\rho_s-\rho_w)\)</span>), bed sediments are entrained. The erosion thickness <span class="math notranslate nohighlight">\(h_e\)</span> is limited to the top sedimentary layer and for simplicity is assumed to follow a logarithmic form:</p>
+<div class="math notranslate nohighlight">
+\[
+h_e = C_e \ln(\tau_w/\tau_c) \textrm{ where } \tau_w &gt; \tau_c
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(C_e\)</span> is an entrainment coefficient controlling the relationship between shear stress and erosion rate. Once entrained, sediments are transported following the direction of longshore currents and are deposited in regions where wave shear stress is lower than the critical shear stress for entrainment.</p>
+<div class="figure align-center" id="id4">
+<a class="reference internal image-reference" href="../_images/wavesed2.jpg"><img alt="nearshore" src="../_images/wavesed2.jpg" style="width: 90%;" /></a>
+<p class="caption"><span class="caption-number">Fig. 21 </span><span class="caption-text">Example of outputs from the reduced complexity model.</span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
+</div>
 <p>Marine sediments are further mobilised by a diffusion law similar to the one referred to as soil creep in the aerial domain to simulate long-term sediment dispersal induced by slope.</p>
-<p>…  admonition:: Long-term, reduced complexity model
-:class: toggle, important, toggle-shown</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>.. image:: https://mybinder.org/badge_logo.svg
-  :target: https://mybinder.org/v2/gh/TristanSalles/CoastProc/binder?urlpath=tree/Notebooks/notebooks/LongTerm/SedTransport.ipynb
-
-Click on the above button to run the described long-term model around Fraser Island.
-</pre></div>
+<div class="toggle important toggle-shown admonition">
+<p class="admonition-title">Long-term, reduced complexity model</p>
+<a class="reference external image-reference" href="https://mybinder.org/v2/gh/TristanSalles/Coast/main?urlpath=lab/tree/book/welcome.ipynb"><img alt="https://mybinder.org/badge_logo.svg" src="https://mybinder.org/badge_logo.svg" /></a>
+<p>This jupyter notebook (<a class="reference internal" href="sedtransport.html"><span class="doc std std-doc">SedTransport.ipynb</span></a>) allows to run the described long-term model around Fraser Island.</p>
 </div>
 </div>
 <div class="section" id="exercises-for-the-practical">
@@ -609,33 +637,22 @@ Click on the above button to run the described long-term model around Fraser Isl
 <div class="section" id="narrabeen-beach-survey-program">
 <h3>Narrabeen beach survey program<a class="headerlink" href="#narrabeen-beach-survey-program" title="Permalink to this headline">¶</a></h3>
 <p>You will need to download the practical information sheet available from Canvas.</p>
-<p>…  admonition:: Beach morphology changes due to wave climate
-:class: toggle, toggle-shown</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Cross-shore &amp; alongshore variation in beach morphology due to wave climate: storms to decades
-
-
-.. image:: https://mybinder.org/badge_logo.svg
-  :target: https://mybinder.org/v2/gh/TristanSalles/CoastProc/binder?urlpath=tree/Notebooks/notebooks/CoastalEvolution/InshoreWaves.ipynb
-
-Click above to extract nearshore waves from the Narrabeen dataset.
-
-.. image:: https://mybinder.org/badge_logo.svg
-  :target: https://mybinder.org/v2/gh/TristanSalles/CoastProc/binder?urlpath=tree/Notebooks/notebooks/CoastalEvolution/selectProfiles.ipynb
-
-Click above to get the profiles selection notebook and analyse Narrabeen Beach Profile Adjustment.
-</pre></div>
+<div class="toggle toggle-shown admonition">
+<p class="admonition-title">Beach morphology changes due to wave climate</p>
+<p>The following Jupyter notebooks will help you analyse cross-shore &amp; alongshore variations in beach morphology due to wave climate (storms to decades).</p>
+<a class="reference external image-reference" href="https://mybinder.org/v2/gh/TristanSalles/Coast/main?urlpath=lab/tree/book/welcome.ipynb"><img alt="https://mybinder.org/badge_logo.svg" src="https://mybinder.org/badge_logo.svg" /></a>
+<p><a class="reference internal" href="inshorewaves.html"><span class="doc std std-doc">InshoreWaves.ipynb</span></a> is used to extract nearshore waves from the Narrabeen dataset.</p>
+<a class="reference external image-reference" href="https://mybinder.org/v2/gh/TristanSalles/Coast/main?urlpath=lab/tree/book/welcome.ipynb"><img alt="https://mybinder.org/badge_logo.svg" src="https://mybinder.org/badge_logo.svg" /></a>
+<p><a class="reference internal" href="selectprofiles.html"><span class="doc std std-doc">selectProfiles.ipynb</span></a> will help you to analyse Narrabeen Beach Profile Adjustment.</p>
 </div>
 </div>
 <div class="section" id="longshore-drift-model">
 <h3>Longshore drift model<a class="headerlink" href="#longshore-drift-model" title="Permalink to this headline">¶</a></h3>
 <p>You will need to download the practical information sheet available from Canvas.</p>
-<p>…  admonition:: Sensitivities of crenulate bay shorelines to wave climates.
-:class: toggle, toggle-shown</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>.. image:: https://mybinder.org/badge_logo.svg
-  :target: https://mybinder.org/v2/gh/TristanSalles/CoastProc/binder?urlpath=tree/Notebooks/notebooks/CoastalEvolution/BaySensitivity.ipynb
-
-Use the link above to access the one-line model COVE from `Hurst et al. (2015) &lt;http://onlinelibrary.wiley.com/doi/10.1002/2015JF003704/abstract&gt;`_.
-</pre></div>
+<div class="toggle toggle-shown admonition">
+<p class="admonition-title">Sensitivities of crenulate bay shorelines to wave climates.</p>
+<a class="reference external image-reference" href="https://mybinder.org/v2/gh/TristanSalles/Coast/main?urlpath=lab/tree/book/welcome.ipynb"><img alt="https://mybinder.org/badge_logo.svg" src="https://mybinder.org/badge_logo.svg" /></a>
+<p><a class="reference internal" href="baysensitivity.html"><span class="doc std std-doc">BaySensitivity.ipynb</span></a> will run the one-line model COVE from <a class="reference external" href="http://onlinelibrary.wiley.com/doi/10.1002/2015JF003704/abstract">Hurst et al. (2015)</a>.</p>
 </div>
 </div>
 </div>
@@ -643,32 +660,27 @@ Use the link above to access the one-line model COVE from `Hurst et al. (2015) &
 <h2>Miscellaneous<a class="headerlink" href="#miscellaneous" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="grain-settling-velocity">
 <h3>Grain settling velocity<a class="headerlink" href="#grain-settling-velocity" title="Permalink to this headline">¶</a></h3>
-<p>… image:: <a class="reference external" href="https://mybinder.org/badge_logo.svg">https://mybinder.org/badge_logo.svg</a>
-:target: <a class="reference external" href="https://mybinder.org/v2/gh/TristanSalles/CoastProc/binder?urlpath=tree/Notebooks/notebooks/BeachProcesses/GrainSettling.ipynb">https://mybinder.org/v2/gh/TristanSalles/CoastProc/binder?urlpath=tree/Notebooks/notebooks/BeachProcesses/GrainSettling.ipynb</a></p>
-<p>Grain settling is one of the most important problems in sedimentology (and therefore marine processes modelling), as neither sediment transport nor deposition can be understood and modelled without knowing what is the <strong>settling velocity</strong> of a particle of a certain grain size.</p>
+<a class="reference external image-reference" href="https://mybinder.org/v2/gh/TristanSalles/CoastProc/binder?urlpath=tree/Notebooks/notebooks/BeachProcesses/GrainSettling.ipynb"><img alt="https://mybinder.org/badge_logo.svg" src="https://mybinder.org/badge_logo.svg" /></a>
+<p>Grain settling (<a class="reference internal" href="grainsettling.html"><span class="doc std std-doc">GrainSettling.ipynb</span></a>) is one of the most important problems in sedimentology (and therefore marine processes modelling), as neither sediment transport nor deposition can be understood and modelled without knowing what is the <strong>settling velocity</strong> of a particle of a certain grain size.</p>
 </div>
 <div class="section" id="testing-beach-nourishment-scenarios">
 <h3>Testing beach nourishment scenarios<a class="headerlink" href="#testing-beach-nourishment-scenarios" title="Permalink to this headline">¶</a></h3>
-<p>… figure:: …/_static/nourish.png
-:width: 80 %
-:alt: nearshore
-:align: center</p>
-<p>South Narrabeen March 2009: sand nourishment of Australia Surfing beaches. Coastalwatch article from <code class="docutils literal notranslate"><span class="pre">Andrew</span> <span class="pre">Short</span> <span class="pre">&lt;https://www.coastalwatch.com/environment/5411/sand-nourishment-of-australia-s-iconic-surfing-beaches&gt;</span></code>_.</p>
-<p>In this exercise, you will explore different nourishment strategies using <code class="docutils literal notranslate"><span class="pre">XBeach</span> <span class="pre">&lt;http://oss.deltares.nl/web/xbeach/&gt;</span></code>_ to estimate how they can reduce the (dune and beach) erosion during a storm event.</p>
-<p>…  admonition:: Getting Jupyter Notebooks
-:class: toggle, important, toggle-shown</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>The required dataset for this exercise are located in the NourishmentCase folder and consist in 4 scenarios:
-
-1. *Reference Model*: undisturbed profile
-2. *Shoreface Model*: shoreface nourishment
-3. *Beach Model*: beach nourishment
-4. *Banquette Model*: special type of beach nourishment where a highly elevated flat area connected to the foot dune on which beach restaurants can be build
-
-.. image:: https://mybinder.org/badge_logo.svg
-  :target: https://mybinder.org/v2/gh/TristanSalles/CoastProc/xbeach?urlpath=tree/CoastProc/Notebooks/notebooks/NourishmentCase
-
-Each of these scenarios is run using the associated IPython Notebook. (*RefModel.ipynb*, *ShorefaceModel.ipynb*, *BeachModel.ipynb* and *BanquetteModel.ipynb* respectively).
-</pre></div>
+<div class="figure align-center" id="id5">
+<a class="reference internal image-reference" href="../_images/nourish.png"><img alt="nearshore" src="../_images/nourish.png" style="width: 80%;" /></a>
+<p class="caption"><span class="caption-number">Fig. 22 </span><span class="caption-text">South Narrabeen March 2009: sand nourishment of Australia Surfing beaches. Coastalwatch article from <a class="reference external" href="https://www.coastalwatch.com/environment/5411/sand-nourishment-of-australia-s-iconic-surfing-beaches">Andrew Short</a>.</span><a class="headerlink" href="#id5" title="Permalink to this image">¶</a></p>
+</div>
+<p>In this exercise, you will explore different nourishment strategies using <a class="reference external" href="http://oss.deltares.nl/web/xbeach/">XBeach</a> to estimate how they can reduce the (dune and beach) erosion during a storm event.</p>
+<div class="toggle important toggle-shown admonition">
+<p class="admonition-title">xBeach Jupyter Notebooks</p>
+<p>The required dataset for this exercise are located in the NourishmentCase folder and consist in 4 scenarios:</p>
+<ol class="simple">
+<li><p><em>Reference Model</em>: undisturbed profile</p></li>
+<li><p><em>Shoreface Model</em>: shoreface nourishment</p></li>
+<li><p><em>Beach Model</em>: beach nourishment</p></li>
+<li><p><em>Banquette Model</em>: special type of beach nourishment where a highly elevated flat area connected to the foot dune on which beach restaurants can be build</p></li>
+</ol>
+<a class="reference external image-reference" href="https://mybinder.org/v2/gh/TristanSalles/CoastProc/xbeach?urlpath=tree/CoastProc/Notebooks/notebooks/NourishmentCase"><img alt="https://mybinder.org/badge_logo.svg" src="https://mybinder.org/badge_logo.svg" /></a>
+<p>Each of these scenarios is run using the associated IPython Notebook. (<em>RefModel.ipynb</em>, <em>ShorefaceModel.ipynb</em>, <em>BeachModel.ipynb</em> and <em>BanquetteModel.ipynb</em> respectively).</p>
 </div>
 <div class="toctree-wrapper compound">
 </div>
