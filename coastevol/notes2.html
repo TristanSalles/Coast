@@ -517,21 +517,23 @@ Q_{ls} = K_{ls} H_b^{5/2} sin(2\alpha_b)
 <div class="section" id="embayed-beaches">
 <h2>Embayed beaches<a class="headerlink" href="#embayed-beaches" title="Permalink to this headline">¶</a></h2>
 <p>The curved planform morphology of embayed beaches can be observed at various length-scales at coastlines, from a few hundred meters to several kilometers. These bays occur in the lee of headlands or man-made coastal structures where erosion and/or littoral drift is inhibited in the face of a dominant direction of wave incidence (<a class="reference external" href="http://onlinelibrary.wiley.com/doi/10.1002/2015JF003704/abstract">Hurst et al., 2015</a>). A highly concave portion of shoreline forms on the down-drift side of the headland where the coastline is shadowed from the dominant wave direction and subject to waves that diffract around the headland.</p>
+<div class="figure align-center" id="id2">
+<a class="reference internal image-reference" href="../_images/cove1.jpg"><img alt="crenulated bay shapes at different scales" src="../_images/cove1.jpg" style="width: 90%;" /></a>
+<p class="caption"><span class="caption-number">Fig. 20 </span><span class="caption-text">Examples of crenulated bay shapes at different scales from Hurst et al. (2015): <em>(a) Hathead Bay, Eastern Australia. (b) Flamborough Head and the Holderness Coastline, East Yorkshire, UK. (c) Half Moon Bay, California, USA</em>.</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</div>
 <p>Embayed beaches tend toward an equilibrium form under a prevailing wave climate. The planform morphology will adjust until gradients in alongshore sediment flux are minimised (net alongshore sediment flux is constant). Alongshore sediment flux will be negligible on an equilibrium coastline when there are no external sediment inputs. Subsequent changes in planform morphology may occur such as beach rotation, driven by changes in wave climate characteristics that alter alongshore sediment transport.</p>
 <div class="toggle important toggle-shown admonition">
 <p class="admonition-title">Embayed beaches evolution</p>
-<blockquote>
-<div><a class="reference external image-reference" href="https://mybinder.org/v2/gh/TristanSalles/CoastProc/binder?urlpath=tree/Notebooks/notebooks/CoastalEvolution/BaySensitivity.ipynb"><img alt="https://mybinder.org/badge_logo.svg" src="https://mybinder.org/badge_logo.svg" /></a>
-</div></blockquote>
+<a class="reference external image-reference" href="https://mybinder.org/v2/gh/TristanSalles/Coast/main?urlpath=lab/tree/book/welcome.ipynb"><img alt="https://mybinder.org/badge_logo.svg" src="https://mybinder.org/badge_logo.svg" /></a>
 <p>We will use the <a class="reference internal" href="baysensitivity.html"><span class="doc std std-doc">BaySensitivity.ipynb</span></a> to simulate the evolution of embayed beach under different wave climates using the <strong>COVE</strong> model <a class="reference external" href="http://onlinelibrary.wiley.com/doi/10.1002/2015JF003704/abstract">Hurst et al., 2015</a>.</p>
 </div>
 </div>
 <div class="section" id="regional-scale-models">
 <h2>Regional scale models<a class="headerlink" href="#regional-scale-models" title="Permalink to this headline">¶</a></h2>
 <p>Many complex models exist to evaluate the complex interactions between ocean hydrodynamics and sediment transport like <a class="reference external" href="http://oss.deltares.nl/web/xbeach/">xBeach</a>, <a class="reference external" href="https://www.myroms.org">ROMS</a>, <a class="reference external" href="https://oss.deltares.nl/web/delft3d">Delft3d</a>, <a class="reference external" href="http://fvcom.smast.umassd.edu">FVCOM</a> to cite a few.</p>
-<div class="figure align-center" id="id2">
+<div class="figure align-center" id="id3">
 <a class="reference internal image-reference" href="../_images/zone.jpg"><img alt="nearshore" src="../_images/zone.jpg" style="width: 90%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 20 </span><span class="caption-text">Nearshore zonation.</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 21 </span><span class="caption-text">Nearshore zonation.</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
 </div>
 <p>As an example, the nearshore wave propagation model <a class="reference external" href="http://oss.deltares.nl/web/xbeach/">XBeach</a> solves coupled 2D horizontal equations for wave propagation, flow, sediment transport and bottom changes, for varying (spectral) wave and flow boundary conditions.</p>
 <p>It is a public-domain model that can be used as stand-alone model for small-scale (project-scale) coastal applications, but could also be integrated within more complex coupling frameworks. For example, it could be driven by boundary conditions provided by wind, wave or surge models and its main outputs (time-varying bathymetry and possibly discharges over breached barrier island sections) could be then transferred back.</p>
@@ -588,9 +590,9 @@ f_{w} = 1.39 (A_b/k_b)^{-0.52}
 <li><p>the shear stress induced by the maxima of the orbital velocity near the bottom.</p></li>
 </ul>
 <p>These parameters are subsequently used to evaluate the <strong>long-term sediment transport</strong> active over the simulated region.</p>
-<div class="figure align-center" id="id3">
+<div class="figure align-center" id="id4">
 <a class="reference internal image-reference" href="../_images/wavesed1.jpg"><img alt="nearshore" src="../_images/wavesed1.jpg" style="width: 80%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 21 </span><span class="caption-text">Wave rays approaching shallow regions.</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 22 </span><span class="caption-text">Wave rays approaching shallow regions.</span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
 </div>
 <p>In nearshore environments, longshore current runs parallel to the shore and is generated by the radiation stresses associated with the breaking process from obliquely incoming waves and by the surplus water which is carried across the breaker zone towards the shoreline <a class="reference external" href="http://onlinelibrary.wiley.com/doi/10.1002/2015JF003704/abstract">Hurst et al., 2015</a>. This current significantly contributes to sediment transport in nearshore waters.</p>
 <p>Following Komar, the longshore current velocity (<span class="math notranslate nohighlight">\(\vec{v_l}\)</span>) in the middle of the breaking zone is defined by:</p>
@@ -620,9 +622,9 @@ d_\star = d_{50} \left[ \left( s-1 \right) \frac{g}{\nu^2} \right]^{1/3}
 h_e = C_e \ln(\tau_w/\tau_c) \textrm{ where } \tau_w &gt; \tau_c
 \]</div>
 <p>where <span class="math notranslate nohighlight">\(C_e\)</span> is an entrainment coefficient controlling the relationship between shear stress and erosion rate. Once entrained, sediments are transported following the direction of longshore currents and are deposited in regions where wave shear stress is lower than the critical shear stress for entrainment.</p>
-<div class="figure align-center" id="id4">
+<div class="figure align-center" id="id5">
 <a class="reference internal image-reference" href="../_images/wavesed2.jpg"><img alt="nearshore" src="../_images/wavesed2.jpg" style="width: 90%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 22 </span><span class="caption-text">Example of outputs from the reduced complexity model.</span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 23 </span><span class="caption-text">Example of outputs from the reduced complexity model.</span><a class="headerlink" href="#id5" title="Permalink to this image">¶</a></p>
 </div>
 <p>Marine sediments are further mobilised by a diffusion law similar to the one referred to as soil creep in the aerial domain to simulate long-term sediment dispersal induced by slope.</p>
 <div class="toggle important toggle-shown admonition">
@@ -665,9 +667,9 @@ h_e = C_e \ln(\tau_w/\tau_c) \textrm{ where } \tau_w &gt; \tau_c
 </div>
 <div class="section" id="testing-beach-nourishment-scenarios">
 <h3>Testing beach nourishment scenarios<a class="headerlink" href="#testing-beach-nourishment-scenarios" title="Permalink to this headline">¶</a></h3>
-<div class="figure align-center" id="id5">
+<div class="figure align-center" id="id6">
 <a class="reference internal image-reference" href="../_images/nourish.png"><img alt="nearshore" src="../_images/nourish.png" style="width: 80%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 23 </span><span class="caption-text">South Narrabeen March 2009: sand nourishment of Australia Surfing beaches. Coastalwatch article from <a class="reference external" href="https://www.coastalwatch.com/environment/5411/sand-nourishment-of-australia-s-iconic-surfing-beaches">Andrew Short</a>.</span><a class="headerlink" href="#id5" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 24 </span><span class="caption-text">South Narrabeen March 2009: sand nourishment of Australia Surfing beaches. Coastalwatch article from <a class="reference external" href="https://www.coastalwatch.com/environment/5411/sand-nourishment-of-australia-s-iconic-surfing-beaches">Andrew Short</a>.</span><a class="headerlink" href="#id6" title="Permalink to this image">¶</a></p>
 </div>
 <p>In this exercise, you will explore different nourishment strategies using <a class="reference external" href="http://oss.deltares.nl/web/xbeach/">xBeach</a> to estimate how they can reduce the (dune and beach) erosion during a storm event.</p>
 <div class="toggle important toggle-shown admonition">
