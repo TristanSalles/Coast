@@ -485,28 +485,27 @@
 <h2><a name="laws"></a>  Settling laws<a class="headerlink" href="#a-name-laws-a-settling-laws" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="stokes-law">
 <h3>Stokes’ Law<a class="headerlink" href="#stokes-law" title="Permalink to this headline">¶</a></h3>
-<blockquote>Very **small grains**, when submerged in water, have a mass small enough that they reach a settling velocity before any turbulence develops. This is true for **clay- and silt-sized** particles settling in water, and for these grain size classes **Stokes' Law** can be used to calculate the settling velocity:
+<p>Very <strong>small grains</strong>, when submerged in water, have a mass small enough that they reach a settling velocity before any turbulence develops. This is true for <strong>clay- and silt-sized</strong> particles settling in water, and for these grain size classes <strong>Stokes’ Law</strong> can be used to calculate the settling velocity:</p>
 <div class="math notranslate nohighlight">
 \[ w=\frac{RgD^2}{C_1\nu}\]</div>
-<p>where <span class="math notranslate nohighlight">\(R\)</span>=specific submerged gravity, <span class="math notranslate nohighlight">\(g\)</span>=gravitational acceleration, <span class="math notranslate nohighlight">\(D\)</span> is the particle diameter, <span class="math notranslate nohighlight">\(C_1\)</span> is a constant with a theoretical value of <span class="math notranslate nohighlight">\(18\)</span>, and <span class="math notranslate nohighlight">\(\nu\)</span> is the kinematic viscosity.</blockquote></p>
+<p>where <span class="math notranslate nohighlight">\(R\)</span>=specific submerged gravity, <span class="math notranslate nohighlight">\(g\)</span>=gravitational acceleration, <span class="math notranslate nohighlight">\(D\)</span> is the particle diameter, <span class="math notranslate nohighlight">\(C_1\)</span> is a constant with a theoretical value of <span class="math notranslate nohighlight">\(18\)</span>, and <span class="math notranslate nohighlight">\(\nu\)</span> is the kinematic viscosity.</p>
 <p>For grain sizes coarser than silt, a category that clearly includes a lot of sediment and rock types of great interest for coastal applications, things get more complicated. The reason for this is the development of a separation wake behind the falling grain; the appearance of this wake results in turbulence and large pressure differences between the front and back of the particle.</p>
 </div>
 <div class="section" id="turbulent-law">
 <h3>Turbulent Law<a class="headerlink" href="#turbulent-law" title="Permalink to this headline">¶</a></h3>
-<blockquote>For large grains - **pebbles, cobbles** - this effect is so strong that viscous forces become insignificant and turbulent drag dominates; the settling velocity can be estimated using the empirical equation:
+<p>For large grains - <strong>pebbles, cobbles</strong> - this effect is so strong that viscous forces become insignificant and turbulent drag dominates; the settling velocity can be estimated using the empirical equation:</p>
 <div class="math notranslate nohighlight">
 \[w=\sqrt{\frac{4RgD}{3C_2} }\]</div>
-</blockquote>
 <p>For the grain size in between such as <strong>sand</strong>, grains are small enough that viscous forces still play an important role in their subaqueous settling behavior, but large enough that the departure from Stokes’ Law is significant and wake turbulence cannot be ignored.</p>
 </div>
 <div class="section" id="ferguson-church-law">
 <h3>Ferguson &amp; Church Law<a class="headerlink" href="#ferguson-church-law" title="Permalink to this headline">¶</a></h3>
-<blockquote>There are several empirical - and fairly complicated - equations that try to bridge this gap; here we focus on the simplest one, published by 
-<a href='http://dx.doi.org/10.1306/051204740933'>Ferguson & Church (2004)</a> which states:
+<p>There are several empirical - and fairly complicated - equations that try to bridge this gap; here we focus on the simplest one, published by
+<a href='http://dx.doi.org/10.1306/051204740933'>Ferguson &amp; Church (2004)</a> which states:</p>
 <div class="math notranslate nohighlight">
 \[ w=\frac{RgD^2}{C_1\nu+\sqrt{0.75C_2RgD^3}}\]</div>
 <p>At small values of <span class="math notranslate nohighlight">\(D\)</span>, the left term in the denominator is much larger than the one containing the third power of <span class="math notranslate nohighlight">\(D\)</span>, and the equation is equivalent of Stokes’ Law. At large values of <span class="math notranslate nohighlight">\(D\)</span>, the second term dominates and the settling velocity converges to the solution of the turbulent drag equation.</p>
-</blockquote></div>
+</div>
 </div>
 <div class="section" id="a-name-pylaws-a-implementation-in-python">
 <h2><a name="pylaws"></a>  Implementation in Python<a class="headerlink" href="#a-name-pylaws-a-implementation-in-python" title="Permalink to this headline">¶</a></h2>
@@ -757,17 +756,14 @@ Invalid limit will be ignored.
 <p>For grain settling, these variables are the <strong>Reynolds number</strong> (Re) and the <strong>drag coefficient</strong> (Cd). We will reproduce this plot, using settling velocities that come from the three equations above.</p>
 <div class="section" id="reynolds-number">
 <h3>Reynolds number<a class="headerlink" href="#reynolds-number" title="Permalink to this headline">¶</a></h3>
-<blockquote>
-At terminal settling velocity, the particle **Re** is defined as:
+<p>At terminal settling velocity, the particle <strong>Re</strong> is defined as:</p>
 <div class="math notranslate nohighlight">
 \[Re=\frac{\rho_f w d}{\mu}\]</div>
 <p>where <span class="math notranslate nohighlight">\(\mu\)</span> is the dynamic viscosity of the fluid (Pa·s or N·s/m² or kg/(m·s)). At the begining of this notebook we’ve defined the kinematic viscosity (<span class="math notranslate nohighlight">\(\nu = \mu / \rho\)</span>) (m²/s).</p>
-</blockquote>
 </div>
 <div class="section" id="drag-coefficient">
 <h3>Drag coefficient<a class="headerlink" href="#drag-coefficient" title="Permalink to this headline">¶</a></h3>
-<blockquote>
-$C_d$ is essentially a dimensionless version of the drag force:
+<p><span class="math notranslate nohighlight">\(C_d\)</span> is essentially a dimensionless version of the drag force:</p>
 <div class="math notranslate nohighlight">
 \[C_d=\frac{2F_d}{\rho_f w^2 A}=\frac{8 F_d}{\rho_f w^2 \pi d^2}\]</div>
 <p><span class="math notranslate nohighlight">\(d\)</span> is the particle diameter, <span class="math notranslate nohighlight">\(A\)</span> is the reference area,  for a sphere <span class="math notranslate nohighlight">\(A=\pi r^2\)</span>, (note this is not the surface area <span class="math notranslate nohighlight">\(=4\pi r^2\)</span>).</p>
@@ -778,7 +774,6 @@ $C_d$ is essentially a dimensionless version of the drag force:
 <div class="math notranslate nohighlight">
 \[F_g=(\rho_p-\rho_f)\frac{4}{3}\pi r^3 g=(\rho_p-\rho_f)\frac{4}{3}\pi \left(\frac{d}{2}\right)^3 g\]</div>
 <p>where <span class="math notranslate nohighlight">\(\rho_p\)</span> and <span class="math notranslate nohighlight">\(\rho_f\)</span> are the density of particle and the fluid respectively in kg/m3, <span class="math notranslate nohighlight">\(r\)</span> is the radius of the sphere representing the idealised particle.</p>
-</blockquote>
 <p>Using these relationships it is possible to generate the plot of <strong>drag coefficient vs. Reynolds number</strong>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
